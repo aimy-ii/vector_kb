@@ -1,0 +1,23 @@
+# Сырые и собранные данные скрапера (корневой каталог)
+/data/
+
+# Окружение и кэши
+.venv/
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Сборка
+/dist/
+*.egg-info/
+.eggs/
+build/
+
+# Локальные настройки редакторов
+.idea/
+.vscode/
+*.swp
+.DS_Store

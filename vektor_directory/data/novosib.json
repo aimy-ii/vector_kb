@@ -1,0 +1,419 @@
+{
+  "meta": {
+    "city": "Новосибирск",
+    "city_slug": "novosib",
+    "domain": "avtoschool-vektor.ru",
+    "collected_at": "2026-07-23",
+    "version": 1
+  },
+  "branches": {
+    "_source": "https://avtoschool-vektor.ru/novosib",
+    "items": [
+      {
+        "id": "novosib_vremya_raboty",
+        "address": "Время работы:",
+        "district": null,
+        "hours": "ПН-ПТ 09:00-13:00",
+        "break": "13:00-14:00",
+        "is_autodrome": false,
+        "note": null,
+        "landmark": null,
+        "place_type": null,
+        "metro": null
+      },
+      {
+        "id": "novosib_pn_pt",
+        "address": "ПН-ПТ 10:00-19:00",
+        "district": null,
+        "hours": null,
+        "break": null,
+        "is_autodrome": false,
+        "note": null,
+        "landmark": null,
+        "place_type": null,
+        "metro": null
+      },
+      {
+        "id": "novosib_branch_03",
+        "address": "14:00-15:00",
+        "district": null,
+        "hours": null,
+        "break": null,
+        "is_autodrome": false,
+        "note": null,
+        "landmark": null,
+        "place_type": null,
+        "metro": null
+      },
+      {
+        "id": "novosib_vremya_raboty_04",
+        "address": "Время работы:",
+        "district": null,
+        "hours": "ПН-ПТ 10:00-19:00",
+        "break": "14:00-15:00",
+        "is_autodrome": false,
+        "note": null,
+        "landmark": null,
+        "place_type": null,
+        "metro": null
+      },
+      {
+        "id": "novosib_vremya_raboty_05",
+        "address": "Время работы:",
+        "district": null,
+        "hours": "ПН-ВС 09:00-21:00",
+        "break": null,
+        "is_autodrome": false,
+        "note": null,
+        "landmark": null,
+        "place_type": null,
+        "metro": null
+      },
+      {
+        "id": "novosib_vremya_raboty_06",
+        "address": "Время работы:",
+        "district": null,
+        "hours": "ПН-ВС 08:30-20:30",
+        "break": null,
+        "is_autodrome": false,
+        "note": null,
+        "landmark": null,
+        "place_type": null,
+        "metro": null
+      },
+      {
+        "id": "novosib_pereryv",
+        "address": "Перерыв:",
+        "district": null,
+        "hours": "ПН-ПТ 10:00-19:00",
+        "break": "14:00-15:00",
+        "is_autodrome": false,
+        "note": null,
+        "landmark": null,
+        "place_type": null,
+        "metro": null
+      },
+      {
+        "id": "novosib_pereryv_08",
+        "address": "Перерыв:",
+        "district": null,
+        "hours": "ПН-ПТ 10:00-19:00",
+        "break": "14:00-15:00",
+        "is_autodrome": false,
+        "note": null,
+        "landmark": null,
+        "place_type": null,
+        "metro": null
+      },
+      {
+        "id": "novosib_pereryv_09",
+        "address": "Перерыв:",
+        "district": null,
+        "hours": "ПН-ПТ 10:00-19:00",
+        "break": "14:00-15:00",
+        "is_autodrome": false,
+        "note": null,
+        "landmark": null,
+        "place_type": null,
+        "metro": null
+      },
+      {
+        "id": "novosib_bogatkova",
+        "address": "ул. Богаткова 228/1, этаж 3, офис 312",
+        "district": null,
+        "hours": "ПН-ПТ 10:00 - 19:00",
+        "break": "14:00-15:00",
+        "is_autodrome": false,
+        "note": null,
+        "landmark": null,
+        "place_type": null,
+        "metro": null
+      },
+      {
+        "id": "novosib_geodezicheskaya",
+        "address": "ул. Геодезическая 4/1, этаж 3, офис 3003",
+        "district": null,
+        "hours": "ПН-ПТ 10:00-19:00",
+        "break": "14:00-15:00",
+        "is_autodrome": false,
+        "note": null,
+        "landmark": "Амстердам",
+        "place_type": "Федеральная академия вождения",
+        "metro": null
+      },
+      {
+        "id": "novosib_krasnyy",
+        "address": "ул. Красный проспект, 79, этаж 2, офис 201",
+        "district": null,
+        "hours": "ПН-ПТ 09:30-20:30",
+        "break": "14:00-15:00",
+        "is_autodrome": false,
+        "note": null,
+        "landmark": "БЦ Зелёные Купола",
+        "place_type": "Федеральная академия вождения",
+        "metro": null
+      },
+      {
+        "id": "novosib_vremya_raboty_13",
+        "address": "Время работы:",
+        "district": null,
+        "hours": "ПН-ПТ 10:00-19:00",
+        "break": "14:00-15:00",
+        "is_autodrome": false,
+        "note": null,
+        "landmark": null,
+        "place_type": null,
+        "metro": null
+      },
+      {
+        "id": "novosib_vremya_raboty_14",
+        "address": "Время работы:",
+        "district": null,
+        "hours": "ПН-ПТ 10:00-19:00",
+        "break": "14:00-15:00",
+        "is_autodrome": false,
+        "note": null,
+        "landmark": null,
+        "place_type": null,
+        "metro": null
+      },
+      {
+        "id": "novosib_vremya_raboty_15",
+        "address": "Время работы:",
+        "district": null,
+        "hours": "ПН-ПТ 10:00-19:00",
+        "break": "14:00-15:00",
+        "is_autodrome": false,
+        "note": null,
+        "landmark": null,
+        "place_type": null,
+        "metro": null
+      },
+      {
+        "id": "novosib_vremya_raboty_16",
+        "address": "Время работы:",
+        "district": null,
+        "hours": "ПН-ВС 09:30-20:00",
+        "break": null,
+        "is_autodrome": false,
+        "note": null,
+        "landmark": null,
+        "place_type": null,
+        "metro": null
+      }
+    ]
+  },
+  "categories": {
+    "_source": "https://avtoschool-vektor.ru/novosib",
+    "items": [
+      {
+        "id": "cat_b",
+        "code": "B",
+        "name": "Категория В",
+        "price": null,
+        "price_note": "цена в карточке не указана, кнопка «Узнать цену»",
+        "duration": "2 месяца обучения",
+        "start_frequency": "Старт каждые В группе осталось",
+        "seats_left": null,
+        "includes": [
+          "АКПП | МКПП (одинаковая стоимость)",
+          "Теория очно | в приложении"
+        ],
+        "_source": "https://avtoschool-vektor.ru/novosib"
+      },
+      {
+        "id": "cat_a",
+        "code": "A",
+        "name": "Категория А",
+        "price": null,
+        "price_note": "цена в карточке не указана, кнопка «Узнать цену»",
+        "duration": "2 месяца обучения",
+        "start_frequency": "Старт каждые В группе осталось",
+        "seats_left": null,
+        "includes": [
+          "Теория очно | в приложении"
+        ],
+        "_source": "https://avtoschool-vektor.ru/novosib"
+      },
+      {
+        "id": "cat_d",
+        "code": "D",
+        "name": "Категория D",
+        "price": null,
+        "price_note": "цена в карточке не указана, кнопка «Узнать цену»",
+        "duration": null,
+        "start_frequency": null,
+        "seats_left": null,
+        "includes": [
+          "Теория очно | дистанционно",
+          "Теория очно | дистанционно"
+        ],
+        "_source": "https://avtoschool-vektor.ru/novosib"
+      }
+    ]
+  },
+  "fleet": {
+    "_source": "https://avtoschool-vektor.ru/novosib",
+    "items": [
+      {
+        "id": "fleet_b_mkpp",
+        "kind": "vehicles",
+        "category": "B",
+        "transmission": "МКПП",
+        "models": [
+          "Lada Granta",
+          "Volkswagen Polo",
+          "Nissan Tiida",
+          "Lada Vesta/"
+        ],
+        "year": null,
+        "text": "МКПП: Lada Granta, Volkswagen Polo, Nissan Tiida, Lada Vesta/",
+        "_source": "https://avtoschool-vektor.ru/novosib"
+      },
+      {
+        "id": "fleet_b_akpp",
+        "kind": "vehicles",
+        "category": "B",
+        "transmission": "АКПП",
+        "models": [
+          "Kia Rio",
+          "Skoda Oktavia"
+        ],
+        "year": null,
+        "text": "АКПП: Kia Rio, Skoda Oktavia",
+        "_source": "https://avtoschool-vektor.ru/novosib"
+      },
+      {
+        "id": "fleet_a_moto",
+        "kind": "vehicles",
+        "category": "A",
+        "transmission": null,
+        "models": [
+          "Suzuki VanVan200"
+        ],
+        "year": null,
+        "text": "Категория А - Suzuki VanVan200",
+        "_source": "https://avtoschool-vektor.ru/novosib"
+      },
+      {
+        "id": "fleet_c_truck",
+        "kind": "vehicles",
+        "category": "C",
+        "transmission": null,
+        "models": [],
+        "year": null,
+        "text": "Автомобиль газон 2023г",
+        "_source": "https://avtoschool-vektor.ru/novosib"
+      },
+      {
+        "id": "fleet_gallery_year",
+        "kind": "thesis",
+        "category": null,
+        "transmission": null,
+        "models": [],
+        "year": "не старше 2023 года",
+        "text": "Комфортные учебные авто не старше 2023 года",
+        "_source": "https://avtoschool-vektor.ru/novosib"
+      }
+    ]
+  },
+  "theory_formats": {
+    "_source": "https://avtoschool-vektor.ru/novosib",
+    "items": [
+      {
+        "id": "theory_offline",
+        "name": null,
+        "surcharge": null,
+        "text": "Изучай теорию в современных классах с лучшими преподавателями Автошкола в Новосибирске Вектор — это федеральная академия вождения с высоким уровнем качества образования и сервиса, с применением IT-технологий в обучении Приведи друга и получи скидку на обучение Испо",
+        "_source": "https://avtoschool-vektor.ru/novosib"
+      },
+      {
+        "id": "theory_formats_all",
+        "name": null,
+        "surcharge": null,
+        "text": "Теорию можно изучать в очном, заочном или комбинированных форматах. С помощью нашего фирменного мобильного приложения изучать ПДД и проходить экзаменационные тесты можно из любой точки мира. Как проходят занятия? График занятий выстраивается индивидуально с каждым к",
+        "_source": "https://avtoschool-vektor.ru/novosib"
+      },
+      {
+        "id": "theory_online",
+        "name": null,
+        "surcharge": null,
+        "text": "С помощью нашего фирменного мобильного приложения изучать ПДД и проходить экзаменационные тесты можно из любой точки мира. Как проходят занятия? График занятий выстраивается индивидуально с каждым курсантом. Доступна онлайн запись на вожде",
+        "_source": "https://avtoschool-vektor.ru/novosib"
+      },
+      {
+        "id": "theory_app",
+        "name": null,
+        "surcharge": null,
+        "text": "Всё для твоего комфорта: запись на вождение, оплата, общение с автошколой, теория, ПДД и билеты — в одном приложении Категория D Срок обучения от 2х месяцев Теория очно | дистанционно Автомобиль ГАЗ Газель Некст Занятия без очередей на собственном автодроме Внутренний экзамен включе",
+        "_source": "https://avtoschool-vektor.ru/novosib"
+      }
+    ]
+  },
+  "documents": {
+    "_source": "https://avtoschool-vektor.ru/novosib",
+    "items": []
+  },
+  "faq": {
+    "_source": "https://avtoschool-vektor.ru/novosib",
+    "items": [
+      {
+        "id": "faq_01",
+        "question": "Нужно ли отдельно оплачивать блок вождения?",
+        "answer": "Стоимость обучения по договору окончательная и происходит без скрытых платежей, но при необходимости ты можешь открыть дополнительные часы вождения."
+      },
+      {
+        "id": "faq_02",
+        "question": "Как происходит оплата?",
+        "answer": "Обучение можно оплатить удобным для тебя способом: наличными или по карте."
+      },
+      {
+        "id": "faq_03",
+        "question": "Могу ли я изучать теорию дистанционно?",
+        "answer": "Теорию можно изучать в очном, заочном или комбинированных форматах. С помощью нашего фирменного мобильного приложения изучать ПДД и проходить экзаменационные тесты можно из любой точки мира."
+      },
+      {
+        "id": "faq_04",
+        "question": "Как проходят занятия?",
+        "answer": "График занятий выстраивается индивидуально с каждым курсантом. Доступна онлайн запись на вождение через наше фирменное приложение."
+      },
+      {
+        "id": "faq_05",
+        "question": "На каких авто проходит вождение?",
+        "answer": "Категория B - МКПП: Lada Granta, Volkswagen Polo, Nissan Tiida, Lada Vesta/"
+      },
+      {
+        "id": "faq_06",
+        "question": "Можно ли приостановить обучение?",
+        "answer": "Можно приостановить обучение, а позже вновь возобновить его, но уже с другой группой. При необходимости продолжить обучение можно в другом городе, Вектор есть по всей России!"
+      },
+      {
+        "id": "faq_07",
+        "question": "Какие документы нужны, чтобы начать?",
+        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и снилс"
+      }
+    ]
+  },
+  "installment": {
+    "_source": "https://avtoschool-vektor.ru/novosib",
+    "term_months": null,
+    "no_overpay": true,
+    "down_payment": null,
+    "methods": []
+  },
+  "contacts": {
+    "_source": "https://avtoschool-vektor.ru/novosib",
+    "phone_city": "(3812) 992-08-7",
+    "phone_federal": "8 (800) 505 63 77",
+    "call_hours": "С 7:30 до 23:00",
+    "messengers": [
+      "Max",
+      "WhatsApp",
+      "Telegram"
+    ],
+    "legal_entity": "ООО «Вектор-НСК»",
+    "inn": "5404224894",
+    "ogrn": "1215400045618",
+    "license": "https://disk.yandex.ru/i/mKoKHbKPIglveA"
+  }
+}

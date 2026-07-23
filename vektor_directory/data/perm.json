@@ -1,0 +1,249 @@
+{
+  "meta": {
+    "city": "Пермь",
+    "city_slug": "perm",
+    "domain": "avtoschool-vektor.ru",
+    "collected_at": "2026-07-22",
+    "version": 1
+  },
+  "branches": {
+    "_source": "https://avtoschool-vektor.ru/perm",
+    "items": [
+      {
+        "id": "perm_ekaterininskaya",
+        "address": "ул. Екатерининская 109а, 4 эт., оф. 401 (Вход со стороны Попова)",
+        "district": null,
+        "hours": "ПН-ВС 9:00-21:00",
+        "break": null,
+        "is_autodrome": false,
+        "note": "перерыв на сайте не указан",
+        "landmark": "Моби Дик",
+        "place_type": "Федеральная академия вождения",
+        "metro": null
+      },
+      {
+        "id": "perm_krupskoy",
+        "address": "ул. Крупской д. 30 (вход с улицы)",
+        "district": null,
+        "hours": "ПН-ПТ 10:00-19:00",
+        "break": "14:00-15:00",
+        "is_autodrome": false,
+        "note": null,
+        "landmark": null,
+        "place_type": "Федеральная академия вождения",
+        "metro": null
+      },
+      {
+        "id": "perm_parkovyy",
+        "address": "Парковый проспект, 17, эт. 3",
+        "district": null,
+        "hours": "ПН-ПТ 10:00-19:00",
+        "break": "14:00-15:00",
+        "is_autodrome": false,
+        "note": null,
+        "landmark": "Земляника",
+        "place_type": "Федеральная академия вождения",
+        "metro": null
+      },
+      {
+        "id": "perm_uralskaya",
+        "address": "ул. Уральская, 75",
+        "district": null,
+        "hours": "ПН-ПТ 10:00-19:00",
+        "break": "14:00-15:00",
+        "is_autodrome": false,
+        "note": null,
+        "landmark": null,
+        "place_type": "Федеральная академия вождения",
+        "metro": null
+      },
+      {
+        "id": "perm_chernyshevskogo",
+        "address": "ул. Чернышевского, 28",
+        "district": null,
+        "hours": "ПН-ПТ 10:00-19:00",
+        "break": "14:00-15:00",
+        "is_autodrome": false,
+        "note": null,
+        "landmark": null,
+        "place_type": "Федеральная академия вождения",
+        "metro": null
+      },
+      {
+        "id": "perm_ushinskogo",
+        "address": "ул. Ушинского, 2",
+        "district": null,
+        "hours": "ПН-ПТ 10:00-19:00",
+        "break": "14:00-15:00",
+        "is_autodrome": false,
+        "note": null,
+        "landmark": null,
+        "place_type": "Федеральная академия вождения",
+        "metro": null
+      },
+      {
+        "id": "perm_mira",
+        "address": "ул. Мира 37, эт. 4, помещ. 8",
+        "district": null,
+        "hours": "ПН-ПТ 10:00-19:00",
+        "break": "14:00-15:00",
+        "is_autodrome": false,
+        "note": null,
+        "landmark": "Новая столица",
+        "place_type": "Федеральная академия вождения",
+        "metro": null
+      }
+    ]
+  },
+  "categories": {
+    "_source": "https://avtoschool-vektor.ru/perm",
+    "items": [
+      {
+        "id": "cat_b",
+        "code": "B",
+        "name": "Категория В",
+        "price": null,
+        "price_note": "кнопка «Узнать цену»; в первом экране «Специальная цена от 21 950 ₽*»"
+      },
+      {
+        "id": "cat_a",
+        "code": "A",
+        "name": "Категория А",
+        "price": null,
+        "price_note": "кнопка «Узнать цену»"
+      }
+    ]
+  },
+  "fleet": {
+    "_source": "https://avtoschool-vektor.ru/perm",
+    "items": [
+      {
+        "id": "fleet_b_mkpp",
+        "kind": "vehicles",
+        "category": "B",
+        "transmission": "МКПП",
+        "models": [
+          "Lada Granta",
+          "Volkswagen Polo",
+          "Nissan Tiida",
+          "Lada Vesta"
+        ],
+        "year": "не старше 2023 г",
+        "text": "Современный автопарк не старше 2023 г МКПП: Lada Granta, Volkswagen Polo, Nissan Tiida, Lada Vesta."
+      },
+      {
+        "id": "fleet_b_akpp",
+        "kind": "vehicles",
+        "category": "B",
+        "transmission": "АКПП",
+        "models": [
+          "Tesla",
+          "Kia Rio",
+          "Skoda Oktavia"
+        ],
+        "year": "не старше 2023 г",
+        "text": "АКПП: Tesla, Kia Rio, Skoda Oktavia."
+      },
+      {
+        "id": "fleet_gallery",
+        "kind": "vehicles",
+        "category": null,
+        "transmission": null,
+        "models": [
+          "hyundai solaris",
+          "lada granta",
+          "Tesla Model 3",
+          "Chery Tiggo 4 Pro",
+          "hyundai creta"
+        ],
+        "year": "не старше 2023 года",
+        "text": "Комфортные учебные авто не старше 2023 года hyundai solaris lada granta Tesla Model 3 Chery Tiggo 4 Pro hyundai creta"
+      },
+      {
+        "id": "fleet_premium",
+        "kind": "vehicles",
+        "category": null,
+        "transmission": null,
+        "models": [
+          "Tesla",
+          "Mercedes",
+          "Hummer"
+        ],
+        "year": null,
+        "text": "Премиум обучение. Максимум комфорта в обучении на автомобилях премиум-класса: Tesla, Mercedes, Hummer"
+      },
+      {
+        "id": "fleet_thesis_akpp_price",
+        "kind": "thesis",
+        "category": null,
+        "transmission": null,
+        "models": [],
+        "year": null,
+        "text": "Автомат по цене механики. Цена обучения на автомате и механике равны. Если в процессе обучения ты меняешь коробку передач, смена автомобиля происходит бесплатно."
+      },
+      {
+        "id": "fleet_thesis_same_price_card",
+        "kind": "thesis",
+        "category": "B",
+        "transmission": null,
+        "models": [],
+        "year": null,
+        "text": "АКПП | МКПП (одинаковая стоимость)"
+      }
+    ]
+  },
+  "theory_formats": {
+    "_source": "https://avtoschool-vektor.ru/perm",
+    "items": [
+      {
+        "id": "theory_offline",
+        "name": "очно",
+        "surcharge": null,
+        "text": "Изучай теорию в современных классах с лучшими преподавателями. Теорию можно изучать в удобном для тебя формате: видео-уроки в мобильном приложении, в группе с другими курсантами, тет-а-тет с преподавателем."
+      },
+      {
+        "id": "theory_online",
+        "name": "дистанционно",
+        "surcharge": null,
+        "text": "Фирменное мобильное приложение автошколы «Вектор» помогает курсантам осваивать теоретические материалы онлайн и готовиться к сдаче на права категории B, отслеживая свой прогресс в любое время."
+      },
+      {
+        "id": "theory_app",
+        "name": "мобильное приложение",
+        "surcharge": null,
+        "text": "Помимо дистанционных теоретических уроков по изучению основ вождения автомобиля в приложении можно записываться и отменять занятия, просматривать расписание, изучать информацию об инструкторе и автошколе. Информация о занятиях, инструкторе и экзаменах всегда под рукой. Push - уведомления о записи, отмене или подтверждении занятий. Онлайн трансляции уроков. Бесплатно для всех учеников нашей автошколы"
+      }
+    ]
+  },
+  "documents": {
+    "_source": null,
+    "items": []
+  },
+  "faq": {
+    "_source": "https://avtoschool-vektor.ru/perm",
+    "items": []
+  },
+  "installment": {
+    "_source": "https://avtoschool-vektor.ru/perm",
+    "term_months": null,
+    "no_overpay": true,
+    "down_payment": null,
+    "methods": []
+  },
+  "contacts": {
+    "_source": "https://avtoschool-vektor.ru/perm",
+    "phone_city": null,
+    "phone_federal": "8 (800) 511-95-02",
+    "call_hours": "С 7:30 до 23:00",
+    "messengers": [
+      "WhatsApp",
+      "Telegram",
+      "VK",
+      "YouTube"
+    ],
+    "legal_entity": null,
+    "inn": null,
+    "ogrn": null,
+    "license": "https://disk.yandex.ru/i/6f0fGBckG2Qtqg"
+  }
+}

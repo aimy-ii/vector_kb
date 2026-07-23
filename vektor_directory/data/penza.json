@@ -1,0 +1,114 @@
+{
+  "meta": {
+    "city": "Пенза",
+    "city_slug": "penza",
+    "domain": "avtoschool-vektor.ru",
+    "collected_at": "2026-07-23",
+    "version": 1
+  },
+  "branches": {
+    "_source": "https://avtoschool-vektor.ru/penza",
+    "items": [
+      {
+        "id": "penza_bakunina",
+        "address": "ул. Бакунина, 29, эт. 2",
+        "district": null,
+        "hours": "ПН-ПТ 10:00 -19:00",
+        "break": "14:00-15:00",
+        "is_autodrome": false,
+        "note": null,
+        "landmark": null,
+        "place_type": null,
+        "metro": null
+      }
+    ]
+  },
+  "categories": {
+    "_source": "https://avtoschool-vektor.ru/penza",
+    "items": [
+      {
+        "id": "cat_b",
+        "code": "B",
+        "name": "Категория В",
+        "price": null,
+        "price_note": "цена в карточке не указана, кнопка «Узнать цену»",
+        "duration": "4 месяца обучения",
+        "start_frequency": "Старт каждые 15 дней",
+        "seats_left": null,
+        "includes": [
+          "АКПП | МКПП (одинаковая стоимость)"
+        ],
+        "_source": "https://avtoschool-vektor.ru/penza"
+      },
+      {
+        "id": "cat_a",
+        "code": "A",
+        "name": "Категория A",
+        "price": null,
+        "price_note": "цена в карточке не указана, кнопка «Узнать цену»",
+        "duration": null,
+        "start_frequency": null,
+        "seats_left": null,
+        "includes": [],
+        "_source": "https://avtoschool-vektor.ru/penza"
+      }
+    ]
+  },
+  "fleet": {
+    "_source": "https://avtoschool-vektor.ru/penza",
+    "items": [
+      {
+        "id": "fleet_gallery_year",
+        "kind": "thesis",
+        "category": null,
+        "transmission": null,
+        "models": [],
+        "year": "не старше 2023 года",
+        "text": "Комфортные учебные авто не старше 2023 года",
+        "_source": "https://avtoschool-vektor.ru/penza"
+      }
+    ]
+  },
+  "theory_formats": {
+    "_source": "https://avtoschool-vektor.ru/penza",
+    "items": [
+      {
+        "id": "theory_offline",
+        "name": null,
+        "surcharge": null,
+        "text": "Изучай теорию в современных классах с лучшими преподавателями Автошкола в Пензе Вектор — это федеральная академия вождения с высоким уровнем качества образования и сервиса, с применением IT-технологий в обучении Приведи друга и получи скидку на обучение Используй с",
+        "_source": "https://avtoschool-vektor.ru/penza"
+      }
+    ]
+  },
+  "documents": {
+    "_source": "https://avtoschool-vektor.ru/penza",
+    "items": []
+  },
+  "faq": {
+    "_source": "https://avtoschool-vektor.ru/penza",
+    "items": []
+  },
+  "installment": {
+    "_source": "https://avtoschool-vektor.ru/penza",
+    "term_months": null,
+    "no_overpay": false,
+    "down_payment": null,
+    "methods": []
+  },
+  "contacts": {
+    "_source": "https://avtoschool-vektor.ru/penza",
+    "phone_city": "(903)9810060",
+    "phone_federal": "8 (800) 511-95-02",
+    "call_hours": "С 7:30 до 23:00",
+    "messengers": [
+      "Max",
+      "WhatsApp",
+      "Telegram"
+    ],
+    "legal_entity": "ООО «ВЕКТОР ПЕНЗА»",
+    "inn": null,
+    "ogrn": null,
+    "license": null
+  }
+}

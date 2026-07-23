@@ -1,0 +1,434 @@
+{
+  "meta": {
+    "city": "Санкт-Петербург",
+    "city_slug": "sankt-peterburg",
+    "domain": "avtoschool-vektor.ru",
+    "collected_at": "2026-07-22",
+    "version": 1
+  },
+  "branches": {
+    "_source": "https://avtoschool-vektor.ru/sankt-peterburg",
+    "items": [
+      {
+        "id": "sankt-peterburg_murino_privokzalnaya",
+        "address": "г. Мурино, Привокзальная площадь, 1Ак1, эт. 2",
+        "district": "Ленинградская область",
+        "hours": "ПН-ПТ 10:00-19:00",
+        "break": "14:00-15:00",
+        "is_autodrome": false,
+        "note": null,
+        "landmark": "ЖК Мечта",
+        "place_type": "Федеральная академия вождения",
+        "metro": null
+      },
+      {
+        "id": "sankt-peterburg_vsevolozhsk_vsevolozhskiy",
+        "address": "г. Всеволожск, Всеволожский проспект, 61, эт. 1, офис 102",
+        "district": "Ленинградская область",
+        "hours": "ПН-ВС 10:00-20:00",
+        "break": "14:00-15:00",
+        "is_autodrome": false,
+        "note": null,
+        "landmark": null,
+        "place_type": null,
+        "metro": null
+      },
+      {
+        "id": "sankt-peterburg_leninskiy",
+        "address": "Ленинский просп., 128, корп. 2, эт. 2",
+        "district": null,
+        "hours": "ПН-ВС 10:00-20:00",
+        "break": "14:00-15:00",
+        "is_autodrome": false,
+        "note": null,
+        "landmark": "ТРК Нарва",
+        "place_type": "Федеральная академия вождения",
+        "metro": null
+      },
+      {
+        "id": "sankt-peterburg_ligovskiy",
+        "address": "Лиговский пр-кт, д. 10/118, эт. 4, оф. 4001",
+        "district": null,
+        "hours": "ПН-ПТ 10:00-20:00",
+        "break": "14:00-15:00",
+        "is_autodrome": false,
+        "note": null,
+        "landmark": "Гостиница Октябрьская",
+        "place_type": "Федеральная академия вождения",
+        "metro": null
+      },
+      {
+        "id": "sankt-peterburg_soldata_korzuna",
+        "address": "Улица Солдата Корзуна, 1 к2, эт. 3, офис 389",
+        "district": null,
+        "hours": "ПН-ВС 10:00-20:00",
+        "break": "14:00-15:00",
+        "is_autodrome": false,
+        "note": "Фактический адрес ООО «КЛАСС» указан как ул. Солдата Корзуна, д. 1, к 2, литер Б, офис 367",
+        "landmark": null,
+        "place_type": "Федеральная академия вождения",
+        "metro": null
+      },
+      {
+        "id": "sankt-peterburg_kolomyazhskiy",
+        "address": "Коломяжский проспект, 15к2 эт. 1, пом. 2",
+        "district": null,
+        "hours": "ПН-ВС 10:00-20:00",
+        "break": "14:00-15:00",
+        "is_autodrome": false,
+        "note": null,
+        "landmark": "ЖК Богатырский",
+        "place_type": "Федеральная академия вождения",
+        "metro": null
+      },
+      {
+        "id": "sankt-peterburg_salova",
+        "address": "ул. Салова 61, эт. 1",
+        "district": "ст. метро Бухарестская",
+        "hours": "ПН-ПТ 10:00-19:00",
+        "break": "14:00-15:00",
+        "is_autodrome": false,
+        "note": null,
+        "landmark": "Апарт-комплекс Valo",
+        "place_type": "Федеральная академия вождения",
+        "metro": null
+      },
+      {
+        "id": "sankt-peterburg_sadovaya",
+        "address": "ул. Садовая 38, эт. 2",
+        "district": null,
+        "hours": "ПН-ПТ 10:00-19:00",
+        "break": "14:00-15:00",
+        "is_autodrome": false,
+        "note": null,
+        "landmark": "Seno",
+        "place_type": "Федеральная академия вождения",
+        "metro": null
+      },
+      {
+        "id": "sankt-peterburg_balkanskaya",
+        "address": "Балканская площадь, 5Д",
+        "district": null,
+        "hours": "ПН-ПТ 10:00-19:00",
+        "break": "14:00-15:00",
+        "is_autodrome": false,
+        "note": null,
+        "landmark": "ТЦ Балканский 4",
+        "place_type": "Федеральная академия вождения",
+        "metro": null
+      },
+      {
+        "id": "sankt-peterburg_komendantskaya",
+        "address": "Комендантская площадь, 1",
+        "district": null,
+        "hours": "ПН-ПТ 10:00-19:00",
+        "break": "14:00-15:00",
+        "is_autodrome": false,
+        "note": null,
+        "landmark": "ТРК Атмосфера",
+        "place_type": "Федеральная академия вождения",
+        "metro": null
+      },
+      {
+        "id": "sankt-peterburg_bolshoy_vasilevskogo",
+        "address": "Большой просп. Васильевского острова, 68",
+        "district": null,
+        "hours": "Скоро открытие",
+        "break": null,
+        "is_autodrome": false,
+        "note": "В блоке акций тот же класс указан как «Большой проспект Васильевского острова, 68/1 (ТЦ «Балтийский»)» — см. conflicts",
+        "landmark": null,
+        "place_type": null,
+        "metro": null
+      }
+    ]
+  },
+  "categories": {
+    "_source": "https://avtoschool-vektor.ru/sankt-peterburg",
+    "items": [
+      {
+        "id": "cat_b",
+        "code": "B",
+        "name": "Категория В",
+        "price": null,
+        "price_note": "кнопка «Узнать цену»"
+      },
+      {
+        "id": "cat_a",
+        "code": "A",
+        "name": "Категория А",
+        "price": 10000,
+        "price_note": "«от 10000 рублей», подробности у менеджеров — https://avtoschool-vektor.ru/sankt-peterburg/kategoriya-a"
+      },
+      {
+        "id": "cat_c",
+        "code": "C",
+        "name": "Категория С",
+        "price": null,
+        "price_note": "кнопка «Узнать цену»"
+      },
+      {
+        "id": "cat_a1",
+        "code": "A1",
+        "name": "категория \"А1\"",
+        "price": null,
+        "price_note": "кнопка «Узнать цену»"
+      },
+      {
+        "id": "cat_d",
+        "code": "D",
+        "name": "категория \"D\"",
+        "price": null,
+        "price_note": "кнопка «Узнать цену»"
+      },
+      {
+        "id": "cat_ce",
+        "code": "CE",
+        "name": "категория \"СЕ\"",
+        "price": null,
+        "price_note": "кнопка «Узнать цену»"
+      },
+      {
+        "id": "cat_be",
+        "code": "BE",
+        "name": "категория \"ВЕ\"",
+        "price": null,
+        "price_note": "кнопка «Узнать цену»"
+      },
+      {
+        "id": "cat_de",
+        "code": "DE",
+        "name": "категория \"DЕ\"",
+        "price": null,
+        "price_note": "кнопка «Узнать цену»"
+      },
+      {
+        "id": "prog_b_to_be",
+        "code": null,
+        "name": "Переподготовка с кат. В на кат ВЕ",
+        "price": null,
+        "price_note": "учебная программа, https://avtoschool-vektor.ru/doc-sankt-peterburg"
+      },
+      {
+        "id": "prog_b_akpp_to_mkpp",
+        "code": null,
+        "name": "Повышение квалификации с кат. В АКПП на кат. В МКПП",
+        "price": null,
+        "price_note": "учебная программа, https://avtoschool-vektor.ru/doc-sankt-peterburg"
+      }
+    ]
+  },
+  "fleet": {
+    "_source": "https://avtoschool-vektor.ru/sankt-peterburg",
+    "items": [
+      {
+        "id": "fleet_b_mkpp",
+        "kind": "vehicles",
+        "category": "B",
+        "transmission": "МКПП",
+        "models": [
+          "CherryTiggo 4 pro",
+          "LadaVesta",
+          "Lada Granta"
+        ],
+        "year": "не старше 2023 г",
+        "text": "Современный автопарк не старше 2023 г МКПП: CherryTiggo 4 pro,LadaVesta, Lada Granta."
+      },
+      {
+        "id": "fleet_b_akpp",
+        "kind": "vehicles",
+        "category": "B",
+        "transmission": "АКПП",
+        "models": [
+          "CherryTiggo 4 pro",
+          "Tesla model 3",
+          "CherryTiggo 7 pro max"
+        ],
+        "year": "не старше 2023 г",
+        "text": "АКПП: CherryTiggo 4 pro, Tesla model 3, CherryTiggo 7 pro max"
+      },
+      {
+        "id": "fleet_b_gallery",
+        "kind": "vehicles",
+        "category": "B",
+        "transmission": null,
+        "models": [
+          "hyundai solaris",
+          "lada granta",
+          "Tesla Model 3",
+          "Chery Tiggo 4 Pro",
+          "hyundai creta"
+        ],
+        "year": "не старше 2023 года",
+        "text": "Комфортные учебные авто не старше 2023 года hyundai solaris lada granta Tesla Model 3 Chery Tiggo 4 Pro hyundai creta"
+      },
+      {
+        "id": "fleet_a_moto",
+        "kind": "vehicles",
+        "category": "A",
+        "transmission": null,
+        "models": [],
+        "year": "2023 года",
+        "text": "Обучение на мотоциклах 2023 года."
+      },
+      {
+        "id": "fleet_c_truck",
+        "kind": "vehicles",
+        "category": "C",
+        "transmission": null,
+        "models": [
+          "газон"
+        ],
+        "year": "2023г",
+        "text": "Автомобиль газон 2023г"
+      },
+      {
+        "id": "fleet_premium",
+        "kind": "vehicles",
+        "category": null,
+        "transmission": null,
+        "models": [
+          "Tesla model 3",
+          "HiPhi"
+        ],
+        "year": null,
+        "text": "Премиум обучение. Максимум комфорта в обучении на автомобилях премиум-класса: Tesla model 3 и HiPhi"
+      },
+      {
+        "id": "fleet_thesis_akpp_price",
+        "kind": "thesis",
+        "category": null,
+        "transmission": null,
+        "models": [],
+        "year": null,
+        "text": "Автомат по цене механики. Цена обучения на автомате и механике равны. Если в процессе обучения ты меняешь коробку передач, смена автомобиля происходит бесплатно."
+      },
+      {
+        "id": "fleet_thesis_same_price_card",
+        "kind": "thesis",
+        "category": "B",
+        "transmission": null,
+        "models": [],
+        "year": null,
+        "text": "АКПП | МКПП (одинаковая стоимость)"
+      }
+    ]
+  },
+  "theory_formats": {
+    "_source": "https://avtoschool-vektor.ru/sankt-peterburg",
+    "items": [
+      {
+        "id": "theory_offline",
+        "name": "очно",
+        "surcharge": null,
+        "text": "Изучай теорию в современных классах с лучшими преподавателями. Теорию можно изучать в удобном для тебя формате: видео-уроки в мобильном приложении, в группе с другими курсантами, тет-а-тет с преподавателем."
+      },
+      {
+        "id": "theory_online",
+        "name": "дистанционно",
+        "surcharge": null,
+        "text": "С помощью нашего фирменного мобильного приложения изучать ПДД и проходить экзаменационные тесты можно из любой точки мира."
+      },
+      {
+        "id": "theory_combined",
+        "name": "комбинированно",
+        "surcharge": null,
+        "text": "Теорию можно изучать в очном, заочном или комбинированных форматах."
+      },
+      {
+        "id": "theory_app",
+        "name": "мобильное приложение",
+        "surcharge": null,
+        "text": "Всё для твоего комфорта: запись на вождение, оплата, общение с автошколой, теория, ПДД и билеты — в одном приложении. Информация о занятиях, инструкторе и экзаменах всегда под рукой. Push - уведомления о записи, отмене или подтверждении занятий. Онлайн трансляции уроков. Отменяй занятие, если изменились планы. Записывайся на вождение в любое удобное время. Бесплатно для всех учеников нашей автошколы"
+      }
+    ]
+  },
+  "documents": {
+    "_source": "https://avtoschool-vektor.ru/sankt-peterburg",
+    "items": [
+      {
+        "id": "doc_passport",
+        "name": "паспорт",
+        "stage": "для старта",
+        "text": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и снилс"
+      },
+      {
+        "id": "doc_medical",
+        "name": "шоферская комиссия",
+        "stage": "чуть позже",
+        "text": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и снилс"
+      },
+      {
+        "id": "doc_snils",
+        "name": "снилс",
+        "stage": "чуть позже",
+        "text": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и снилс"
+      }
+    ]
+  },
+  "faq": {
+    "_source": "https://avtoschool-vektor.ru/sankt-peterburg",
+    "items": [
+      {
+        "id": "faq_01",
+        "question": "Нужно ли отдельно оплачивать блок вождения?",
+        "answer": "Стоимость обучения по договору окончательная и происходит без скрытых платежей, но при необходимости ты можешь открыть дополнительные часы вождения."
+      },
+      {
+        "id": "faq_02",
+        "question": "Как происходит оплата?",
+        "answer": "Обучение можно оплатить удобным для тебя способом: наличными или по карте. Также у нас доступна внутренняя рассрочка на 1.5 месяца и кредитование от 2 до 24 месяцев"
+      },
+      {
+        "id": "faq_03",
+        "question": "Могу ли я изучать теорию дистанционно?",
+        "answer": "Теорию можно изучать в очном, заочном или комбинированных форматах. С помощью нашего фирменного мобильного приложения изучать ПДД и проходить экзаменационные тесты можно из любой точки мира."
+      },
+      {
+        "id": "faq_04",
+        "question": "Как проходят занятия?",
+        "answer": "График занятий выстраивается индивидуально с каждым курсантом. Доступна онлайн запись на вождение через наше фирменное приложение."
+      },
+      {
+        "id": "faq_05",
+        "question": "На каких авто проходит вождение?",
+        "answer": "МКПП: CherryTiggo 4,LadaGranta.АКПП:CherryTiggo 4, Tesla model 3,Cherry tiggo 7 pro"
+      },
+      {
+        "id": "faq_06",
+        "question": "Можно ли приостановить обучение?",
+        "answer": "Можно приостановить обучение, а позже вновь возобновить его, но уже с другой группой. При необходимости продолжить обучение можно в другом городе, Вектор есть по всей России!"
+      },
+      {
+        "id": "faq_07",
+        "question": "Какие документы нужны, чтобы начать?",
+        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и снилс"
+      }
+    ]
+  },
+  "installment": {
+    "_source": "https://avtoschool-vektor.ru/sankt-peterburg",
+    "term_months": null,
+    "no_overpay": true,
+    "down_payment": null,
+    "methods": [
+      "наличными",
+      "по карте"
+    ]
+  },
+  "contacts": {
+    "_source": "https://avtoschool-vektor.ru/sankt-peterburg",
+    "phone_city": "+7 (812) 338-1000",
+    "phone_federal": "8 (800) 511-95-02",
+    "call_hours": "С 7:30 до 23:00",
+    "messengers": [
+      "Max",
+      "WhatsApp",
+      "Telegram"
+    ],
+    "legal_entity": "ООО «КЛАСС»",
+    "inn": "7806275518",
+    "ogrn": "1177847252230",
+    "license": "https://disk.yandex.ru/i/62Af0199Wyq24Q"
+  }
+}

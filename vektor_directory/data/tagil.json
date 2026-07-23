@@ -1,0 +1,290 @@
+{
+  "meta": {
+    "city": "Нижний Тагил",
+    "city_slug": "tagil",
+    "domain": "avtoschool-vektor.ru",
+    "collected_at": "2026-07-23",
+    "version": 1
+  },
+  "branches": {
+    "_source": "https://avtoschool-vektor.ru/tagil",
+    "items": [
+      {
+        "id": "tagil_mira",
+        "address": "ул. Мира дом 52",
+        "district": null,
+        "hours": "ПН-ВС 9:00-21:00",
+        "break": "14:00-15:00",
+        "is_autodrome": false,
+        "note": null,
+        "landmark": null,
+        "place_type": "Федеральная академия вождения",
+        "metro": null
+      },
+      {
+        "id": "tagil_leningradskiy",
+        "address": "Ленинградский проспект, 28",
+        "district": null,
+        "hours": "ПН-ПТ 10:00-19:00",
+        "break": "14:00-15:00",
+        "is_autodrome": false,
+        "note": null,
+        "landmark": "ТЦ Магнит Семейный",
+        "place_type": "Федеральная академия вождения",
+        "metro": null
+      },
+      {
+        "id": "tagil_balakinskaya",
+        "address": "ул. Балакинская, д. 59 А/1",
+        "district": null,
+        "hours": null,
+        "break": null,
+        "is_autodrome": true,
+        "note": null,
+        "landmark": null,
+        "place_type": "Федеральная академия вождения",
+        "metro": null
+      }
+    ]
+  },
+  "categories": {
+    "_source": "https://avtoschool-vektor.ru/tagil",
+    "items": [
+      {
+        "id": "cat_b",
+        "code": "B",
+        "name": "Категория В",
+        "price": null,
+        "price_note": "цена в карточке не указана, кнопка «Узнать цену»",
+        "duration": "2,5 месяца обучения",
+        "start_frequency": "Старт каждые 15 дней",
+        "seats_left": null,
+        "includes": [
+          "АКПП | МКПП (одинаковая стоимость)",
+          "Теория очно | дистанционно",
+          "Теория очно | в приложении"
+        ],
+        "_source": "https://avtoschool-vektor.ru/tagil"
+      },
+      {
+        "id": "cat_a",
+        "code": "A",
+        "name": "Категория А",
+        "price": null,
+        "price_note": "цена в карточке не указана, кнопка «Узнать цену»",
+        "duration": "1 месяца обучения",
+        "start_frequency": "Старт каждые В группе осталось",
+        "seats_left": null,
+        "includes": [
+          "АКПП | МКПП (одинаковая стоимость)",
+          "Теория очно | дистанционно",
+          "Теория очно | в приложении"
+        ],
+        "_source": "https://avtoschool-vektor.ru/tagil"
+      },
+      {
+        "id": "cat_c",
+        "code": "C",
+        "name": "Категория С",
+        "price": null,
+        "price_note": "цена в карточке не указана, кнопка «Узнать цену»",
+        "duration": null,
+        "start_frequency": null,
+        "seats_left": null,
+        "includes": [
+          "Теория очно | дистанционно"
+        ],
+        "_source": "https://avtoschool-vektor.ru/tagil"
+      }
+    ]
+  },
+  "fleet": {
+    "_source": "https://avtoschool-vektor.ru/tagil",
+    "items": [
+      {
+        "id": "fleet_b_mkpp",
+        "kind": "vehicles",
+        "category": "B",
+        "transmission": "МКПП",
+        "models": [
+          "Lada Granta",
+          "Volkswagen Polo",
+          "Nissan Tiida",
+          "Lada Vesta"
+        ],
+        "year": "не старше 2023 г",
+        "text": "МКПП: Lada Granta, Volkswagen Polo, Nissan Tiida, Lada Vesta.",
+        "_source": "https://avtoschool-vektor.ru/tagil"
+      },
+      {
+        "id": "fleet_b_akpp",
+        "kind": "vehicles",
+        "category": "B",
+        "transmission": "АКПП",
+        "models": [
+          "Tesla",
+          "Kia Rio",
+          "Skoda Oktavia"
+        ],
+        "year": "не старше 2023 г",
+        "text": "АКПП: Tesla, Kia Rio, Skoda Oktavia.",
+        "_source": "https://avtoschool-vektor.ru/tagil"
+      },
+      {
+        "id": "fleet_a_moto",
+        "kind": "vehicles",
+        "category": "A",
+        "transmission": null,
+        "models": [
+          "Suzuki VanVan200"
+        ],
+        "year": null,
+        "text": "Категория А - Suzuki VanVan200",
+        "_source": "https://avtoschool-vektor.ru/tagil"
+      },
+      {
+        "id": "fleet_c_truck",
+        "kind": "vehicles",
+        "category": "C",
+        "transmission": null,
+        "models": [],
+        "year": null,
+        "text": "Автомобиль газон 2023г",
+        "_source": "https://avtoschool-vektor.ru/tagil"
+      },
+      {
+        "id": "fleet_premium",
+        "kind": "vehicles",
+        "category": null,
+        "transmission": null,
+        "models": [
+          "Tesla",
+          "Mercedes",
+          "Hummer"
+        ],
+        "year": null,
+        "text": "Максимум комфорта в обучении на автомобилях премиум-класса: Tesla, Mercedes, Hummer",
+        "_source": "https://avtoschool-vektor.ru/tagil"
+      },
+      {
+        "id": "fleet_gallery_year",
+        "kind": "thesis",
+        "category": null,
+        "transmission": null,
+        "models": [],
+        "year": "не старше 2023 года",
+        "text": "Комфортные учебные авто не старше 2023 года",
+        "_source": "https://avtoschool-vektor.ru/tagil"
+      },
+      {
+        "id": "fleet_thesis_akpp_price",
+        "kind": "thesis",
+        "category": null,
+        "transmission": null,
+        "models": [],
+        "year": null,
+        "text": "Цена обучения на автомате и механике равны. Если в процессе обучения ты меняешь коробку передач, смена автомобиля происходит бесплатно. Дистанционное обучение Теорию можно изучать в удобном для тебя формате: видео-уроки в мобильном приложении, в группе",
+        "_source": "https://avtoschool-vektor.ru/tagil"
+      }
+    ]
+  },
+  "theory_formats": {
+    "_source": "https://avtoschool-vektor.ru/tagil",
+    "items": [
+      {
+        "id": "theory_offline",
+        "name": null,
+        "surcharge": null,
+        "text": "Изучай теорию в современных классах с лучшими преподавателями Автошкола в Нижнем Тагиле Вектор — это федеральная академия вождения с высоким уровнем качества образования и сервиса, с применением IT-технологий в обучении Приведи друга и получи скидку на обучение Исп",
+        "_source": "https://avtoschool-vektor.ru/tagil"
+      },
+      {
+        "id": "theory_formats_all",
+        "name": null,
+        "surcharge": null,
+        "text": "Теорию можно изучать в очном, заочном или комбинированных форматах. С помощью нашего фирменного мобильного приложения изучать ПДД и проходить экзаменационные тесты можно из любой точки мира. Как проходят занятия? График занятий выстраивается индивидуально с каждым к",
+        "_source": "https://avtoschool-vektor.ru/tagil"
+      },
+      {
+        "id": "theory_online",
+        "name": null,
+        "surcharge": null,
+        "text": "С помощью нашего фирменного мобильного приложения изучать ПДД и проходить экзаменационные тесты можно из любой точки мира. Как проходят занятия? График занятий выстраивается индивидуально с каждым курсантом. Доступна онлайн запись на вожде",
+        "_source": "https://avtoschool-vektor.ru/tagil"
+      },
+      {
+        "id": "theory_app",
+        "name": null,
+        "surcharge": null,
+        "text": "Всё для твоего комфорта: запись на вождение, оплата, общение с автошколой, теория, ПДД и билеты — в одном приложении Теория очно | дистанционно Срок обучения 2,5 месяца Категория С Вектор сегодня это... 200 000+ счастливых водителей 10 лет работы 85% сдачи с первого раза 35 городов",
+        "_source": "https://avtoschool-vektor.ru/tagil"
+      }
+    ]
+  },
+  "documents": {
+    "_source": "https://avtoschool-vektor.ru/tagil",
+    "items": []
+  },
+  "faq": {
+    "_source": "https://avtoschool-vektor.ru/tagil",
+    "items": [
+      {
+        "id": "faq_01",
+        "question": "Нужно ли отдельно оплачивать блок вождения?",
+        "answer": "Стоимость обучения по договору окончательная и происходит без скрытых платежей, но при необходимости ты можешь открыть дополнительные часы вождения."
+      },
+      {
+        "id": "faq_02",
+        "question": "Как происходит оплата?",
+        "answer": "Обучение можно оплатить удобным для тебя способом: наличными или по карте."
+      },
+      {
+        "id": "faq_03",
+        "question": "Могу ли я изучать теорию дистанционно?",
+        "answer": "Теорию можно изучать в очном, заочном или комбинированных форматах. С помощью нашего фирменного мобильного приложения изучать ПДД и проходить экзаменационные тесты можно из любой точки мира."
+      },
+      {
+        "id": "faq_04",
+        "question": "Как проходят занятия?",
+        "answer": "График занятий выстраивается индивидуально с каждым курсантом. Доступна онлайн запись на вождение через наше фирменное приложение."
+      },
+      {
+        "id": "faq_05",
+        "question": "На каких авто проходит вождение?",
+        "answer": "Категория B - МКПП: Lada Granta, Volkswagen Polo, Nissan Tiida, Lada Vesta/"
+      },
+      {
+        "id": "faq_06",
+        "question": "Можно ли приостановить обучение?",
+        "answer": "Можно приостановить обучение, а позже вновь возобновить его, но уже с другой группой. При необходимости продолжить обучение можно в другом городе, Вектор есть по всей России!"
+      },
+      {
+        "id": "faq_07",
+        "question": "Какие документы нужны, чтобы начать?",
+        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и снилс"
+      }
+    ]
+  },
+  "installment": {
+    "_source": "https://avtoschool-vektor.ru/tagil",
+    "term_months": null,
+    "no_overpay": true,
+    "down_payment": null,
+    "methods": []
+  },
+  "contacts": {
+    "_source": "https://avtoschool-vektor.ru/tagil",
+    "phone_city": null,
+    "phone_federal": "8 (800) 511-95-02",
+    "call_hours": "С 7:30 до 23:00",
+    "messengers": [
+      "Max",
+      "WhatsApp",
+      "Telegram"
+    ],
+    "legal_entity": "ООО «ВЕКТОР-НТ»",
+    "inn": "7430040304",
+    "ogrn": "1237400015709",
+    "license": "https://disk.yandex.ru/i/4SwqTS8pS758ag"
+  }
+}

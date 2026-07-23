@@ -1,0 +1,529 @@
+{
+  "meta": {
+    "city": "Омск",
+    "city_slug": "omsk",
+    "domain": "avtoschool-vektor.ru",
+    "collected_at": "2026-07-23",
+    "version": 1
+  },
+  "branches": {
+    "_source": "https://avtoschool-vektor.ru/",
+    "items": [
+      {
+        "id": "omsk_gagarina",
+        "address": "ул. Гагарина 14, офис 605",
+        "district": null,
+        "hours": "ПН-ВС 08:30 - 20:30",
+        "break": null,
+        "is_autodrome": false,
+        "note": null,
+        "landmark": "БЦ На Гагарина",
+        "place_type": "Офис продаж",
+        "metro": null
+      },
+      {
+        "id": "omsk_zavertyaeva",
+        "address": "ул. Завертяева, 4 лит АА",
+        "district": null,
+        "hours": null,
+        "break": null,
+        "is_autodrome": true,
+        "note": null,
+        "landmark": null,
+        "place_type": null,
+        "metro": null
+      },
+      {
+        "id": "omsk_petra_nekrasova",
+        "address": "ул. Петра Некрасова, 1А",
+        "district": null,
+        "hours": null,
+        "break": null,
+        "is_autodrome": true,
+        "note": null,
+        "landmark": null,
+        "place_type": "Автодром",
+        "metro": null
+      },
+      {
+        "id": "omsk_okruzhnaya_doroga",
+        "address": "ул. Окружная дорога 9",
+        "district": null,
+        "hours": null,
+        "break": null,
+        "is_autodrome": true,
+        "note": null,
+        "landmark": null,
+        "place_type": null,
+        "metro": null
+      },
+      {
+        "id": "omsk_kirova",
+        "address": "Кирова, 47а/1",
+        "district": null,
+        "hours": null,
+        "break": null,
+        "is_autodrome": true,
+        "note": null,
+        "landmark": null,
+        "place_type": "Федеральная академия вождения",
+        "metro": null
+      },
+      {
+        "id": "omsk_nizhnyaya_omka",
+        "address": "Нижняя Омка, Пер.Школьный 14, каб. 9",
+        "district": null,
+        "hours": "ПН-ПТ 09:00-18:00",
+        "break": null,
+        "is_autodrome": true,
+        "note": null,
+        "landmark": null,
+        "place_type": null,
+        "metro": null
+      },
+      {
+        "id": "omsk_okoneshnikovo_kalinina",
+        "address": "Р.П. Оконешниково, ул. Калинина 25",
+        "district": null,
+        "hours": "ПН-ПТ 09:00-18:00",
+        "break": null,
+        "is_autodrome": true,
+        "note": null,
+        "landmark": null,
+        "place_type": null,
+        "metro": null
+      },
+      {
+        "id": "omsk_kalachinsk_kalachinskaya",
+        "address": "г. Калачинск, ул. Калачинская 25",
+        "district": null,
+        "hours": "ПН-ПТ 09:00-18:00",
+        "break": "13:00-14:00",
+        "is_autodrome": true,
+        "note": null,
+        "landmark": null,
+        "place_type": null,
+        "metro": null
+      },
+      {
+        "id": "omsk_kormilovka_kirova",
+        "address": "Р.П. Кормиловка, ул. Кирова 45/1",
+        "district": null,
+        "hours": "ПН-ПТ 09:00-18:00",
+        "break": null,
+        "is_autodrome": true,
+        "note": null,
+        "landmark": null,
+        "place_type": null,
+        "metro": null
+      },
+      {
+        "id": "omsk_poselok_rostovka",
+        "address": "Посёлок Ростовка, 21",
+        "district": null,
+        "hours": "ПН-ПТ 17:00 - 20:00",
+        "break": null,
+        "is_autodrome": true,
+        "note": null,
+        "landmark": null,
+        "place_type": null,
+        "metro": null
+      },
+      {
+        "id": "omsk_dianova",
+        "address": "ул. Дианова, 39, эт. 1",
+        "district": null,
+        "hours": "ПН-ПТ 09:30-18:30",
+        "break": "14:00-15:00",
+        "is_autodrome": true,
+        "note": null,
+        "landmark": null,
+        "place_type": null,
+        "metro": null
+      },
+      {
+        "id": "omsk_kosmicheskiy",
+        "address": "ул. Космический проспект 18г, 1 этаж",
+        "district": null,
+        "hours": "ПН-ПТ 09:30-18:30",
+        "break": "14:00-15:00",
+        "is_autodrome": true,
+        "note": null,
+        "landmark": null,
+        "place_type": "Федеральная академия вождения",
+        "metro": null
+      },
+      {
+        "id": "omsk_zaozernaya_kinozal",
+        "address": "ул. Заозёрная, 15, 4 эт., 8 кинозал",
+        "district": null,
+        "hours": "ПН-ПТ 09:30-18:30",
+        "break": "14:00-15:00",
+        "is_autodrome": true,
+        "note": null,
+        "landmark": null,
+        "place_type": null,
+        "metro": null
+      },
+      {
+        "id": "omsk_komarova",
+        "address": "ул. Проспект Комарова, 13Б, 2 этаж, офис 14",
+        "district": null,
+        "hours": "ПН-ВС 08:30-19:30",
+        "break": "14:00-15:00",
+        "is_autodrome": true,
+        "note": null,
+        "landmark": null,
+        "place_type": "Федеральная академия вождения",
+        "metro": null
+      },
+      {
+        "id": "omsk_aviatsionnaya",
+        "address": "ул. Авиационная 143А, 1 этаж",
+        "district": null,
+        "hours": "ПН-ПТ 09:30-18:30",
+        "break": "14:00-15:00",
+        "is_autodrome": true,
+        "note": null,
+        "landmark": null,
+        "place_type": "Федеральная академия вождения",
+        "metro": null
+      },
+      {
+        "id": "omsk_kirova_kabinet",
+        "address": "ул. Кирова 47, 2 этаж, кабинет 8",
+        "district": null,
+        "hours": "ПН-ПТ 09:30-18:30",
+        "break": "14:00-15:00",
+        "is_autodrome": true,
+        "note": null,
+        "landmark": null,
+        "place_type": null,
+        "metro": null
+      },
+      {
+        "id": "omsk_cheredovaya_sahalin",
+        "address": "Чередовая 10-я, 17/2, ТК Сахалин, 2 этаж",
+        "district": null,
+        "hours": "ПН-ПТ 09:30-18:30",
+        "break": "14:00-15:00",
+        "is_autodrome": true,
+        "note": null,
+        "landmark": null,
+        "place_type": null,
+        "metro": null
+      },
+      {
+        "id": "omsk_karla_marksa",
+        "address": "пр. Карла Маркса 82, 3 этаж, офис 30",
+        "district": null,
+        "hours": "ПН-ВС 08:30-19:30",
+        "break": "14:00-15:00",
+        "is_autodrome": true,
+        "note": null,
+        "landmark": null,
+        "place_type": "Офис продаж, учебные классы",
+        "metro": null
+      },
+      {
+        "id": "omsk_metromoll_let",
+        "address": "ТК Метромолл, ул. 70 лет Октября 26, 4 этаж, офис 411",
+        "district": null,
+        "hours": "ПН-ПТ 09:30-18:30",
+        "break": "14:00-15:00",
+        "is_autodrome": true,
+        "note": null,
+        "landmark": null,
+        "place_type": null,
+        "metro": null
+      },
+      {
+        "id": "omsk_mira",
+        "address": "пр. Мира 9Б, 4 этаж",
+        "district": null,
+        "hours": "ПН-ВС 10:00-20:30",
+        "break": "14:00-15:00",
+        "is_autodrome": true,
+        "note": null,
+        "landmark": null,
+        "place_type": null,
+        "metro": null
+      },
+      {
+        "id": "omsk_severnaya",
+        "address": "ул. 33 Северная 143а, 2 этаж",
+        "district": null,
+        "hours": "ПН-ВС 08:30-19:30",
+        "break": "14:00-15:00",
+        "is_autodrome": true,
+        "note": null,
+        "landmark": null,
+        "place_type": null,
+        "metro": null
+      },
+      {
+        "id": "omsk_let_oktyabrya",
+        "address": "ул. 10 лет Октября, 136/1",
+        "district": null,
+        "hours": "ПН-ПТ 09:30-18:30",
+        "break": null,
+        "is_autodrome": true,
+        "note": null,
+        "landmark": null,
+        "place_type": null,
+        "metro": null
+      },
+      {
+        "id": "omsk_krasnyy_put",
+        "address": "Красный путь 101, офис 301",
+        "district": null,
+        "hours": "ПН-ВС 08:30-19:30",
+        "break": "14:00-15:00",
+        "is_autodrome": true,
+        "note": null,
+        "landmark": null,
+        "place_type": "Федеральная академия вождения",
+        "metro": null
+      },
+      {
+        "id": "omsk_gasheka",
+        "address": "ул. Гашека, д. 16/1",
+        "district": null,
+        "hours": "ПН-ПТ 10:00-19:00",
+        "break": "14:00-15:00",
+        "is_autodrome": true,
+        "note": null,
+        "landmark": null,
+        "place_type": null,
+        "metro": null
+      },
+      {
+        "id": "omsk_karla_marksa_10",
+        "address": "просп. Карла Маркса, 10",
+        "district": null,
+        "hours": "ПН-ПТ 10:00-19:00",
+        "break": null,
+        "is_autodrome": true,
+        "note": null,
+        "landmark": null,
+        "place_type": null,
+        "metro": null
+      }
+    ]
+  },
+  "categories": {
+    "_source": "https://avtoschool-vektor.ru/",
+    "items": [
+      {
+        "id": "cat_a",
+        "code": "A",
+        "name": "Категория А",
+        "price": null,
+        "price_note": "цена в карточке не указана, кнопка «Узнать цену»",
+        "duration": "1 месяца обучения",
+        "start_frequency": "Старт каждые В группе осталось",
+        "seats_left": null,
+        "includes": [
+          "Теория очно | в приложении"
+        ],
+        "_source": "https://avtoschool-vektor.ru/"
+      },
+      {
+        "id": "cat_b",
+        "code": "B",
+        "name": "Категория В",
+        "price": null,
+        "price_note": "цена в карточке не указана, кнопка «Узнать цену»",
+        "duration": "2,5 месяца обучения",
+        "start_frequency": "Старт каждые 15 дней",
+        "seats_left": null,
+        "includes": [
+          "АКПП | МКПП (одинаковая стоимость)",
+          "Теория очно | дистанционно"
+        ],
+        "_source": "https://avtoschool-vektor.ru/"
+      },
+      {
+        "id": "cat_d",
+        "code": "D",
+        "name": "категория \"D\"",
+        "price": null,
+        "price_note": "цена в карточке не указана, кнопка «Узнать цену»",
+        "duration": null,
+        "start_frequency": null,
+        "seats_left": null,
+        "includes": [],
+        "_source": "https://avtoschool-vektor.ru/"
+      },
+      {
+        "id": "cat_c",
+        "code": "C",
+        "name": "категория \"С\"",
+        "price": null,
+        "price_note": "цена в карточке не указана, кнопка «Узнать цену»",
+        "duration": null,
+        "start_frequency": null,
+        "seats_left": null,
+        "includes": [],
+        "_source": "https://avtoschool-vektor.ru/"
+      }
+    ]
+  },
+  "fleet": {
+    "_source": "https://avtoschool-vektor.ru/",
+    "items": [
+      {
+        "id": "fleet_b_mkpp",
+        "kind": "vehicles",
+        "category": "B",
+        "transmission": "МКПП",
+        "models": [
+          "Lada Granta",
+          "Volkswagen Polo",
+          "Nissan Tiida",
+          "Lada Vesta/"
+        ],
+        "year": "не старше 2023 г",
+        "text": "МКПП: Lada Granta, Volkswagen Polo, Nissan Tiida, Lada Vesta/",
+        "_source": "https://avtoschool-vektor.ru/"
+      },
+      {
+        "id": "fleet_b_akpp",
+        "kind": "vehicles",
+        "category": "B",
+        "transmission": "АКПП",
+        "models": [
+          "Kia Rio",
+          "Skoda Oktavia"
+        ],
+        "year": "не старше 2023 г",
+        "text": "АКПП: Kia Rio, Skoda Oktavia",
+        "_source": "https://avtoschool-vektor.ru/"
+      },
+      {
+        "id": "fleet_a_moto",
+        "kind": "vehicles",
+        "category": "A",
+        "transmission": null,
+        "models": [
+          "Suzuki VanVan200"
+        ],
+        "year": null,
+        "text": "Категория А - Suzuki VanVan200",
+        "_source": "https://avtoschool-vektor.ru/"
+      },
+      {
+        "id": "fleet_gallery_year",
+        "kind": "thesis",
+        "category": null,
+        "transmission": null,
+        "models": [],
+        "year": "не старше 2023 года",
+        "text": "Комфортные учебные авто не старше 2023 года",
+        "_source": "https://avtoschool-vektor.ru/"
+      },
+      {
+        "id": "fleet_thesis_akpp_price",
+        "kind": "thesis",
+        "category": null,
+        "transmission": null,
+        "models": [],
+        "year": null,
+        "text": "Цена обучения на автомате и механике равны. Если в процессе обучения ты меняешь коробку передач, смена автомобиля происходит бесплатно. Дистанционное обучение Теорию можно изучать в удобном для тебя формате: видео-уроки в мобильном приложении, в группе",
+        "_source": "https://avtoschool-vektor.ru/"
+      }
+    ]
+  },
+  "theory_formats": {
+    "_source": "https://avtoschool-vektor.ru/",
+    "items": [
+      {
+        "id": "theory_offline",
+        "name": null,
+        "surcharge": null,
+        "text": "Изучай теорию в современных классах с лучшими преподавателями Вернём уверенность за рулем за 9 дней! Есть права, но ездить страшно? Узнать больше Автошкола в Омске Вектор — это федеральная академия вождения с высоким уровнем качества образования и сервиса, с примен",
+        "_source": "https://avtoschool-vektor.ru/"
+      },
+      {
+        "id": "theory_formats_all",
+        "name": null,
+        "surcharge": null,
+        "text": "Теорию можно изучать в очном, заочном или комбинированных форматах. С помощью нашего фирменного мобильного приложения изучать ПДД и проходить экзаменационные тесты можно из любой точки мира. Как проходят занятия? График занятий выстраивается индивидуально с каждым к",
+        "_source": "https://avtoschool-vektor.ru/"
+      },
+      {
+        "id": "theory_online",
+        "name": null,
+        "surcharge": null,
+        "text": "С помощью нашего фирменного мобильного приложения изучать ПДД и проходить экзаменационные тесты можно из любой точки мира. Как проходят занятия? График занятий выстраивается индивидуально с каждым курсантом. Доступна онлайн запись на вожде",
+        "_source": "https://avtoschool-vektor.ru/"
+      }
+    ]
+  },
+  "documents": {
+    "_source": "https://avtoschool-vektor.ru/",
+    "items": []
+  },
+  "faq": {
+    "_source": "https://avtoschool-vektor.ru/",
+    "items": [
+      {
+        "id": "faq_01",
+        "question": "Нужно ли отдельно оплачивать блок вождения?",
+        "answer": "Стоимость обучения по договору окончательная и происходит без скрытых платежей, но при необходимости ты можешь открыть дополнительные часы вождения."
+      },
+      {
+        "id": "faq_02",
+        "question": "Как происходит оплата?",
+        "answer": "Обучение можно оплатить удобным для тебя способом: наличными или по карте."
+      },
+      {
+        "id": "faq_03",
+        "question": "Могу ли я изучать теорию дистанционно?",
+        "answer": "Теорию можно изучать в очном, заочном или комбинированных форматах. С помощью нашего фирменного мобильного приложения изучать ПДД и проходить экзаменационные тесты можно из любой точки мира."
+      },
+      {
+        "id": "faq_04",
+        "question": "Как проходят занятия?",
+        "answer": "График занятий выстраивается индивидуально с каждым курсантом. Доступна онлайн запись на вождение через наше фирменное приложение."
+      },
+      {
+        "id": "faq_05",
+        "question": "На каких авто проходит вождение?",
+        "answer": "Категория B - МКПП: Lada Granta, Volkswagen Polo, Nissan Tiida, Lada Vesta/"
+      },
+      {
+        "id": "faq_06",
+        "question": "Можно ли приостановить обучение?",
+        "answer": "Можно приостановить обучение, а позже вновь возобновить его, но уже с другой группой. При необходимости продолжить обучение можно в другом городе, Вектор есть по всей России!"
+      },
+      {
+        "id": "faq_07",
+        "question": "Какие документы нужны, чтобы начать?",
+        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и снилс"
+      }
+    ]
+  },
+  "installment": {
+    "_source": "https://avtoschool-vektor.ru/",
+    "term_months": null,
+    "no_overpay": true,
+    "down_payment": null,
+    "methods": []
+  },
+  "contacts": {
+    "_source": "https://avtoschool-vektor.ru/",
+    "phone_city": null,
+    "phone_federal": "8 (800) 505 63 77",
+    "call_hours": "С 7:30 до 23:00",
+    "messengers": [
+      "Max",
+      "WhatsApp",
+      "Telegram"
+    ],
+    "legal_entity": "ООО «ВЕКТОР 155»",
+    "inn": null,
+    "ogrn": null,
+    "license": "https://disk.yandex.ru/i/N__d6adSJOqUcQ"
+  }
+}

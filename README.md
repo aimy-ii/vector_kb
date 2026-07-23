@@ -1,86 +1,105 @@
 # vektor-scraper
 
-Сбор справочника автошколы «Вектор» по городам в JSON для голосового бота.
-Отдельный одноразовый инструмент, к репозиторию `voice_bot` отношения не имеет.
+Сбор справочника автошколы «Вектор» по городам и пакет `vektor_directory` для
+голосового бота. Проект сбора самодостаточен; бот ставит только пакет со
+урезанными JSON и API импорта.
 
-Нужен только [uv](https://docs.astral.sh/uv/). Зависимости он поставит сам.
+Нужен [uv](https://docs.astral.sh/uv/). Зависимости он поставит сам: `uv sync`.
 
-## Порядок запуска
+## Порядок запуска (сбор)
 
-От чистого листа — четыре шага из корня проекта:
+От чистого листа — из корня проекта:
 
 ```bash
-uv run vektor-scrape                       # сбор страниц → data/raw, data/out
-uv run python scripts/apply_sections.py    # тарифы, категории, автопарк, теория
-uv run python scripts/finalize.py          # плоские слаги филиалов + ориентиры
-uv run python scripts/build_index.py       # data/index.json для enum модели
+uv run vektor-scrape                            # страницы → data/raw, data/out
+uv run python scripts/apply_sections.py         # тарифы, категории, автопарк, теория
+uv run python scripts/finalize.py               # плоские слаги + ориентиры
+uv run python scripts/build_index.py            # data/index.json
+uv run python scripts/build_package_data.py     # урезанные JSON → vektor_directory/data
 ```
 
-Или через Make: `make scrape`, `make sections`, `make finalize`, `make index`.
+Или: `make scrape`, `make sections`, `make finalize`, `make index`.
 
 Результат сбора:
 
 ```
-data/raw/<slug>.html   сырая страница (после разбора можно удалить: make clean-raw)
+data/raw/<slug>.html   сырая страница (после разбора: make clean-raw)
 data/raw/<slug>.txt    плоский текст — для проверки спорных мест
-data/out/<slug>.json   справочник по схеме
+data/out/<slug>.json   полный справочник по схеме
 data/index.json        компактный индекс городов и филиалов
+vektor_directory/data/ урезанные файлы для пакета бота
 ```
 
-Повторный `vektor-scrape` берёт страницы из `data/raw`, сайт не дёргает. Чтобы перекачать — `--force`.
-
-Полезные флаги сбора:
+Повторный `vektor-scrape` берёт страницы из `data/raw`, сайт не дёргает.
+Чтобы перекачать — `--force`.
 
 ```bash
 uv run vektor-scrape --only krasnoyarsk omsk   # только эти города
 uv run vektor-scrape --include-done            # включая СПб, Екатеринбург, Пермь
-uv run vektor-scrape --external                # включая Липецк, Челябинск, Калининград
+uv run vektor-scrape --external                # включая внешние домены
 uv run vektor-scrape --force                   # игнорировать кэш
 uv run vektor-scrape --pause 3                 # пауза между городами, секунд
+uv run python scripts/finalize.py --metro      # опционально: метро с avtoshkoli.ru
 ```
 
-Финализация с метро (опционально):
+## Пакет `vektor_directory`
+
+То, что ставится в проект голосового бота. Данные внутри пакета (через
+`importlib.resources`), после `uv build` лежат в колесе.
+
+```python
+from vektor_directory import (
+    list_cities,
+    list_branches,
+    get_city,
+    get_branch,
+    city_enum,
+    branch_enum,
+    resolve_city,
+)
+
+city_enum()                      # слаги городов
+branch_enum("perm")              # слаги филиалов города
+get_city("perm")                 # мета для пересказа клиенту
+get_branch("perm_chernyshevskogo")
+resolve_city("Питер")            # → "sankt-peterburg"; "Москва" → None
+```
+
+В урезанных JSON остаются: `meta`, `branches`, `categories`, `fleet`,
+`theory_formats`, `documents`, `faq` (только с ответом), `installment`, `contacts`.
+
+Выброшены: `tariffs`, `promos`, `price_increase`, `conflicts`, `_review`, `groups`.
+Цены с сайта занижены примерно вдвое — в API пакета их нет.
+
+Пересобрать данные пакета после изменения `data/out`:
 
 ```bash
-uv run python scripts/finalize.py --metro
+uv run python scripts/build_package_data.py
 ```
 
-## API `directory.py`
+## Локальный API сбора: `directory.py` и `lookup.py`
 
-Офлайн-справочник для голосового бота. Города и филиалы адресуются плоскими слагами
-(`perm`, `perm_chernyshevskogo`). Данные читаются из `data/out` (или из `VEKTOR_DATA`).
+Для проверки в этом репозитории (читают `data/out` или `VEKTOR_DATA`):
 
 | Функция | Назначение |
 |---|---|
-| `list_cities()` | список `{слаг, город, филиалов}` для enum |
-| `list_branches(city_slug)` | филиалы города: `{слаг, адрес, ориентир}` |
-| `get_city(city_slug)` | мета города для пересказа клиенту |
-| `get_branch(branch_slug)` | мета филиала (адрес, часы, ориентир, …) |
+| `list_cities()` | `{слаг, город, филиалов}` |
+| `list_branches(city_slug)` | `{слаг, адрес, ориентир}` |
+| `get_city` / `get_branch` | мета для пересказа |
 | `data_dir()` | каталог с JSON городов |
-
-Цены в мете города нет намеренно: число на сайте занижено примерно вдвое против
-реальной стоимости, вслух оно не идёт.
-
-## `lookup.py`
-
-Проверка справочника руками — слаг города или филиала:
 
 ```bash
 uv run python lookup.py perm
 uv run python lookup.py perm_chernyshevskogo
-uv run python lookup.py          # интерактивный режим
+uv run python lookup.py          # интерактив: города, филиалы perm, помощь, выход
 ```
-
-В интерактиве: `города`, `филиалы perm`, `помощь`, `выход`.
 
 ## Что осталось незаполненным
 
-- **Цены.** На сайте суммы занижены и часто без категории; в `directory` цена не отдаётся.
-  В JSON остаются черновики в `tariffs` / `prices_found` и вопросы в `_review`.
-- **Расписание групп.** На страницах есть только «Старт каждые …», конкретного
-  расписания занятий нет — его в справочник не выдумываем.
-- **Районы и метро.** В данных почти везде `null`: на сайте Вектора их нет, а
-  `finalize --metro` тянет лишь то, что подписано на avtoshkoli.ru, и то неполно.
+- **Цены.** На сайте занижены и часто без категории; в API не отдаются.
+- **Расписание групп.** Есть только «Старт каждые …», конкретного расписания нет.
+- **Районы и метро.** Почти везде `null`; `finalize --metro` тянет лишь то, что
+  есть на avtoshkoli.ru, и то неполно.
 
 ## Проверка кода
 

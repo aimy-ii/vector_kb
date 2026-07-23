@@ -3,6 +3,10 @@
 
 # Окружение и кэши
 .venv/
+.env
+infra/.env
+api_tests/.env
+api_tests/test_results.log
 __pycache__/
 *.py[cod]
 *$py.class

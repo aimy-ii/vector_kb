@@ -226,5 +226,36 @@
     "inn": null,
     "ogrn": null,
     "license": "https://disk.yandex.ru/i/LSquNcMxrQUnmQ"
+  },
+  "tariffs": {
+    "_source": "https://avtoschool-vektor.ru/kalachinsk",
+    "items": [
+      {
+        "id": "tariff_hero",
+        "name": "Базовый",
+        "category": null,
+        "price": 12900,
+        "price_is_from": true,
+        "price_note": "«Курс Базовый от 12 900 ₽*», сноска «*подробности у менеджера»; категория рядом с ценой на странице не указана",
+        "duration": null,
+        "practice_hours": null,
+        "includes": [],
+        "start_frequency": null,
+        "valid_until": null,
+        "_source": "https://avtoschool-vektor.ru/kalachinsk"
+      }
+    ],
+    "prices_found": [
+      {
+        "price": 12900,
+        "price_is_from": true,
+        "context": "нске Выбрать город Написать в WhatsApp Написать в Max Написать в Telegram Не любишь звонки? Просто напиши! Курс Базовый от 12 900 ₽* Рекордно низкая цена на обучение Оставить заявку * подробности у менеджера В подарок: папка курсанта, марафон билетов"
+      },
+      {
+        "price": 1000,
+        "price_is_from": false,
+        "context": "обучения на любую категорию! Воспользоваться Ездить в универ на машине - это круто! Приходи со студенческим и учись на 1000 рублей дешевле Воспользоваться Не стараемся больше заработать на общем росте цен - наша главная цель давать качественное об"
+      }
+    ]
   }
 }

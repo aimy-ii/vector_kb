@@ -245,5 +245,9 @@
     "inn": null,
     "ogrn": null,
     "license": "https://disk.yandex.ru/i/6f0fGBckG2Qtqg"
+  },
+  "tariffs": {
+    "_source": "https://avtoschool-vektor.ru/perm",
+    "items": []
   }
 }

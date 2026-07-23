@@ -2,6 +2,9 @@
 
 from __future__ import annotations
 
+from typing import Any
+
+from app.constants.directory import PRICE_DISCLAIMER, PRICE_UNKNOWN
 from app.schemas.common import HealthResponse, ReloadResponse
 from app.schemas.directory import (
     BranchDetail,
@@ -13,6 +16,7 @@ from app.schemas.directory import (
     DocumentInfo,
     FaqItem,
     PaymentInfo,
+    PriceInfo,
     VehiclesInfo,
 )
 from app.services.directory_service import (
@@ -58,11 +62,58 @@ def cities_enum() -> list[str]:
     return [item["слаг"] for item in list_cities()]
 
 
+def build_price_info(tariffs: dict[str, Any] | None) -> PriceInfo:
+    """Собирает витринную цену из раздела `tariffs`.
+
+    Берёт первый тариф с непустой суммой. Число с сайта — маркетинговое «от»,
+    поэтому `reliable` всегда False, а `note` — обязательная оговорка для бота.
+    Если суммы нет, `amount` остаётся None, а `note` сообщает, что цену назовёт
+    менеджер.
+
+    Args:
+        tariffs: раздел `tariffs` из JSON города или None.
+
+    Returns:
+        PriceInfo с суммой (или без неё) и оговоркой.
+    """
+    items: list[Any] = []
+    if isinstance(tariffs, dict):
+        raw_items = tariffs.get("items", [])
+        if isinstance(raw_items, list):
+            items = raw_items
+
+    for item in items:
+        if not isinstance(item, dict):
+            continue
+        amount = item.get("price")
+        if amount is None:
+            continue
+        is_from = item.get("price_is_from")
+        return PriceInfo(
+            amount=int(amount),
+            is_from=True if is_from is None else bool(is_from),
+            package=item.get("name"),
+            reliable=False,
+            note=PRICE_DISCLAIMER,
+        )
+
+    return PriceInfo(
+        amount=None,
+        is_from=True,
+        package=None,
+        reliable=False,
+        note=PRICE_UNKNOWN,
+    )
+
+
 def city_detail(city_slug: str) -> CityDetail | None:
     """Полная мета города в схеме API."""
     meta = get_city(city_slug)
     if meta is None:
         return None
+    if not directory_store.cities:
+        directory_store.load()
+    raw_city = directory_store.cities.get(city_slug, {})
     payment = meta["оплата"]
     vehicles = meta["автомобили"]
     return CityDetail(
@@ -100,6 +151,7 @@ def city_detail(city_slug: str) -> CityDetail | None:
         phone=meta["телефон"],
         call_hours=meta["приём звонков"],
         messengers=meta["мессенджеры"] or [],
+        price=build_price_info(raw_city.get("tariffs")),
     )
 
 

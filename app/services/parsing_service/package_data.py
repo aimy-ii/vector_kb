@@ -28,6 +28,7 @@ KEEP_KEYS = (
     "faq",
     "installment",
     "contacts",
+    "tariffs",
 )
 
 

@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-import json
 from unittest.mock import patch
 
 from app.constants.parsing import JobStatus
@@ -10,11 +9,6 @@ from app.services.directory_service import city_enum, list_cities
 from app.services.parsing_service import jobs as jobs_service
 from app.services.parsing_service.jobs import ParseJob
 from fastapi.testclient import TestClient
-
-
-def _blob(response) -> str:
-    """Тело ответа одной строкой в нижнем регистре."""
-    return json.dumps(response.json(), ensure_ascii=False).lower()
 
 
 def test_health_ok(client: TestClient) -> None:
@@ -87,24 +81,25 @@ def test_resolve_moscow_null(client: TestClient) -> None:
     assert response.json()["slug"] is None
 
 
-def test_no_price_in_api_responses(client: TestClient) -> None:
-    """Ни один ответ справочника не содержит цену, ₽ и слово «цена»."""
-    paths = [
-        "/api/cities",
-        "/api/cities/enum",
-        f"/api/cities/{city_enum()[0]}",
-        f"/api/cities/{city_enum()[0]}/branches",
-    ]
-    city = list_cities()[0]["слаг"]
-    branch = client.get(f"/api/cities/{city}/branches/enum").json()[0]
-    paths.append(f"/api/branches/{branch}")
-    for path in paths:
-        response = client.get(path)
+def test_city_detail_price_always_has_note(client: TestClient) -> None:
+    """Ответ /api/cities/{slug} содержит цену и оговорку одновременно."""
+    from app.constants.directory import PRICE_DISCLAIMER, PRICE_UNKNOWN
+
+    for slug in city_enum():
+        response = client.get(f"/api/cities/{slug}")
         assert response.status_code == 200, response.text
-        blob = _blob(response)
-        assert "цена" not in blob
-        assert "₽" not in blob
-        assert "price" not in blob
+        data = response.json()
+        assert "price" in data
+        price = data["price"]
+        assert "note" in price
+        assert price["note"]
+        assert price["reliable"] is False
+        if price["amount"] is None:
+            assert price["note"] == PRICE_UNKNOWN
+        else:
+            assert isinstance(price["amount"], int)
+            assert price["is_from"] is True
+            assert price["note"] == PRICE_DISCLAIMER
 
 
 def test_parse_conflict_when_active(client: TestClient) -> None:

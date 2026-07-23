@@ -1,13 +1,15 @@
 """Схемы справочника городов и филиалов.
 
-Полей с ценой в схемах нет: число на сайте занижено примерно вдвое против реальной
-стоимости (проверено по сторонним площадкам и отзывам учеников), поэтому наружу
-оно не отдаётся ни в каком виде.
+Цена отдаётся как витринное «от» с сайта вместе с обязательной оговоркой:
+число занижено примерно вдвое против реального чека, поэтому `reliable`
+остаётся False, пока заказчик не подтвердит настоящий прайс.
 """
 
 from __future__ import annotations
 
 from pydantic import BaseModel, ConfigDict, Field
+
+from app.constants.directory import PRICE_DISCLAIMER
 
 
 class CityShort(BaseModel):
@@ -61,12 +63,28 @@ class FaqItem(BaseModel):
     answer: str = Field(title="Ответ")
 
 
+class PriceInfo(BaseModel):
+    """Стоимость обучения так, как она указана на сайте.
+
+    Число на сайте — маркетинговое «от» и заметно ниже реального чека: по сверке
+    с независимыми площадками и отзывами учеников расхождение доходит до двух раз.
+    Поэтому вместе с суммой всегда отдаётся оговорка в `note`, а `reliable` равно
+    False, пока заказчик не подтвердит настоящий прайс.
+    """
+
+    amount: int | None = Field(default=None, title="Стоимость от, ₽")
+    is_from: bool = Field(default=True, title="Цена указана как «от»")
+    package: str | None = Field(default=None, title="Название пакета")
+    reliable: bool = Field(default=False, title="Цена подтверждена")
+    note: str = Field(title="Оговорка, которую нужно произнести")
+
+
 class CityDetail(BaseModel):
     """
     Полная мета города для пересказа клиенту.
 
-    Цен в ответе нет намеренно: опубликованная на сайте сумма занижена примерно
-    вдвое относительно реальной стоимости обучения.
+    Поле `price` содержит витринную сумму с сайта и оговорку: бот называет число
+    вслух только вместе с `note`, пока `reliable` равно False.
     """
 
     slug: str = Field(title="Слаг города")
@@ -82,6 +100,7 @@ class CityDetail(BaseModel):
     phone: str | None = Field(default=None, title="Телефон")
     call_hours: str | None = Field(default=None, title="Приём звонков")
     messengers: list[str] = Field(default_factory=list, title="Мессенджеры")
+    price: PriceInfo = Field(title="Стоимость с оговоркой")
 
     model_config = ConfigDict(
         json_schema_extra={
@@ -111,6 +130,13 @@ class CityDetail(BaseModel):
                 "phone": "8 (800) 511-95-02",
                 "call_hours": "С 7:30 до 23:00",
                 "messengers": [],
+                "price": {
+                    "amount": 21950,
+                    "is_from": True,
+                    "package": "Базовый",
+                    "reliable": False,
+                    "note": PRICE_DISCLAIMER,
+                },
             }
         }
     )

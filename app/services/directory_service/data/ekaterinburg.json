@@ -500,5 +500,9 @@
     "inn": "6663001440",
     "ogrn": "1036604783874",
     "license": null
+  },
+  "tariffs": {
+    "_source": "https://avtoschool-vektor.ru/ekaterinburg",
+    "items": []
   }
 }

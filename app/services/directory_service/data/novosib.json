@@ -415,5 +415,55 @@
     "inn": "5404224894",
     "ogrn": "1215400045618",
     "license": "https://disk.yandex.ru/i/mKoKHbKPIglveA"
+  },
+  "tariffs": {
+    "_source": "https://avtoschool-vektor.ru/novosib",
+    "items": [
+      {
+        "id": "tariff_hero",
+        "name": null,
+        "category": null,
+        "price": 27450,
+        "price_is_from": true,
+        "price_note": "«Специальная цена от 27 450 ₽*», сноска «*подробности у менеджера»; категория рядом с ценой на странице не указана",
+        "duration": null,
+        "practice_hours": null,
+        "includes": [],
+        "start_frequency": null,
+        "valid_until": null,
+        "_source": "https://avtoschool-vektor.ru/novosib"
+      },
+      {
+        "id": "tariff_card_6000",
+        "name": null,
+        "category": null,
+        "price": 6000,
+        "price_is_from": true,
+        "price_note": "«от 6 000 ₽» в карточке рядом с кнопкой «Узнать цену»; к какой карточке относится — из текста страницы не видно",
+        "duration": null,
+        "practice_hours": null,
+        "includes": [],
+        "start_frequency": null,
+        "valid_until": null,
+        "_source": "https://avtoschool-vektor.ru/novosib"
+      }
+    ],
+    "prices_found": [
+      {
+        "price": 27450,
+        "price_is_from": true,
+        "context": "такты Лицензия Написать в WhatsApp Написать в Max Написать в Telegram Не любишь звонки? Просто напиши! Специальная цена от 27 450 ₽* Рекордно низкая цена на обучение Оставить заявку * подробности у менеджера В подарок: папка курсанта, марафон билетов"
+      },
+      {
+        "price": 1000,
+        "price_is_from": false,
+        "context": "обучения на любую категорию! Воспользоваться Ездить в универ на машине - это круто! Приходи со студенческим и учись на 1000 рублей дешевле Воспользоваться Не стараемся больше заработать на общем росте цен - наша главная цель давать качественное об"
+      },
+      {
+        "price": 6000,
+        "price_is_from": true,
+        "context": "ятия без очередей на собственном автодроме Внутренний экзамен включен Приоритетный выход на экзамен в ГИБДД Узнать цену от 6 000 ₽ Всё для твоего комфорта: запись на вождение, оплата, общение с автошколой, теория, ПДД и билеты — в одном приложении Ка"
+      }
+    ]
   }
 }

@@ -187,15 +187,98 @@ curl localhost:8317/api/parse/a1b2c3d4e5f6
 
 ---
 
-## Почему в API нет цен
+## Источники парсинга
+
+Список городов снят с переключателя на главном сайте сети (22.07.2026). В справочнике 41 город; ещё три на отдельных доменах парсер по умолчанию не трогает.
+
+### Основной сайт
+
+База: [https://avtoschool-vektor.ru](https://avtoschool-vektor.ru). Отсюда тянутся страницы городов — филиалы, тарифы, категории, автопарк, теория, FAQ, документы, контакты.
+
+| Город | URL |
+|---|---|
+| Санкт-Петербург | https://avtoschool-vektor.ru/sankt-peterburg |
+| Екатеринбург | https://avtoschool-vektor.ru/ekaterinburg |
+| Пермь | https://avtoschool-vektor.ru/perm |
+| Омск | https://avtoschool-vektor.ru/ |
+| Новосибирск | https://avtoschool-vektor.ru/novosib |
+| Красноярск | https://avtoschool-vektor.ru/krasnoyarsk |
+| Казань | https://avtoschool-vektor.ru/kazan |
+| Нижний Новгород | https://avtoschool-vektor.ru/nizhniy-novgorod |
+| Нижний Тагил | https://avtoschool-vektor.ru/tagil |
+| Новокузнецк | https://avtoschool-vektor.ru/novokuznetsk |
+| Называевск | https://avtoschool-vektor.ru/nazyvayevsk |
+| Магнитогорск | https://avtoschool-vektor.ru/magnitogorsk |
+| Рязань | https://avtoschool-vektor.ru/ryazan |
+| Дагомыс | https://avtoschool-vektor.ru/dagomyc |
+| Железногорск | https://avtoschool-vektor.ru/zheleznogorsk |
+| Елец | https://avtoschool-vektor.ru/eletz |
+| Ярославль | https://avtoschool-vektor.ru/yaroslavl |
+| Сочи | https://avtoschool-vektor.ru/sochi |
+| Стерлитамак | https://avtoschool-vektor.ru/sterlitamak |
+| Уфа | https://avtoschool-vektor.ru/ufa |
+| Пенза | https://avtoschool-vektor.ru/penza |
+| Ишим | https://avtoschool-vektor.ru/ishim |
+| Иркутск | https://avtoschool-vektor.ru/irkutsk |
+| Иваново | https://avtoschool-vektor.ru/ivanovo |
+| Ижевск | https://avtoschool-vektor.ru/izhevsk |
+| Владивосток | https://avtoschool-vektor.ru/vladivostok |
+| Воронеж | https://avtoschool-vektor.ru/voronezh |
+| Барнаул | https://avtoschool-vektor.ru/barnaul |
+| Абакан | https://avtoschool-vektor.ru/abakan |
+| Адлер | https://avtoschool-vektor.ru/adler |
+| Артём | https://avtoschool-vektor.ru/artem |
+| Ачинск | https://avtoschool-vektor.ru/achinsk |
+| Томск | https://avtoschool-vektor.ru/tomsk |
+| Тюмень | https://avtoschool-vektor.ru/72 |
+| Тара | https://avtoschool-vektor.ru/tara |
+| Канск | https://avtoschool-vektor.ru/kansk |
+| Кемерово | https://avtoschool-vektor.ru/kemerovo |
+| Копейск | https://avtoschool-vektor.ru/kopeysk |
+| Курган | https://avtoschool-vektor.ru/kyrgan |
+| Калачинск | https://avtoschool-vektor.ru/kalachinsk |
+| Кормиловка | https://avtoschool-vektor.ru/kormilovka |
+
+Санкт-Петербург, Екатеринбург и Пермь помечены как собранные вручную (`done`): в автоматический обход они не входят, пока не включён `include_done`.
+
+### Отдельные домены (`include_external`)
+
+Другая вёрстка, автоматический разбор не гарантирован. В справочник по умолчанию не попадают.
+
+| Город | URL |
+|---|---|
+| Липецк | https://vektor48.ru/ |
+| Челябинск | https://vektor174.ru/ |
+| Калининград | https://xn--80aaicjcfbdgcv0abfhcfr7n.xn--p1ai/ |
+
+### Дополнительные источники
+
+| Источник | Зачем |
+|---|---|
+| [avtoshkoli.ru](https://avtoshkoli.ru/) — страницы вида `/…/avtoshkola-vektor/` | опционально метро и район при финализации (`fetch_metro`) |
+| `app/services/parsing_service/landmarks.json` | ориентиры из выгрузки 2ГИС (не HTTP-парсинг) |
+
+Drom, отзывы учеников и 2ГИС в рекламе использовались только для сверки витринных цен — в пайплайн парсера они не входят.
+
+---
+
+
+## Цены в API: витрина и оговорка
 
 На сайте цена подаётся как «специальная цена от N рублей». Мы сверили её с независимыми источниками, и расхождение оказалось не косметическим.
 
 По Екатеринбургу: сайт обещает от 24 950 ₽, каталог Drom указывает диапазон 38 000 — 47 000 ₽, а ученики в отзывах называют суммы 35 000, 45 000, 48 000, 56 900. Менеджер в записанном разговоре называет 35 900. Медиана реально уплаченного — около 47 тысяч, то есть почти вдвое выше витрины. В рекламном блоке 2ГИС по тому же городу висит третье число — 19 450 ₽.
 
-Если бот назовёт цифру с сайта, клиент приедет в офис и услышит вдвое больше. Поэтому цена не отдаётся ни в каком виде: полей с ценой нет в схемах, а тест проверяет, что ни один ответ не содержит слова «цена» и символа `₽`.
+Бот всё же должен уметь назвать витринное число вслух — но только с оговоркой. API отдаёт его в поле `price` ответа `/api/cities/{slug}`:
 
-Когда заказчик даст настоящий прайс, он вливается в те же файлы, а схемы дополняются отдельно.
+- `amount` — сумма «от» с сайта (или `null`, если в данных города цены нет);
+- `is_from` — всегда `true` для витринной формулировки;
+- `reliable: false` — прайс не подтверждён заказчиком;
+- `note` — текст, который бот обязан произнести вместе с суммой («Это цена «от» с сайта, точную стоимость уточнит менеджер»). Если суммы нет, `note` другой: «Стоимость назовёт менеджер».
+
+Тест ловит ситуацию, когда в ответе есть сумма без `note`: такого ответа быть не должно.
+
+Когда заказчик даст настоящий прайс, `reliable` станет `true`, оговорка уйдёт, а число в `amount` заменится на подтверждённое.
 
 ---
 
@@ -263,7 +346,7 @@ data/out/<slug>.json    полный справочник со всеми пол
 data/index.json         сводный индекс городов и филиалов
 ```
 
-В репозитории лежит только урезанный справочник в `app/services/directory_service/data` — то, что сервис отдаёт наружу. Из него выброшены тарифы, акции, повышение цен, расхождения и служебные пометки.
+В репозитории лежит только урезанный справочник в `app/services/directory_service/data` — то, что сервис отдаёт наружу. В нём остаются тарифы (витринная цена для API). Выброшены акции, повышение цен, расхождения и служебные пометки.
 
 ---
 

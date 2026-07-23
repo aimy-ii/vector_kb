@@ -430,5 +430,9 @@
     "inn": "7806275518",
     "ogrn": "1177847252230",
     "license": "https://disk.yandex.ru/i/62Af0199Wyq24Q"
+  },
+  "tariffs": {
+    "_source": "https://avtoschool-vektor.ru/sankt-peterburg",
+    "items": []
   }
 }

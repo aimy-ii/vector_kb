@@ -250,5 +250,10 @@
     "inn": "7430040304",
     "ogrn": "1237400015709",
     "license": "https://disk.yandex.ru/i/5CutLwii2Ek35Q"
+  },
+  "tariffs": {
+    "_source": "https://avtoschool-vektor.ru/yaroslavl",
+    "items": [],
+    "prices_found": []
   }
 }

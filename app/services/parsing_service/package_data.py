@@ -3,6 +3,10 @@
 Читает полные файлы из каталога собранных JSON, оставляет только поля,
 нужные агенту, и пишет результат в каталог данных справочника.
 Пути передаются параметрами (по умолчанию — из настроек).
+
+По умолчанию существующие файлы целевого каталога не удаляются: пишутся
+и перезаписываются только города из исходного каталога. Опциональный
+`prune` убирает файлы, которых уже нет ни в исходнике, ни в списке городов.
 """
 
 from __future__ import annotations
@@ -12,6 +16,7 @@ from pathlib import Path
 from typing import Any
 
 from app.core.config import settings
+from app.services.parsing_service.cities import CITIES
 
 KEEP_KEYS = (
     "meta",
@@ -62,12 +67,18 @@ def run(
     *,
     src_dir: Path | None = None,
     dst_dir: Path | None = None,
+    prune: bool = False,
 ) -> int:
     """Собирает урезанные файлы и печатает статистику объёма.
+
+    Не удаляет файлы целевого каталога по умолчанию: записывает только
+    города из исходного каталога. При `prune=True` удаляет файлы, слага
+    которых нет ни в исходном каталоге, ни в списке городов сети.
 
     Args:
         src_dir: каталог полных JSON городов.
         dst_dir: каталог урезанных данных справочника.
+        prune: удалять из целевого каталога исчезнувшие города.
 
     Returns:
         Код возврата: 0 — успех, 1 — нет исходных файлов.
@@ -80,8 +91,14 @@ def run(
         return 1
 
     dst.mkdir(parents=True, exist_ok=True)
-    for stale in dst.glob("*.json"):
-        stale.unlink()
+
+    if prune:
+        keep_slugs = {path.stem for path in files} | {city.slug for city in CITIES}
+        for stale in dst.glob("*.json"):
+            if stale.stem.startswith("_"):
+                continue
+            if stale.stem not in keep_slugs:
+                stale.unlink()
 
     before = 0
     after = 0
@@ -97,7 +114,7 @@ def run(
 
     saved = before - after
     percent = (100.0 * saved / before) if before else 0.0
-    print(f"Файлов: {len(files)}")
+    print(f"Файлов записано: {len(files)}")
     print(f"Было: {before} байт → стало: {after} байт (−{saved} байт, −{percent:.1f}%)")
     print(f"Каталог: {dst}")
     return 0

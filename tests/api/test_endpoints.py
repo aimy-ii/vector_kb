@@ -122,6 +122,73 @@ def test_parse_conflict_when_active(client: TestClient) -> None:
     assert detail["job_id"] == "busyjob"
 
 
+def test_parse_accepts_include_done(client: TestClient) -> None:
+    """POST /api/parse принимает include_done и передаёт его в задачу."""
+    accepted = ParseJob(job_id="jobinclude", status=JobStatus.PENDING, include_done=True)
+    with patch.object(jobs_service, "start_job", return_value=accepted) as start_job:
+        response = client.post("/api/parse", json={"include_done": True})
+    assert response.status_code == 202, response.text
+    start_job.assert_called_once()
+    assert start_job.call_args.kwargs["include_done"] is True
+    assert response.json()["job_id"] == "jobinclude"
+
+
+def test_parse_only_does_not_shrink_cities(client: TestClient, tmp_path, monkeypatch) -> None:
+    """POST /api/parse с only не уменьшает число городов в /api/health."""
+    import shutil
+    import time
+    from pathlib import Path
+
+    from app.core.config import settings
+    from app.services.directory_service import directory_store
+
+    data_src = Path("app/services/directory_service/data")
+    directory_dir = tmp_path / "directory"
+    shutil.copytree(data_src, directory_dir)
+    raw_dir = tmp_path / "raw"
+    out_dir = tmp_path / "out"
+    index_path = tmp_path / "index.json"
+
+    monkeypatch.setattr(settings, "directory_data_dir", directory_dir)
+    monkeypatch.setattr(settings, "raw_dir", raw_dir)
+    monkeypatch.setattr(settings, "out_dir", out_dir)
+    monkeypatch.setattr(settings, "index_path", index_path)
+    monkeypatch.setattr(settings, "parse_pause", 0.0)
+
+    directory_store.load(data_dir=directory_dir)
+    before = client.get("/api/health").json()["cities_count"]
+    assert before > 1
+
+    fixture_text = Path("tests/fixtures/city_sample.txt").read_text(encoding="utf-8")
+    html = (
+        "<html><body>"
+        + "".join(f"<p>{line}</p>" for line in fixture_text.splitlines())
+        + "</body></html>"
+    )
+
+    def fake_fetch(url: str, **kwargs) -> str:
+        return html
+
+    monkeypatch.setattr("app.services.parsing_service.fetch.fetch", fake_fetch)
+
+    response = client.post("/api/parse", json={"only": ["tara"]})
+    assert response.status_code == 202, response.text
+    job_id = response.json()["job_id"]
+
+    status: dict = {}
+    for _ in range(200):
+        status = client.get(f"/api/parse/{job_id}").json()
+        if status["status"] in (JobStatus.DONE, JobStatus.FAILED):
+            break
+        time.sleep(0.05)
+
+    assert status.get("status") == JobStatus.DONE, status
+    after = client.get("/api/health").json()["cities_count"]
+    assert after == before
+
+    directory_store.load()
+
+
 def test_reload_returns_cities_count(client: TestClient) -> None:
     """POST /api/reload возвращает число загруженных городов."""
     response = client.post("/api/reload")

@@ -36,6 +36,7 @@ class ParseJob:
     only: list[str] | None = None
     force: bool = False
     include_external: bool = False
+    include_done: bool = False
 
 
 _jobs: dict[str, ParseJob] = {}
@@ -58,6 +59,7 @@ def start_job(
     only: list[str] | None = None,
     force: bool = False,
     include_external: bool = False,
+    include_done: bool = False,
 ) -> ParseJob:
     """
     Создаёт задачу и запускает пайплайн в отдельном потоке.
@@ -78,6 +80,7 @@ def start_job(
             only=only,
             force=force,
             include_external=include_external,
+            include_done=include_done,
         )
         _jobs[job.job_id] = job
         _active_job_id = job.job_id
@@ -101,6 +104,7 @@ def _run_job(job_id: str) -> None:
             only=job.only,
             force=job.force,
             include_external=job.include_external,
+            include_done=job.include_done,
             on_step=lambda step: setattr(job, "step", step),
             on_city_done=lambda count: setattr(job, "cities_processed", count),
         )

@@ -5,7 +5,7 @@ from __future__ import annotations
 from fastapi import APIRouter
 
 from app.schemas.common import HealthResponse, ReloadResponse
-from app.services import directory_api
+from app.services.directory_service import api as directory_api
 
 health_router = APIRouter()
 

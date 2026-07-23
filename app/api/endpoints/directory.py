@@ -11,7 +11,7 @@ from app.schemas.directory import (
     CityResolve,
     CityShort,
 )
-from app.services import directory_api
+from app.services.directory_service import api as directory_api
 
 directory_router = APIRouter()
 

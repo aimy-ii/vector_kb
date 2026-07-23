@@ -17,6 +17,14 @@ class ParseRequest(BaseModel):
     )
     force: bool = Field(default=False, title="Игнорировать кэш страниц")
     include_external: bool = Field(default=False, title="Включая города на чужих доменах")
+    include_done: bool = Field(
+        default=False,
+        title="Пересобирать города, собранные вручную",
+        description=(
+            "По умолчанию выключено: Санкт-Петербург, Екатеринбург и Пермь "
+            "выверены вручную, пересборка с сайта перезапишет эти данные"
+        ),
+    )
 
     model_config = ConfigDict(
         json_schema_extra={
@@ -24,6 +32,7 @@ class ParseRequest(BaseModel):
                 "only": ["omsk", "krasnoyarsk"],
                 "force": False,
                 "include_external": False,
+                "include_done": False,
             }
         }
     )

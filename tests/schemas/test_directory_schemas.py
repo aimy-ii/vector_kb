@@ -5,7 +5,7 @@ from __future__ import annotations
 import json
 
 from app.schemas.directory import BranchDetail, CityDetail
-from app.services import directory_api
+from app.services.directory_service import api as directory_api
 from app.services.directory_service import city_enum
 
 

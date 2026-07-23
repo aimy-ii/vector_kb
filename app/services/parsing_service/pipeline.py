@@ -20,11 +20,19 @@ from app.services.parsing_service import (
 logger = logging.getLogger(__name__)
 
 
+def _count_city_files(directory: Path) -> int:
+    """Считает JSON городов в каталоге (без служебных `_*.json`)."""
+    if not directory.is_dir():
+        return 0
+    return sum(1 for path in directory.glob("*.json") if not path.stem.startswith("_"))
+
+
 def run(
     *,
     only: list[str] | None = None,
     force: bool = False,
     include_external: bool = False,
+    include_done: bool = False,
     raw_dir: Path | None = None,
     out_dir: Path | None = None,
     directory_data_dir: Path | None = None,
@@ -39,10 +47,15 @@ def run(
     При успехе сбрасывает кэш справочника в памяти. При ошибке на любом шаге
     поднимает исключение, данные в памяти остаются прежними.
 
+    Города с флагом `done` по умолчанию не трогаются: они собраны вручную.
+    После сборки пакета число файлов в каталоге справочника не должно
+    уменьшиться — иначе задача падает с ошибкой.
+
     Args:
         only: слаги городов для ограниченного обхода.
         force: игнорировать кэш сырых страниц.
         include_external: включать города на чужих доменах.
+        include_done: пересобирать города, собранные вручную.
         raw_dir: каталог сырых страниц.
         out_dir: каталог собранных JSON.
         directory_data_dir: каталог урезанных данных справочника.
@@ -69,7 +82,7 @@ def run(
         only=only,
         force=force,
         include_external=include_external,
-        include_done=True,
+        include_done=include_done,
         raw_dir=raw,
         out_dir=out,
         on_city_done=on_city_done,
@@ -89,9 +102,15 @@ def run(
     if index.run(out_dir=out, index_path=index_file) != 0:
         raise RuntimeError("Сборка индекса завершилась с ошибкой")
 
+    cities_before = _count_city_files(directory_dir)
     _step("package_data")
     if package_data.run(src_dir=out, dst_dir=directory_dir) != 0:
         raise RuntimeError("Сборка данных справочника завершилась с ошибкой")
+    cities_after = _count_city_files(directory_dir)
+    if cities_after < cities_before:
+        message = f"После сборки городов стало меньше: было {cities_before}, стало {cities_after}"
+        logger.error("%s %s", PARSE_LOG_PREFIX, message)
+        raise RuntimeError(message)
 
     _step("reload")
     directory_store.reload(data_dir=directory_dir)

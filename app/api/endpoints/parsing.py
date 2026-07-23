@@ -24,6 +24,7 @@ async def post_parse(body: ParseRequest | None = None) -> ParseJobAccepted:
             only=request.only,
             force=request.force,
             include_external=request.include_external,
+            include_done=request.include_done,
         )
     except jobs_service.JobConflictError as exc:
         raise HTTPException(

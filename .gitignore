@@ -25,3 +25,5 @@ build/
 .vscode/
 *.swp
 .DS_Store
+
+vector_kb_client.py

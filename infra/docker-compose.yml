@@ -8,7 +8,9 @@ services:
     env_file:
       - ./.env
     ports:
-      - "127.0.0.1:8317:8317"
+      # 0.0.0.0, не 127.0.0.1: агент в другом compose ходит через
+      # host.docker.internal (host-gateway), а loopback с хоста ему не виден.
+      - "8317:8317"
     volumes:
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro

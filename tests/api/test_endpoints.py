@@ -84,6 +84,7 @@ def test_resolve_moscow_null(client: TestClient) -> None:
 def test_city_detail_price_always_has_note(client: TestClient) -> None:
     """Ответ /api/cities/{slug} содержит цену и оговорку одновременно."""
     from app.constants.directory import PRICE_DISCLAIMER, PRICE_UNKNOWN
+    from app.services.directory_service.store import directory_store
 
     for slug in city_enum():
         response = client.get(f"/api/cities/{slug}")
@@ -98,7 +99,12 @@ def test_city_detail_price_always_has_note(client: TestClient) -> None:
             assert price["note"] == PRICE_UNKNOWN
         else:
             assert isinstance(price["amount"], int)
-            assert price["is_from"] is True
+            raw_items = directory_store.cities[slug].get("tariffs", {}).get("items", [])
+            first = next(i for i in raw_items if isinstance(i, dict) and i.get("price") is not None)
+            expected_is_from = (
+                True if first.get("price_is_from") is None else bool(first["price_is_from"])
+            )
+            assert price["is_from"] is expected_is_from
             assert price["note"] == PRICE_DISCLAIMER
 
 

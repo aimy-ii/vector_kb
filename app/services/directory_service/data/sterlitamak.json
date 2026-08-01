@@ -220,10 +220,11 @@
   },
   "installment": {
     "_source": "https://avtoschool-vektor.ru/sterlitamak",
-    "term_months": null,
+    "term_months": 6,
     "no_overpay": true,
-    "down_payment": null,
-    "methods": []
+    "down_payment": 5000,
+    "methods": [],
+    "_demo": true
   },
   "contacts": {
     "_source": "https://avtoschool-vektor.ru/sterlitamak",

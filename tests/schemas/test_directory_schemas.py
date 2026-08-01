@@ -30,34 +30,35 @@ def test_branch_detail_place_type_and_status() -> None:
 
 
 def test_api_city_detail_price_with_disclaimer() -> None:
-    """У города с ценой — сумма, is_from и оговорка PRICE_DISCLAIMER."""
+    """У города с ценой — сумма, is_from из тарифа и оговорка PRICE_DISCLAIMER."""
+    from app.services.directory_service.store import directory_store
+
     priced: list = []
     for slug in city_enum():
         detail = directory_api.city_detail(slug)
         assert detail is not None
         if detail.price.amount is not None:
-            priced.append(detail)
+            priced.append((slug, detail))
     assert priced
-    for detail in priced:
+    for slug, detail in priced:
         assert isinstance(detail.price.amount, int)
-        assert detail.price.is_from is True
+        raw_items = directory_store.cities[slug].get("tariffs", {}).get("items", [])
+        first = next(i for i in raw_items if isinstance(i, dict) and i.get("price") is not None)
+        expected_is_from = (
+            True if first.get("price_is_from") is None else bool(first["price_is_from"])
+        )
+        assert detail.price.is_from is expected_is_from
         assert detail.price.reliable is False
         assert detail.price.note == PRICE_DISCLAIMER
 
 
 def test_api_city_detail_price_unknown() -> None:
-    """У города без цены amount=None и note=PRICE_UNKNOWN."""
-    unknown: list = []
-    for slug in city_enum():
-        detail = directory_api.city_detail(slug)
-        assert detail is not None
-        if detail.price.amount is None:
-            unknown.append(detail)
-    assert unknown
-    for detail in unknown:
-        assert detail.price.amount is None
-        assert detail.price.note == PRICE_UNKNOWN
-        assert detail.price.reliable is False
+    """Пустой раздел тарифов даёт amount=None и note=PRICE_UNKNOWN."""
+    for empty in (None, {}, {"items": []}, {"items": [{"name": "без цены", "price": None}]}):
+        info = directory_api.build_price_info(empty)
+        assert info.amount is None
+        assert info.note == PRICE_UNKNOWN
+        assert info.reliable is False
 
 
 def test_all_cities_price_not_reliable() -> None:

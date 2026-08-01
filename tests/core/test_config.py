@@ -35,4 +35,5 @@ def test_obsolete_root_files_absent() -> None:
     assert not (ROOT / "conftest.py").exists()
     assert not (ROOT / "src" / "vektor_scraper").exists()
     assert not (ROOT / "vektor_directory").exists()
-    assert not (ROOT / "scripts").exists()
+    assert not (ROOT / "fill_demo_data.py").exists()
+    assert (ROOT / "scripts" / "fill_demo_data.py").is_file()

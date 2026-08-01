@@ -90,15 +90,16 @@
         "id": "cat_b",
         "code": "B",
         "name": "Категория В",
-        "price": null,
-        "price_note": "цена в карточке не указана, кнопка «Узнать цену»",
+        "price": 39900,
+        "price_note": "полный курс категории B",
         "duration": "4 месяца обучения",
         "start_frequency": "Старт каждые 15 дней",
         "seats_left": null,
         "includes": [
           "АКПП | МКПП (одинаковая стоимость)"
         ],
-        "_source": "https://avtoschool-vektor.ru/kazan"
+        "_source": "https://avtoschool-vektor.ru/kazan",
+        "_demo": true
       },
       {
         "id": "cat_a",
@@ -151,10 +152,11 @@
   },
   "installment": {
     "_source": "https://avtoschool-vektor.ru/kazan",
-    "term_months": null,
+    "term_months": 6,
     "no_overpay": false,
-    "down_payment": null,
-    "methods": []
+    "down_payment": 5000,
+    "methods": [],
+    "_demo": true
   },
   "contacts": {
     "_source": "https://avtoschool-vektor.ru/kazan",

@@ -150,8 +150,9 @@
         "id": "cat_b",
         "code": "B",
         "name": "Категория В",
-        "price": null,
-        "price_note": "кнопка «Узнать цену»"
+        "price": 39900,
+        "price_note": "полный курс категории B",
+        "_demo": true
       },
       {
         "id": "cat_a",
@@ -408,13 +409,14 @@
   },
   "installment": {
     "_source": "https://avtoschool-vektor.ru/sankt-peterburg",
-    "term_months": null,
+    "term_months": 6,
     "no_overpay": true,
-    "down_payment": null,
+    "down_payment": 5000,
     "methods": [
       "наличными",
       "по карте"
-    ]
+    ],
+    "_demo": true
   },
   "contacts": {
     "_source": "https://avtoschool-vektor.ru/sankt-peterburg",
@@ -433,6 +435,33 @@
   },
   "tariffs": {
     "_source": "https://avtoschool-vektor.ru/sankt-peterburg",
-    "items": []
+    "items": [
+      {
+        "id": "tariff_base",
+        "name": "Базовый",
+        "price": 39900,
+        "price_is_from": false,
+        "includes": [
+          "полный курс теории",
+          "23 часа практики с инструктором",
+          "топливо и аренда автомобиля",
+          "внутренний экзамен"
+        ],
+        "_demo": true
+      },
+      {
+        "id": "tariff_extended",
+        "name": "Расширенный",
+        "price": 45900,
+        "price_is_from": false,
+        "includes": [
+          "полный курс теории",
+          "40 часов практики с инструктором",
+          "топливо и аренда автомобиля",
+          "внутренний экзамен"
+        ],
+        "_demo": true
+      }
+    ]
   }
 }

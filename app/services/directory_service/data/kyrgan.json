@@ -54,8 +54,8 @@
         "id": "cat_b",
         "code": "B",
         "name": "Категория В",
-        "price": null,
-        "price_note": "цена в карточке не указана, кнопка «Узнать цену»",
+        "price": 39900,
+        "price_note": "полный курс категории B",
         "duration": "2,5 месяца обучения",
         "start_frequency": "Старт каждые 15 дней",
         "seats_left": null,
@@ -63,7 +63,8 @@
           "АКПП | МКПП (одинаковая стоимость)",
           "Теория очно | дистанционно"
         ],
-        "_source": "https://avtoschool-vektor.ru/kyrgan"
+        "_source": "https://avtoschool-vektor.ru/kyrgan",
+        "_demo": true
       },
       {
         "id": "cat_a",
@@ -234,10 +235,11 @@
   },
   "installment": {
     "_source": "https://avtoschool-vektor.ru/kyrgan",
-    "term_months": null,
+    "term_months": 6,
     "no_overpay": true,
-    "down_payment": null,
-    "methods": []
+    "down_payment": 5000,
+    "methods": [],
+    "_demo": true
   },
   "contacts": {
     "_source": "https://avtoschool-vektor.ru/kyrgan",

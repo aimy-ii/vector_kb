@@ -66,8 +66,8 @@
         "id": "cat_b",
         "code": "B",
         "name": "Категория В",
-        "price": null,
-        "price_note": "цена в карточке не указана, кнопка «Узнать цену»",
+        "price": 39900,
+        "price_note": "полный курс категории B",
         "duration": "2,5 месяца обучения",
         "start_frequency": "Старт каждые 15 дней",
         "seats_left": null,
@@ -75,7 +75,8 @@
           "АКПП | МКПП (одинаковая стоимость)",
           "Теория очно | дистанционно"
         ],
-        "_source": "https://avtoschool-vektor.ru/yaroslavl"
+        "_source": "https://avtoschool-vektor.ru/yaroslavl",
+        "_demo": true
       }
     ]
   },
@@ -231,10 +232,11 @@
   },
   "installment": {
     "_source": "https://avtoschool-vektor.ru/yaroslavl",
-    "term_months": null,
+    "term_months": 6,
     "no_overpay": true,
-    "down_payment": null,
-    "methods": []
+    "down_payment": 5000,
+    "methods": [],
+    "_demo": true
   },
   "contacts": {
     "_source": "https://avtoschool-vektor.ru/yaroslavl",
@@ -253,7 +255,34 @@
   },
   "tariffs": {
     "_source": "https://avtoschool-vektor.ru/yaroslavl",
-    "items": [],
+    "items": [
+      {
+        "id": "tariff_base",
+        "name": "Базовый",
+        "price": 39900,
+        "price_is_from": false,
+        "includes": [
+          "полный курс теории",
+          "23 часа практики с инструктором",
+          "топливо и аренда автомобиля",
+          "внутренний экзамен"
+        ],
+        "_demo": true
+      },
+      {
+        "id": "tariff_extended",
+        "name": "Расширенный",
+        "price": 45900,
+        "price_is_from": false,
+        "includes": [
+          "полный курс теории",
+          "40 часов практики с инструктором",
+          "топливо и аренда автомобиля",
+          "внутренний экзамен"
+        ],
+        "_demo": true
+      }
+    ],
     "prices_found": []
   }
 }

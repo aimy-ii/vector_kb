@@ -20,8 +20,8 @@
         "landmark": "ЖК Мечта",
         "place_type": "Федеральная академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 60.050237,
+        "lon": 30.445243
       },
       {
         "id": "sankt-peterburg_vsevolozhsk_vsevolozhskiy",
@@ -34,8 +34,8 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 60.014706,
+        "lon": 30.649772
       },
       {
         "id": "sankt-peterburg_leninskiy",

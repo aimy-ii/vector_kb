@@ -29,7 +29,7 @@ from pathlib import Path
 from typing import Any
 
 from app.core.config import settings
-from app.services.directory_service.address import has_own_city, normalize_for_geocoder
+from app.services.directory_service.address import extract_own_city, normalize_for_geocoder
 from app.services.directory_service.geocoders.dadata import (
     DadataCleanerGeocoder,
     DadataSuggestionsGeocoder,
@@ -195,7 +195,14 @@ def process_city(
         processed += 1
         address = branch.get("address") or ""
         cleaned = normalize_for_geocoder(address, strip_building=strip_building)
-        query_city = None if has_own_city(cleaned, city_title) else city_title
+        own_city = extract_own_city(cleaned)
+        # Чужой населённый пункт — без ограничения по городу файла;
+        # совпадение с городом файла ограничение сохраняет.
+        query_city = (
+            None
+            if own_city is not None and own_city.casefold() != city_title.casefold()
+            else city_title
+        )
         query = client.build_query(cleaned, query_city)
         point = geocode(query, city=query_city)
         if point is None:

@@ -19,7 +19,9 @@
         "note": null,
         "landmark": "БЦ На Гагарина",
         "place_type": "Офис продаж",
-        "metro": null
+        "metro": null,
+        "lat": null,
+        "lon": null
       },
       {
         "id": "omsk_zavertyaeva",
@@ -31,7 +33,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": null,
+        "lon": null
       },
       {
         "id": "omsk_petra_nekrasova",
@@ -43,7 +47,9 @@
         "note": null,
         "landmark": null,
         "place_type": "Автодром",
-        "metro": null
+        "metro": null,
+        "lat": null,
+        "lon": null
       },
       {
         "id": "omsk_okruzhnaya_doroga",
@@ -55,7 +61,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": null,
+        "lon": null
       },
       {
         "id": "omsk_kirova",
@@ -67,7 +75,9 @@
         "note": null,
         "landmark": null,
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": null,
+        "lon": null
       },
       {
         "id": "omsk_nizhnyaya_omka",
@@ -79,7 +89,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": null,
+        "lon": null
       },
       {
         "id": "omsk_okoneshnikovo_kalinina",
@@ -91,7 +103,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": null,
+        "lon": null
       },
       {
         "id": "omsk_kalachinsk_kalachinskaya",
@@ -103,7 +117,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": null,
+        "lon": null
       },
       {
         "id": "omsk_kormilovka_kirova",
@@ -115,7 +131,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": null,
+        "lon": null
       },
       {
         "id": "omsk_poselok_rostovka",
@@ -127,7 +145,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": null,
+        "lon": null
       },
       {
         "id": "omsk_dianova",
@@ -139,7 +159,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": null,
+        "lon": null
       },
       {
         "id": "omsk_kosmicheskiy",
@@ -151,7 +173,9 @@
         "note": null,
         "landmark": null,
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": null,
+        "lon": null
       },
       {
         "id": "omsk_zaozernaya_kinozal",
@@ -163,7 +187,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": null,
+        "lon": null
       },
       {
         "id": "omsk_komarova",
@@ -175,7 +201,9 @@
         "note": null,
         "landmark": null,
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": null,
+        "lon": null
       },
       {
         "id": "omsk_aviatsionnaya",
@@ -187,7 +215,9 @@
         "note": null,
         "landmark": null,
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": null,
+        "lon": null
       },
       {
         "id": "omsk_kirova_kabinet",
@@ -199,7 +229,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": null,
+        "lon": null
       },
       {
         "id": "omsk_cheredovaya_sahalin",
@@ -211,7 +243,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": null,
+        "lon": null
       },
       {
         "id": "omsk_karla_marksa",
@@ -223,7 +257,9 @@
         "note": null,
         "landmark": null,
         "place_type": "Офис продаж, учебные классы",
-        "metro": null
+        "metro": null,
+        "lat": null,
+        "lon": null
       },
       {
         "id": "omsk_metromoll_let",
@@ -235,7 +271,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": null,
+        "lon": null
       },
       {
         "id": "omsk_mira",
@@ -247,7 +285,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": null,
+        "lon": null
       },
       {
         "id": "omsk_severnaya",
@@ -259,7 +299,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": null,
+        "lon": null
       },
       {
         "id": "omsk_let_oktyabrya",
@@ -271,7 +313,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": null,
+        "lon": null
       },
       {
         "id": "omsk_krasnyy_put",
@@ -283,7 +327,9 @@
         "note": null,
         "landmark": null,
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": null,
+        "lon": null
       },
       {
         "id": "omsk_gasheka",
@@ -295,7 +341,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": null,
+        "lon": null
       },
       {
         "id": "omsk_karla_marksa_10",
@@ -307,7 +355,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": null,
+        "lon": null
       }
     ]
   },

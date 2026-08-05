@@ -19,7 +19,9 @@
         "note": null,
         "landmark": "ТЦ Горки",
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": null,
+        "lon": null
       },
       {
         "id": "ryazan_selo_polyany",
@@ -31,7 +33,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": null,
+        "lon": null
       },
       {
         "id": "ryazan_narodnyy",
@@ -43,7 +47,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": null,
+        "lon": null
       },
       {
         "id": "ryazan_novoselov_cherezovo",
@@ -55,7 +61,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": null,
+        "lon": null
       },
       {
         "id": "ryazan_sobornaya",
@@ -67,7 +75,9 @@
         "note": null,
         "landmark": "ТРЦ Малина",
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": null,
+        "lon": null
       },
       {
         "id": "ryazan_shosseynyy",
@@ -79,7 +89,9 @@
         "note": null,
         "landmark": null,
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": null,
+        "lon": null
       },
       {
         "id": "ryazan_gagarina",
@@ -91,7 +103,9 @@
         "note": null,
         "landmark": null,
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": null,
+        "lon": null
       },
       {
         "id": "ryazan_biryuzova",
@@ -103,7 +117,9 @@
         "note": null,
         "landmark": null,
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": null,
+        "lon": null
       }
     ]
   },

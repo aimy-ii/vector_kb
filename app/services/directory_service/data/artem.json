@@ -19,7 +19,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": null,
+        "lon": null
       },
       {
         "id": "artem_krasnogo_znamenii",
@@ -31,7 +33,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": null,
+        "lon": null
       },
       {
         "id": "artem_russkaya",
@@ -43,7 +47,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": null,
+        "lon": null
       },
       {
         "id": "artem_admirala_gorshkova",
@@ -55,7 +61,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": null,
+        "lon": null
       },
       {
         "id": "artem_lenina",
@@ -67,7 +75,9 @@
         "note": null,
         "landmark": null,
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": null,
+        "lon": null
       }
     ]
   },

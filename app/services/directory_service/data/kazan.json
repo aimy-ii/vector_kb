@@ -19,7 +19,9 @@
         "note": null,
         "landmark": null,
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": null,
+        "lon": null
       },
       {
         "id": "kazan_daurskaya",
@@ -31,7 +33,9 @@
         "note": null,
         "landmark": null,
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": null,
+        "lon": null
       },
       {
         "id": "kazan_sibirskiy",
@@ -43,7 +47,9 @@
         "note": null,
         "landmark": null,
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": null,
+        "lon": null
       },
       {
         "id": "kazan_vishnevskogo",
@@ -55,7 +61,9 @@
         "note": null,
         "landmark": null,
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": null,
+        "lon": null
       },
       {
         "id": "kazan_aleksandra_kurynova",
@@ -67,7 +75,9 @@
         "note": null,
         "landmark": null,
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": null,
+        "lon": null
       },
       {
         "id": "kazan_chistopolskaya",
@@ -79,7 +89,9 @@
         "note": null,
         "landmark": "ЖК Миллениум Сити",
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": null,
+        "lon": null
       }
     ]
   },

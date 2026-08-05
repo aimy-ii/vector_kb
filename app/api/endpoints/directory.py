@@ -4,12 +4,15 @@ from __future__ import annotations
 
 from fastapi import APIRouter, HTTPException, Query
 
+from app.core.config import settings
 from app.schemas.directory import (
     BranchDetail,
+    BranchNearby,
     BranchShort,
     CityDetail,
     CityResolve,
     CityShort,
+    GeocodeResult,
 )
 from app.services.directory_service import api as directory_api
 
@@ -85,6 +88,41 @@ async def get_city_branches_enum(city_slug: str) -> list[str]:
     if slugs is None:
         raise HTTPException(status_code=404, detail=f"Город «{city_slug}» не найден")
     return slugs
+
+
+@directory_router.get(
+    path="/branches/nearest",
+    summary="Ближайшие филиалы к точке",
+    response_model=list[BranchNearby],
+)
+async def get_nearest_branches(
+    lat: float = Query(..., ge=-90, le=90, title="Широта"),
+    lon: float = Query(..., ge=-180, le=180, title="Долгота"),
+    limit: int | None = Query(default=None, ge=1, le=10, title="Сколько вернуть"),
+    radius_km: float | None = Query(default=None, gt=0, le=500, title="Радиус, км"),
+    city_slug: str | None = Query(default=None, title="Слаг города, если известен"),
+) -> list[BranchNearby]:
+    """Отдаёт ближайшие филиалы; пустой список — в радиусе никого нет."""
+    return directory_api.nearest_branches_short(
+        lat=lat,
+        lon=lon,
+        limit=limit if limit is not None else settings.nearest_limit,
+        radius_km=radius_km if radius_km is not None else settings.nearest_radius_km,
+        city_slug=city_slug,
+    )
+
+
+@directory_router.get(
+    path="/geocode",
+    summary="Перевод произнесённого места в координаты",
+    response_model=GeocodeResult,
+)
+async def get_geocode(
+    text: str = Query(..., min_length=2, title="Место словами"),
+    city_slug: str | None = Query(default=None, title="Слаг города, если известен"),
+) -> GeocodeResult:
+    """Переводит фразу вида «Купчино» в координаты с учётом города."""
+    return await directory_api.geocode_text(text, city_slug=city_slug)
 
 
 @directory_router.get(

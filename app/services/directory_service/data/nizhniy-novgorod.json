@@ -19,7 +19,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": null,
+        "lon": null
       },
       {
         "id": "nizhniy-novgorod_maksima_gorkogo",
@@ -31,7 +33,9 @@
         "note": null,
         "landmark": "БЦ Богемия Палас",
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": null,
+        "lon": null
       },
       {
         "id": "nizhniy-novgorod_krasnodontsev",
@@ -43,7 +47,9 @@
         "note": null,
         "landmark": null,
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": null,
+        "lon": null
       },
       {
         "id": "nizhniy-novgorod_belinskogo_srednoy",
@@ -55,7 +61,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": null,
+        "lon": null
       },
       {
         "id": "nizhniy-novgorod_karla_marksa",
@@ -67,7 +75,9 @@
         "note": null,
         "landmark": null,
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": null,
+        "lon": null
       },
       {
         "id": "nizhniy-novgorod_lenina",
@@ -79,7 +89,9 @@
         "note": null,
         "landmark": null,
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": null,
+        "lon": null
       },
       {
         "id": "nizhniy-novgorod_sovetskaya",
@@ -91,7 +103,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": null,
+        "lon": null
       },
       {
         "id": "nizhniy-novgorod_kominterna",
@@ -103,7 +117,9 @@
         "note": null,
         "landmark": "Золотая миля",
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": null,
+        "lon": null
       },
       {
         "id": "nizhniy-novgorod_kazanskoe",
@@ -115,7 +131,9 @@
         "note": null,
         "landmark": "Индиго Life",
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": null,
+        "lon": null
       },
       {
         "id": "nizhniy-novgorod_rodionova_ganza",
@@ -127,7 +145,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": null,
+        "lon": null
       }
     ]
   },

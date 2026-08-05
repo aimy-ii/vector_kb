@@ -19,7 +19,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": null,
+        "lon": null
       },
       {
         "id": "ivanovo_sheremetevskiy_kab",
@@ -31,7 +33,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": null,
+        "lon": null
       },
       {
         "id": "ivanovo_nikolskiy_lenina",
@@ -43,7 +47,9 @@
         "note": null,
         "landmark": "Никольский",
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": null,
+        "lon": null
       },
       {
         "id": "ivanovo_kohomskoe",
@@ -55,7 +61,9 @@
         "note": null,
         "landmark": "Рио",
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": null,
+        "lon": null
       }
     ]
   },

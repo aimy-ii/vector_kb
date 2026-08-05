@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import asyncio
 from unittest.mock import patch
 
 from app.constants.parsing import JobStatus
@@ -206,3 +207,126 @@ def test_city_and_branch_slugs_do_not_collide(client: TestClient) -> None:
     for slug in cities:
         branches.update(client.get(f"/api/cities/{slug}/branches/enum").json())
     assert cities.isdisjoint(branches)
+
+
+def test_nearest_branches_ok(client: TestClient) -> None:
+    """GET /api/branches/nearest отдаёт 200 и distance_km по возрастанию."""
+    from app.services.directory_service.store import directory_store
+
+    directory_store.load()
+    city = next(iter(directory_store.cities.values()))
+    offices = [
+        b
+        for b in city["branches"]["items"]
+        if not b.get("is_autodrome") and "открыт" not in (b.get("hours") or "").lower()
+    ]
+    assert len(offices) >= 2
+    offices[0]["lat"], offices[0]["lon"] = 55.7500, 37.6200
+    offices[1]["lat"], offices[1]["lon"] = 55.7600, 37.6300
+
+    response = client.get(
+        "/api/branches/nearest",
+        params={"lat": 55.7500, "lon": 37.6200, "limit": 5, "radius_km": 50},
+    )
+    assert response.status_code == 200, response.text
+    data = response.json()
+    assert len(data) >= 2
+    distances = [item["distance_km"] for item in data]
+    assert distances == sorted(distances)
+    for item in data:
+        assert {"slug", "city", "address", "landmark", "distance_km"} <= set(item)
+
+
+def test_nearest_branches_invalid_coords(client: TestClient) -> None:
+    """Невалидные lat/lon дают 422."""
+    bad_lat = client.get("/api/branches/nearest", params={"lat": 91, "lon": 30})
+    assert bad_lat.status_code == 422
+    bad_lon = client.get("/api/branches/nearest", params={"lat": 55, "lon": 181})
+    assert bad_lon.status_code == 422
+
+
+def test_nearest_does_not_collide_with_branch_slug(client: TestClient) -> None:
+    """/branches/nearest не перехватывается маршрутом /branches/{branch_slug}."""
+    response = client.get("/api/branches/nearest", params={"lat": 0, "lon": 0})
+    assert response.status_code == 200, response.text
+    assert isinstance(response.json(), list)
+
+
+def test_geocode_found(client: TestClient, monkeypatch) -> None:
+    """GET /api/geocode с заглушкой геокодера возвращает found=true и координаты."""
+
+    class FakeGeocoder:
+        async def geocode(self, text: str) -> tuple[float, float] | None:
+            return 59.85, 30.35
+
+    monkeypatch.setattr(
+        "app.services.directory_service.api.geocoder",
+        FakeGeocoder(),
+    )
+    response = client.get("/api/geocode", params={"text": "Купчино"})
+    assert response.status_code == 200, response.text
+    data = response.json()
+    assert data["found"] is True
+    assert data["lat"] == 59.85
+    assert data["lon"] == 30.35
+    assert data["text"] == "Купчино"
+
+
+def test_geocode_not_found(client: TestClient, monkeypatch) -> None:
+    """Нераспознанное место даёт found=false и статус 200."""
+
+    class FakeGeocoder:
+        async def geocode(self, text: str) -> tuple[float, float] | None:
+            return None
+
+    monkeypatch.setattr(
+        "app.services.directory_service.api.geocoder",
+        FakeGeocoder(),
+    )
+    response = client.get("/api/geocode", params={"text": "нигде"})
+    assert response.status_code == 200, response.text
+    data = response.json()
+    assert data["found"] is False
+    assert data["lat"] is None
+    assert data["lon"] is None
+
+
+def test_geocode_text_appends_city(monkeypatch) -> None:
+    """geocode_text с city_slug передаёт в геокодер «место, Город»."""
+    captured: list[str] = []
+
+    class FakeGeocoder:
+        async def geocode(self, text: str) -> tuple[float, float] | None:
+            captured.append(text)
+            return 59.85, 30.35
+
+    monkeypatch.setattr(
+        "app.services.directory_service.api.geocoder",
+        FakeGeocoder(),
+    )
+    from app.services.directory_service import api as directory_api
+
+    result = asyncio.run(directory_api.geocode_text("Купчино", city_slug="sankt-peterburg"))
+    assert captured == ["Купчино, Санкт-Петербург"]
+    assert result.text == "Купчино"
+    assert result.found is True
+
+
+def test_geocode_text_without_city_or_unknown_slug(monkeypatch) -> None:
+    """Без city_slug и с несуществующим слагом текст уходит как есть."""
+    captured: list[str] = []
+
+    class FakeGeocoder:
+        async def geocode(self, text: str) -> tuple[float, float] | None:
+            captured.append(text)
+            return None
+
+    monkeypatch.setattr(
+        "app.services.directory_service.api.geocoder",
+        FakeGeocoder(),
+    )
+    from app.services.directory_service import api as directory_api
+
+    asyncio.run(directory_api.geocode_text("Купчино"))
+    asyncio.run(directory_api.geocode_text("Купчино", city_slug="нет-такого"))
+    assert captured == ["Купчино", "Купчино"]

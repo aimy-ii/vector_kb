@@ -34,8 +34,8 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 54.721607,
+        "lon": 39.835018
       },
       {
         "id": "ryazan_narodnyy",
@@ -62,8 +62,8 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 54.61031,
+        "lon": 39.804145
       },
       {
         "id": "ryazan_sobornaya",

@@ -125,7 +125,7 @@ def test_strips_shopping_center_at_end() -> None:
 
 def test_strips_shopping_center_at_start() -> None:
     """ТЦ в начале до первой запятой срезается, улица с домом остаётся."""
-    assert normalize_for_geocoder("ТЦ Никольский, пр-кт. Ленина, 57А") == ("проспект. Ленина, 57А")
+    assert normalize_for_geocoder("ТЦ Никольский, пр-кт. Ленина, 57А") == ("проспект Ленина, 57А")
     assert normalize_for_geocoder("ТК Метромолл, ул. 70 лет Октября 26, 4 этаж, офис 411") == (
         "ул. 70 лет Октября 26"
     )
@@ -239,6 +239,20 @@ def test_has_own_city_false_on_ordinary_and_street_name() -> None:
     assert has_own_city("ул. Городская, 5", "Москва") is False
     assert has_own_city("", "Красноярск") is False
     assert has_own_city("Нижняя Омка, Пер.Школьный 14", "Омск") is False
+
+
+def test_abbr_inserts_space_when_dot_stuck_to_name() -> None:
+    """Раскрытие сокращения без пробела после точки даёт пробел."""
+    assert normalize_for_geocoder("Пер.Школьный 14") == "переулок Школьный 14"
+    assert normalize_for_geocoder("ул.Ленина, 1") == "ул. Ленина, 1"
+    assert normalize_for_geocoder("пр.Мира, 10") == "проспект Мира, 10"
+
+
+def test_house_dot_not_village_and_gets_space() -> None:
+    """«д.5» остаётся домом (не деревней) и получает пробел после точки."""
+    assert extract_own_city("д.5") is None
+    assert extract_own_city("д. 5") is None
+    assert normalize_for_geocoder("ул. Славы, д.5") == "ул. Славы, д. 5"
 
 
 def test_same_city_keeps_geocoder_restriction() -> None:

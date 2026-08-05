@@ -169,9 +169,9 @@ class _DadataBase:
             return True
         return False
 
-    def geocode_sync(self, text: str, city: str | None = None) -> tuple[float, float] | None:
+    def _geocode_once(self, text: str, city: str | None = None) -> tuple[float, float] | None:
         """
-        Синхронно переводит адрес в координаты.
+        Выполняет один HTTP-запрос к DaData и разбирает координаты.
 
         Аргументы:
             text: строка адреса.
@@ -215,6 +215,19 @@ class _DadataBase:
         point, qc_geo = parsed
         self.last_qc_geo = qc_geo
         return point
+
+    def geocode_sync(self, text: str, city: str | None = None) -> tuple[float, float] | None:
+        """
+        Синхронно переводит адрес в координаты.
+
+        Аргументы:
+            text: строка адреса.
+            city: город для ограничения поиска; подклассы решают сами.
+
+        Возвращает:
+            Пару (широта, долгота) либо None.
+        """
+        return self._geocode_once(text, city)
 
     async def geocode(self, text: str, city: str | None = None) -> tuple[float, float] | None:
         """
@@ -276,6 +289,34 @@ class DadataSuggestionsGeocoder(_DadataBase):
             logger.info("[GEOCODER] DaData Подсказки: нет data в ответе на %r", text)
             return None
         return data
+
+    def geocode_sync(self, text: str, city: str | None = None) -> tuple[float, float] | None:
+        """
+        Синхронно переводит адрес в координаты.
+
+        При неудаче с ограничением по городу (пустой ответ или грубый
+        ``qc_geo``) один раз повторяет запрос без ``locations`` и
+        ``restrict_value``. Город остаётся в тексте: если он стоял префиксом
+        («Адлер, ул. …»), на повторе переносится в конец — иначе DaData
+        не находит адреса в районах, которые в ФИАС не являются городом.
+
+        Аргументы:
+            text: строка адреса.
+            city: город для ограничения поиска или None.
+
+        Возвращает:
+            Пару (широта, долгота) либо None.
+        """
+        point = self._geocode_once(text, city)
+        if point is not None or city is None:
+            return point
+        prefix = f"{city}, "
+        retry_text = f"{text[len(prefix) :]}, {city}" if text.startswith(prefix) else text
+        logger.info(
+            "[GEOCODER] DaData Подсказки: повтор без ограничения по городу для %r",
+            retry_text,
+        )
+        return self._geocode_once(retry_text, city=None)
 
 
 class DadataCleanerGeocoder(_DadataBase):

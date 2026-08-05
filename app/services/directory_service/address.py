@@ -15,17 +15,36 @@ from __future__ import annotations
 
 import re
 
+#: Раскрываемые сокращения: слово без хвостового пробела.
+#: Пробел после слова — только если дальше сразу буква/цифра («Пер.Школьный»).
 _ABBR = (
-    (re.compile(r"\bпр-кт\b|\bпросп\b\.?|\bпр\.(?=\s)", re.IGNORECASE), "проспект"),
-    (re.compile(r"\bпр-д\b", re.IGNORECASE), "проезд"),
-    (re.compile(r"\bб-р\b|\bбул\b\.?", re.IGNORECASE), "бульвар"),
+    (re.compile(r"\bпр-кт\b\.?|\bпросп\b\.?", re.IGNORECASE), "проспект"),
+    (re.compile(r"\bпр\b\.", re.IGNORECASE), "проспект"),
+    (re.compile(r"\bпр-д\b\.?", re.IGNORECASE), "проезд"),
+    (re.compile(r"\bб-р\b\.?|\bбул\b\.?", re.IGNORECASE), "бульвар"),
     (re.compile(r"\bпер\b\.?", re.IGNORECASE), "переулок"),
     (re.compile(r"\bнаб\b\.?", re.IGNORECASE), "набережная"),
-    (re.compile(r"\bш\.(?=\s)", re.IGNORECASE), "шоссе"),
-    (re.compile(r"\bпл\b\.?(?=\s)", re.IGNORECASE), "площадь"),
+    (re.compile(r"\bш\.", re.IGNORECASE), "шоссе"),
+    (re.compile(r"\bпл\b\.?", re.IGNORECASE), "площадь"),
     (re.compile(r"\bмкр\b\.?|\bмк-н\b", re.IGNORECASE), "микрорайон"),
     (re.compile(r"\bим\b\.?\s*", re.IGNORECASE), ""),
 )
+
+#: Точка после сокращения без пробела: «ул.Ленина», «д.5».
+_ABBR_DOT_SPACE = re.compile(r"\b(ул|д|стр|корп)\.(?=\S)", re.IGNORECASE)
+
+
+def _expand_abbr(text: str, pattern: re.Pattern[str], word: str) -> str:
+    """Подставляет слово; пробел — только если дальше сразу буква или цифра."""
+
+    def repl(match: re.Match[str]) -> str:
+        nxt = text[match.end() : match.end() + 1]
+        if word and nxt and nxt.isalnum():
+            return f"{word} "
+        return word
+
+    return pattern.sub(repl, text)
+
 
 #: Круглые скобки с любым содержимым — срезаются раньше остальных хвостов.
 _PARENS = re.compile(r"\([^()]*\)")
@@ -149,8 +168,9 @@ def normalize_for_geocoder(address: str, *, strip_building: bool = True) -> str:
     """
     cleaned = address.replace("\xa0", " ")
     cleaned = _COMMA_AFTER_ABBR.sub(r"\1. ", cleaned)
+    cleaned = _ABBR_DOT_SPACE.sub(r"\1. ", cleaned)
     for pattern, replacement in _ABBR:
-        cleaned = pattern.sub(replacement, cleaned)
+        cleaned = _expand_abbr(cleaned, pattern, replacement)
     while True:
         updated = _PARENS.sub("", cleaned)
         if updated == cleaned:

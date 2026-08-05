@@ -104,8 +104,8 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 54.83419,
+        "lon": 75.088037
       },
       {
         "id": "omsk_kalachinsk_kalachinskaya",
@@ -132,8 +132,8 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 54.99941,
+        "lon": 74.09741
       },
       {
         "id": "omsk_poselok_rostovka",
@@ -146,8 +146,8 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 55.018154,
+        "lon": 73.578786
       },
       {
         "id": "omsk_dianova",
@@ -244,8 +244,8 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 54.9222615,
+        "lon": 73.4184319
       },
       {
         "id": "omsk_karla_marksa",
@@ -272,8 +272,8 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 54.981247,
+        "lon": 73.32379
       },
       {
         "id": "omsk_mira",

@@ -62,8 +62,8 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 56.308751,
+        "lon": 43.988799
       },
       {
         "id": "nizhniy-novgorod_karla_marksa",
@@ -146,8 +146,8 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 56.314527,
+        "lon": 44.069878
       }
     ]
   },

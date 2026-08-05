@@ -20,8 +20,8 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 51.868109,
+        "lon": 39.638994
       },
       {
         "id": "voronezh_olimpiyskiy",
@@ -132,8 +132,8 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 51.6701211,
+        "lon": 39.2733722
       },
       {
         "id": "voronezh_elektrosignalnaya",

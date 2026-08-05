@@ -25,7 +25,7 @@
       },
       {
         "id": "vladivostok_krasnogo_znamenii",
-        "address": "проспект Красного знамении, д. 51А офис 307",
+        "address": "проспект Красного Знамени, д. 51А офис 307",
         "district": null,
         "hours": "ПН-ВС 10:00-21:00",
         "break": "14:00-15:00",
@@ -62,8 +62,8 @@
         "landmark": "ЖК Молодёжный",
         "place_type": "Федеральная академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 43.16254,
+        "lon": 131.948938
       },
       {
         "id": "vladivostok_artem_lenina",

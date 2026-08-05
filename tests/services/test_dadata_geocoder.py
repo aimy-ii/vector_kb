@@ -173,6 +173,90 @@ def test_suggestions_with_city_adds_locations(
     }
 
 
+def test_suggestions_retries_without_city_on_empty(
+    monkeypatch: pytest.MonkeyPatch, dadata_api_key: None
+) -> None:
+    """Пустой ответ с ограничением → ровно один повтор без locations, город в конце."""
+    geocoder = DadataSuggestionsGeocoder()
+    bodies: list[Any] = []
+
+    def fake_post(url: str, **kwargs: Any) -> MagicMock:
+        body = kwargs.get("json")
+        bodies.append(body)
+        if body and "locations" in body:
+            return _mock_response(payload={"suggestions": []})
+        return _mock_response(payload=_suggest_payload(geo_lat="43.1", geo_lon="131.9"))
+
+    monkeypatch.setattr(httpx, "post", fake_post)
+    assert geocoder.geocode_sync("Владивосток, ул. Русская, 9Б", city="Владивосток") == (
+        43.1,
+        131.9,
+    )
+    assert len(bodies) == 2
+    assert bodies[0] == {
+        "query": "Владивосток, ул. Русская, 9Б",
+        "count": 1,
+        "locations": [{"city": "Владивосток"}],
+        "restrict_value": True,
+    }
+    assert bodies[1] == {"query": "ул. Русская, 9Б, Владивосток", "count": 1}
+    assert "locations" not in bodies[1]
+    assert "restrict_value" not in bodies[1]
+
+
+def test_suggestions_retries_without_city_on_coarse_qc(
+    monkeypatch: pytest.MonkeyPatch, dadata_api_key: None
+) -> None:
+    """Грубый qc_geo с ограничением → повтор без locations."""
+    geocoder = DadataSuggestionsGeocoder()
+    bodies: list[Any] = []
+
+    def fake_post(url: str, **kwargs: Any) -> MagicMock:
+        body = kwargs.get("json")
+        bodies.append(body)
+        if body and "locations" in body:
+            return _mock_response(payload=_suggest_payload(qc_geo=4))
+        return _mock_response(payload=_suggest_payload(geo_lat="55.0", geo_lon="37.0", qc_geo=0))
+
+    monkeypatch.setattr(httpx, "post", fake_post)
+    assert geocoder.geocode_sync("Адлер, ул. Кирова, 23", city="Адлер") == (55.0, 37.0)
+    assert len(bodies) == 2
+    assert bodies[1]["query"] == "ул. Кирова, 23, Адлер"
+    assert "locations" not in bodies[1]
+
+
+def test_suggestions_no_retry_when_first_ok(
+    monkeypatch: pytest.MonkeyPatch, dadata_api_key: None
+) -> None:
+    """Удачный первый запрос с городом не порождает второй."""
+    geocoder = DadataSuggestionsGeocoder()
+    calls = {"n": 0}
+
+    def fake_post(url: str, **kwargs: Any) -> MagicMock:
+        calls["n"] += 1
+        return _mock_response(payload=_suggest_payload(geo_lat="1.0", geo_lon="2.0"))
+
+    monkeypatch.setattr(httpx, "post", fake_post)
+    assert geocoder.geocode_sync("ул. Славы, 12", city="Красноярск") == (1.0, 2.0)
+    assert calls["n"] == 1
+
+
+def test_suggestions_retry_exactly_once_when_both_fail(
+    monkeypatch: pytest.MonkeyPatch, dadata_api_key: None
+) -> None:
+    """Оба запроса пустые → None и ровно два обращения."""
+    geocoder = DadataSuggestionsGeocoder()
+    calls = {"n": 0}
+
+    def fake_post(url: str, **kwargs: Any) -> MagicMock:
+        calls["n"] += 1
+        return _mock_response(payload={"suggestions": []})
+
+    monkeypatch.setattr(httpx, "post", fake_post)
+    assert geocoder.geocode_sync("нигде", city="Омск") is None
+    assert calls["n"] == 2
+
+
 def test_suggestions_without_city_omits_locations(
     monkeypatch: pytest.MonkeyPatch, dadata_api_key: None
 ) -> None:

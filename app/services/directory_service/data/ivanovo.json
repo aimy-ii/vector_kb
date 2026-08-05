@@ -20,8 +20,8 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 56.975092,
+        "lon": 40.976265
       },
       {
         "id": "ivanovo_sheremetevskiy_kab",
@@ -48,8 +48,8 @@
         "landmark": "Никольский",
         "place_type": "Федеральная академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 57.01804,
+        "lon": 40.968404
       },
       {
         "id": "ivanovo_kohomskoe",

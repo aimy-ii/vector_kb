@@ -20,8 +20,8 @@
         "landmark": null,
         "place_type": "Федеральная академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 57.9185602,
+        "lon": 59.9781902
       },
       {
         "id": "tagil_leningradskiy",
@@ -34,8 +34,8 @@
         "landmark": "ТЦ Магнит Семейный",
         "place_type": "Федеральная академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 57.91077,
+        "lon": 60.10476
       },
       {
         "id": "tagil_balakinskaya",

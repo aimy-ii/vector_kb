@@ -256,7 +256,12 @@ def test_geocode_found(client: TestClient, monkeypatch) -> None:
     """GET /api/geocode с заглушкой геокодера возвращает found=true и координаты."""
 
     class FakeGeocoder:
-        async def geocode(self, text: str) -> tuple[float, float] | None:
+        def build_query(self, address: str, city: str | None) -> str:
+            if city is None:
+                return address
+            return f"{address}, {city}"
+
+        async def geocode(self, text: str, city: str | None = None) -> tuple[float, float] | None:
             return 59.85, 30.35
 
     monkeypatch.setattr(
@@ -276,7 +281,12 @@ def test_geocode_not_found(client: TestClient, monkeypatch) -> None:
     """Нераспознанное место даёт found=false и статус 200."""
 
     class FakeGeocoder:
-        async def geocode(self, text: str) -> tuple[float, float] | None:
+        def build_query(self, address: str, city: str | None) -> str:
+            if city is None:
+                return address
+            return f"{address}, {city}"
+
+        async def geocode(self, text: str, city: str | None = None) -> tuple[float, float] | None:
             return None
 
     monkeypatch.setattr(
@@ -291,13 +301,19 @@ def test_geocode_not_found(client: TestClient, monkeypatch) -> None:
     assert data["lon"] is None
 
 
-def test_geocode_text_appends_city(monkeypatch) -> None:
-    """geocode_text с city_slug передаёт в геокодер «место, Город»."""
-    captured: list[str] = []
+def test_geocode_text_passes_city_and_provider_query(monkeypatch) -> None:
+    """geocode_text передаёт город отдельно и строку из build_query провайдера."""
+    captured: dict[str, object] = {}
 
     class FakeGeocoder:
-        async def geocode(self, text: str) -> tuple[float, float] | None:
-            captured.append(text)
+        def build_query(self, address: str, city: str | None) -> str:
+            if city is None:
+                return address
+            return f"{city}, {address}"
+
+        async def geocode(self, text: str, city: str | None = None) -> tuple[float, float] | None:
+            captured["text"] = text
+            captured["city"] = city
             return 59.85, 30.35
 
     monkeypatch.setattr(
@@ -307,18 +323,24 @@ def test_geocode_text_appends_city(monkeypatch) -> None:
     from app.services.directory_service import api as directory_api
 
     result = asyncio.run(directory_api.geocode_text("Купчино", city_slug="sankt-peterburg"))
-    assert captured == ["Купчино, Санкт-Петербург"]
+    assert captured["text"] == "Санкт-Петербург, Купчино"
+    assert captured["city"] == "Санкт-Петербург"
     assert result.text == "Купчино"
     assert result.found is True
 
 
 def test_geocode_text_without_city_or_unknown_slug(monkeypatch) -> None:
-    """Без city_slug и с несуществующим слагом текст уходит как есть."""
-    captured: list[str] = []
+    """Без city_slug и с несуществующим слагом city=None, текст без склейки."""
+    captured: list[tuple[str, str | None]] = []
 
     class FakeGeocoder:
-        async def geocode(self, text: str) -> tuple[float, float] | None:
-            captured.append(text)
+        def build_query(self, address: str, city: str | None) -> str:
+            if city is None:
+                return address
+            return f"{city}, {address}"
+
+        async def geocode(self, text: str, city: str | None = None) -> tuple[float, float] | None:
+            captured.append((text, city))
             return None
 
     monkeypatch.setattr(
@@ -329,4 +351,4 @@ def test_geocode_text_without_city_or_unknown_slug(monkeypatch) -> None:
 
     asyncio.run(directory_api.geocode_text("Купчино"))
     asyncio.run(directory_api.geocode_text("Купчино", city_slug="нет-такого"))
-    assert captured == ["Купчино", "Купчино"]
+    assert captured == [("Купчино", None), ("Купчино", None)]

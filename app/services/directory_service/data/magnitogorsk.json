@@ -20,8 +20,8 @@
         "landmark": "ТЦ Металлург",
         "place_type": "Академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 53.380256,
+        "lon": 58.987074
       },
       {
         "id": "magnitogorsk_sovetskaya",
@@ -34,8 +34,8 @@
         "landmark": null,
         "place_type": "Академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 53.357384,
+        "lon": 58.963116
       },
       {
         "id": "magnitogorsk_lenina",
@@ -48,8 +48,8 @@
         "landmark": null,
         "place_type": "Академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 53.41216,
+        "lon": 58.984047
       },
       {
         "id": "magnitogorsk_lenina_152",
@@ -62,8 +62,8 @@
         "landmark": null,
         "place_type": "Академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 53.36811,
+        "lon": 58.989742
       },
       {
         "id": "magnitogorsk_gryaznova",

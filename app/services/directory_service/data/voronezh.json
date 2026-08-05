@@ -34,8 +34,8 @@
         "landmark": "ЖК Ботанический сад",
         "place_type": "Федеральная академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 51.712798,
+        "lon": 39.198607
       },
       {
         "id": "voronezh_leninskiy",
@@ -48,8 +48,8 @@
         "landmark": "БЦ InSpe",
         "place_type": "Федеральная академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 51.69324,
+        "lon": 39.270066
       },
       {
         "id": "voronezh_vladimira_nevskogo",
@@ -62,8 +62,8 @@
         "landmark": null,
         "place_type": "Федеральная академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 51.719767,
+        "lon": 39.175799
       },
       {
         "id": "voronezh_voroshilova",
@@ -76,8 +76,8 @@
         "landmark": null,
         "place_type": "Федеральная академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 51.649622,
+        "lon": 39.163905
       },
       {
         "id": "voronezh_dimitrova_kab",
@@ -90,8 +90,8 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 51.674349,
+        "lon": 39.250332
       },
       {
         "id": "voronezh_moskovskiy",
@@ -104,8 +104,8 @@
         "landmark": "БЦ Рента",
         "place_type": "Федеральная академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 51.70043,
+        "lon": 39.18162
       },
       {
         "id": "voronezh_zaschitnikov_rodiny",
@@ -118,8 +118,8 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 51.6906508,
+        "lon": 39.0789519
       },
       {
         "id": "voronezh_obrucheva",
@@ -146,8 +146,8 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 51.687645,
+        "lon": 39.173977
       }
     ]
   },

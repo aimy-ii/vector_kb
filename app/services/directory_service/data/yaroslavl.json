@@ -20,8 +20,8 @@
         "landmark": "Космос-3",
         "place_type": "Академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 57.65632,
+        "lon": 39.94367
       },
       {
         "id": "yaroslavl_stroiteley",
@@ -34,8 +34,8 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 57.702435,
+        "lon": 39.771508
       },
       {
         "id": "yaroslavl_frunze",
@@ -48,8 +48,8 @@
         "landmark": "ТОЦ Спутник",
         "place_type": "Академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 57.599195,
+        "lon": 39.87591
       },
       {
         "id": "yaroslavl_svobody",
@@ -62,8 +62,8 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 57.625072,
+        "lon": 39.883818
       }
     ]
   },

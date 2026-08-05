@@ -20,8 +20,8 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 55.336782,
+        "lon": 86.174782
       },
       {
         "id": "kemerovo_kosmicheskaya",
@@ -34,8 +34,8 @@
         "landmark": null,
         "place_type": "Федеральная академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 55.320311,
+        "lon": 86.082861
       },
       {
         "id": "kemerovo_sovetskiy",
@@ -48,8 +48,8 @@
         "landmark": "Доминант",
         "place_type": "Федеральная академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 55.3581,
+        "lon": 86.07541
       },
       {
         "id": "kemerovo_oktyabrskiy",
@@ -62,8 +62,8 @@
         "landmark": "Редакция",
         "place_type": "Федеральная академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 55.349049,
+        "lon": 86.126124
       },
       {
         "id": "kemerovo_institutskaya",
@@ -76,8 +76,8 @@
         "landmark": null,
         "place_type": "Федеральная академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 55.394888,
+        "lon": 86.116519
       }
     ]
   },

@@ -20,8 +20,8 @@
         "landmark": null,
         "place_type": "Федеральная академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 56.866435,
+        "lon": 60.533856
       },
       {
         "id": "ekaterinburg_lenina",
@@ -34,8 +34,8 @@
         "landmark": null,
         "place_type": "Федеральная академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 56.843544,
+        "lon": 60.646372
       },
       {
         "id": "ekaterinburg_marta",
@@ -48,8 +48,8 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 56.81193,
+        "lon": 60.609222
       },
       {
         "id": "ekaterinburg_rodonitovaya",
@@ -62,8 +62,8 @@
         "landmark": null,
         "place_type": "Федеральная академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 56.792248,
+        "lon": 60.623924
       },
       {
         "id": "ekaterinburg_vosstaniya",
@@ -76,8 +76,8 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 56.90144,
+        "lon": 60.605928
       },
       {
         "id": "ekaterinburg_akademika_saharova",
@@ -90,8 +90,8 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 56.790427,
+        "lon": 60.501777
       },
       {
         "id": "ekaterinburg_krasnolesya",
@@ -104,8 +104,8 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 56.77832,
+        "lon": 60.549275
       },
       {
         "id": "ekaterinburg_yasnaya",
@@ -118,8 +118,8 @@
         "landmark": null,
         "place_type": "Федеральная академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 56.811325,
+        "lon": 60.567246
       },
       {
         "id": "ekaterinburg_vaynera",
@@ -132,8 +132,8 @@
         "landmark": null,
         "place_type": "Федеральная академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 56.835771,
+        "lon": 60.59469
       },
       {
         "id": "ekaterinburg_repina",
@@ -146,8 +146,8 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 56.819153,
+        "lon": 60.537548
       },
       {
         "id": "ekaterinburg_kuznetsova",
@@ -160,8 +160,8 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 56.889267,
+        "lon": 60.609045
       },
       {
         "id": "ekaterinburg_schorsa",
@@ -174,8 +174,8 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 56.8104058,
+        "lon": 60.624593
       },
       {
         "id": "ekaterinburg_vikulova",
@@ -188,8 +188,8 @@
         "landmark": null,
         "place_type": "Федеральная академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 56.8318624,
+        "lon": 60.5455956
       },
       {
         "id": "ekaterinburg_vostochnaya",
@@ -202,8 +202,8 @@
         "landmark": null,
         "place_type": "Федеральная академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 56.831231,
+        "lon": 60.636389
       },
       {
         "id": "ekaterinburg_lunacharskogo",
@@ -216,8 +216,8 @@
         "landmark": null,
         "place_type": "Федеральная академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 56.850841,
+        "lon": 60.616016
       },
       {
         "id": "ekaterinburg_hohryakova",
@@ -230,8 +230,8 @@
         "landmark": null,
         "place_type": "Федеральная академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 56.827976,
+        "lon": 60.59397
       },
       {
         "id": "ekaterinburg_titova",
@@ -244,8 +244,8 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 56.777336,
+        "lon": 60.611731
       },
       {
         "id": "ekaterinburg_sulimova",
@@ -258,8 +258,8 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 56.861805,
+        "lon": 60.634808
       },
       {
         "id": "ekaterinburg_ayvazovskogo",
@@ -272,8 +272,8 @@
         "landmark": "ЖК Парк столиц",
         "place_type": "Федеральная академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 56.805236,
+        "lon": 60.595925
       },
       {
         "id": "ekaterinburg_norilskaya",
@@ -286,8 +286,8 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 56.8841957,
+        "lon": 60.6806396
       }
     ]
   },

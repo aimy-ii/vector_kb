@@ -20,8 +20,8 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 57.152218,
+        "lon": 65.531992
       },
       {
         "id": "tyumen_proezd_zarechnyy",
@@ -34,8 +34,8 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 57.177933,
+        "lon": 65.56124
       },
       {
         "id": "tyumen_permyakova",
@@ -48,8 +48,8 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 57.12173,
+        "lon": 65.581881
       },
       {
         "id": "tyumen_nikolaya_gondatti",
@@ -62,8 +62,8 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 57.110961,
+        "lon": 65.574181
       },
       {
         "id": "tyumen_respubliki",
@@ -76,8 +76,8 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 57.130988,
+        "lon": 65.581853
       },
       {
         "id": "tyumen_farmana_salmanova",
@@ -90,8 +90,8 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 57.1204898,
+        "lon": 65.50117
       },
       {
         "id": "tyumen_montazhnikov",
@@ -104,8 +104,8 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 57.098074,
+        "lon": 65.586601
       },
       {
         "id": "tyumen_yamskaya",
@@ -118,8 +118,8 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 57.162342,
+        "lon": 65.497605
       },
       {
         "id": "tyumen_melnikayte",
@@ -132,8 +132,8 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 57.151028,
+        "lon": 65.593628
       }
     ]
   },

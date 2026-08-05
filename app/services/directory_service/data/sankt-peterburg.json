@@ -48,8 +48,8 @@
         "landmark": "ТРК Нарва",
         "place_type": "Федеральная академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 59.852615,
+        "lon": 30.268383
       },
       {
         "id": "sankt-peterburg_ligovskiy",
@@ -62,8 +62,8 @@
         "landmark": "Гостиница Октябрьская",
         "place_type": "Федеральная академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 59.9326601,
+        "lon": 30.362521
       },
       {
         "id": "sankt-peterburg_soldata_korzuna",
@@ -76,8 +76,8 @@
         "landmark": null,
         "place_type": "Федеральная академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 59.834072,
+        "lon": 30.21611
       },
       {
         "id": "sankt-peterburg_kolomyazhskiy",
@@ -90,8 +90,8 @@
         "landmark": "ЖК Богатырский",
         "place_type": "Федеральная академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 60.000128,
+        "lon": 30.29982
       },
       {
         "id": "sankt-peterburg_salova",
@@ -104,8 +104,8 @@
         "landmark": "Апарт-комплекс Valo",
         "place_type": "Федеральная академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 59.885142,
+        "lon": 30.368563
       },
       {
         "id": "sankt-peterburg_sadovaya",
@@ -118,8 +118,8 @@
         "landmark": "Seno",
         "place_type": "Федеральная академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 59.928208,
+        "lon": 30.321734
       },
       {
         "id": "sankt-peterburg_balkanskaya",
@@ -132,8 +132,8 @@
         "landmark": "ТЦ Балканский 4",
         "place_type": "Федеральная академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 59.830056,
+        "lon": 30.378885
       },
       {
         "id": "sankt-peterburg_komendantskaya",
@@ -146,8 +146,8 @@
         "landmark": "ТРК Атмосфера",
         "place_type": "Федеральная академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 60.0076088,
+        "lon": 30.2598137
       },
       {
         "id": "sankt-peterburg_bolshoy_vasilevskogo",
@@ -160,8 +160,8 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 59.9319555,
+        "lon": 30.2601896
       }
     ]
   },

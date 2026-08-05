@@ -20,8 +20,8 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 53.829079,
+        "lon": 87.177156
       },
       {
         "id": "novokuznetsk_shahterov",
@@ -34,8 +34,8 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 53.78064,
+        "lon": 87.29482
       },
       {
         "id": "novokuznetsk_aviatorov",
@@ -48,8 +48,8 @@
         "landmark": null,
         "place_type": "Федеральная академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 53.899949,
+        "lon": 87.12329
       },
       {
         "id": "novokuznetsk_kirova",
@@ -62,8 +62,8 @@
         "landmark": null,
         "place_type": "Федеральная академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 53.757925,
+        "lon": 87.127007
       }
     ]
   },

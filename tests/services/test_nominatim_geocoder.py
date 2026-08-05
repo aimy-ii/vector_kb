@@ -104,6 +104,29 @@ def test_geocode_sync_insufficient_privileges(
     assert geocoder.geocode_sync("Купчино") is None
 
 
+def test_nominatim_build_query_address_first(
+    monkeypatch: pytest.MonkeyPatch, geocoder_contact: None
+) -> None:
+    """Nominatim ставит адрес впереди города."""
+    geocoder = NominatimGeocoder()
+    assert geocoder.build_query("ул. Славы, 12", "Красноярск") == ("ул. Славы, 12, Красноярск")
+    assert geocoder.build_query("ул. Славы, 12", None) == "ул. Славы, 12"
+
+
+def test_geocode_sync_accepts_city_argument(
+    monkeypatch: pytest.MonkeyPatch, geocoder_contact: None
+) -> None:
+    """Nominatim принимает аргумент city и не ломается."""
+    geocoder = NominatimGeocoder()
+    location = SimpleNamespace(
+        latitude=59.85,
+        longitude=30.35,
+        raw={"boundingbox": ["59.80", "59.90", "30.30", "30.40"]},
+    )
+    monkeypatch.setattr(geocoder._client, "geocode", lambda *a, **k: location)
+    assert geocoder.geocode_sync("Купчино", city="Санкт-Петербург") == (59.85, 30.35)
+
+
 def test_nominatim_requires_contact(monkeypatch: pytest.MonkeyPatch) -> None:
     """Пустой geocoder_contact даёт RuntimeError с упоминанием GEOCODER_CONTACT."""
     monkeypatch.setattr(settings, "geocoder_contact", "")

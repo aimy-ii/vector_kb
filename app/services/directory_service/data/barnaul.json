@@ -34,8 +34,8 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 53.341162,
+        "lon": 83.783423
       },
       {
         "id": "barnaul_antona_petrova",
@@ -48,8 +48,8 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 53.360517,
+        "lon": 83.697607
       },
       {
         "id": "barnaul_yurina",
@@ -62,8 +62,8 @@
         "landmark": "БЦ Фаворит",
         "place_type": "—",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 53.370259,
+        "lon": 83.69202
       },
       {
         "id": "barnaul_krasnoarmeyskiy",
@@ -76,8 +76,8 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 53.337064,
+        "lon": 83.774978
       }
     ]
   },

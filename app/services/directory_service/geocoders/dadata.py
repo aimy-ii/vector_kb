@@ -110,13 +110,28 @@ class _DadataBase:
         """URL эндпоинта DaData."""
         raise NotImplementedError
 
-    def _request_body(self, text: str) -> Any:
+    def _request_body(self, text: str, city: str | None = None) -> Any:
         """Тело POST-запроса."""
         raise NotImplementedError
 
     def _extract_item(self, payload: Any, text: str) -> dict[str, Any] | None:
         """Достаёт из JSON объект с geo_lat/geo_lon/qc_geo."""
         raise NotImplementedError
+
+    def build_query(self, address: str, city: str | None) -> str:
+        """
+        Собирает строку запроса из адреса и города.
+
+        Аргументы:
+            address: нормализованный адрес филиала.
+            city: название города или None, если адрес уже содержит свой.
+
+        Возвращает:
+            Строку в порядке, который правильно разбирает этот провайдер.
+        """
+        if city is None:
+            return address
+        return f"{city}, {address}"
 
     def _handle_http_status(self, status_code: int, text: str) -> bool:
         """
@@ -154,12 +169,13 @@ class _DadataBase:
             return True
         return False
 
-    def geocode_sync(self, text: str) -> tuple[float, float] | None:
+    def geocode_sync(self, text: str, city: str | None = None) -> tuple[float, float] | None:
         """
         Синхронно переводит адрес в координаты.
 
         Аргументы:
             text: строка адреса.
+            city: город для ограничения поиска; подклассы решают сами.
 
         Возвращает:
             Пару (широта, долгота) либо None.
@@ -168,7 +184,7 @@ class _DadataBase:
         try:
             response = httpx.post(
                 self._request_url(),
-                json=self._request_body(text),
+                json=self._request_body(text, city=city),
                 headers=self._headers(),
                 timeout=self._timeout,
             )
@@ -200,17 +216,18 @@ class _DadataBase:
         self.last_qc_geo = qc_geo
         return point
 
-    async def geocode(self, text: str) -> tuple[float, float] | None:
+    async def geocode(self, text: str, city: str | None = None) -> tuple[float, float] | None:
         """
         Переводит адрес в координаты, не блокируя цикл событий.
 
         Аргументы:
             text: строка адреса.
+            city: город для ограничения поиска; подклассы решают сами.
 
         Возвращает:
             Пару (широта, долгота) либо None.
         """
-        return await asyncio.to_thread(self.geocode_sync, text)
+        return await asyncio.to_thread(self.geocode_sync, text, city)
 
 
 class DadataSuggestionsGeocoder(_DadataBase):
@@ -230,9 +247,13 @@ class DadataSuggestionsGeocoder(_DadataBase):
         """URL API подсказок."""
         return SUGGEST_ADDRESS_URL
 
-    def _request_body(self, text: str) -> Any:
-        """Тело: query и count=1."""
-        return {"query": text, "count": 1}
+    def _request_body(self, text: str, city: str | None = None) -> Any:
+        """Тело: query и count=1; при городе — locations и restrict_value."""
+        payload: dict[str, Any] = {"query": text, "count": 1}
+        if city is not None:
+            payload["locations"] = [{"city": city}]
+            payload["restrict_value"] = True
+        return payload
 
     def _extract_item(self, payload: Any, text: str) -> dict[str, Any] | None:
         """Достаёт ``data`` первой подсказки."""
@@ -289,7 +310,7 @@ class DadataCleanerGeocoder(_DadataBase):
         """URL Cleaner API."""
         return CLEAN_ADDRESS_URL
 
-    def _request_body(self, text: str) -> Any:
+    def _request_body(self, text: str, city: str | None = None) -> Any:
         """Тело — JSON-массив из одной строки адреса."""
         return [text]
 

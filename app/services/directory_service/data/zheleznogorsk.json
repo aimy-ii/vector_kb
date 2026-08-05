@@ -34,8 +34,8 @@
         "landmark": null,
         "place_type": "Федеральная академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 56.252068,
+        "lon": 93.531425
       },
       {
         "id": "zheleznogorsk_let_vlksm",
@@ -48,8 +48,8 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 56.22768,
+        "lon": 93.52186
       }
     ]
   },

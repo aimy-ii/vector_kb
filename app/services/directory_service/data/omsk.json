@@ -20,8 +20,8 @@
         "landmark": "БЦ На Гагарина",
         "place_type": "Офис продаж",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 54.987812,
+        "lon": 73.376854
       },
       {
         "id": "omsk_zavertyaeva",
@@ -34,8 +34,8 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 55.033938,
+        "lon": 73.444713
       },
       {
         "id": "omsk_petra_nekrasova",
@@ -76,8 +76,8 @@
         "landmark": null,
         "place_type": "Федеральная академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 54.938006,
+        "lon": 73.429935
       },
       {
         "id": "omsk_nizhnyaya_omka",
@@ -160,8 +160,8 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 54.995101,
+        "lon": 73.227446
       },
       {
         "id": "omsk_kosmicheskiy",
@@ -174,8 +174,8 @@
         "landmark": null,
         "place_type": "Федеральная академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 54.971388,
+        "lon": 73.451073
       },
       {
         "id": "omsk_zaozernaya_kinozal",
@@ -188,8 +188,8 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 55.044155,
+        "lon": 73.31556
       },
       {
         "id": "omsk_komarova",
@@ -202,8 +202,8 @@
         "landmark": null,
         "place_type": "Федеральная академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 54.987172,
+        "lon": 73.296437
       },
       {
         "id": "omsk_aviatsionnaya",
@@ -216,8 +216,8 @@
         "landmark": null,
         "place_type": "Федеральная академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 54.951286,
+        "lon": 73.335432
       },
       {
         "id": "omsk_kirova_kabinet",
@@ -230,8 +230,8 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 54.946648,
+        "lon": 73.420719
       },
       {
         "id": "omsk_cheredovaya_sahalin",
@@ -258,8 +258,8 @@
         "landmark": null,
         "place_type": "Офис продаж, учебные классы",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 54.942258,
+        "lon": 73.383385
       },
       {
         "id": "omsk_metromoll_let",
@@ -286,8 +286,8 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 55.0248321,
+        "lon": 73.294825
       },
       {
         "id": "omsk_severnaya",
@@ -300,8 +300,8 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 55.028659,
+        "lon": 73.410941
       },
       {
         "id": "omsk_let_oktyabrya",
@@ -314,8 +314,8 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 54.985428,
+        "lon": 73.413793
       },
       {
         "id": "omsk_krasnyy_put",
@@ -328,8 +328,8 @@
         "landmark": null,
         "place_type": "Федеральная академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 55.003069,
+        "lon": 73.34906
       },
       {
         "id": "omsk_gasheka",
@@ -342,8 +342,8 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 54.908873,
+        "lon": 73.446195
       },
       {
         "id": "omsk_karla_marksa_10",
@@ -356,8 +356,8 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 54.973832,
+        "lon": 73.381651
       }
     ]
   },

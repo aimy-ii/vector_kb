@@ -20,8 +20,8 @@
         "landmark": null,
         "place_type": "Федеральная академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 53.611779,
+        "lon": 55.953032
       },
       {
         "id": "sterlitamak_artema_pomeschenie",
@@ -34,8 +34,8 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 53.627631,
+        "lon": 55.9026
       },
       {
         "id": "sterlitamak_lenina",
@@ -48,8 +48,8 @@
         "landmark": null,
         "place_type": "Федеральная академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 53.644803,
+        "lon": 55.942469
       }
     ]
   },

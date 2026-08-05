@@ -146,8 +146,8 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 55.034423,
+        "lon": 82.980373
       },
       {
         "id": "novosib_geodezicheskaya",
@@ -160,8 +160,8 @@
         "landmark": "Амстердам",
         "place_type": "Федеральная академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 54.989863,
+        "lon": 82.903577
       },
       {
         "id": "novosib_krasnyy",
@@ -174,8 +174,8 @@
         "landmark": "БЦ Зелёные Купола",
         "place_type": "Федеральная академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 55.050076,
+        "lon": 82.91367
       },
       {
         "id": "novosib_vremya_raboty_13",

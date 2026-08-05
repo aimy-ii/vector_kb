@@ -1,8 +1,9 @@
 """Проставляет координаты филиалам через выбранный геокодер.
 
 Обходит JSON городов, для каждого филиала с пустыми ``lat``/``lon`` строит
-запрос «адрес, город» и пишет найденную точку обратно в файл. Уже заполненные
-координаты пропускает — скрипт можно перезапускать.
+запрос через ``build_query`` выбранного провайдера и пишет найденную точку
+обратно в файл. Уже заполненные координаты пропускает — скрипт можно
+перезапускать.
 
 Перед запросом адрес нормализуется: этаж и офис срезаются; строение и корпус
 оставляются для DaData и срезаются для Nominatim. В справочнике полный адрес
@@ -156,6 +157,29 @@ def make_geocoder(provider: str) -> Any:
     )
 
 
+def has_own_city(address: str, city: str) -> bool:
+    """
+    Проверяет, что в адресе уже указан город.
+
+    Ищет название в начале строки или в форме «г. Город» / «г Город», чтобы
+    не путать с однокоренными названиями улиц и проспектов.
+
+    Аргументы:
+        address: адрес филиала (обычно уже нормализованный).
+        city: название города из меты файла.
+
+    Возвращает:
+        True, если город в адресе уже есть и дописывать его в запрос не нужно.
+    """
+    if not city or not address:
+        return False
+    text = address.casefold()
+    name = city.casefold()
+    if text.startswith(name):
+        return True
+    return any(prefix in text for prefix in (f"г. {name}", f"г.{name}", f"г {name}"))
+
+
 def process_city(
     path: Path,
     geocode: Any,
@@ -194,13 +218,14 @@ def process_city(
         processed += 1
         address = branch.get("address") or ""
         cleaned = normalize_for_geocoder(address, strip_building=strip_building)
-        query = f"{cleaned}, {city_title}"
-        point = geocode(query)
+        query_city = None if has_own_city(cleaned, city_title) else city_title
+        query = client.build_query(cleaned, query_city)
+        point = geocode(query, city=city_title)
         if point is None:
             missed += 1
             print(f"  miss  [{provider}] {city_title}: {address}")
-            if cleaned != address:
-                print(f"         запрос: {cleaned}")
+            if query != address:
+                print(f"         запрос: {query}")
             continue
         lat, lon = point
         qc_part = ""
@@ -209,8 +234,8 @@ def process_city(
             if qc_geo is not None:
                 qc_part = f" qc_geo={qc_geo}"
         print(f"  ok    [{provider}{qc_part}] {city_title}: {address} -> {lat:.6f}, {lon:.6f}")
-        if cleaned != address:
-            print(f"         запрос: {cleaned}")
+        if query != address:
+            print(f"         запрос: {query}")
         if not dry_run:
             branch["lat"] = lat
             branch["lon"] = lon
@@ -259,9 +284,9 @@ def main() -> None:
 
     first_hits: list[bool] = []
 
-    def geocode_with_early_abort(query: str) -> tuple[float, float] | None:
+    def geocode_with_early_abort(query: str, city: str | None = None) -> tuple[float, float] | None:
         """Вызывает геокодер и прерывает прогон после трёх первых промахов."""
-        point = geocode(query)
+        point = geocode(query, city=city)
         if len(first_hits) < EARLY_MISS_ABORT:
             first_hits.append(point is not None)
             if len(first_hits) == EARLY_MISS_ABORT and not any(first_hits):

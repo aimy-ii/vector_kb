@@ -129,7 +129,7 @@ def test_suggestions_qc_geo_too_coarse(
 
 
 def test_suggestions_request_shape(monkeypatch: pytest.MonkeyPatch, dadata_api_key: None) -> None:
-    """В запрос уходят query/count=1 и Authorization, без X-Secret."""
+    """В запрос уходят query/count=1 и Authorization, без X-Secret и без locations."""
     geocoder = DadataSuggestionsGeocoder()
     captured: dict[str, Any] = {}
 
@@ -143,11 +143,68 @@ def test_suggestions_request_shape(monkeypatch: pytest.MonkeyPatch, dadata_api_k
     assert geocoder.geocode_sync("Тестовый адрес") == (1.0, 2.0)
     assert captured["url"] == SUGGEST_ADDRESS_URL
     assert captured["json"] == {"query": "Тестовый адрес", "count": 1}
+    assert "locations" not in captured["json"]
+    assert "restrict_value" not in captured["json"]
     headers = captured["headers"]
     assert headers["Authorization"] == f"Token {TEST_API_KEY}"
     assert "X-Secret" not in headers
     assert headers["Content-Type"] == "application/json"
     assert headers["Accept"] == "application/json"
+
+
+def test_suggestions_with_city_adds_locations(
+    monkeypatch: pytest.MonkeyPatch, dadata_api_key: None
+) -> None:
+    """При переданном городе в тело уходят locations и restrict_value."""
+    geocoder = DadataSuggestionsGeocoder()
+    captured: dict[str, Any] = {}
+
+    def fake_post(url: str, **kwargs: Any) -> MagicMock:
+        captured["json"] = kwargs.get("json")
+        return _mock_response(payload=_suggest_payload(geo_lat="1.0", geo_lon="2.0"))
+
+    monkeypatch.setattr(httpx, "post", fake_post)
+    assert geocoder.geocode_sync("ул. Славы, д. 12", city="Красноярск") == (1.0, 2.0)
+    assert captured["json"] == {
+        "query": "ул. Славы, д. 12",
+        "count": 1,
+        "locations": [{"city": "Красноярск"}],
+        "restrict_value": True,
+    }
+
+
+def test_suggestions_without_city_omits_locations(
+    monkeypatch: pytest.MonkeyPatch, dadata_api_key: None
+) -> None:
+    """Без города поля locations и restrict_value не добавляются."""
+    geocoder = DadataSuggestionsGeocoder()
+    captured: dict[str, Any] = {}
+
+    def fake_post(url: str, **kwargs: Any) -> MagicMock:
+        captured["json"] = kwargs.get("json")
+        return _mock_response(payload=_suggest_payload(geo_lat="1.0", geo_lon="2.0"))
+
+    monkeypatch.setattr(httpx, "post", fake_post)
+    assert geocoder.geocode_sync("ул. Славы, д. 12", city=None) == (1.0, 2.0)
+    assert captured["json"] == {"query": "ул. Славы, д. 12", "count": 1}
+
+
+def test_suggestions_build_query_city_first(
+    monkeypatch: pytest.MonkeyPatch, dadata_api_key: None
+) -> None:
+    """Подсказки ставят город впереди адреса."""
+    geocoder = DadataSuggestionsGeocoder()
+    assert geocoder.build_query("ул. Славы, 12", "Красноярск") == ("Красноярск, ул. Славы, 12")
+    assert geocoder.build_query("ул. Славы, 12", None) == "ул. Славы, 12"
+
+
+def test_cleaner_build_query_city_first(
+    monkeypatch: pytest.MonkeyPatch, dadata_both_keys: None
+) -> None:
+    """Cleaner ставит город впереди адреса."""
+    geocoder = DadataCleanerGeocoder()
+    assert geocoder.build_query("ул. Славы, 12", "Красноярск") == ("Красноярск, ул. Славы, 12")
+    assert geocoder.build_query("ул. Славы, 12", None) == "ул. Славы, 12"
 
 
 def test_suggestions_creates_with_api_key_only(
@@ -297,6 +354,22 @@ def test_cleaner_request_headers_and_body(
     headers = captured["headers"]
     assert headers["Authorization"] == f"Token {TEST_API_KEY}"
     assert headers["X-Secret"] == TEST_SECRET_KEY
+
+
+def test_cleaner_accepts_city_argument(
+    monkeypatch: pytest.MonkeyPatch, dadata_both_keys: None
+) -> None:
+    """Cleaner принимает аргумент city и не ломается; в теле его нет."""
+    geocoder = DadataCleanerGeocoder()
+    captured: dict[str, Any] = {}
+
+    def fake_post(url: str, **kwargs: Any) -> MagicMock:
+        captured["json"] = kwargs.get("json")
+        return _mock_response(payload=[{"geo_lat": "1.0", "geo_lon": "2.0", "qc_geo": 0}])
+
+    monkeypatch.setattr(httpx, "post", fake_post)
+    assert geocoder.geocode_sync("Тестовый адрес", city="Томск") == (1.0, 2.0)
+    assert captured["json"] == ["Тестовый адрес"]
 
 
 @pytest.mark.parametrize("status_code", [401, 403, 429, 500])

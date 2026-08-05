@@ -20,8 +20,8 @@
         "landmark": null,
         "place_type": "Федеральная академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 52.264874,
+        "lon": 104.26037
       },
       {
         "id": "irkutsk_shiryamova",
@@ -34,8 +34,8 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 52.276046,
+        "lon": 104.353011
       },
       {
         "id": "irkutsk_rozy_lyuksemburg",
@@ -48,8 +48,8 @@
         "landmark": null,
         "place_type": "Федеральная академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 52.355335,
+        "lon": 104.157335
       },
       {
         "id": "irkutsk_iyulya",

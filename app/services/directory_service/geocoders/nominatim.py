@@ -70,7 +70,22 @@ class NominatimGeocoder:
             timeout=settings.geocoder_timeout,
         )
 
-    def geocode_sync(self, text: str) -> tuple[float, float] | None:
+    def build_query(self, address: str, city: str | None) -> str:
+        """
+        Собирает строку запроса из адреса и города.
+
+        Аргументы:
+            address: нормализованный адрес филиала.
+            city: название города или None, если адрес уже содержит свой.
+
+        Возвращает:
+            Строку в порядке, который правильно разбирает этот провайдер.
+        """
+        if city is None:
+            return address
+        return f"{address}, {city}"
+
+    def geocode_sync(self, text: str, city: str | None = None) -> tuple[float, float] | None:
         """
         Синхронно переводит описание места в координаты.
 
@@ -78,6 +93,7 @@ class NominatimGeocoder:
 
         Аргументы:
             text: строка запроса, например «Купчино, Санкт-Петербург».
+            city: город для ограничения поиска; Nominatim его игнорирует.
 
         Возвращает:
             Пару (широта, долгота) либо None, если место не распознано,
@@ -104,14 +120,15 @@ class NominatimGeocoder:
             return None
         return float(location.latitude), float(location.longitude)
 
-    async def geocode(self, text: str) -> tuple[float, float] | None:
+    async def geocode(self, text: str, city: str | None = None) -> tuple[float, float] | None:
         """
         Переводит описание места в координаты, не блокируя цикл событий.
 
         Аргументы:
             text: строка запроса.
+            city: город для ограничения поиска; Nominatim его игнорирует.
 
         Возвращает:
             Пару (широта, долгота) либо None.
         """
-        return await asyncio.to_thread(self.geocode_sync, text)
+        return await asyncio.to_thread(self.geocode_sync, text, city)

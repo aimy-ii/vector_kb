@@ -20,8 +20,8 @@
         "landmark": "Моби Дик",
         "place_type": "Федеральная академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 58.007065,
+        "lon": 56.230547
       },
       {
         "id": "perm_krupskoy",
@@ -48,8 +48,8 @@
         "landmark": "Земляника",
         "place_type": "Федеральная академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 57.999158,
+        "lon": 56.155323
       },
       {
         "id": "perm_uralskaya",
@@ -62,8 +62,8 @@
         "landmark": null,
         "place_type": "Федеральная академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 58.028652,
+        "lon": 56.29827
       },
       {
         "id": "perm_chernyshevskogo",
@@ -76,8 +76,8 @@
         "landmark": null,
         "place_type": "Федеральная академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 57.998014,
+        "lon": 56.266621
       },
       {
         "id": "perm_ushinskogo",
@@ -90,8 +90,8 @@
         "landmark": null,
         "place_type": "Федеральная академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 57.998433,
+        "lon": 56.292819
       },
       {
         "id": "perm_mira",
@@ -104,8 +104,8 @@
         "landmark": "Новая столица",
         "place_type": "Федеральная академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 57.978357,
+        "lon": 56.188796
       }
     ]
   },

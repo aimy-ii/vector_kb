@@ -20,8 +20,8 @@
         "landmark": "ТЦ Горки",
         "place_type": "Федеральная академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 54.601846,
+        "lon": 39.832608
       },
       {
         "id": "ryazan_selo_polyany",
@@ -48,8 +48,8 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 54.64104,
+        "lon": 39.656191
       },
       {
         "id": "ryazan_novoselov_cherezovo",
@@ -76,8 +76,8 @@
         "landmark": "ТРЦ Малина",
         "place_type": "Федеральная академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 54.63014,
+        "lon": 39.739742
       },
       {
         "id": "ryazan_shosseynyy",
@@ -90,8 +90,8 @@
         "landmark": null,
         "place_type": "Федеральная академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 54.630769,
+        "lon": 39.698214
       },
       {
         "id": "ryazan_gagarina",
@@ -104,8 +104,8 @@
         "landmark": null,
         "place_type": "Федеральная академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 54.617091,
+        "lon": 39.72961
       },
       {
         "id": "ryazan_biryuzova",
@@ -118,8 +118,8 @@
         "landmark": null,
         "place_type": "Федеральная академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 54.66797,
+        "lon": 39.652355
       }
     ]
   },

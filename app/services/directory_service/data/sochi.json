@@ -20,8 +20,8 @@
         "landmark": null,
         "place_type": "Федеральная академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 43.660949,
+        "lon": 39.658551
       },
       {
         "id": "sochi_krymskaya",
@@ -34,8 +34,8 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 43.634327,
+        "lon": 39.698479
       },
       {
         "id": "sochi_urozhaynaya",
@@ -48,8 +48,8 @@
         "landmark": null,
         "place_type": "Федеральная академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 43.400367,
+        "lon": 40.003082
       },
       {
         "id": "sochi_novaya_zarya",
@@ -62,8 +62,8 @@
         "landmark": "ТРЦ МореМолл",
         "place_type": "Федеральная академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 43.606254,
+        "lon": 39.732314
       },
       {
         "id": "sochi_gastello",
@@ -76,8 +76,8 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 43.444233,
+        "lon": 39.909426
       },
       {
         "id": "sochi_kirova",
@@ -90,8 +90,8 @@
         "landmark": null,
         "place_type": "Федеральная академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 43.423147,
+        "lon": 39.921311
       },
       {
         "id": "sochi_roz",
@@ -104,8 +104,8 @@
         "landmark": "БЦ Roz 117",
         "place_type": "Федеральная академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 43.5933798,
+        "lon": 39.7273392
       },
       {
         "id": "sochi_yana_fabritsiusa",
@@ -118,8 +118,8 @@
         "landmark": null,
         "place_type": "Федеральная академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 43.5848422,
+        "lon": 39.754514
       },
       {
         "id": "sochi_brigadnyy",
@@ -132,8 +132,8 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 43.7617286,
+        "lon": 39.5388109
       }
     ]
   },

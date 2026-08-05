@@ -20,8 +20,8 @@
         "landmark": null,
         "place_type": "Федеральная академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 56.520216,
+        "lon": 84.983456
       },
       {
         "id": "tomsk_uchebnaya",
@@ -48,8 +48,8 @@
         "landmark": null,
         "place_type": "Федеральная академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 56.5128774,
+        "lon": 85.0246663
       },
       {
         "id": "tomsk_frunze",
@@ -62,8 +62,8 @@
         "landmark": null,
         "place_type": "Федеральная академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 56.476573,
+        "lon": 84.976673
       }
     ]
   },

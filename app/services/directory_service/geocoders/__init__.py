@@ -45,13 +45,17 @@ def build_geocoder() -> Any:
 class _LazyGeocoder:
     """Прокси: реальный клиент создаётся при первом вызове geocode."""
 
-    def geocode_sync(self, text: str) -> tuple[float, float] | None:
-        """Делегирует синхронный вызов выбранному провайдеру."""
-        return build_geocoder().geocode_sync(text)
+    def build_query(self, address: str, city: str | None) -> str:
+        """Делегирует сборку строки запроса выбранному провайдеру."""
+        return build_geocoder().build_query(address, city)
 
-    async def geocode(self, text: str) -> tuple[float, float] | None:
+    def geocode_sync(self, text: str, city: str | None = None) -> tuple[float, float] | None:
+        """Делегирует синхронный вызов выбранному провайдеру."""
+        return build_geocoder().geocode_sync(text, city=city)
+
+    async def geocode(self, text: str, city: str | None = None) -> tuple[float, float] | None:
         """Делегирует асинхронный вызов выбранному провайдеру."""
-        return await build_geocoder().geocode(text)
+        return await build_geocoder().geocode(text, city=city)
 
 
 geocoder = _LazyGeocoder()

@@ -20,8 +20,8 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 55.44516,
+        "lon": 65.333725
       },
       {
         "id": "kyrgan_maksima_gorkogo",
@@ -34,8 +34,8 @@
         "landmark": null,
         "place_type": "Федеральная академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 55.434855,
+        "lon": 65.339896
       },
       {
         "id": "kyrgan_branch_03",

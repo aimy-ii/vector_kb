@@ -20,8 +20,8 @@
         "landmark": null,
         "place_type": "Федеральная академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 43.110363,
+        "lon": 131.93431
       },
       {
         "id": "vladivostok_krasnogo_znamenii",
@@ -34,8 +34,8 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 43.128113,
+        "lon": 131.90575
       },
       {
         "id": "vladivostok_russkaya",
@@ -48,8 +48,8 @@
         "landmark": "БЦ Antenna Building",
         "place_type": "Федеральная академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 43.166773,
+        "lon": 131.908497
       },
       {
         "id": "vladivostok_admirala_gorshkova",
@@ -90,8 +90,8 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 43.151037,
+        "lon": 131.909613
       },
       {
         "id": "vladivostok_chernyahovskogo",
@@ -104,8 +104,8 @@
         "landmark": null,
         "place_type": "Федеральная академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 43.113983,
+        "lon": 131.957736
       }
     ]
   },

@@ -20,8 +20,8 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 56.871075,
+        "lon": 53.225585
       },
       {
         "id": "izhevsk_karla_marksa",
@@ -34,8 +34,8 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 56.875689,
+        "lon": 53.203693
       }
     ]
   },

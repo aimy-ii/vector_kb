@@ -34,8 +34,8 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 57.003059,
+        "lon": 40.990737
       },
       {
         "id": "ivanovo_nikolskiy_lenina",
@@ -62,8 +62,8 @@
         "landmark": "Рио",
         "place_type": "Федеральная академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 56.956632,
+        "lon": 41.040804
       }
     ]
   },

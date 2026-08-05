@@ -229,10 +229,10 @@ async def geocode_text(text: str, city_slug: str | None = None) -> GeocodeResult
     """
     Переводит произнесённое место в координаты.
 
-    Если город известен, его название дописывается после места: «Купчино» без
-    города геокодер разрешит наугад, «Купчино, Санкт-Петербург» — однозначно.
-    Название берётся из справочника, а не из реплики клиента. Неизвестный слаг
-    ошибкой не считается — запрос уходит как есть.
+    Если город известен, его название дописывается к месту в порядке выбранного
+    провайдера и дополнительно передаётся отдельным аргументом (для ограничения
+    поиска у Подсказок DaData). Название берётся из справочника, а не из реплики
+    клиента. Неизвестный слаг ошибкой не считается — запрос уходит как есть.
 
     Аргументы:
         text: место словами — район, улица, ориентир.
@@ -242,12 +242,9 @@ async def geocode_text(text: str, city_slug: str | None = None) -> GeocodeResult
         GeocodeResult; found=False — место не распознано. Поле `text` остаётся
         исходным, без подставленного города.
     """
-    query = text
-    if city_slug:
-        name = city_name(city_slug)
-        if name:
-            query = f"{text}, {name}"
-    point = await geocoder.geocode(query)
+    name = city_name(city_slug) if city_slug else None
+    query = geocoder.build_query(text, name)
+    point = await geocoder.geocode(query, city=name)
     if point is None:
         return GeocodeResult(text=text, lat=None, lon=None, found=False)
     return GeocodeResult(text=text, lat=point[0], lon=point[1], found=True)

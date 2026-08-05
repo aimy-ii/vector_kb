@@ -20,8 +20,8 @@
         "landmark": null,
         "place_type": "Федеральная академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 53.723203,
+        "lon": 91.429506
       },
       {
         "id": "abakan_kirova",
@@ -34,8 +34,8 @@
         "landmark": null,
         "place_type": "Федеральная академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 53.7267616,
+        "lon": 91.4294553
       }
     ]
   },

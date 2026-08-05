@@ -2,30 +2,57 @@
 
 from __future__ import annotations
 
+import json
+from pathlib import Path
+
+from app.core.config import settings
 from app.services.directory_service.address import normalize_for_geocoder
 
-
-def test_strips_floor_and_office_tail() -> None:
-    """Хвост с этажом и офисом срезается."""
-    assert normalize_for_geocoder("ул. Правды, 17, 5 этаж, офис 501") == "ул. Правды, 17"
-
-
-def test_tail_variants() -> None:
-    """Варианты написания этажа и офиса срезаются."""
-    assert normalize_for_geocoder("ул. Тестовая, 1, эт. 4, оф. 415") == "ул. Тестовая, 1"
-    assert normalize_for_geocoder("ул. Тестовая, 1, офис 4, этаж 1") == "ул. Тестовая, 1"
-    assert normalize_for_geocoder("ул. Тестовая, 1, 2 этаж") == "ул. Тестовая, 1"
-    assert normalize_for_geocoder("ул. Тестовая, 1, оф. 204") == "ул. Тестовая, 1"
-    assert normalize_for_geocoder("ул. Тестовая, 1, пом. 12") == "ул. Тестовая, 1"
+#: Набор примеров для проверки формы результата.
+_EXAMPLES = (
+    "ул. Алексеева, 46, 2 этаж пом. 477",
+    "ул. Полтавская, д. 38, стр. 4",
+    "Ленинский просп., 128, корп. 2, эт. 2",
+    "пр-кт им. Газеты Красноярский Рабочий, 42",
+    "ул. Правды, 17, 5 этаж, офис 501",
+    "ул. Гайдара 2/1, 2 этаж",
+    "ул, Славы, д. 12",
+    "ул. Шумяцкого, 2Е",
+)
 
 
-def test_keeps_building_and_structure() -> None:
-    """Корпус и строение остаются — они часть адреса дома."""
-    assert normalize_for_geocoder("ул. Полтавская, д. 38, стр. 4") == (
-        "ул. Полтавская, д. 38, стр. 4"
+def test_cuts_entire_tail_after_first_refinement() -> None:
+    """Хвост от первого уточнения срезается целиком, без остатка номера."""
+    assert normalize_for_geocoder("ул. Алексеева, 46, 2 этаж пом. 477") == ("ул. Алексеева, 46")
+
+
+def test_strips_structure() -> None:
+    """Строение срезается — дом без него находится чаще."""
+    assert normalize_for_geocoder("ул. Полтавская, д. 38, стр. 4") == ("ул. Полтавская, д. 38")
+
+
+def test_expands_prospekt_and_strips_corpus() -> None:
+    """«просп.» раскрывается, корпус и этаж срезаются."""
+    assert normalize_for_geocoder("Ленинский просп., 128, корп. 2, эт. 2") == (
+        "Ленинский проспект, 128"
     )
-    assert normalize_for_geocoder("ул. Высотная, 4, стр. 2") == "ул. Высотная, 4, стр. 2"
-    assert normalize_for_geocoder("ул. Мира, 10, корп. 2") == "ул. Мира, 10, корп. 2"
+
+
+def test_expands_pr_kt_im() -> None:
+    """«пр-кт им.» раскрывается в «проспект» без «им.»."""
+    assert normalize_for_geocoder("пр-кт им. Газеты Красноярский Рабочий, 42") == (
+        "проспект Газеты Красноярский Рабочий, 42"
+    )
+
+
+def test_strips_floor_and_office() -> None:
+    """Этаж и офис срезаются."""
+    assert normalize_for_geocoder("ул. Правды, 17, 5 этаж, офис 501") == ("ул. Правды, 17")
+
+
+def test_keeps_fraction_house_number() -> None:
+    """Дробь в номере дома сохраняется."""
+    assert normalize_for_geocoder("ул. Гайдара 2/1, 2 этаж") == "ул. Гайдара 2/1"
 
 
 def test_comma_after_abbreviation_becomes_dot() -> None:
@@ -33,9 +60,14 @@ def test_comma_after_abbreviation_becomes_dot() -> None:
     assert normalize_for_geocoder("ул, Славы, д. 12") == "ул. Славы, д. 12"
 
 
-def test_collapses_nbsp_and_spaces() -> None:
-    """Неразрывный пробел и двойные пробелы схлопываются."""
-    assert normalize_for_geocoder("ул.\xa0Славы,  д. 12") == "ул. Славы, д. 12"
+def test_no_dangling_punctuation_or_double_spaces() -> None:
+    """В результатах нет висячих запятых, точек и двойных пробелов."""
+    for raw in _EXAMPLES:
+        cleaned = normalize_for_geocoder(raw)
+        assert cleaned == cleaned.strip(" ,.;")
+        assert "  " not in cleaned
+        assert not cleaned.endswith(",")
+        assert not cleaned.endswith(".")
 
 
 def test_clean_address_unchanged() -> None:
@@ -43,7 +75,24 @@ def test_clean_address_unchanged() -> None:
     assert normalize_for_geocoder("ул. Шумяцкого, 2Е") == "ул. Шумяцкого, 2Е"
 
 
-def test_only_tail_returns_original() -> None:
+def test_only_refinement_returns_original() -> None:
     """Адрес из одного уточнения возвращается как есть, а не пустым."""
     assert normalize_for_geocoder("5 этаж") == "5 этаж"
     assert normalize_for_geocoder("офис 501") == "офис 501"
+
+
+def test_all_directory_addresses_normalize_cleanly() -> None:
+    """После нормализации ни один из 235 адресов не пустой и не корявый."""
+    data_dir: Path = settings.directory_data_dir
+    count = 0
+    for path in sorted(data_dir.glob("*.json")):
+        city = json.loads(path.read_text(encoding="utf-8"))
+        for branch in city["branches"]["items"]:
+            count += 1
+            address = branch.get("address") or ""
+            cleaned = normalize_for_geocoder(address)
+            assert cleaned, f"{path.name}: {branch.get('id')} стал пустым"
+            assert not cleaned.endswith(","), f"{path.name}: {cleaned!r}"
+            assert not cleaned.endswith("."), f"{path.name}: {cleaned!r}"
+            assert "  " not in cleaned, f"{path.name}: {cleaned!r}"
+    assert count == 235

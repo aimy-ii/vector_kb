@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import os
 
-# Контакт нужен до импорта приложения: синглтон геокодера создаётся при загрузке.
+# Контакт для Nominatim; геокодер создаётся лениво, но тесты провайдера его используют.
 os.environ.setdefault("GEOCODER_CONTACT", "geocoder-tests@localhost")
 
 import pytest

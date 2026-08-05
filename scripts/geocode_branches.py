@@ -1,18 +1,21 @@
-"""Проставляет координаты филиалам через Nominatim.
+"""Проставляет координаты филиалам через выбранный геокодер.
 
 Обходит JSON городов, для каждого филиала с пустыми ``lat``/``lon`` строит
 запрос «адрес, город» и пишет найденную точку обратно в файл. Уже заполненные
 координаты пропускает — скрипт можно перезапускать.
 
-Перед запросом адрес нормализуется: этаж и офис срезаются, опечатки вроде
-«ул,» чинятся. В справочнике полный адрес не меняется.
+Перед запросом адрес нормализуется: этаж и офис срезаются; строение и корпус
+оставляются для DaData и срезаются для Nominatim. В справочнике полный адрес
+не меняется.
 
 Частоту запросов ограничивает ``geopy.extra.rate_limiter.RateLimiter``.
+
+Провайдер задаётся ``GEOCODER_PROVIDER`` или аргументом ``--provider``.
 
 Запуск:
     uv run python scripts/geocode_branches.py
     uv run python scripts/geocode_branches.py --city sankt-peterburg
-    uv run python scripts/geocode_branches.py --dry-run
+    uv run python scripts/geocode_branches.py --provider nominatim --dry-run
     uv run python scripts/geocode_branches.py --force
 """
 
@@ -26,11 +29,14 @@ from typing import Any
 
 from app.core.config import settings
 from app.services.directory_service.address import normalize_for_geocoder
+from app.services.directory_service.geocoders.dadata import DadataGeocoder
 from app.services.directory_service.geocoders.nominatim import NominatimGeocoder
 from geopy.extra.rate_limiter import RateLimiter
 
 #: Сколько первых подряд промахов считать признаком отказа провайдера.
 EARLY_MISS_ABORT = 3
+
+_PROVIDER_CHOICES = ("dadata", "nominatim")
 
 
 class ProviderLikelyRejected(Exception):
@@ -41,7 +47,7 @@ def parse_args() -> argparse.Namespace:
     """Разбирает аргументы командной строки.
 
     Возвращает:
-        Разобранные аргументы ``--city``, ``--dry-run``, ``--force``.
+        Разобранные аргументы ``--city``, ``--dry-run``, ``--force``, ``--provider``.
     """
     parser = argparse.ArgumentParser(description="Простановка координат филиалам")
     parser.add_argument(
@@ -65,6 +71,13 @@ def parse_args() -> argparse.Namespace:
         action=argparse.BooleanOptionalAction,
         default=True,
         help="Обрабатывать только филиалы без координат (по умолчанию включено)",
+    )
+    parser.add_argument(
+        "--provider",
+        type=str,
+        choices=_PROVIDER_CHOICES,
+        default=None,
+        help=("Геокодер: dadata или nominatim (по умолчанию из GEOCODER_PROVIDER)"),
     )
     return parser.parse_args()
 
@@ -115,10 +128,31 @@ def should_process(branch: dict[str, Any], *, force: bool, only_missing: bool) -
     return True
 
 
+def make_geocoder(provider: str) -> Any:
+    """
+    Создаёт клиент выбранного провайдера.
+
+    Аргументы:
+        provider: ``dadata`` или ``nominatim``.
+
+    Возвращает:
+        Экземпляр геокодера.
+    """
+    if provider == "dadata":
+        return DadataGeocoder()
+    if provider == "nominatim":
+        return NominatimGeocoder()
+    raise RuntimeError(
+        f"Неизвестный провайдер: {provider!r}. Доступны: {', '.join(_PROVIDER_CHOICES)}."
+    )
+
+
 def process_city(
     path: Path,
     geocode: Any,
     *,
+    provider: str,
+    client: Any,
     dry_run: bool,
     force: bool,
     only_missing: bool,
@@ -128,6 +162,8 @@ def process_city(
     Аргументы:
         path: путь к JSON города.
         geocode: функция геокодинга (уже с RateLimiter и ранним стопом).
+        provider: имя провайдера для вывода.
+        client: экземпляр геокодера (для чтения ``last_qc_geo`` у DaData).
         dry_run: если True — не писать файл.
         force: перезаписывать уже заполненные координаты.
         only_missing: обрабатывать только филиалы без координат.
@@ -141,23 +177,29 @@ def process_city(
     filled = 0
     missed = 0
     changed = False
+    strip_building = provider != "dadata"
 
     for branch in city.get("branches", {}).get("items", []):
         if not should_process(branch, force=force, only_missing=only_missing):
             continue
         processed += 1
         address = branch.get("address") or ""
-        cleaned = normalize_for_geocoder(address)
+        cleaned = normalize_for_geocoder(address, strip_building=strip_building)
         query = f"{cleaned}, {city_title}"
         point = geocode(query)
         if point is None:
             missed += 1
-            print(f"  miss  {city_title}: {address}")
+            print(f"  miss  [{provider}] {city_title}: {address}")
             if cleaned != address:
                 print(f"         запрос: {cleaned}")
             continue
         lat, lon = point
-        print(f"  ok    {city_title}: {address} -> {lat:.6f}, {lon:.6f}")
+        qc_part = ""
+        if provider == "dadata":
+            qc_geo = getattr(client, "last_qc_geo", None)
+            if qc_geo is not None:
+                qc_part = f" qc_geo={qc_geo}"
+        print(f"  ok    [{provider}{qc_part}] {city_title}: {address} -> {lat:.6f}, {lon:.6f}")
         if cleaned != address:
             print(f"         запрос: {cleaned}")
         if not dry_run:
@@ -176,14 +218,22 @@ def process_city(
 
 def main() -> None:
     """Проходит по городам и печатает сводку простановки координат."""
-    if not settings.geocoder_contact.strip():
+    args = parse_args()
+    provider = (args.provider or settings.geocoder_provider).strip().lower()
+    if provider not in _PROVIDER_CHOICES:
+        print(
+            f"Неизвестный GEOCODER_PROVIDER: {provider!r}. "
+            f"Доступны: {', '.join(_PROVIDER_CHOICES)}."
+        )
+        sys.exit(1)
+
+    if provider == "nominatim" and not settings.geocoder_contact.strip():
         print(
             "Не задан GEOCODER_CONTACT. Nominatim требует реальный e-mail или "
             "адрес сайта в переменной окружения — без него запросы отклоняются."
         )
         sys.exit(1)
 
-    args = parse_args()
     only_missing = False if args.force else args.only_missing
     data_dir = settings.directory_data_dir
     files = city_files(data_dir, args.city)
@@ -192,9 +242,9 @@ def main() -> None:
         print(f"Файлов городов не найдено: {target}")
         return
 
-    geocoder = NominatimGeocoder()
+    client = make_geocoder(provider)
     geocode = RateLimiter(
-        geocoder.geocode_sync,
+        client.geocode_sync,
         min_delay_seconds=settings.geocoder_pause,
     )
 
@@ -218,6 +268,8 @@ def main() -> None:
             processed, filled, missed = process_city(
                 path,
                 geocode_with_early_abort,
+                provider=provider,
+                client=client,
                 dry_run=args.dry_run,
                 force=args.force,
                 only_missing=only_missing,
@@ -226,10 +278,15 @@ def main() -> None:
             total_filled += filled
             total_missed += missed
     except ProviderLikelyRejected:
+        hint = (
+            "Проверьте DADATA_API_KEY и DADATA_SECRET_KEY."
+            if provider == "dadata"
+            else "Проверьте GEOCODER_CONTACT и политику Nominatim."
+        )
         print(
             "Провайдер, судя по всему, отклоняет запросы: первые "
             f"{EARLY_MISS_ABORT} обращения вернули пустой ответ. "
-            "Проверьте GEOCODER_CONTACT и политику Nominatim. Прогон прерван."
+            f"{hint} Прогон прерван."
         )
         sys.exit(1)
 

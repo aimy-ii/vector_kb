@@ -31,6 +31,26 @@ def test_strips_structure() -> None:
     assert normalize_for_geocoder("ул. Полтавская, д. 38, стр. 4") == ("ул. Полтавская, д. 38")
 
 
+def test_keeps_structure_when_strip_building_false() -> None:
+    """При strip_building=False строение и корпус сохраняются."""
+    assert (
+        normalize_for_geocoder("ул. Полтавская, д. 38, стр. 4", strip_building=False)
+        == "ул. Полтавская, д. 38, стр. 4"
+    )
+    assert (
+        normalize_for_geocoder("Ленинский просп., 128, корп. 2, эт. 2", strip_building=False)
+        == "Ленинский проспект, 128, корп. 2"
+    )
+
+
+def test_strips_floor_office_even_without_strip_building() -> None:
+    """Этаж и офис срезаются и при strip_building=False."""
+    assert (
+        normalize_for_geocoder("ул. Правды, 17, 5 этаж, офис 501", strip_building=False)
+        == "ул. Правды, 17"
+    )
+
+
 def test_expands_prospekt_and_strips_corpus() -> None:
     """«просп.» раскрывается, корпус и этаж срезаются."""
     assert normalize_for_geocoder("Ленинский просп., 128, корп. 2, эт. 2") == (

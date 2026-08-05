@@ -28,6 +28,9 @@ class Settings(BaseSettings):
     geocoder_contact: str = ""
     geocoder_timeout: float = 5.0
     geocoder_pause: float = 1.1
+    dadata_api_key: str = ""
+    dadata_secret_key: str = ""
+    geocoder_provider: str = "dadata"
     nearest_radius_km: float = 50.0
     nearest_limit: int = 3
 

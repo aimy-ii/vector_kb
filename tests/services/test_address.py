@@ -6,7 +6,7 @@ import json
 from pathlib import Path
 
 from app.core.config import settings
-from app.services.directory_service.address import normalize_for_geocoder
+from app.services.directory_service.address import has_own_city, normalize_for_geocoder
 
 #: Набор примеров для проверки формы результата.
 _EXAMPLES = (
@@ -102,7 +102,7 @@ def test_only_refinement_returns_original() -> None:
 
 
 def test_all_directory_addresses_normalize_cleanly() -> None:
-    """После нормализации ни один из 235 адресов не пустой и не корявый."""
+    """После нормализации ни один адрес справочника не пустой и не корявый."""
     data_dir: Path = settings.directory_data_dir
     count = 0
     for path in sorted(data_dir.glob("*.json")):
@@ -115,4 +115,24 @@ def test_all_directory_addresses_normalize_cleanly() -> None:
             assert not cleaned.endswith(","), f"{path.name}: {cleaned!r}"
             assert not cleaned.endswith("."), f"{path.name}: {cleaned!r}"
             assert "  " not in cleaned, f"{path.name}: {cleaned!r}"
-    assert count == 235
+    assert count == 222
+
+
+def test_has_own_city_recognizes_locality_spellings() -> None:
+    """Явные написания «г.» / «город» и составные имена распознаются."""
+    assert has_own_city("г Артем, Площадь Ленина, 17", "Владивосток") is True
+    assert has_own_city("г. Артем, Площадь Ленина, 17", "Владивосток") is True
+    assert has_own_city("г.Артем, Площадь Ленина, 17", "Владивосток") is True
+    assert has_own_city("город Всеволожск, Всеволожский проспект, 61", "Санкт-Петербург") is True
+    assert has_own_city("г. Нижний Новгород, ул. Ленина, 1", "Казань") is True
+    assert has_own_city("г. Старый Оскол, ул. Ленина, 1", "Белгород") is True
+    assert has_own_city("г. Мурино, Привокзальная площадь, 1", "Санкт-Петербург") is True
+    assert has_own_city("Красноярск, ул. Славы, 12", "Красноярск") is True
+
+
+def test_has_own_city_false_on_ordinary_and_street_name() -> None:
+    """Обычный адрес и «улица Городская» не считаются своим городом."""
+    assert has_own_city("ул. Славы, д. 12", "Красноярск") is False
+    assert has_own_city("улица Городская, 5", "Красноярск") is False
+    assert has_own_city("ул. Городская, 5", "Москва") is False
+    assert has_own_city("", "Красноярск") is False

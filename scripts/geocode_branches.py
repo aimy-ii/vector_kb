@@ -29,7 +29,7 @@ from pathlib import Path
 from typing import Any
 
 from app.core.config import settings
-from app.services.directory_service.address import normalize_for_geocoder
+from app.services.directory_service.address import has_own_city, normalize_for_geocoder
 from app.services.directory_service.geocoders.dadata import (
     DadataCleanerGeocoder,
     DadataSuggestionsGeocoder,
@@ -157,29 +157,6 @@ def make_geocoder(provider: str) -> Any:
     )
 
 
-def has_own_city(address: str, city: str) -> bool:
-    """
-    Проверяет, что в адресе уже указан город.
-
-    Ищет название в начале строки или в форме «г. Город» / «г Город», чтобы
-    не путать с однокоренными названиями улиц и проспектов.
-
-    Аргументы:
-        address: адрес филиала (обычно уже нормализованный).
-        city: название города из меты файла.
-
-    Возвращает:
-        True, если город в адресе уже есть и дописывать его в запрос не нужно.
-    """
-    if not city or not address:
-        return False
-    text = address.casefold()
-    name = city.casefold()
-    if text.startswith(name):
-        return True
-    return any(prefix in text for prefix in (f"г. {name}", f"г.{name}", f"г {name}"))
-
-
 def process_city(
     path: Path,
     geocode: Any,
@@ -220,7 +197,7 @@ def process_city(
         cleaned = normalize_for_geocoder(address, strip_building=strip_building)
         query_city = None if has_own_city(cleaned, city_title) else city_title
         query = client.build_query(cleaned, query_city)
-        point = geocode(query, city=city_title)
+        point = geocode(query, city=query_city)
         if point is None:
             missed += 1
             print(f"  miss  [{provider}] {city_title}: {address}")
@@ -285,8 +262,14 @@ def main() -> None:
     first_hits: list[bool] = []
 
     def geocode_with_early_abort(query: str, city: str | None = None) -> tuple[float, float] | None:
-        """Вызывает геокодер и прерывает прогон после трёх первых промахов."""
+        """Вызывает геокодер; при полном прогоне прерывает после трёх первых промахов.
+
+        В режиме только пустых координат ранний стоп отключён: оставшиеся адреса
+        как раз трудные, и три промаха подряд не означают отказ провайдера.
+        """
         point = geocode(query, city=city)
+        if only_missing:
+            return point
         if len(first_hits) < EARLY_MISS_ABORT:
             first_hits.append(point is not None)
             if len(first_hits) == EARLY_MISS_ABORT and not any(first_hits):

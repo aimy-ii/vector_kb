@@ -43,6 +43,41 @@ _CUT_BUILDING_OR_INTERIOR = re.compile(
 _COMMA_AFTER_ABBR = re.compile(r"\b(ул|пр|пер|б-р|наб|ш|пл|д|стр|корп)\s*,\s*(?=\S)")
 _SPACES = re.compile(r"\s{2,}")
 
+#: Явное указание населённого пункта в начале адреса: «г. X», «г X», «город X».
+#: Имя — одно–три слова с заглавной; «улица Городская» не подходит.
+_OWN_CITY_PREFIX = re.compile(
+    r"(?iu)^\s*(?:г\.?\s*|город\s+)"
+    r"[А-ЯЁA-Z][а-яёa-z]+"
+    r"(?:\s+[А-ЯЁA-Z][а-яёa-z]+){0,2}"
+    r"(?=[\s,]|$)"
+)
+
+
+def has_own_city(address: str, city: str) -> bool:
+    """
+    Проверяет, что в адресе уже указан населённый пункт.
+
+    Ищет название города файла в начале строки либо явную метку «г.» / «город»
+    с именем поселения (в том числе составным и отличным от города файла —
+    пригороды вроде Мурино в файле Петербурга). Не срабатывает на улицах
+    вроде «улица Городская».
+
+    Аргументы:
+        address: адрес филиала (обычно уже нормализованный).
+        city: название города из меты файла.
+
+    Возвращает:
+        True, если город в адресе уже есть и дописывать город файла не нужно.
+    """
+    if not address:
+        return False
+    text = address.strip()
+    if city:
+        name = city.casefold()
+        if text.casefold().startswith(name):
+            return True
+    return _OWN_CITY_PREFIX.search(text) is not None
+
 
 def normalize_for_geocoder(address: str, *, strip_building: bool = True) -> str:
     """

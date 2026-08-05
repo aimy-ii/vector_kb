@@ -23,7 +23,7 @@ def test_all_branches_have_lat_lon_keys() -> None:
             branch_count += 1
             assert "lat" in branch, f"{path.name}: {branch.get('id')} без lat"
             assert "lon" in branch, f"{path.name}: {branch.get('id')} без lon"
-    assert branch_count == 235
+    assert branch_count == 222
 
 
 def test_no_comma_after_street_abbreviation() -> None:
@@ -36,4 +36,30 @@ def test_no_comma_after_street_abbreviation() -> None:
             address = branch.get("address") or ""
             if _COMMA_AFTER_ABBR.search(address):
                 bad.append(f"{path.name}: {branch.get('id')}: {address}")
+    assert bad == []
+
+
+_FORBIDDEN_ADDRESS_MARKERS = (
+    "Время работы",
+    "Перерыв",
+    "Режим работы",
+    "Телефон",
+)
+
+
+def test_addresses_have_no_schedule_or_phone_markers() -> None:
+    """В address нет подписей расписания/телефона и переводов строки."""
+    data_dir: Path = settings.directory_data_dir
+    bad: list[str] = []
+    for path in sorted(data_dir.glob("*.json")):
+        city = json.loads(path.read_text(encoding="utf-8"))
+        for branch in city["branches"]["items"]:
+            address = branch.get("address") or ""
+            if "\n" in address or "\r" in address:
+                bad.append(f"{path.name}: {branch.get('id')}: перевод строки")
+                continue
+            for marker in _FORBIDDEN_ADDRESS_MARKERS:
+                if marker.casefold() in address.casefold():
+                    bad.append(f"{path.name}: {branch.get('id')}: {address!r}")
+                    break
     assert bad == []

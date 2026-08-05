@@ -46,24 +46,6 @@ _FORBIDDEN_ADDRESS_MARKERS = (
     "Телефон",
 )
 
-#: Филиалы, у которых координаты пока намеренно пустые (остаток геокодинга).
-#: Adler×2 и Нижняя Омка находятся ретраем без locations — записать отдельным прогоном.
-_COORDS_ALLOWED_MISSING: frozenset[str] = frozenset(
-    {
-        "adler_kirova",
-        "adler_urozhaynaya",
-        "artem_novoivanovskaya",
-        "artem_krasnogo_znamenii",
-        "artem_russkaya",
-        "artem_admirala_gorshkova",
-        "kormilovka_kirova",
-        "omsk_petra_nekrasova",
-        "omsk_okruzhnaya_doroga",
-        "omsk_nizhnyaya_omka",
-        "zheleznogorsk_lado_ketshoveli",
-    }
-)
-
 
 def test_addresses_have_no_schedule_or_phone_markers() -> None:
     """В address нет подписей расписания/телефона и переводов строки."""
@@ -83,19 +65,14 @@ def test_addresses_have_no_schedule_or_phone_markers() -> None:
     assert bad == []
 
 
-def test_all_branches_have_coords_except_allowlist() -> None:
-    """У всех филиалов, кроме явного списка исключений, lat/lon заполнены."""
+def test_all_branches_have_filled_coords() -> None:
+    """У всех филиалов сети lat и lon заполнены (не null)."""
     data_dir: Path = settings.directory_data_dir
     missing: list[str] = []
-    unexpected: list[str] = []
     for path in sorted(data_dir.glob("*.json")):
         city = json.loads(path.read_text(encoding="utf-8"))
         for branch in city["branches"]["items"]:
             branch_id = branch.get("id") or ""
-            empty = branch.get("lat") is None or branch.get("lon") is None
-            if empty and branch_id not in _COORDS_ALLOWED_MISSING:
+            if branch.get("lat") is None or branch.get("lon") is None:
                 missing.append(f"{path.name}: {branch_id}")
-            if not empty and branch_id in _COORDS_ALLOWED_MISSING:
-                unexpected.append(f"{path.name}: {branch_id}")
-    assert missing == [], f"пустые координаты вне списка: {missing}"
-    assert unexpected == [], f"в списке исключений, но уже заполнены: {unexpected}"
+    assert missing == [], f"пустые координаты: {missing}"

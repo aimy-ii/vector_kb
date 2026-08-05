@@ -48,8 +48,8 @@
         "landmark": null,
         "place_type": "Автодром",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 54.983844,
+        "lon": 73.370332
       },
       {
         "id": "omsk_okruzhnaya_doroga",
@@ -62,8 +62,8 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 54.969600,
+        "lon": 73.498500
       },
       {
         "id": "omsk_kirova",
@@ -90,8 +90,8 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 55.433093,
+        "lon": 74.943183
       },
       {
         "id": "omsk_okoneshnikovo_kalinina",

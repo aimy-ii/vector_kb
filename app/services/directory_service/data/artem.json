@@ -20,8 +20,8 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 43.110363,
+        "lon": 131.934310
       },
       {
         "id": "artem_krasnogo_znamenii",
@@ -34,8 +34,8 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 43.128113,
+        "lon": 131.905750
       },
       {
         "id": "artem_russkaya",
@@ -48,8 +48,8 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 43.166773,
+        "lon": 131.908497
       },
       {
         "id": "artem_admirala_gorshkova",
@@ -62,8 +62,8 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 43.162540,
+        "lon": 131.948938
       },
       {
         "id": "artem_lenina",

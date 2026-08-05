@@ -20,8 +20,8 @@
         "landmark": null,
         "place_type": "Федеральная академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 43.423147,
+        "lon": 39.921311
       },
       {
         "id": "adler_urozhaynaya",
@@ -34,8 +34,8 @@
         "landmark": null,
         "place_type": "Федеральная академия вождения",
         "metro": null,
-        "lat": null,
-        "lon": null
+        "lat": 43.400367,
+        "lon": 40.003082
       }
     ]
   },

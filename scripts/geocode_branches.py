@@ -29,14 +29,18 @@ from typing import Any
 
 from app.core.config import settings
 from app.services.directory_service.address import normalize_for_geocoder
-from app.services.directory_service.geocoders.dadata import DadataGeocoder
+from app.services.directory_service.geocoders.dadata import (
+    DadataCleanerGeocoder,
+    DadataSuggestionsGeocoder,
+)
 from app.services.directory_service.geocoders.nominatim import NominatimGeocoder
 from geopy.extra.rate_limiter import RateLimiter
 
 #: Сколько первых подряд промахов считать признаком отказа провайдера.
 EARLY_MISS_ABORT = 3
 
-_PROVIDER_CHOICES = ("dadata", "nominatim")
+_PROVIDER_CHOICES = ("dadata", "dadata_cleaner", "nominatim")
+_DADATA_PROVIDERS = frozenset({"dadata", "dadata_cleaner"})
 
 
 class ProviderLikelyRejected(Exception):
@@ -77,7 +81,10 @@ def parse_args() -> argparse.Namespace:
         type=str,
         choices=_PROVIDER_CHOICES,
         default=None,
-        help=("Геокодер: dadata или nominatim (по умолчанию из GEOCODER_PROVIDER)"),
+        help=(
+            "Геокодер: dadata (подсказки), dadata_cleaner или nominatim "
+            "(по умолчанию из GEOCODER_PROVIDER)"
+        ),
     )
     return parser.parse_args()
 
@@ -133,13 +140,15 @@ def make_geocoder(provider: str) -> Any:
     Создаёт клиент выбранного провайдера.
 
     Аргументы:
-        provider: ``dadata`` или ``nominatim``.
+        provider: ``dadata``, ``dadata_cleaner`` или ``nominatim``.
 
     Возвращает:
         Экземпляр геокодера.
     """
     if provider == "dadata":
-        return DadataGeocoder()
+        return DadataSuggestionsGeocoder()
+    if provider == "dadata_cleaner":
+        return DadataCleanerGeocoder()
     if provider == "nominatim":
         return NominatimGeocoder()
     raise RuntimeError(
@@ -177,7 +186,7 @@ def process_city(
     filled = 0
     missed = 0
     changed = False
-    strip_building = provider != "dadata"
+    strip_building = provider not in _DADATA_PROVIDERS
 
     for branch in city.get("branches", {}).get("items", []):
         if not should_process(branch, force=force, only_missing=only_missing):
@@ -195,7 +204,7 @@ def process_city(
             continue
         lat, lon = point
         qc_part = ""
-        if provider == "dadata":
+        if provider in _DADATA_PROVIDERS:
             qc_geo = getattr(client, "last_qc_geo", None)
             if qc_geo is not None:
                 qc_part = f" qc_geo={qc_geo}"
@@ -278,11 +287,12 @@ def main() -> None:
             total_filled += filled
             total_missed += missed
     except ProviderLikelyRejected:
-        hint = (
-            "Проверьте DADATA_API_KEY и DADATA_SECRET_KEY."
-            if provider == "dadata"
-            else "Проверьте GEOCODER_CONTACT и политику Nominatim."
-        )
+        if provider == "dadata":
+            hint = "Проверьте DADATA_API_KEY и лимит Подсказок."
+        elif provider == "dadata_cleaner":
+            hint = "Проверьте DADATA_API_KEY и DADATA_SECRET_KEY."
+        else:
+            hint = "Проверьте GEOCODER_CONTACT и политику Nominatim."
         print(
             "Провайдер, судя по всему, отклоняет запросы: первые "
             f"{EARLY_MISS_ABORT} обращения вернули пустой ответ. "

@@ -1,9 +1,13 @@
-"""Геокодер на DaData (стандартизация адресов по ФИАС).
+"""Геокодеры DaData по базе ФИАС.
 
-DaData опирается на официальный реестр адресов России и лучше Nominatim
-разбирает дробные номера домов, корпуса и длинные названия улиц. Бесплатный
-лимит — 10 000 запросов в сутки. Ключи API берутся из переменных окружения
-``DADATA_API_KEY`` и ``DADATA_SECRET_KEY``.
+Два клиента с одним интерфейсом:
+
+* ``DadataSuggestionsGeocoder`` — основной: API подсказок, бесплатный лимит
+  10 000 запросов в сутки, нужен только ``DADATA_API_KEY``.
+* ``DadataCleanerGeocoder`` — стандартизация (Cleaner): точнее на мусорных
+  адресах, но бесплатно лишь 100 запросов, дальше платно; нужны оба ключа.
+
+Координаты приходят в ``geo_lat``/``geo_lon``, точность — в ``qc_geo``.
 """
 
 from __future__ import annotations
@@ -18,6 +22,7 @@ from app.core.config import settings
 
 logger = logging.getLogger(__name__)
 
+SUGGEST_ADDRESS_URL = "https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/address"
 CLEAN_ADDRESS_URL = "https://cleaner.dadata.ru/api/v1/clean/address"
 
 # qc_geo > 2 — точка уровня населённого пункта или города; для подбора
@@ -25,136 +30,175 @@ CLEAN_ADDRESS_URL = "https://cleaner.dadata.ru/api/v1/clean/address"
 MAX_ACCEPTABLE_QC_GEO = 2
 
 
-class DadataGeocoder:
-    """Клиент API стандартизации адресов DaData."""
+def coords_from_dadata_item(
+    item: dict[str, Any], text: str
+) -> tuple[tuple[float, float], int] | None:
+    """
+    Достаёт координаты и qc_geo из объекта ответа DaData.
 
-    def __init__(self) -> None:
-        """Создаёт клиент; оба ключа должны быть заданы в окружении."""
-        api_key = settings.dadata_api_key.strip()
-        secret_key = settings.dadata_secret_key.strip()
-        if not api_key or not secret_key:
-            raise RuntimeError(
-                "Не заданы ключи DaData. Укажите переменные окружения "
-                "DADATA_API_KEY и DADATA_SECRET_KEY."
-            )
+    Аргументы:
+        item: словарь с полями ``geo_lat``, ``geo_lon``, ``qc_geo``.
+        text: исходный запрос — для логов.
+
+    Возвращает:
+        Кортеж ((широта, долгота), qc_geo) либо None, если поля пусты,
+        нечисловые или точность слишком грубая.
+    """
+    qc_geo = item.get("qc_geo")
+    try:
+        qc_geo_int = int(qc_geo) if qc_geo is not None else None
+    except (TypeError, ValueError):
+        qc_geo_int = None
+
+    if qc_geo_int is None or qc_geo_int > MAX_ACCEPTABLE_QC_GEO:
+        logger.info(
+            "[GEOCODER] DaData: qc_geo=%r слишком грубый для %r",
+            qc_geo,
+            text,
+        )
+        return None
+
+    geo_lat = item.get("geo_lat")
+    geo_lon = item.get("geo_lon")
+    if geo_lat is None or geo_lon is None:
+        logger.info("[GEOCODER] DaData: нет координат для %r", text)
+        return None
+
+    try:
+        lat = float(geo_lat)
+        lon = float(geo_lon)
+    except (TypeError, ValueError):
+        logger.info(
+            "[GEOCODER] DaData: нечисловые координаты для %r: %r, %r",
+            text,
+            geo_lat,
+            geo_lon,
+        )
+        return None
+
+    return (lat, lon), qc_geo_int
+
+
+class _DadataBase:
+    """Общая логика HTTP и разбора координат для клиентов DaData."""
+
+    #: Имя сервиса в логах (подсказки / Cleaner).
+    _service_label: str = "DaData"
+    #: Подсказка, какие переменные проверить при 401/403.
+    _auth_hint: str = "DADATA_API_KEY"
+
+    def __init__(self, api_key: str) -> None:
+        """Сохраняет API-ключ и таймаут из настроек."""
         self._api_key = api_key
-        self._secret_key = secret_key
         self._timeout = settings.geocoder_timeout
         #: Точность последнего успешного ответа (поле qc_geo), иначе None.
         self.last_qc_geo: int | None = None
 
-    def _headers(self) -> dict[str, str]:
-        """Собирает заголовки авторизации и JSON."""
+    def _auth_headers(self) -> dict[str, str]:
+        """Базовые JSON-заголовки с Token-авторизацией."""
         return {
             "Content-Type": "application/json",
             "Accept": "application/json",
             "Authorization": f"Token {self._api_key}",
-            "X-Secret": self._secret_key,
         }
+
+    def _headers(self) -> dict[str, str]:
+        """Заголовки запроса; подклассы могут добавить секрет."""
+        return self._auth_headers()
+
+    def _request_url(self) -> str:
+        """URL эндпоинта DaData."""
+        raise NotImplementedError
+
+    def _request_body(self, text: str) -> Any:
+        """Тело POST-запроса."""
+        raise NotImplementedError
+
+    def _extract_item(self, payload: Any, text: str) -> dict[str, Any] | None:
+        """Достаёт из JSON объект с geo_lat/geo_lon/qc_geo."""
+        raise NotImplementedError
+
+    def _handle_http_status(self, status_code: int, text: str) -> bool:
+        """
+        Обрабатывает неуспешный HTTP-статус.
+
+        Аргументы:
+            status_code: код ответа.
+            text: исходный запрос — для логов.
+
+        Возвращает:
+            True, если статус ошибочный и вызов нужно прервать с None.
+        """
+        if status_code in (401, 403):
+            logger.error(
+                "[GEOCODER] %s отказал в доступе (HTTP %s). "
+                "Проверьте ключи (%s) или лимит сервиса.",
+                self._service_label,
+                status_code,
+                self._auth_hint,
+            )
+            return True
+        if status_code == 429:
+            logger.error(
+                "[GEOCODER] Исчерпан дневной лимит %s (HTTP 429).",
+                self._service_label,
+            )
+            return True
+        if status_code >= 400:
+            logger.error(
+                "[GEOCODER] %s вернул HTTP %s для запроса %r",
+                self._service_label,
+                status_code,
+                text,
+            )
+            return True
+        return False
 
     def geocode_sync(self, text: str) -> tuple[float, float] | None:
         """
-        Синхронно переводит адрес в координаты через DaData Cleaner.
+        Синхронно переводит адрес в координаты.
 
         Аргументы:
-            text: строка адреса, например «Невский проспект, 28, Санкт-Петербург».
+            text: строка адреса.
 
         Возвращает:
-            Пару (широта, долгота) либо None, если адрес не распознан,
-            точность слишком грубая или провайдер не ответил.
+            Пару (широта, долгота) либо None.
         """
         self.last_qc_geo = None
         try:
             response = httpx.post(
-                CLEAN_ADDRESS_URL,
-                json=[text],
+                self._request_url(),
+                json=self._request_body(text),
                 headers=self._headers(),
                 timeout=self._timeout,
             )
         except httpx.HTTPError:
-            logger.exception("[GEOCODER] Сетевая ошибка DaData: %r", text)
+            logger.exception("[GEOCODER] Сетевая ошибка %s: %r", self._service_label, text)
             return None
 
-        if response.status_code in (401, 403):
-            logger.error(
-                "[GEOCODER] DaData не приняла ключи (HTTP %s). "
-                "Проверьте DADATA_API_KEY и DADATA_SECRET_KEY.",
-                response.status_code,
-            )
-            return None
-        if response.status_code == 429:
-            logger.error("[GEOCODER] Исчерпан дневной лимит запросов DaData (HTTP 429).")
-            return None
-        if response.status_code >= 400:
-            logger.error(
-                "[GEOCODER] DaData вернула HTTP %s для запроса %r",
-                response.status_code,
-                text,
-            )
+        if self._handle_http_status(response.status_code, text):
             return None
 
         try:
             payload: Any = response.json()
         except ValueError:
-            logger.exception("[GEOCODER] Некорректный JSON от DaData: %r", text)
-            return None
-
-        return self._parse_payload(payload, text)
-
-    def _parse_payload(self, payload: Any, text: str) -> tuple[float, float] | None:
-        """
-        Разбирает JSON-ответ Cleaner API.
-
-        Аргументы:
-            payload: разобранный JSON (ожидается массив объектов).
-            text: исходный запрос — для логов.
-
-        Возвращает:
-            Координаты либо None.
-        """
-        if not isinstance(payload, list) or not payload:
-            logger.info("[GEOCODER] DaData: пустой ответ на %r", text)
-            return None
-
-        item = payload[0]
-        if not isinstance(item, dict):
-            logger.info("[GEOCODER] DaData: неожиданный формат ответа на %r", text)
-            return None
-
-        qc_geo = item.get("qc_geo")
-        try:
-            qc_geo_int = int(qc_geo) if qc_geo is not None else None
-        except (TypeError, ValueError):
-            qc_geo_int = None
-
-        if qc_geo_int is None or qc_geo_int > MAX_ACCEPTABLE_QC_GEO:
-            logger.info(
-                "[GEOCODER] DaData: qc_geo=%r слишком грубый для %r",
-                qc_geo,
+            logger.exception(
+                "[GEOCODER] Некорректный JSON от %s: %r",
+                self._service_label,
                 text,
             )
             return None
 
-        geo_lat = item.get("geo_lat")
-        geo_lon = item.get("geo_lon")
-        if geo_lat is None or geo_lon is None:
-            logger.info("[GEOCODER] DaData: нет координат для %r", text)
+        item = self._extract_item(payload, text)
+        if item is None:
             return None
 
-        try:
-            lat = float(geo_lat)
-            lon = float(geo_lon)
-        except (TypeError, ValueError):
-            logger.info(
-                "[GEOCODER] DaData: нечисловые координаты для %r: %r, %r",
-                text,
-                geo_lat,
-                geo_lon,
-            )
+        parsed = coords_from_dadata_item(item, text)
+        if parsed is None:
             return None
-
-        self.last_qc_geo = qc_geo_int
-        return lat, lon
+        point, qc_geo = parsed
+        self.last_qc_geo = qc_geo
+        return point
 
     async def geocode(self, text: str) -> tuple[float, float] | None:
         """
@@ -167,3 +211,98 @@ class DadataGeocoder:
             Пару (широта, долгота) либо None.
         """
         return await asyncio.to_thread(self.geocode_sync, text)
+
+
+class DadataSuggestionsGeocoder(_DadataBase):
+    """Клиент API подсказок адресов DaData (основной провайдер)."""
+
+    _service_label = "DaData Подсказки"
+    _auth_hint = "DADATA_API_KEY"
+
+    def __init__(self) -> None:
+        """Создаёт клиент; нужен только ``DADATA_API_KEY``."""
+        api_key = settings.dadata_api_key.strip()
+        if not api_key:
+            raise RuntimeError("Не задан ключ DaData. Укажите переменную окружения DADATA_API_KEY.")
+        super().__init__(api_key)
+
+    def _request_url(self) -> str:
+        """URL API подсказок."""
+        return SUGGEST_ADDRESS_URL
+
+    def _request_body(self, text: str) -> Any:
+        """Тело: query и count=1."""
+        return {"query": text, "count": 1}
+
+    def _extract_item(self, payload: Any, text: str) -> dict[str, Any] | None:
+        """Достаёт ``data`` первой подсказки."""
+        if not isinstance(payload, dict):
+            logger.info(
+                "[GEOCODER] DaData Подсказки: неожиданный формат ответа на %r",
+                text,
+            )
+            return None
+        suggestions = payload.get("suggestions")
+        if not isinstance(suggestions, list) or not suggestions:
+            logger.info("[GEOCODER] DaData Подсказки: пустой ответ на %r", text)
+            return None
+        first = suggestions[0]
+        if not isinstance(first, dict):
+            logger.info("[GEOCODER] DaData Подсказки: неожиданный элемент на %r", text)
+            return None
+        data = first.get("data")
+        if not isinstance(data, dict):
+            logger.info("[GEOCODER] DaData Подсказки: нет data в ответе на %r", text)
+            return None
+        return data
+
+
+class DadataCleanerGeocoder(_DadataBase):
+    """Клиент API стандартизации адресов DaData (Cleaner).
+
+    Бесплатно только 100 запросов, дальше 0,2 ₽ за запись — поэтому провайдер
+    не основной; включается точечно через ``GEOCODER_PROVIDER=dadata_cleaner``.
+    """
+
+    _service_label = "DaData Cleaner"
+    _auth_hint = "DADATA_API_KEY и DADATA_SECRET_KEY"
+
+    def __init__(self) -> None:
+        """Создаёт клиент; оба ключа должны быть заданы в окружении."""
+        api_key = settings.dadata_api_key.strip()
+        secret_key = settings.dadata_secret_key.strip()
+        if not api_key or not secret_key:
+            raise RuntimeError(
+                "Не заданы ключи DaData Cleaner. Укажите переменные окружения "
+                "DADATA_API_KEY и DADATA_SECRET_KEY."
+            )
+        super().__init__(api_key)
+        self._secret_key = secret_key
+
+    def _headers(self) -> dict[str, str]:
+        """Заголовки Cleaner: Token и X-Secret."""
+        headers = self._auth_headers()
+        headers["X-Secret"] = self._secret_key
+        return headers
+
+    def _request_url(self) -> str:
+        """URL Cleaner API."""
+        return CLEAN_ADDRESS_URL
+
+    def _request_body(self, text: str) -> Any:
+        """Тело — JSON-массив из одной строки адреса."""
+        return [text]
+
+    def _extract_item(self, payload: Any, text: str) -> dict[str, Any] | None:
+        """Достаёт первый элемент массива ответа Cleaner."""
+        if not isinstance(payload, list) or not payload:
+            logger.info("[GEOCODER] DaData Cleaner: пустой ответ на %r", text)
+            return None
+        item = payload[0]
+        if not isinstance(item, dict):
+            logger.info(
+                "[GEOCODER] DaData Cleaner: неожиданный формат ответа на %r",
+                text,
+            )
+            return None
+        return item

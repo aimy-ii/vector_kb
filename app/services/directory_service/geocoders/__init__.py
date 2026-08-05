@@ -6,11 +6,15 @@ import functools
 from typing import Any
 
 from app.core.config import settings
-from app.services.directory_service.geocoders.dadata import DadataGeocoder
+from app.services.directory_service.geocoders.dadata import (
+    DadataCleanerGeocoder,
+    DadataSuggestionsGeocoder,
+)
 from app.services.directory_service.geocoders.nominatim import NominatimGeocoder
 
 _PROVIDERS = {
-    "dadata": DadataGeocoder,
+    "dadata": DadataSuggestionsGeocoder,
+    "dadata_cleaner": DadataCleanerGeocoder,
     "nominatim": NominatimGeocoder,
 }
 
@@ -53,7 +57,8 @@ class _LazyGeocoder:
 geocoder = _LazyGeocoder()
 
 __all__ = [
-    "DadataGeocoder",
+    "DadataCleanerGeocoder",
+    "DadataSuggestionsGeocoder",
     "NominatimGeocoder",
     "build_geocoder",
     "geocoder",

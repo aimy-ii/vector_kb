@@ -184,7 +184,7 @@ def test_all_directory_addresses_normalize_cleanly() -> None:
             assert not cleaned.endswith(","), f"{path.name}: {cleaned!r}"
             assert not cleaned.endswith("."), f"{path.name}: {cleaned!r}"
             assert "  " not in cleaned, f"{path.name}: {cleaned!r}"
-    assert count == 222
+    assert count == 212
 
 
 def test_extract_own_city_forms() -> None:

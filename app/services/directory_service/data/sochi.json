@@ -12,20 +12,6 @@
     "_source": "https://avtoschool-vektor.ru/sochi",
     "items": [
       {
-        "id": "sochi_gaydara",
-        "address": "ул. Гайдара 2/1, 2 этаж",
-        "district": null,
-        "hours": "ПН-ПТ 10:00-19:00",
-        "break": "14:00-15:00",
-        "is_autodrome": false,
-        "note": null,
-        "landmark": null,
-        "place_type": "Федеральная академия вождения",
-        "metro": null,
-        "lat": 43.660949,
-        "lon": 39.658551
-      },
-      {
         "id": "sochi_krymskaya",
         "address": "ул. Крымская, 29Г, этаж 1",
         "district": null,
@@ -38,20 +24,6 @@
         "metro": null,
         "lat": 43.634327,
         "lon": 39.698479
-      },
-      {
-        "id": "sochi_urozhaynaya",
-        "address": "ул. Урожайная 84, этаж 2",
-        "district": null,
-        "hours": "ПН-ПТ 10:00 - 19:00",
-        "break": "14:00-15:00",
-        "is_autodrome": false,
-        "note": null,
-        "landmark": null,
-        "place_type": "Федеральная академия вождения",
-        "metro": null,
-        "lat": 43.400367,
-        "lon": 40.003082
       },
       {
         "id": "sochi_novaya_zarya",
@@ -80,20 +52,6 @@
         "metro": null,
         "lat": 43.444233,
         "lon": 39.909426
-      },
-      {
-        "id": "sochi_kirova",
-        "address": "ул. Кирова, 23, 2 этаж, офис 6",
-        "district": null,
-        "hours": "ПН-ВС 08:30-20:30",
-        "break": "14:00-15:00",
-        "is_autodrome": false,
-        "note": null,
-        "landmark": null,
-        "place_type": "Федеральная академия вождения",
-        "metro": null,
-        "lat": 43.423147,
-        "lon": 39.921311
       },
       {
         "id": "sochi_roz",

@@ -68,20 +68,6 @@
         "lon": 131.948938
       },
       {
-        "id": "vladivostok_artem_lenina",
-        "address": "г. Артем, Площадь Ленина, 17, оф. 22",
-        "district": null,
-        "hours": "ПН-ПТ 10:00-19:00",
-        "break": "14:00-15:00",
-        "is_autodrome": false,
-        "note": null,
-        "landmark": null,
-        "place_type": "Федеральная академия вождения",
-        "metro": null,
-        "lat": 43.35187,
-        "lon": 132.181
-      },
-      {
         "id": "vladivostok_vladivostoka",
         "address": "пр-кт 100-летия Владивостока, 40А",
         "district": null,

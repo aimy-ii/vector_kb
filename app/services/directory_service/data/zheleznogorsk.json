@@ -12,20 +12,6 @@
     "_source": "https://avtoschool-vektor.ru/zheleznogorsk",
     "items": [
       {
-        "id": "zheleznogorsk_lado_ketshoveli",
-        "address": "ул. Ладо Кецховели 22а, офис 404",
-        "district": null,
-        "hours": "ПН-ПТ 10:00-19:00",
-        "break": null,
-        "is_autodrome": false,
-        "note": null,
-        "landmark": null,
-        "place_type": null,
-        "metro": null,
-        "lat": null,
-        "lon": null
-      },
-      {
         "id": "zheleznogorsk_lenina",
         "address": "ул. Ленина, 28",
         "district": null,

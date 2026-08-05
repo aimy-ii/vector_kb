@@ -110,20 +110,6 @@
         "lon": 75.088037
       },
       {
-        "id": "omsk_kalachinsk_kalachinskaya",
-        "address": "г. Калачинск, ул. Калачинская 25",
-        "district": null,
-        "hours": "ПН-ПТ 09:00-18:00",
-        "break": "13:00-14:00",
-        "is_autodrome": true,
-        "note": null,
-        "landmark": null,
-        "place_type": null,
-        "metro": null,
-        "lat": 55.047817,
-        "lon": 74.58866
-      },
-      {
         "id": "omsk_kormilovka_kirova",
         "address": "Р.П. Кормиловка, ул. Кирова 45/1",
         "district": null,

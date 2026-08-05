@@ -11,16 +11,23 @@ from app.core.config import settings
 from app.services.directory_service.coords_integrity import (
     MAX_BRANCH_FROM_CITY_KM,
     branches_far_from_city_center,
+    duplicate_addresses_across_cities,
+    duplicate_coordinates,
+    normalize_address_key,
 )
 
 _COMMA_AFTER_ABBR = re.compile(r"\b(ул|пр|пер|б-р|наб|ш|пл|д|стр|корп)\s*,\s*(?=\S)")
 
-#: Адреса, которые геокодер не разбирает однозначно — пустые lat/lon лучше неверных.
-_COORDS_ALLOWED_MISSING: frozenset[str] = frozenset(
-    {
-        "zheleznogorsk_lado_ketshoveli",
-    }
-)
+#: Ожидаемое число филиалов после удаления кросс-городских дублей.
+_EXPECTED_BRANCH_COUNT = 212
+
+
+def _load_cities() -> list[dict[str, Any]]:
+    """Читает все JSON городов справочника."""
+    data_dir: Path = settings.directory_data_dir
+    return [
+        json.loads(path.read_text(encoding="utf-8")) for path in sorted(data_dir.glob("*.json"))
+    ]
 
 
 def test_all_branches_have_lat_lon_keys() -> None:
@@ -35,7 +42,7 @@ def test_all_branches_have_lat_lon_keys() -> None:
             branch_count += 1
             assert "lat" in branch, f"{path.name}: {branch.get('id')} без lat"
             assert "lon" in branch, f"{path.name}: {branch.get('id')} без lon"
-    assert branch_count == 222
+    assert branch_count == _EXPECTED_BRANCH_COUNT
 
 
 def test_no_comma_after_street_abbreviation() -> None:
@@ -78,21 +85,16 @@ def test_addresses_have_no_schedule_or_phone_markers() -> None:
 
 
 def test_all_branches_have_filled_coords() -> None:
-    """У всех филиалов lat/lon заполнены, кроме явного списка неразбираемых."""
+    """У всех филиалов lat/lon заполнены."""
     data_dir: Path = settings.directory_data_dir
     missing: list[str] = []
-    unexpected: list[str] = []
     for path in sorted(data_dir.glob("*.json")):
         city = json.loads(path.read_text(encoding="utf-8"))
         for branch in city["branches"]["items"]:
             branch_id = branch.get("id") or ""
-            empty = branch.get("lat") is None or branch.get("lon") is None
-            if empty and branch_id not in _COORDS_ALLOWED_MISSING:
+            if branch.get("lat") is None or branch.get("lon") is None:
                 missing.append(f"{path.name}: {branch_id}")
-            if not empty and branch_id in _COORDS_ALLOWED_MISSING:
-                unexpected.append(f"{path.name}: {branch_id}")
-    assert missing == [], f"пустые координаты вне списка: {missing}"
-    assert unexpected == [], f"в списке исключений, но уже заполнены: {unexpected}"
+    assert missing == [], f"пустые координаты: {missing}"
 
 
 def test_all_cities_have_meta_coords() -> None:
@@ -117,6 +119,28 @@ def test_branch_coords_within_city_radius() -> None:
         for branch_id, distance in branches_far_from_city_center(city):
             bad.append(f"{city_name}: {branch_id}: {distance:.1f} км")
     assert bad == [], f"филиалы дальше {MAX_BRANCH_FROM_CITY_KM} км от центра города: {bad}"
+
+
+def test_no_duplicate_addresses_across_cities() -> None:
+    """Один и тот же адрес не встречается в файлах разных городов."""
+    duplicates = duplicate_addresses_across_cities(_load_cities())
+    assert duplicates == [], f"дубли адресов между городами: {duplicates}"
+
+
+def test_no_duplicate_coordinates() -> None:
+    """Две записи не имеют точно одинаковых lat/lon."""
+    duplicates = duplicate_coordinates(_load_cities())
+    assert duplicates == [], f"скопированные координаты: {duplicates}"
+
+
+def test_normalize_address_key_ignores_abbr_and_case() -> None:
+    """Ключ сравнения схлопывает регистр, пробелы и сокращения ул./д."""
+    assert normalize_address_key("ул. Кирова, 23, 2 этаж, офис 6") == normalize_address_key(
+        "Кирова 23"
+    )
+    assert normalize_address_key("проспект Красного Знамени, д. 51А офис 307") == (
+        normalize_address_key("проспект Красного Знамени 51А")
+    )
 
 
 def _sample_city(
@@ -169,3 +193,38 @@ def test_own_city_branch_excluded_from_distance_check() -> None:
         address="Р.П. Оконешниково, ул. Калинина 25",
     )
     assert branches_far_from_city_center(city, max_km=50.0) == []
+
+
+def test_duplicate_address_helper_detects_cross_city() -> None:
+    """Хелпер ловит одинаковый адрес в двух городах."""
+    cities = [
+        {
+            "meta": {"city": "А"},
+            "branches": {"items": [{"id": "a1", "address": "ул. Кирова, 23"}]},
+        },
+        {
+            "meta": {"city": "Б"},
+            "branches": {"items": [{"id": "b1", "address": "Кирова 23"}]},
+        },
+    ]
+    found = duplicate_addresses_across_cities(cities)
+    assert len(found) == 1
+    assert found[0][1] == ["А:a1", "Б:b1"]
+
+
+def test_duplicate_coordinates_helper_detects_copy() -> None:
+    """Хелпер ловит точное совпадение lat/lon у разных записей."""
+    cities = [
+        {
+            "meta": {"city": "А"},
+            "branches": {"items": [{"id": "a1", "address": "ул. А, 1", "lat": 1.0, "lon": 2.0}]},
+        },
+        {
+            "meta": {"city": "Б"},
+            "branches": {"items": [{"id": "b1", "address": "ул. Б, 2", "lat": 1.0, "lon": 2.0}]},
+        },
+    ]
+    found = duplicate_coordinates(cities)
+    assert len(found) == 1
+    assert found[0][0] == (1.0, 2.0)
+    assert found[0][1] == ["А:a1", "Б:b1"]

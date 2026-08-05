@@ -4,7 +4,9 @@
     "city_slug": "tara",
     "domain": "avtoschool-vektor.ru",
     "collected_at": "2026-07-23",
-    "version": 1
+    "version": 1,
+    "lat": 56.9159932,
+    "lon": 74.3649363
   },
   "branches": {
     "_source": "https://avtoschool-vektor.ru/tara",

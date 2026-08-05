@@ -4,7 +4,9 @@
     "city_slug": "eletz",
     "domain": "avtoschool-vektor.ru",
     "collected_at": "2026-07-23",
-    "version": 1
+    "version": 1,
+    "lat": 52.6152344,
+    "lon": 38.5288828
   },
   "branches": {
     "_source": "https://avtoschool-vektor.ru/eletz",

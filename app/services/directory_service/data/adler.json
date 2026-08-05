@@ -4,7 +4,9 @@
     "city_slug": "adler",
     "domain": "avtoschool-vektor.ru",
     "collected_at": "2026-07-23",
-    "version": 1
+    "version": 1,
+    "lat": 43.529139,
+    "lon": 39.989051
   },
   "branches": {
     "_source": "https://avtoschool-vektor.ru/adler",

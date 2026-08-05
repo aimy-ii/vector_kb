@@ -29,9 +29,25 @@ CLEAN_ADDRESS_URL = "https://cleaner.dadata.ru/api/v1/clean/address"
 # ближайшего филиала такая точность бесполезна (0 дом, 1 ближайший дом, 2 улица).
 MAX_ACCEPTABLE_QC_GEO = 2
 
+#: Для центра города достаточно точности населённого пункта (qc_geo 3–4).
+MAX_CITY_CENTER_QC_GEO = 4
+
+#: Уточнения для неоднозначных названий при геокодировании центра города.
+CITY_CENTER_HINTS: dict[str, str] = {
+    "Адлер": "Адлерский район, Сочи",
+    "Артём": "Артём, Приморский край",
+    "Железногорск": "Железногорск, Красноярский край",
+    "Иваново": "Иваново, Ивановская область",
+    "Канск": "Канск, Красноярский край",
+    "Тара": "Тара, Омская область",
+}
+
 
 def coords_from_dadata_item(
-    item: dict[str, Any], text: str
+    item: dict[str, Any],
+    text: str,
+    *,
+    max_qc_geo: int = MAX_ACCEPTABLE_QC_GEO,
 ) -> tuple[tuple[float, float], int] | None:
     """
     Достаёт координаты и qc_geo из объекта ответа DaData.
@@ -39,6 +55,8 @@ def coords_from_dadata_item(
     Аргументы:
         item: словарь с полями ``geo_lat``, ``geo_lon``, ``qc_geo``.
         text: исходный запрос — для логов.
+        max_qc_geo: максимальный допустимый ``qc_geo`` (для адресов — 2,
+            для центра города допускается грубее).
 
     Возвращает:
         Кортеж ((широта, долгота), qc_geo) либо None, если поля пусты,
@@ -50,7 +68,7 @@ def coords_from_dadata_item(
     except (TypeError, ValueError):
         qc_geo_int = None
 
-    if qc_geo_int is None or qc_geo_int > MAX_ACCEPTABLE_QC_GEO:
+    if qc_geo_int is None or qc_geo_int > max_qc_geo:
         logger.info(
             "[GEOCODER] DaData: qc_geo=%r слишком грубый для %r",
             qc_geo,
@@ -169,13 +187,20 @@ class _DadataBase:
             return True
         return False
 
-    def _geocode_once(self, text: str, city: str | None = None) -> tuple[float, float] | None:
+    def _post_and_parse(
+        self,
+        body: Any,
+        text: str,
+        *,
+        max_qc_geo: int = MAX_ACCEPTABLE_QC_GEO,
+    ) -> tuple[float, float] | None:
         """
-        Выполняет один HTTP-запрос к DaData и разбирает координаты.
+        Отправляет тело запроса в DaData и разбирает координаты.
 
         Аргументы:
-            text: строка адреса.
-            city: город для ограничения поиска; подклассы решают сами.
+            body: JSON-тело POST.
+            text: исходный запрос — для логов.
+            max_qc_geo: порог ``qc_geo`` для приёмки точки.
 
         Возвращает:
             Пару (широта, долгота) либо None.
@@ -184,7 +209,7 @@ class _DadataBase:
         try:
             response = httpx.post(
                 self._request_url(),
-                json=self._request_body(text, city=city),
+                json=body,
                 headers=self._headers(),
                 timeout=self._timeout,
             )
@@ -209,12 +234,45 @@ class _DadataBase:
         if item is None:
             return None
 
-        parsed = coords_from_dadata_item(item, text)
+        parsed = coords_from_dadata_item(item, text, max_qc_geo=max_qc_geo)
         if parsed is None:
             return None
         point, qc_geo = parsed
         self.last_qc_geo = qc_geo
         return point
+
+    def _geocode_once(self, text: str, city: str | None = None) -> tuple[float, float] | None:
+        """
+        Выполняет один HTTP-запрос к DaData и разбирает координаты.
+
+        Аргументы:
+            text: строка адреса.
+            city: город для ограничения поиска; подклассы решают сами.
+
+        Возвращает:
+            Пару (широта, долгота) либо None.
+        """
+        return self._post_and_parse(self._request_body(text, city=city), text)
+
+    def geocode_city_center_sync(self, city_name: str) -> tuple[float, float] | None:
+        """
+        Геокодирует центр города для ``meta.lat``/``meta.lon``.
+
+        Для центра города допускается грубый ``qc_geo`` (населённый пункт).
+        Неоднозначные названия уточняются через ``CITY_CENTER_HINTS``.
+
+        Аргументы:
+            city_name: название города из меты файла.
+
+        Возвращает:
+            Пару (широта, долгота) либо None.
+        """
+        query = CITY_CENTER_HINTS.get(city_name, city_name)
+        return self._geocode_city_center(query)
+
+    def _geocode_city_center(self, query: str) -> tuple[float, float] | None:
+        """Запрос центра: сначала с ограничением уровня города, затем без."""
+        raise NotImplementedError
 
     def geocode_sync(self, text: str, city: str | None = None) -> tuple[float, float] | None:
         """
@@ -267,6 +325,23 @@ class DadataSuggestionsGeocoder(_DadataBase):
             payload["locations"] = [{"city": city}]
             payload["restrict_value"] = True
         return payload
+
+    def _geocode_city_center(self, query: str) -> tuple[float, float] | None:
+        """Центр города: сначала bound city→settlement, затем без ограничения."""
+        bound_body: dict[str, Any] = {
+            "query": query,
+            "count": 1,
+            "from_bound": {"value": "city"},
+            "to_bound": {"value": "settlement"},
+        }
+        point = self._post_and_parse(bound_body, query, max_qc_geo=MAX_CITY_CENTER_QC_GEO)
+        if point is not None:
+            return point
+        return self._post_and_parse(
+            {"query": query, "count": 1},
+            query,
+            max_qc_geo=MAX_CITY_CENTER_QC_GEO,
+        )
 
     def _extract_item(self, payload: Any, text: str) -> dict[str, Any] | None:
         """Достаёт ``data`` первой подсказки."""
@@ -354,6 +429,10 @@ class DadataCleanerGeocoder(_DadataBase):
     def _request_body(self, text: str, city: str | None = None) -> Any:
         """Тело — JSON-массив из одной строки адреса."""
         return [text]
+
+    def _geocode_city_center(self, query: str) -> tuple[float, float] | None:
+        """Центр города через Cleaner: одна строка запроса."""
+        return self._post_and_parse([query], query, max_qc_geo=MAX_CITY_CENTER_QC_GEO)
 
     def _extract_item(self, payload: Any, text: str) -> dict[str, Any] | None:
         """Достаёт первый элемент массива ответа Cleaner."""

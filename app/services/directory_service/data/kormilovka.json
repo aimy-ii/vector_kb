@@ -4,7 +4,9 @@
     "city_slug": "kormilovka",
     "domain": "avtoschool-vektor.ru",
     "collected_at": "2026-07-23",
-    "version": 1
+    "version": 1,
+    "lat": 55.002909,
+    "lon": 74.100258
   },
   "branches": {
     "_source": "https://avtoschool-vektor.ru/kormilovka",
@@ -20,7 +22,7 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": 54.998310,
+        "lat": 54.99831,
         "lon": 74.088732
       }
     ]

@@ -4,7 +4,9 @@
     "city_slug": "ekaterinburg",
     "domain": "avtoschool-vektor.ru",
     "collected_at": "2026-07-22",
-    "version": 1
+    "version": 1,
+    "lat": 56.838607,
+    "lon": 60.605514
   },
   "branches": {
     "_source": "https://avtoschool-vektor.ru/ekaterinburg",

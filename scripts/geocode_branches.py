@@ -1,9 +1,13 @@
-"""Проставляет координаты филиалам через выбранный геокодер.
+"""Проставляет координаты филиалам и центрам городов через выбранный геокодер.
 
 Обходит JSON городов, для каждого филиала с пустыми ``lat``/``lon`` строит
 запрос через ``build_query`` выбранного провайдера и пишет найденную точку
 обратно в файл. Уже заполненные координаты пропускает — скрипт можно
 перезапускать.
+
+В ``meta`` каждого файла дополнительно проставляет ``lat``/``lon`` центра
+города — для проверки целостности и как запасная точка, когда геокодер не
+разобрал район клиента.
 
 Перед запросом адрес нормализуется: этаж и офис срезаются; строение и корпус
 оставляются для DaData и срезаются для Nominatim. В справочнике полный адрес
@@ -118,6 +122,18 @@ def needs_coords(branch: dict[str, Any]) -> bool:
     return branch.get("lat") is None or branch.get("lon") is None
 
 
+def needs_city_center(meta: dict[str, Any]) -> bool:
+    """Проверяет, что у города ещё нет координат центра в meta.
+
+    Аргументы:
+        meta: блок ``meta`` файла города.
+
+    Возвращает:
+        True, если lat или lon центра пусты.
+    """
+    return meta.get("lat") is None or meta.get("lon") is None
+
+
 def should_process(branch: dict[str, Any], *, force: bool, only_missing: bool) -> bool:
     """Решает, нужно ли геокодировать филиал в этом прогоне.
 
@@ -160,34 +176,59 @@ def make_geocoder(provider: str) -> Any:
 def process_city(
     path: Path,
     geocode: Any,
+    geocode_center: Any,
     *,
     provider: str,
     client: Any,
     dry_run: bool,
     force: bool,
     only_missing: bool,
-) -> tuple[int, int, int]:
-    """Обрабатывает один файл города.
+) -> tuple[int, int, int, int, int]:
+    """Обрабатывает один файл города: центр в meta и филиалы.
 
     Аргументы:
         path: путь к JSON города.
-        geocode: функция геокодинга (уже с RateLimiter и ранним стопом).
+        geocode: функция геокодинга филиалов (уже с RateLimiter и ранним стопом).
+        geocode_center: функция геокодинга центра города (с RateLimiter).
         provider: имя провайдера для вывода.
-        client: экземпляр геокодера (для чтения ``last_qc_geo`` у DaData).
+        client: экземпляр геокодера (для ``last_qc_geo``).
         dry_run: если True — не писать файл.
         force: перезаписывать уже заполненные координаты.
-        only_missing: обрабатывать только филиалы без координат.
+        only_missing: обрабатывать только пустые координаты.
 
     Возвращает:
-        Кортеж (обработано, проставлено, не найдено).
+        Кортеж (обработано филиалов, проставлено, не найдено,
+        центр_проставлен 0/1, центр_промах 0/1).
     """
     city = json.loads(path.read_text(encoding="utf-8"))
-    city_title = city.get("meta", {}).get("city", path.stem)
+    meta = city.setdefault("meta", {})
+    city_title = meta.get("city", path.stem)
     processed = 0
     filled = 0
     missed = 0
+    center_filled = 0
+    center_missed = 0
     changed = False
     strip_building = provider not in _DADATA_PROVIDERS
+
+    if force or needs_city_center(meta):
+        center = geocode_center(city_title)
+        if center is None:
+            center_missed = 1
+            print(f"  miss  [{provider}] центр города: {city_title}")
+        else:
+            clat, clon = center
+            qc_part = ""
+            if provider in _DADATA_PROVIDERS:
+                qc_geo = getattr(client, "last_qc_geo", None)
+                if qc_geo is not None:
+                    qc_part = f" qc_geo={qc_geo}"
+            print(f"  ok    [{provider}{qc_part}] центр {city_title} -> {clat:.6f}, {clon:.6f}")
+            if not dry_run:
+                meta["lat"] = clat
+                meta["lon"] = clon
+                changed = True
+            center_filled = 1
 
     for branch in city.get("branches", {}).get("items", []):
         if not should_process(branch, force=force, only_missing=only_missing):
@@ -231,7 +272,7 @@ def process_city(
             json.dumps(city, ensure_ascii=False, indent=2) + "\n",
             encoding="utf-8",
         )
-    return processed, filled, missed
+    return processed, filled, missed, center_filled, center_missed
 
 
 def main() -> None:
@@ -265,6 +306,10 @@ def main() -> None:
         client.geocode_sync,
         min_delay_seconds=settings.geocoder_pause,
     )
+    geocode_center = RateLimiter(
+        client.geocode_city_center_sync,
+        min_delay_seconds=settings.geocoder_pause,
+    )
 
     first_hits: list[bool] = []
 
@@ -286,12 +331,15 @@ def main() -> None:
     total_processed = 0
     total_filled = 0
     total_missed = 0
+    total_centers = 0
+    total_center_miss = 0
     try:
         for path in files:
             print(f"{path.stem}")
-            processed, filled, missed = process_city(
+            processed, filled, missed, center_ok, center_miss = process_city(
                 path,
                 geocode_with_early_abort,
+                geocode_center,
                 provider=provider,
                 client=client,
                 dry_run=args.dry_run,
@@ -301,6 +349,8 @@ def main() -> None:
             total_processed += processed
             total_filled += filled
             total_missed += missed
+            total_centers += center_ok
+            total_center_miss += center_miss
     except ProviderLikelyRejected:
         if provider == "dadata":
             hint = "Проверьте DADATA_API_KEY и лимит Подсказок."
@@ -317,7 +367,8 @@ def main() -> None:
 
     print(
         f"Итого: обработано {total_processed} / "
-        f"проставлено {total_filled} / не найдено {total_missed}"
+        f"проставлено {total_filled} / не найдено {total_missed}; "
+        f"центров городов: {total_centers} / промах {total_center_miss}"
     )
 
 

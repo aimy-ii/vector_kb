@@ -4,7 +4,9 @@
     "city_slug": "kyrgan",
     "domain": "avtoschool-vektor.ru",
     "collected_at": "2026-07-23",
-    "version": 1
+    "version": 1,
+    "lat": 55.4443683,
+    "lon": 65.3162142
   },
   "branches": {
     "_source": "https://avtoschool-vektor.ru/kyrgan",

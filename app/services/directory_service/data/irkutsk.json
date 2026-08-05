@@ -4,7 +4,9 @@
     "city_slug": "irkutsk",
     "domain": "avtoschool-vektor.ru",
     "collected_at": "2026-07-23",
-    "version": 1
+    "version": 1,
+    "lat": 52.286387,
+    "lon": 104.28066
   },
   "branches": {
     "_source": "https://avtoschool-vektor.ru/irkutsk",
@@ -62,7 +64,7 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": 52.274920,
+        "lat": 52.27492,
         "lon": 104.287648
       }
     ]

@@ -4,7 +4,9 @@
     "city_slug": "kazan",
     "domain": "avtoschool-vektor.ru",
     "collected_at": "2026-07-23",
-    "version": 1
+    "version": 1,
+    "lat": 55.794438,
+    "lon": 49.111451
   },
   "branches": {
     "_source": "https://avtoschool-vektor.ru/kazan",

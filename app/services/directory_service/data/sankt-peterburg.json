@@ -4,7 +4,9 @@
     "city_slug": "sankt-peterburg",
     "domain": "avtoschool-vektor.ru",
     "collected_at": "2026-07-22",
-    "version": 1
+    "version": 1,
+    "lat": 59.939084,
+    "lon": 30.315879
   },
   "branches": {
     "_source": "https://avtoschool-vektor.ru/sankt-peterburg",

@@ -4,7 +4,9 @@
     "city_slug": "voronezh",
     "domain": "avtoschool-vektor.ru",
     "collected_at": "2026-07-23",
-    "version": 1
+    "version": 1,
+    "lat": 51.659306,
+    "lon": 39.196854
   },
   "branches": {
     "_source": "https://avtoschool-vektor.ru/voronezh",

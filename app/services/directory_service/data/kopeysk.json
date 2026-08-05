@@ -4,7 +4,9 @@
     "city_slug": "kopeysk",
     "domain": "avtoschool-vektor.ru",
     "collected_at": "2026-07-23",
-    "version": 1
+    "version": 1,
+    "lat": 55.116753,
+    "lon": 61.617988
   },
   "branches": {
     "_source": "https://avtoschool-vektor.ru/kopeysk",

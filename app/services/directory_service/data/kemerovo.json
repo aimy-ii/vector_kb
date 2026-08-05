@@ -4,7 +4,9 @@
     "city_slug": "kemerovo",
     "domain": "avtoschool-vektor.ru",
     "collected_at": "2026-07-23",
-    "version": 1
+    "version": 1,
+    "lat": 55.3910176,
+    "lon": 86.0469193
   },
   "branches": {
     "_source": "https://avtoschool-vektor.ru/kemerovo",

@@ -4,7 +4,9 @@
     "city_slug": "ryazan",
     "domain": "avtoschool-vektor.ru",
     "collected_at": "2026-07-23",
-    "version": 1
+    "version": 1,
+    "lat": 54.625475,
+    "lon": 39.73593
   },
   "branches": {
     "_source": "https://avtoschool-vektor.ru/ryazan",

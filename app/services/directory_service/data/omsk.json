@@ -4,7 +4,9 @@
     "city_slug": "omsk",
     "domain": "avtoschool-vektor.ru",
     "collected_at": "2026-07-23",
-    "version": 1
+    "version": 1,
+    "lat": 54.984912,
+    "lon": 73.367525
   },
   "branches": {
     "_source": "https://avtoschool-vektor.ru/",
@@ -62,8 +64,8 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": 54.969600,
-        "lon": 73.498500
+        "lat": 54.9696,
+        "lon": 73.4985
       },
       {
         "id": "omsk_kirova",
@@ -81,7 +83,7 @@
       },
       {
         "id": "omsk_nizhnyaya_omka",
-        "address": "Нижняя Омка, Пер.Школьный 14, каб. 9",
+        "address": "с. Нижняя Омка, Пер.Школьный 14, каб. 9",
         "district": null,
         "hours": "ПН-ПТ 09:00-18:00",
         "break": null,

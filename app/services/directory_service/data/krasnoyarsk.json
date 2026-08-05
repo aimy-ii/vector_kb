@@ -4,7 +4,9 @@
     "city_slug": "krasnoyarsk",
     "domain": "avtoschool-vektor.ru",
     "collected_at": "2026-07-23",
-    "version": 1
+    "version": 1,
+    "lat": 56.009477,
+    "lon": 92.852449
   },
   "branches": {
     "_source": "https://avtoschool-vektor.ru/krasnoyarsk",

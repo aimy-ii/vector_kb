@@ -4,7 +4,9 @@
     "city_slug": "ufa",
     "domain": "avtoschool-vektor.ru",
     "collected_at": "2026-07-23",
-    "version": 1
+    "version": 1,
+    "lat": 54.734856,
+    "lon": 55.957856
   },
   "branches": {
     "_source": "https://avtoschool-vektor.ru/ufa",

@@ -53,6 +53,10 @@ class _LazyGeocoder:
         """Делегирует синхронный вызов выбранному провайдеру."""
         return build_geocoder().geocode_sync(text, city=city)
 
+    def geocode_city_center_sync(self, city_name: str) -> tuple[float, float] | None:
+        """Делегирует геокодирование центра города выбранному провайдеру."""
+        return build_geocoder().geocode_city_center_sync(city_name)
+
     async def geocode(self, text: str, city: str | None = None) -> tuple[float, float] | None:
         """Делегирует асинхронный вызов выбранному провайдеру."""
         return await build_geocoder().geocode(text, city=city)

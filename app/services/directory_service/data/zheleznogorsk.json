@@ -4,7 +4,9 @@
     "city_slug": "zheleznogorsk",
     "domain": "avtoschool-vektor.ru",
     "collected_at": "2026-07-23",
-    "version": 1
+    "version": 1,
+    "lat": 56.252902,
+    "lon": 93.532219
   },
   "branches": {
     "_source": "https://avtoschool-vektor.ru/zheleznogorsk",
@@ -20,8 +22,8 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": 56.009552,
-        "lon": 92.814699
+        "lat": null,
+        "lon": null
       },
       {
         "id": "zheleznogorsk_lenina",

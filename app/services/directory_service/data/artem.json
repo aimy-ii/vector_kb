@@ -4,7 +4,9 @@
     "city_slug": "artem",
     "domain": "avtoschool-vektor.ru",
     "collected_at": "2026-07-23",
-    "version": 1
+    "version": 1,
+    "lat": 43.350116,
+    "lon": 132.159633
   },
   "branches": {
     "_source": "https://avtoschool-vektor.ru/artem",
@@ -21,7 +23,7 @@
         "place_type": null,
         "metro": null,
         "lat": 43.110363,
-        "lon": 131.934310
+        "lon": 131.93431
       },
       {
         "id": "artem_krasnogo_znamenii",
@@ -35,7 +37,7 @@
         "place_type": null,
         "metro": null,
         "lat": 43.128113,
-        "lon": 131.905750
+        "lon": 131.90575
       },
       {
         "id": "artem_russkaya",
@@ -62,7 +64,7 @@
         "landmark": null,
         "place_type": null,
         "metro": null,
-        "lat": 43.162540,
+        "lat": 43.16254,
         "lon": 131.948938
       },
       {

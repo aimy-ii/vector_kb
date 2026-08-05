@@ -120,6 +120,38 @@ class NominatimGeocoder:
             return None
         return float(location.latitude), float(location.longitude)
 
+    def geocode_city_center_sync(self, city_name: str) -> tuple[float, float] | None:
+        """
+        Геокодирует центр города для ``meta.lat``/``meta.lon``.
+
+        Для центра города крупная рамка допустима — отбраковка ``is_too_coarse``
+        не применяется. Неоднозначные названия уточняются подсказками DaData.
+
+        Аргументы:
+            city_name: название города из меты файла.
+
+        Возвращает:
+            Пару (широта, долгота) либо None.
+        """
+        from app.services.directory_service.geocoders.dadata import CITY_CENTER_HINTS
+
+        query = CITY_CENTER_HINTS.get(city_name, city_name)
+        try:
+            location = self._client.geocode(query, exactly_one=True, country_codes="ru")
+        except GeocoderInsufficientPrivileges:
+            logger.exception(
+                "[GEOCODER] Провайдер отклонил запрос центра города: %r",
+                query,
+            )
+            return None
+        except GeocoderServiceError:
+            logger.exception("[GEOCODER] Запрос центра города не удался: %r", query)
+            return None
+        if location is None:
+            logger.info("[GEOCODER] Центр города не найден: %r", query)
+            return None
+        return float(location.latitude), float(location.longitude)
+
     async def geocode(self, text: str, city: str | None = None) -> tuple[float, float] | None:
         """
         Переводит описание места в координаты, не блокируя цикл событий.

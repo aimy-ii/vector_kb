@@ -15,6 +15,13 @@ def test_default_port_is_8317() -> None:
     assert settings.api_port == 8317
 
 
+def test_geocoder_user_agent_includes_contact(monkeypatch) -> None:
+    """geocoder_user_agent собирается из geocoder_contact и содержит контакт."""
+    monkeypatch.setattr(settings, "geocoder_contact", "geocoder-tests@localhost")
+    assert "geocoder-tests@localhost" in settings.geocoder_user_agent
+    assert settings.geocoder_user_agent.startswith("vector-kb/0.1 (")
+
+
 def test_paths_come_from_settings() -> None:
     """Каталоги данных заданы в настройках и существуют."""
     assert settings.directory_data_dir.is_dir()

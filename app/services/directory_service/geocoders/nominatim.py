@@ -20,7 +20,7 @@ import asyncio
 import logging
 from typing import Any
 
-from geopy.exc import GeocoderServiceError
+from geopy.exc import GeocoderInsufficientPrivileges, GeocoderServiceError
 from geopy.geocoders import Nominatim
 
 from app.core.config import settings
@@ -51,10 +51,20 @@ def is_too_coarse(raw: dict[str, Any]) -> bool:
 
 
 class NominatimGeocoder:
-    """Геокодер поверх Nominatim."""
+    """Геокодер поверх Nominatim.
+
+    Nominatim не предназначен для систематической нагрузки: на боевом потоке
+    звонков провайдера нужно менять (см. `geocoders/__init__.py`).
+    """
 
     def __init__(self) -> None:
         """Создаёт клиент с User-Agent и таймаутом из настроек."""
+        if not settings.geocoder_contact.strip():
+            raise RuntimeError(
+                "Не задан GEOCODER_CONTACT: Nominatim блокирует запросы без "
+                "реального способа связи. Укажите рабочий e-mail или адрес "
+                "сайта в переменной окружения GEOCODER_CONTACT."
+            )
         self._client = Nominatim(
             user_agent=settings.geocoder_user_agent,
             timeout=settings.geocoder_timeout,
@@ -75,6 +85,13 @@ class NominatimGeocoder:
         """
         try:
             location = self._client.geocode(text, exactly_one=True, country_codes="ru")
+        except GeocoderInsufficientPrivileges:
+            logger.exception(
+                "[GEOCODER] Провайдер отклонил запрос (недостаточно прав): %r. "
+                "Проверьте GEOCODER_CONTACT и политику использования Nominatim.",
+                text,
+            )
+            return None
         except GeocoderServiceError:
             logger.exception("[GEOCODER] Запрос не удался: %r", text)
             return None

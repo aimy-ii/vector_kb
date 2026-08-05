@@ -16,12 +16,20 @@ from __future__ import annotations
 
 import argparse
 import json
+import sys
 from pathlib import Path
 from typing import Any
 
 from app.core.config import settings
 from app.services.directory_service.geocoders.nominatim import NominatimGeocoder
 from geopy.extra.rate_limiter import RateLimiter
+
+#: Сколько первых подряд промахов считать признаком отказа провайдера.
+EARLY_MISS_ABORT = 3
+
+
+class ProviderLikelyRejected(Exception):
+    """Первые запросы к геокодеру все вернули None — дальше гонять бессмысленно."""
 
 
 def parse_args() -> argparse.Namespace:
@@ -83,7 +91,7 @@ def process_city(
 
     Аргументы:
         path: путь к JSON города.
-        geocode: функция геокодинга (уже с RateLimiter).
+        geocode: функция геокодинга (уже с RateLimiter и ранним стопом).
         dry_run: если True — не писать файл.
 
     Возвращает:
@@ -125,6 +133,13 @@ def process_city(
 
 def main() -> None:
     """Проходит по городам и печатает сводку простановки координат."""
+    if not settings.geocoder_contact.strip():
+        print(
+            "Не задан GEOCODER_CONTACT. Nominatim требует реальный e-mail или "
+            "адрес сайта в переменной окружения — без него запросы отклоняются."
+        )
+        sys.exit(1)
+
     args = parse_args()
     data_dir = settings.directory_data_dir
     files = city_files(data_dir, args.city)
@@ -139,15 +154,36 @@ def main() -> None:
         min_delay_seconds=settings.geocoder_pause,
     )
 
+    first_hits: list[bool] = []
+
+    def geocode_with_early_abort(query: str) -> tuple[float, float] | None:
+        """Вызывает геокодер и прерывает прогон после трёх первых промахов."""
+        point = geocode(query)
+        if len(first_hits) < EARLY_MISS_ABORT:
+            first_hits.append(point is not None)
+            if len(first_hits) == EARLY_MISS_ABORT and not any(first_hits):
+                raise ProviderLikelyRejected
+        return point
+
     total_processed = 0
     total_filled = 0
     total_missed = 0
-    for path in files:
-        print(f"{path.stem}")
-        processed, filled, missed = process_city(path, geocode, dry_run=args.dry_run)
-        total_processed += processed
-        total_filled += filled
-        total_missed += missed
+    try:
+        for path in files:
+            print(f"{path.stem}")
+            processed, filled, missed = process_city(
+                path, geocode_with_early_abort, dry_run=args.dry_run
+            )
+            total_processed += processed
+            total_filled += filled
+            total_missed += missed
+    except ProviderLikelyRejected:
+        print(
+            "Провайдер, судя по всему, отклоняет запросы: первые "
+            f"{EARLY_MISS_ABORT} обращения вернули пустой ответ. "
+            "Проверьте GEOCODER_CONTACT и политику Nominatim. Прогон прерван."
+        )
+        sys.exit(1)
 
     print(
         f"Итого: обработано {total_processed} / "

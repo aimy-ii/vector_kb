@@ -25,7 +25,7 @@ class Settings(BaseSettings):
     parse_pause: float = 1.5
     request_timeout: float = 30.0
 
-    geocoder_user_agent: str = "vector-kb/0.1 (contact: ops@example.org)"
+    geocoder_contact: str = ""
     geocoder_timeout: float = 5.0
     geocoder_pause: float = 1.1
     nearest_radius_km: float = 50.0
@@ -36,6 +36,20 @@ class Settings(BaseSettings):
         env_file_encoding="utf-8",
         extra="ignore",
     )
+
+    @property
+    def geocoder_user_agent(self) -> str:
+        """
+        Собирает User-Agent для геокодера.
+
+        Nominatim требует реальный способ связи и блокирует запросы с
+        фиктивными контактами вроде example.org. Значение берётся из
+        переменной окружения GEOCODER_CONTACT.
+
+        Возвращает:
+            Строку User-Agent с указанным контактом.
+        """
+        return f"vector-kb/0.1 ({self.geocoder_contact})"
 
 
 settings = Settings()

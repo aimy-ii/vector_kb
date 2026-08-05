@@ -4,12 +4,16 @@
 запрос «адрес, город» и пишет найденную точку обратно в файл. Уже заполненные
 координаты пропускает — скрипт можно перезапускать.
 
+Перед запросом адрес нормализуется: этаж и офис срезаются, опечатки вроде
+«ул,» чинятся. В справочнике полный адрес не меняется.
+
 Частоту запросов ограничивает ``geopy.extra.rate_limiter.RateLimiter``.
 
 Запуск:
     uv run python scripts/geocode_branches.py
     uv run python scripts/geocode_branches.py --city sankt-peterburg
     uv run python scripts/geocode_branches.py --dry-run
+    uv run python scripts/geocode_branches.py --force
 """
 
 from __future__ import annotations
@@ -21,6 +25,7 @@ from pathlib import Path
 from typing import Any
 
 from app.core.config import settings
+from app.services.directory_service.address import normalize_for_geocoder
 from app.services.directory_service.geocoders.nominatim import NominatimGeocoder
 from geopy.extra.rate_limiter import RateLimiter
 
@@ -36,7 +41,7 @@ def parse_args() -> argparse.Namespace:
     """Разбирает аргументы командной строки.
 
     Возвращает:
-        Разобранные аргументы ``--city`` и ``--dry-run``.
+        Разобранные аргументы ``--city``, ``--dry-run``, ``--force``.
     """
     parser = argparse.ArgumentParser(description="Простановка координат филиалам")
     parser.add_argument(
@@ -49,6 +54,17 @@ def parse_args() -> argparse.Namespace:
         "--dry-run",
         action="store_true",
         help="Не записывать изменения на диск",
+    )
+    parser.add_argument(
+        "--force",
+        action="store_true",
+        help="Повторно геокодировать филиалы с уже заполненными координатами",
+    )
+    parser.add_argument(
+        "--only-missing",
+        action=argparse.BooleanOptionalAction,
+        default=True,
+        help="Обрабатывать только филиалы без координат (по умолчанию включено)",
     )
     return parser.parse_args()
 
@@ -81,11 +97,31 @@ def needs_coords(branch: dict[str, Any]) -> bool:
     return branch.get("lat") is None or branch.get("lon") is None
 
 
+def should_process(branch: dict[str, Any], *, force: bool, only_missing: bool) -> bool:
+    """Решает, нужно ли геокодировать филиал в этом прогоне.
+
+    Аргументы:
+        branch: запись филиала.
+        force: перезаписывать уже заполненные координаты.
+        only_missing: обрабатывать только пустые координаты.
+
+    Возвращает:
+        True, если филиал участвует в прогоне.
+    """
+    if force:
+        return True
+    if only_missing:
+        return needs_coords(branch)
+    return True
+
+
 def process_city(
     path: Path,
     geocode: Any,
     *,
     dry_run: bool,
+    force: bool,
+    only_missing: bool,
 ) -> tuple[int, int, int]:
     """Обрабатывает один файл города.
 
@@ -93,6 +129,8 @@ def process_city(
         path: путь к JSON города.
         geocode: функция геокодинга (уже с RateLimiter и ранним стопом).
         dry_run: если True — не писать файл.
+        force: перезаписывать уже заполненные координаты.
+        only_missing: обрабатывать только филиалы без координат.
 
     Возвращает:
         Кортеж (обработано, проставлено, не найдено).
@@ -105,18 +143,23 @@ def process_city(
     changed = False
 
     for branch in city.get("branches", {}).get("items", []):
-        if not needs_coords(branch):
+        if not should_process(branch, force=force, only_missing=only_missing):
             continue
         processed += 1
         address = branch.get("address") or ""
-        query = f"{address}, {city_title}"
+        cleaned = normalize_for_geocoder(address)
+        query = f"{cleaned}, {city_title}"
         point = geocode(query)
         if point is None:
             missed += 1
             print(f"  miss  {city_title}: {address}")
+            if cleaned != address:
+                print(f"         запрос: {cleaned}")
             continue
         lat, lon = point
         print(f"  ok    {city_title}: {address} -> {lat:.6f}, {lon:.6f}")
+        if cleaned != address:
+            print(f"         запрос: {cleaned}")
         if not dry_run:
             branch["lat"] = lat
             branch["lon"] = lon
@@ -141,6 +184,7 @@ def main() -> None:
         sys.exit(1)
 
     args = parse_args()
+    only_missing = False if args.force else args.only_missing
     data_dir = settings.directory_data_dir
     files = city_files(data_dir, args.city)
     if not files:
@@ -172,7 +216,11 @@ def main() -> None:
         for path in files:
             print(f"{path.stem}")
             processed, filled, missed = process_city(
-                path, geocode_with_early_abort, dry_run=args.dry_run
+                path,
+                geocode_with_early_abort,
+                dry_run=args.dry_run,
+                force=args.force,
+                only_missing=only_missing,
             )
             total_processed += processed
             total_filled += filled

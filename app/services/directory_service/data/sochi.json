@@ -4,23 +4,13 @@
     "city_slug": "sochi",
     "domain": "avtoschool-vektor.ru",
     "collected_at": "2026-07-23",
-    "version": 1
+    "version": 1,
+    "lat": 43.585525,
+    "lon": 39.723062
   },
   "branches": {
     "_source": "https://avtoschool-vektor.ru/sochi",
     "items": [
-      {
-        "id": "sochi_gaydara",
-        "address": "ул. Гайдара 2/1, 2 этаж",
-        "district": null,
-        "hours": "ПН-ПТ 10:00-19:00",
-        "break": "14:00-15:00",
-        "is_autodrome": false,
-        "note": null,
-        "landmark": null,
-        "place_type": "Федеральная академия вождения",
-        "metro": null
-      },
       {
         "id": "sochi_krymskaya",
         "address": "ул. Крымская, 29Г, этаж 1",
@@ -31,19 +21,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
-      },
-      {
-        "id": "sochi_urozhaynaya",
-        "address": "ул. Урожайная 84, этаж 2",
-        "district": null,
-        "hours": "ПН-ПТ 10:00 - 19:00",
-        "break": "14:00-15:00",
-        "is_autodrome": false,
-        "note": null,
-        "landmark": null,
-        "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 43.634327,
+        "lon": 39.698479
       },
       {
         "id": "sochi_novaya_zarya",
@@ -55,7 +35,9 @@
         "note": null,
         "landmark": "ТРЦ МореМолл",
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 43.606254,
+        "lon": 39.732314
       },
       {
         "id": "sochi_gastello",
@@ -67,19 +49,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
-      },
-      {
-        "id": "sochi_kirova",
-        "address": "ул. Кирова, 23, 2 этаж, офис 6",
-        "district": null,
-        "hours": "ПН-ВС 08:30-20:30",
-        "break": "14:00-15:00",
-        "is_autodrome": false,
-        "note": null,
-        "landmark": null,
-        "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 43.444233,
+        "lon": 39.909426
       },
       {
         "id": "sochi_roz",
@@ -91,7 +63,9 @@
         "note": null,
         "landmark": "БЦ Roz 117",
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 43.5933798,
+        "lon": 39.7273392
       },
       {
         "id": "sochi_yana_fabritsiusa",
@@ -103,7 +77,9 @@
         "note": null,
         "landmark": null,
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 43.5848422,
+        "lon": 39.754514
       },
       {
         "id": "sochi_brigadnyy",
@@ -115,7 +91,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": 43.7617286,
+        "lon": 39.5388109
       }
     ]
   },

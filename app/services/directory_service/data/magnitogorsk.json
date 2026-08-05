@@ -4,7 +4,9 @@
     "city_slug": "magnitogorsk",
     "domain": "avtoschool-vektor.ru",
     "collected_at": "2026-07-23",
-    "version": 1
+    "version": 1,
+    "lat": 53.407211,
+    "lon": 58.979186
   },
   "branches": {
     "_source": "https://avtoschool-vektor.ru/magnitogorsk",
@@ -19,7 +21,9 @@
         "note": null,
         "landmark": "ТЦ Металлург",
         "place_type": "Академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 53.380256,
+        "lon": 58.987074
       },
       {
         "id": "magnitogorsk_sovetskaya",
@@ -31,7 +35,9 @@
         "note": null,
         "landmark": null,
         "place_type": "Академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 53.357384,
+        "lon": 58.963116
       },
       {
         "id": "magnitogorsk_lenina",
@@ -43,7 +49,9 @@
         "note": null,
         "landmark": null,
         "place_type": "Академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 53.41216,
+        "lon": 58.984047
       },
       {
         "id": "magnitogorsk_lenina_152",
@@ -55,7 +63,9 @@
         "note": null,
         "landmark": null,
         "place_type": "Академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 53.36811,
+        "lon": 58.989742
       },
       {
         "id": "magnitogorsk_gryaznova",
@@ -67,7 +77,9 @@
         "note": null,
         "landmark": null,
         "place_type": "Автодром",
-        "metro": null
+        "metro": null,
+        "lat": 53.397956,
+        "lon": 58.980749
       }
     ]
   },

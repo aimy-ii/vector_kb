@@ -4,7 +4,9 @@
     "city_slug": "sankt-peterburg",
     "domain": "avtoschool-vektor.ru",
     "collected_at": "2026-07-22",
-    "version": 1
+    "version": 1,
+    "lat": 59.939084,
+    "lon": 30.315879
   },
   "branches": {
     "_source": "https://avtoschool-vektor.ru/sankt-peterburg",
@@ -19,7 +21,9 @@
         "note": null,
         "landmark": "ЖК Мечта",
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 60.050237,
+        "lon": 30.445243
       },
       {
         "id": "sankt-peterburg_vsevolozhsk_vsevolozhskiy",
@@ -31,7 +35,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": 60.014706,
+        "lon": 30.649772
       },
       {
         "id": "sankt-peterburg_leninskiy",
@@ -43,7 +49,9 @@
         "note": null,
         "landmark": "ТРК Нарва",
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 59.852615,
+        "lon": 30.268383
       },
       {
         "id": "sankt-peterburg_ligovskiy",
@@ -55,7 +63,9 @@
         "note": null,
         "landmark": "Гостиница Октябрьская",
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 59.9326601,
+        "lon": 30.362521
       },
       {
         "id": "sankt-peterburg_soldata_korzuna",
@@ -67,7 +77,9 @@
         "note": "Фактический адрес ООО «КЛАСС» указан как ул. Солдата Корзуна, д. 1, к 2, литер Б, офис 367",
         "landmark": null,
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 59.834072,
+        "lon": 30.21611
       },
       {
         "id": "sankt-peterburg_kolomyazhskiy",
@@ -79,7 +91,9 @@
         "note": null,
         "landmark": "ЖК Богатырский",
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 60.000128,
+        "lon": 30.29982
       },
       {
         "id": "sankt-peterburg_salova",
@@ -91,7 +105,9 @@
         "note": null,
         "landmark": "Апарт-комплекс Valo",
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 59.885142,
+        "lon": 30.368563
       },
       {
         "id": "sankt-peterburg_sadovaya",
@@ -103,7 +119,9 @@
         "note": null,
         "landmark": "Seno",
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 59.928208,
+        "lon": 30.321734
       },
       {
         "id": "sankt-peterburg_balkanskaya",
@@ -115,7 +133,9 @@
         "note": null,
         "landmark": "ТЦ Балканский 4",
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 59.830056,
+        "lon": 30.378885
       },
       {
         "id": "sankt-peterburg_komendantskaya",
@@ -127,7 +147,9 @@
         "note": null,
         "landmark": "ТРК Атмосфера",
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 60.0076088,
+        "lon": 30.2598137
       },
       {
         "id": "sankt-peterburg_bolshoy_vasilevskogo",
@@ -139,7 +161,9 @@
         "note": "В блоке акций тот же класс указан как «Большой проспект Васильевского острова, 68/1 (ТЦ «Балтийский»)» — см. conflicts",
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": 59.9319555,
+        "lon": 30.2601896
       }
     ]
   },

@@ -2,6 +2,11 @@
 
 from __future__ import annotations
 
+import os
+
+# Контакт для Nominatim; геокодер создаётся лениво, но тесты провайдера его используют.
+os.environ.setdefault("GEOCODER_CONTACT", "geocoder-tests@localhost")
+
 import pytest
 from app.main import app
 from app.services.directory_service import directory_store

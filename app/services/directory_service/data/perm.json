@@ -4,7 +4,9 @@
     "city_slug": "perm",
     "domain": "avtoschool-vektor.ru",
     "collected_at": "2026-07-22",
-    "version": 1
+    "version": 1,
+    "lat": 58.010446,
+    "lon": 56.229429
   },
   "branches": {
     "_source": "https://avtoschool-vektor.ru/perm",
@@ -19,7 +21,9 @@
         "note": "перерыв на сайте не указан",
         "landmark": "Моби Дик",
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 58.007065,
+        "lon": 56.230547
       },
       {
         "id": "perm_krupskoy",
@@ -31,7 +35,9 @@
         "note": null,
         "landmark": null,
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 58.01803,
+        "lon": 56.277764
       },
       {
         "id": "perm_parkovyy",
@@ -43,7 +49,9 @@
         "note": null,
         "landmark": "Земляника",
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 57.999158,
+        "lon": 56.155323
       },
       {
         "id": "perm_uralskaya",
@@ -55,7 +63,9 @@
         "note": null,
         "landmark": null,
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 58.028652,
+        "lon": 56.29827
       },
       {
         "id": "perm_chernyshevskogo",
@@ -67,7 +77,9 @@
         "note": null,
         "landmark": null,
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 57.998014,
+        "lon": 56.266621
       },
       {
         "id": "perm_ushinskogo",
@@ -79,7 +91,9 @@
         "note": null,
         "landmark": null,
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 57.998433,
+        "lon": 56.292819
       },
       {
         "id": "perm_mira",
@@ -91,7 +105,9 @@
         "note": null,
         "landmark": "Новая столица",
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 57.978357,
+        "lon": 56.188796
       }
     ]
   },

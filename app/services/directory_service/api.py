@@ -8,6 +8,7 @@ from app.constants.directory import PRICE_DISCLAIMER, PRICE_UNKNOWN
 from app.schemas.common import HealthResponse, ReloadResponse
 from app.schemas.directory import (
     BranchDetail,
+    BranchNearby,
     BranchShort,
     CategoryInfo,
     CityDetail,
@@ -15,18 +16,22 @@ from app.schemas.directory import (
     CityShort,
     DocumentInfo,
     FaqItem,
+    GeocodeResult,
     PaymentInfo,
     PriceInfo,
     VehiclesInfo,
 )
 from app.services.directory_service import (
+    city_name,
     directory_store,
     get_branch,
     get_city,
     list_branches,
     list_cities,
+    nearest_branches,
     resolve_city,
 )
+from app.services.directory_service.geocoders import geocoder
 
 
 def health() -> HealthResponse:
@@ -196,3 +201,50 @@ def branch_detail(branch_slug: str) -> BranchDetail | None:
 def resolve_city_text(text: str) -> CityResolve:
     """Разбор разговорного названия; slug=null — города нет в сети."""
     return CityResolve(text=text, slug=resolve_city(text))
+
+
+def nearest_branches_short(
+    lat: float,
+    lon: float,
+    limit: int,
+    radius_km: float,
+    city_slug: str | None = None,
+) -> list[BranchNearby]:
+    """Ближайшие филиалы к точке в схеме API."""
+    return [
+        BranchNearby(
+            slug=item["слаг"],
+            city=item["город"],
+            address=item["адрес"],
+            landmark=item["ориентир"],
+            distance_km=item["расстояние"],
+        )
+        for item in nearest_branches(
+            lat=lat, lon=lon, limit=limit, radius_km=radius_km, city_slug=city_slug
+        )
+    ]
+
+
+async def geocode_text(text: str, city_slug: str | None = None) -> GeocodeResult:
+    """
+    Переводит произнесённое место в координаты.
+
+    Если город известен, его название дописывается к месту в порядке выбранного
+    провайдера и дополнительно передаётся отдельным аргументом (для ограничения
+    поиска у Подсказок DaData). Название берётся из справочника, а не из реплики
+    клиента. Неизвестный слаг ошибкой не считается — запрос уходит как есть.
+
+    Аргументы:
+        text: место словами — район, улица, ориентир.
+        city_slug: слаг города, если он уже выяснен в разговоре.
+
+    Возвращает:
+        GeocodeResult; found=False — место не распознано. Поле `text` остаётся
+        исходным, без подставленного города.
+    """
+    name = city_name(city_slug) if city_slug else None
+    query = geocoder.build_query(text, name)
+    point = await geocoder.geocode(query, city=name)
+    if point is None:
+        return GeocodeResult(text=text, lat=None, lon=None, found=False)
+    return GeocodeResult(text=text, lat=point[0], lon=point[1], found=True)

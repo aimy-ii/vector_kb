@@ -4,7 +4,9 @@
     "city_slug": "abakan",
     "domain": "avtoschool-vektor.ru",
     "collected_at": "2026-07-23",
-    "version": 1
+    "version": 1,
+    "lat": 53.722356,
+    "lon": 91.443699
   },
   "branches": {
     "_source": "https://avtoschool-vektor.ru/abakan",
@@ -19,7 +21,9 @@
         "note": null,
         "landmark": null,
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 53.723203,
+        "lon": 91.429506
       },
       {
         "id": "abakan_kirova",
@@ -31,7 +35,9 @@
         "note": null,
         "landmark": null,
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 53.7267616,
+        "lon": 91.4294553
       }
     ]
   },

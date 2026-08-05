@@ -4,7 +4,9 @@
     "city_slug": "adler",
     "domain": "avtoschool-vektor.ru",
     "collected_at": "2026-07-23",
-    "version": 1
+    "version": 1,
+    "lat": 43.529139,
+    "lon": 39.989051
   },
   "branches": {
     "_source": "https://avtoschool-vektor.ru/adler",
@@ -19,7 +21,9 @@
         "note": null,
         "landmark": null,
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 43.423147,
+        "lon": 39.921311
       },
       {
         "id": "adler_urozhaynaya",
@@ -31,7 +35,9 @@
         "note": null,
         "landmark": null,
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 43.400367,
+        "lon": 40.003082
       }
     ]
   },

@@ -4,7 +4,9 @@
     "city_slug": "irkutsk",
     "domain": "avtoschool-vektor.ru",
     "collected_at": "2026-07-23",
-    "version": 1
+    "version": 1,
+    "lat": 52.286387,
+    "lon": 104.28066
   },
   "branches": {
     "_source": "https://avtoschool-vektor.ru/irkutsk",
@@ -19,7 +21,9 @@
         "note": null,
         "landmark": null,
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 52.264874,
+        "lon": 104.26037
       },
       {
         "id": "irkutsk_shiryamova",
@@ -31,7 +35,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": 52.276046,
+        "lon": 104.353011
       },
       {
         "id": "irkutsk_rozy_lyuksemburg",
@@ -43,7 +49,9 @@
         "note": null,
         "landmark": null,
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 52.355335,
+        "lon": 104.157335
       },
       {
         "id": "irkutsk_iyulya",
@@ -55,7 +63,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": 52.27492,
+        "lon": 104.287648
       }
     ]
   },

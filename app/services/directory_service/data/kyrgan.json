@@ -4,7 +4,9 @@
     "city_slug": "kyrgan",
     "domain": "avtoschool-vektor.ru",
     "collected_at": "2026-07-23",
-    "version": 1
+    "version": 1,
+    "lat": 55.4443683,
+    "lon": 65.3162142
   },
   "branches": {
     "_source": "https://avtoschool-vektor.ru/kyrgan",
@@ -19,7 +21,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": 55.44516,
+        "lon": 65.333725
       },
       {
         "id": "kyrgan_maksima_gorkogo",
@@ -31,7 +35,9 @@
         "note": null,
         "landmark": null,
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 55.434855,
+        "lon": 65.339896
       },
       {
         "id": "kyrgan_branch_03",
@@ -43,7 +49,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": 55.467765,
+        "lon": 65.275012
       }
     ]
   },

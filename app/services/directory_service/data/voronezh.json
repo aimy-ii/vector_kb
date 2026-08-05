@@ -4,7 +4,9 @@
     "city_slug": "voronezh",
     "domain": "avtoschool-vektor.ru",
     "collected_at": "2026-07-23",
-    "version": 1
+    "version": 1,
+    "lat": 51.659306,
+    "lon": 39.196854
   },
   "branches": {
     "_source": "https://avtoschool-vektor.ru/voronezh",
@@ -19,7 +21,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": 51.868109,
+        "lon": 39.638994
       },
       {
         "id": "voronezh_olimpiyskiy",
@@ -31,7 +35,9 @@
         "note": null,
         "landmark": "ЖК Ботанический сад",
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 51.712798,
+        "lon": 39.198607
       },
       {
         "id": "voronezh_leninskiy",
@@ -43,7 +49,9 @@
         "note": null,
         "landmark": "БЦ InSpe",
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 51.69324,
+        "lon": 39.270066
       },
       {
         "id": "voronezh_vladimira_nevskogo",
@@ -55,7 +63,9 @@
         "note": null,
         "landmark": null,
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 51.719767,
+        "lon": 39.175799
       },
       {
         "id": "voronezh_voroshilova",
@@ -67,7 +77,9 @@
         "note": null,
         "landmark": null,
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 51.649622,
+        "lon": 39.163905
       },
       {
         "id": "voronezh_dimitrova_kab",
@@ -79,7 +91,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": 51.674349,
+        "lon": 39.250332
       },
       {
         "id": "voronezh_moskovskiy",
@@ -91,7 +105,9 @@
         "note": null,
         "landmark": "БЦ Рента",
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 51.70043,
+        "lon": 39.18162
       },
       {
         "id": "voronezh_zaschitnikov_rodiny",
@@ -103,7 +119,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": 51.6906508,
+        "lon": 39.0789519
       },
       {
         "id": "voronezh_obrucheva",
@@ -115,7 +133,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": 51.6701211,
+        "lon": 39.2733722
       },
       {
         "id": "voronezh_elektrosignalnaya",
@@ -127,7 +147,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": 51.687645,
+        "lon": 39.173977
       }
     ]
   },

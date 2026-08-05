@@ -4,7 +4,9 @@
     "city_slug": "tomsk",
     "domain": "avtoschool-vektor.ru",
     "collected_at": "2026-07-23",
-    "version": 1
+    "version": 1,
+    "lat": 56.48468,
+    "lon": 84.948197
   },
   "branches": {
     "_source": "https://avtoschool-vektor.ru/tomsk",
@@ -19,7 +21,9 @@
         "note": null,
         "landmark": null,
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 56.520216,
+        "lon": 84.983456
       },
       {
         "id": "tomsk_uchebnaya",
@@ -31,7 +35,9 @@
         "note": null,
         "landmark": null,
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 56.45919,
+        "lon": 84.95826
       },
       {
         "id": "tomsk_suvorova",
@@ -43,7 +49,9 @@
         "note": null,
         "landmark": null,
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 56.5128774,
+        "lon": 85.0246663
       },
       {
         "id": "tomsk_frunze",
@@ -55,7 +63,9 @@
         "note": null,
         "landmark": null,
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 56.476573,
+        "lon": 84.976673
       }
     ]
   },

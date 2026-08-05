@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from app.constants.directory import PRICE_DISCLAIMER, PRICE_UNKNOWN
-from app.schemas.directory import BranchDetail, CityDetail, PriceInfo
+from app.schemas.directory import BranchDetail, BranchNearby, CityDetail, GeocodeResult, PriceInfo
 from app.services.directory_service import api as directory_api
 from app.services.directory_service import city_enum
 
@@ -27,6 +27,31 @@ def test_branch_detail_place_type_and_status() -> None:
     )
     assert detail.place_type == "учебный офис"
     assert detail.status == "работает"
+
+
+def test_branch_nearby_and_geocode_result_fields() -> None:
+    """BranchNearby и GeocodeResult содержат ожидаемые поля."""
+    nearby = BranchNearby(
+        slug="krasnoyarsk_slavy",
+        city="Красноярск",
+        address="ул. Славы, 12",
+        landmark=None,
+        distance_km=0.42,
+    )
+    assert nearby.slug == "krasnoyarsk_slavy"
+    assert nearby.distance_km == 0.42
+    nearby_schema = BranchNearby.model_json_schema()
+    for key in ("slug", "city", "address", "landmark", "distance_km"):
+        assert key in nearby_schema["properties"]
+
+    found = GeocodeResult(text="Купчино", lat=59.85, lon=30.35, found=True)
+    assert found.found is True
+    assert found.lat == 59.85
+    missing = GeocodeResult(text="нигде", lat=None, lon=None, found=False)
+    assert missing.found is False
+    geocode_schema = GeocodeResult.model_json_schema()
+    for key in ("text", "lat", "lon", "found"):
+        assert key in geocode_schema["properties"]
 
 
 def test_api_city_detail_price_with_disclaimer() -> None:

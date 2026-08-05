@@ -196,6 +196,37 @@ class BranchDetail(BaseModel):
     )
 
 
+class BranchNearby(BaseModel):
+    """Филиал в выдаче подбора по расстоянию."""
+
+    slug: str = Field(title="Слаг филиала")
+    city: str = Field(title="Город")
+    address: str = Field(title="Адрес")
+    landmark: str | None = Field(default=None, title="Ориентир")
+    distance_km: float = Field(title="Расстояние по прямой, км")
+
+    model_config = ConfigDict(
+        json_schema_extra={
+            "example": {
+                "slug": "krasnoyarsk_slavy",
+                "city": "Красноярск",
+                "address": "ул. Славы, 12",
+                "landmark": None,
+                "distance_km": 0.42,
+            }
+        }
+    )
+
+
+class GeocodeResult(BaseModel):
+    """Результат перевода произнесённого места в координаты."""
+
+    text: str = Field(title="Исходный текст")
+    lat: float | None = Field(default=None, title="Широта")
+    lon: float | None = Field(default=None, title="Долгота")
+    found: bool = Field(title="Удалось ли определить точку")
+
+
 class CityResolve(BaseModel):
     """Результат разбора разговорного названия города."""
 

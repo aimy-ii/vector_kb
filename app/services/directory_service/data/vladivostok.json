@@ -4,7 +4,9 @@
     "city_slug": "vladivostok",
     "domain": "avtoschool-vektor.ru",
     "collected_at": "2026-07-23",
-    "version": 1
+    "version": 1,
+    "lat": 43.116391,
+    "lon": 131.882421
   },
   "branches": {
     "_source": "https://avtoschool-vektor.ru/vladivostok",
@@ -19,11 +21,13 @@
         "note": null,
         "landmark": null,
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 43.110363,
+        "lon": 131.93431
       },
       {
         "id": "vladivostok_krasnogo_znamenii",
-        "address": "проспект Красного знамении, д. 51А офис 307",
+        "address": "проспект Красного Знамени, д. 51А офис 307",
         "district": null,
         "hours": "ПН-ВС 10:00-21:00",
         "break": "14:00-15:00",
@@ -31,7 +35,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": 43.128113,
+        "lon": 131.90575
       },
       {
         "id": "vladivostok_russkaya",
@@ -43,7 +49,9 @@
         "note": null,
         "landmark": "БЦ Antenna Building",
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 43.166773,
+        "lon": 131.908497
       },
       {
         "id": "vladivostok_admirala_gorshkova",
@@ -55,19 +63,9 @@
         "note": null,
         "landmark": "ЖК Молодёжный",
         "place_type": "Федеральная академия вождения",
-        "metro": null
-      },
-      {
-        "id": "vladivostok_artem_lenina",
-        "address": "г. Артем, Площадь Ленина, 17, оф. 22",
-        "district": null,
-        "hours": "ПН-ПТ 10:00-19:00",
-        "break": "14:00-15:00",
-        "is_autodrome": false,
-        "note": null,
-        "landmark": null,
-        "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 43.16254,
+        "lon": 131.948938
       },
       {
         "id": "vladivostok_vladivostoka",
@@ -79,7 +77,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": 43.151037,
+        "lon": 131.909613
       },
       {
         "id": "vladivostok_chernyahovskogo",
@@ -91,7 +91,9 @@
         "note": null,
         "landmark": null,
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 43.113983,
+        "lon": 131.957736
       }
     ]
   },

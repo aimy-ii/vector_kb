@@ -4,59 +4,13 @@
     "city_slug": "artem",
     "domain": "avtoschool-vektor.ru",
     "collected_at": "2026-07-23",
-    "version": 1
+    "version": 1,
+    "lat": 43.350116,
+    "lon": 132.159633
   },
   "branches": {
     "_source": "https://avtoschool-vektor.ru/artem",
     "items": [
-      {
-        "id": "artem_novoivanovskaya",
-        "address": "ул. Новоивановская, 4а, офис 302",
-        "district": null,
-        "hours": "ПН-ПТ 10:00-19:00",
-        "break": "14:00-15:00",
-        "is_autodrome": false,
-        "note": null,
-        "landmark": null,
-        "place_type": null,
-        "metro": null
-      },
-      {
-        "id": "artem_krasnogo_znamenii",
-        "address": "проспект Красного знамении, д. 51А офис 307",
-        "district": null,
-        "hours": "ПН-ВС 10:00-21:00",
-        "break": "14:00-15:00",
-        "is_autodrome": false,
-        "note": null,
-        "landmark": null,
-        "place_type": null,
-        "metro": null
-      },
-      {
-        "id": "artem_russkaya",
-        "address": "ул. Русская, 9Б",
-        "district": null,
-        "hours": "ПН-ПТ 10:00-19:00",
-        "break": "14:00-15:00",
-        "is_autodrome": false,
-        "note": null,
-        "landmark": null,
-        "place_type": null,
-        "metro": null
-      },
-      {
-        "id": "artem_admirala_gorshkova",
-        "address": "ул. Адмирала Горшкова, 8, домофон 27",
-        "district": null,
-        "hours": "ПН-ПТ 10:00-19:00",
-        "break": "14:00-15:00",
-        "is_autodrome": false,
-        "note": null,
-        "landmark": null,
-        "place_type": null,
-        "metro": null
-      },
       {
         "id": "artem_lenina",
         "address": "Площадь Ленина, 17, оф. 22",
@@ -67,7 +21,9 @@
         "note": null,
         "landmark": null,
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 43.35187,
+        "lon": 132.181
       }
     ]
   },

@@ -4,23 +4,13 @@
     "city_slug": "zheleznogorsk",
     "domain": "avtoschool-vektor.ru",
     "collected_at": "2026-07-23",
-    "version": 1
+    "version": 1,
+    "lat": 56.252902,
+    "lon": 93.532219
   },
   "branches": {
     "_source": "https://avtoschool-vektor.ru/zheleznogorsk",
     "items": [
-      {
-        "id": "zheleznogorsk_lado_ketshoveli",
-        "address": "ул. Ладо Кецховели 22а, офис 404",
-        "district": null,
-        "hours": "ПН-ПТ 10:00-19:00",
-        "break": null,
-        "is_autodrome": false,
-        "note": null,
-        "landmark": null,
-        "place_type": null,
-        "metro": null
-      },
       {
         "id": "zheleznogorsk_lenina",
         "address": "ул. Ленина, 28",
@@ -31,7 +21,9 @@
         "note": null,
         "landmark": null,
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 56.252068,
+        "lon": 93.531425
       },
       {
         "id": "zheleznogorsk_let_vlksm",
@@ -43,7 +35,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": 56.22768,
+        "lon": 93.52186
       }
     ]
   },

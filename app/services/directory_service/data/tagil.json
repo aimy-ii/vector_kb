@@ -4,7 +4,9 @@
     "city_slug": "tagil",
     "domain": "avtoschool-vektor.ru",
     "collected_at": "2026-07-23",
-    "version": 1
+    "version": 1,
+    "lat": 57.910144,
+    "lon": 59.98132
   },
   "branches": {
     "_source": "https://avtoschool-vektor.ru/tagil",
@@ -19,7 +21,9 @@
         "note": null,
         "landmark": null,
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 57.9185602,
+        "lon": 59.9781902
       },
       {
         "id": "tagil_leningradskiy",
@@ -31,7 +35,9 @@
         "note": null,
         "landmark": "ТЦ Магнит Семейный",
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 57.91077,
+        "lon": 60.10476
       },
       {
         "id": "tagil_balakinskaya",
@@ -43,7 +49,9 @@
         "note": null,
         "landmark": null,
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 57.953192,
+        "lon": 59.991433
       }
     ]
   },

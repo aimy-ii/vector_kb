@@ -4,7 +4,9 @@
     "city_slug": "nazyvayevsk",
     "domain": "avtoschool-vektor.ru",
     "collected_at": "2026-07-23",
-    "version": 1
+    "version": 1,
+    "lat": 55.568873,
+    "lon": 71.350299
   },
   "branches": {
     "_source": "https://avtoschool-vektor.ru/nazyvayevsk",
@@ -19,7 +21,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": 55.565853,
+        "lon": 71.34745
       }
     ]
   },

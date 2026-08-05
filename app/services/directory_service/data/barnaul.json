@@ -4,7 +4,9 @@
     "city_slug": "barnaul",
     "domain": "avtoschool-vektor.ru",
     "collected_at": "2026-07-23",
-    "version": 1
+    "version": 1,
+    "lat": 53.348053,
+    "lon": 83.779875
   },
   "branches": {
     "_source": "https://avtoschool-vektor.ru/barnaul",
@@ -19,7 +21,9 @@
         "note": null,
         "landmark": "БЦ Титул",
         "place_type": "—",
-        "metro": null
+        "metro": null,
+        "lat": 53.3337085,
+        "lon": 83.6890934
       },
       {
         "id": "barnaul_lenina",
@@ -31,7 +35,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": 53.341162,
+        "lon": 83.783423
       },
       {
         "id": "barnaul_antona_petrova",
@@ -43,7 +49,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": 53.360517,
+        "lon": 83.697607
       },
       {
         "id": "barnaul_yurina",
@@ -55,7 +63,9 @@
         "note": null,
         "landmark": "БЦ Фаворит",
         "place_type": "—",
-        "metro": null
+        "metro": null,
+        "lat": 53.370259,
+        "lon": 83.69202
       },
       {
         "id": "barnaul_krasnoarmeyskiy",
@@ -67,7 +77,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": 53.337064,
+        "lon": 83.774978
       }
     ]
   },

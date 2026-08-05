@@ -4,7 +4,9 @@
     "city_slug": "nizhniy-novgorod",
     "domain": "avtoschool-vektor.ru",
     "collected_at": "2026-07-23",
-    "version": 1
+    "version": 1,
+    "lat": 56.326794,
+    "lon": 44.006495
   },
   "branches": {
     "_source": "https://avtoschool-vektor.ru/nizhniy-novgorod",
@@ -19,7 +21,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": 56.336533,
+        "lon": 43.88963
       },
       {
         "id": "nizhniy-novgorod_maksima_gorkogo",
@@ -31,7 +35,9 @@
         "note": null,
         "landmark": "БЦ Богемия Палас",
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 56.322433,
+        "lon": 44.033115
       },
       {
         "id": "nizhniy-novgorod_krasnodontsev",
@@ -43,7 +49,9 @@
         "note": null,
         "landmark": null,
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 56.250437,
+        "lon": 43.851674
       },
       {
         "id": "nizhniy-novgorod_belinskogo_srednoy",
@@ -55,7 +63,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": 56.308751,
+        "lon": 43.988799
       },
       {
         "id": "nizhniy-novgorod_karla_marksa",
@@ -67,7 +77,9 @@
         "note": null,
         "landmark": null,
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 56.343967,
+        "lon": 43.9321
       },
       {
         "id": "nizhniy-novgorod_lenina",
@@ -79,7 +91,9 @@
         "note": null,
         "landmark": null,
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 56.280936,
+        "lon": 43.928246
       },
       {
         "id": "nizhniy-novgorod_sovetskaya",
@@ -91,7 +105,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": 56.296299,
+        "lon": 44.042485
       },
       {
         "id": "nizhniy-novgorod_kominterna",
@@ -103,7 +119,9 @@
         "note": null,
         "landmark": "Золотая миля",
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 56.347858,
+        "lon": 43.870997
       },
       {
         "id": "nizhniy-novgorod_kazanskoe",
@@ -115,7 +133,9 @@
         "note": null,
         "landmark": "Индиго Life",
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 56.290326,
+        "lon": 44.073039
       },
       {
         "id": "nizhniy-novgorod_rodionova_ganza",
@@ -127,7 +147,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": 56.314527,
+        "lon": 44.069878
       }
     ]
   },

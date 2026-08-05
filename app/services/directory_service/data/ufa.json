@@ -4,7 +4,9 @@
     "city_slug": "ufa",
     "domain": "avtoschool-vektor.ru",
     "collected_at": "2026-07-23",
-    "version": 1
+    "version": 1,
+    "lat": 54.734856,
+    "lon": 55.957856
   },
   "branches": {
     "_source": "https://avtoschool-vektor.ru/ufa",
@@ -19,7 +21,9 @@
         "note": null,
         "landmark": null,
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 54.729897,
+        "lon": 55.971393
       },
       {
         "id": "ufa_karla_marksa",
@@ -31,7 +35,9 @@
         "note": null,
         "landmark": "БЦ Капитал",
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 54.7291297,
+        "lon": 55.9410586
       },
       {
         "id": "ufa_komarova_vhod",
@@ -43,7 +49,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": 54.811565,
+        "lon": 56.057453
       },
       {
         "id": "ufa_pravdy",
@@ -55,7 +63,9 @@
         "note": null,
         "landmark": "БЦ Правда",
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 54.702698,
+        "lon": 55.834328
       },
       {
         "id": "ufa_mendeleeva",
@@ -67,7 +77,9 @@
         "note": null,
         "landmark": null,
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 54.714235,
+        "lon": 56.001262
       },
       {
         "id": "ufa_oktyabrya",
@@ -79,7 +91,9 @@
         "note": null,
         "landmark": null,
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 54.78273,
+        "lon": 56.031735
       },
       {
         "id": "ufa_mashinostroiteley",
@@ -91,7 +105,9 @@
         "note": null,
         "landmark": null,
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 54.808617,
+        "lon": 56.114754
       },
       {
         "id": "ufa_pushkina",
@@ -103,7 +119,9 @@
         "note": null,
         "landmark": null,
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 54.725536,
+        "lon": 55.925613
       },
       {
         "id": "ufa_oktyabrya_49",
@@ -115,7 +133,9 @@
         "note": null,
         "landmark": null,
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 54.755093,
+        "lon": 56.00234
       },
       {
         "id": "ufa_marshala_zhukova",
@@ -127,7 +147,9 @@
         "note": null,
         "landmark": null,
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 54.778341,
+        "lon": 56.070468
       },
       {
         "id": "ufa_rudolfa_nurieva",
@@ -139,7 +161,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": 54.760683,
+        "lon": 56.030889
       },
       {
         "id": "ufa_oktyabrya_4/1",
@@ -151,7 +175,9 @@
         "note": null,
         "landmark": "Мир",
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 54.741196,
+        "lon": 55.98732
       }
     ]
   },

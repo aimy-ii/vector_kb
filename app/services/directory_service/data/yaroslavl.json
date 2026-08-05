@@ -4,7 +4,9 @@
     "city_slug": "yaroslavl",
     "domain": "avtoschool-vektor.ru",
     "collected_at": "2026-07-23",
-    "version": 1
+    "version": 1,
+    "lat": 57.621562,
+    "lon": 39.897822
   },
   "branches": {
     "_source": "https://avtoschool-vektor.ru/yaroslavl",
@@ -19,7 +21,9 @@
         "note": null,
         "landmark": "Космос-3",
         "place_type": "Академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 57.65632,
+        "lon": 39.94367
       },
       {
         "id": "yaroslavl_stroiteley",
@@ -31,7 +35,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": 57.702435,
+        "lon": 39.771508
       },
       {
         "id": "yaroslavl_frunze",
@@ -43,7 +49,9 @@
         "note": null,
         "landmark": "ТОЦ Спутник",
         "place_type": "Академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 57.599195,
+        "lon": 39.87591
       },
       {
         "id": "yaroslavl_svobody",
@@ -55,7 +63,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": 57.625072,
+        "lon": 39.883818
       }
     ]
   },

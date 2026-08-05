@@ -4,7 +4,9 @@
     "city_slug": "ivanovo",
     "domain": "avtoschool-vektor.ru",
     "collected_at": "2026-07-23",
-    "version": 1
+    "version": 1,
+    "lat": 56.99937,
+    "lon": 40.972891
   },
   "branches": {
     "_source": "https://avtoschool-vektor.ru/ivanovo",
@@ -19,7 +21,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": 56.975092,
+        "lon": 40.976265
       },
       {
         "id": "ivanovo_sheremetevskiy_kab",
@@ -31,7 +35,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": 57.003059,
+        "lon": 40.990737
       },
       {
         "id": "ivanovo_nikolskiy_lenina",
@@ -43,7 +49,9 @@
         "note": null,
         "landmark": "Никольский",
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 57.01804,
+        "lon": 40.968404
       },
       {
         "id": "ivanovo_kohomskoe",
@@ -55,7 +63,9 @@
         "note": null,
         "landmark": "Рио",
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 56.956632,
+        "lon": 41.040804
       }
     ]
   },

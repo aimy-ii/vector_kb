@@ -4,7 +4,9 @@
     "city_slug": "krasnoyarsk",
     "domain": "avtoschool-vektor.ru",
     "collected_at": "2026-07-23",
-    "version": 1
+    "version": 1,
+    "lat": 56.009477,
+    "lon": 92.852449
   },
   "branches": {
     "_source": "https://avtoschool-vektor.ru/krasnoyarsk",
@@ -19,7 +21,9 @@
         "note": null,
         "landmark": null,
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 55.986299,
+        "lon": 92.858617
       },
       {
         "id": "krasnoyarsk_vysotnaya",
@@ -31,7 +35,9 @@
         "note": null,
         "landmark": null,
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 56.0271598,
+        "lon": 92.7807038
       },
       {
         "id": "krasnoyarsk_shumyatskogo",
@@ -43,7 +49,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": 56.0650514,
+        "lon": 92.9401122
       },
       {
         "id": "krasnoyarsk_gazety_krasnoyarskiy",
@@ -55,7 +63,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": 56.016642,
+        "lon": 92.985855
       },
       {
         "id": "krasnoyarsk_lineynaya",
@@ -67,7 +77,9 @@
         "note": null,
         "landmark": null,
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 56.03264,
+        "lon": 92.88046
       },
       {
         "id": "krasnoyarsk_oktyabrskaya",
@@ -79,7 +91,9 @@
         "note": null,
         "landmark": null,
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 56.039092,
+        "lon": 92.92573
       },
       {
         "id": "krasnoyarsk_maerchaka",
@@ -91,7 +105,9 @@
         "note": null,
         "landmark": null,
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 56.021694,
+        "lon": 92.836959
       },
       {
         "id": "krasnoyarsk_karla_marksa",
@@ -103,7 +119,9 @@
         "note": null,
         "landmark": "Евразия",
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 56.009968,
+        "lon": 92.870533
       },
       {
         "id": "krasnoyarsk_lado_ketshoveli",
@@ -115,7 +133,9 @@
         "note": null,
         "landmark": "Спасский",
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 56.009552,
+        "lon": 92.814699
       },
       {
         "id": "krasnoyarsk_alekseeva",
@@ -127,7 +147,9 @@
         "note": null,
         "landmark": null,
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 56.0455812,
+        "lon": 92.8995749
       },
       {
         "id": "krasnoyarsk_michurina",
@@ -139,11 +161,13 @@
         "note": null,
         "landmark": null,
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 55.992432,
+        "lon": 92.97291
       },
       {
         "id": "krasnoyarsk_slavy",
-        "address": "ул, Славы, д. 12",
+        "address": "ул. Славы, д. 12",
         "district": null,
         "hours": "ПН-ПТ 10:00-19:00",
         "break": "14:00-15:00",
@@ -151,7 +175,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": 56.111852,
+        "lon": 92.921907
       },
       {
         "id": "krasnoyarsk_akademika_vavilova",
@@ -163,7 +189,9 @@
         "note": null,
         "landmark": null,
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 55.99804,
+        "lon": 92.92925
       },
       {
         "id": "krasnoyarsk_krasnaya",
@@ -175,7 +203,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": 56.007642,
+        "lon": 92.8390177
       },
       {
         "id": "krasnoyarsk_kalinina",
@@ -187,7 +217,9 @@
         "note": null,
         "landmark": null,
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 56.055493,
+        "lon": 92.735755
       }
     ]
   },

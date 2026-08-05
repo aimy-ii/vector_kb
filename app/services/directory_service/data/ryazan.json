@@ -4,7 +4,9 @@
     "city_slug": "ryazan",
     "domain": "avtoschool-vektor.ru",
     "collected_at": "2026-07-23",
-    "version": 1
+    "version": 1,
+    "lat": 54.625475,
+    "lon": 39.73593
   },
   "branches": {
     "_source": "https://avtoschool-vektor.ru/ryazan",
@@ -19,7 +21,9 @@
         "note": null,
         "landmark": "ТЦ Горки",
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 54.601846,
+        "lon": 39.832608
       },
       {
         "id": "ryazan_selo_polyany",
@@ -31,7 +35,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": 54.721607,
+        "lon": 39.835018
       },
       {
         "id": "ryazan_narodnyy",
@@ -43,7 +49,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": 54.64104,
+        "lon": 39.656191
       },
       {
         "id": "ryazan_novoselov_cherezovo",
@@ -55,7 +63,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": 54.61031,
+        "lon": 39.804145
       },
       {
         "id": "ryazan_sobornaya",
@@ -67,7 +77,9 @@
         "note": null,
         "landmark": "ТРЦ Малина",
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 54.63014,
+        "lon": 39.739742
       },
       {
         "id": "ryazan_shosseynyy",
@@ -79,7 +91,9 @@
         "note": null,
         "landmark": null,
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 54.630769,
+        "lon": 39.698214
       },
       {
         "id": "ryazan_gagarina",
@@ -91,7 +105,9 @@
         "note": null,
         "landmark": null,
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 54.617091,
+        "lon": 39.72961
       },
       {
         "id": "ryazan_biryuzova",
@@ -103,7 +119,9 @@
         "note": null,
         "landmark": null,
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 54.66797,
+        "lon": 39.652355
       }
     ]
   },

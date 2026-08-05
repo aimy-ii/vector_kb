@@ -4,7 +4,9 @@
     "city_slug": "kalachinsk",
     "domain": "avtoschool-vektor.ru",
     "collected_at": "2026-07-23",
-    "version": 1
+    "version": 1,
+    "lat": 55.0597974,
+    "lon": 74.5654133
   },
   "branches": {
     "_source": "https://avtoschool-vektor.ru/kalachinsk",
@@ -19,7 +21,9 @@
         "note": null,
         "landmark": null,
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 55.047817,
+        "lon": 74.58866
       }
     ]
   },

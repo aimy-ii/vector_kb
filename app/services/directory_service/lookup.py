@@ -13,6 +13,7 @@ from __future__ import annotations
 
 from typing import Any
 
+from app.services.directory_service.geo import distance_km, is_valid_point
 from app.services.directory_service.store import directory_store
 
 
@@ -193,3 +194,82 @@ def get_branch(branch_slug: str) -> dict[str, Any] | None:
                 "примечание": branch.get("note"),
             }
     return None
+
+
+def city_name(city_slug: str) -> str | None:
+    """
+    Отдаёт официальное название города по слагу.
+
+    Аргументы:
+        city_slug: слаг города.
+
+    Возвращает:
+        Название или None, если города нет в справочнике.
+    """
+    city = _cities().get(city_slug)
+    if city is None:
+        return None
+    return city["meta"]["city"]
+
+
+def nearest_branches(
+    lat: float,
+    lon: float,
+    limit: int = 3,
+    radius_km: float = 50.0,
+    city_slug: str | None = None,
+    include_autodromes: bool = False,
+    include_upcoming: bool = False,
+) -> list[dict[str, Any]]:
+    """
+    Подбирает ближайшие филиалы к заданной точке.
+
+    По умолчанию перебирает всю сеть одним плоским списком: точек порядка
+    сотен, отдельный отбор по городу ради скорости не нужен. Параметр
+    `city_slug` сужает выдачу, когда город уже известен из разговора.
+
+    Филиалы без координат в выдачу не попадают. Радиус отсекает случай, когда
+    точка оказалась далеко от любой из школ, — иначе ближайший нашёлся бы
+    всегда, хоть за сотни километров.
+
+    Аргументы:
+        lat: широта точки отсчёта.
+        lon: долгота точки отсчёта.
+        limit: сколько филиалов вернуть.
+        radius_km: максимальное расстояние; дальше филиал не предлагается.
+        city_slug: слаг города или None для поиска по всей сети.
+        include_autodromes: включать ли автодромы вместе с учебными офисами.
+        include_upcoming: включать ли точки со статусом «скоро открытие».
+
+    Возвращает:
+        Список записей {слаг, город, адрес, ориентир, расстояние},
+        отсортированный по возрастанию расстояния. Пустой список, если в
+        радиусе никого нет.
+    """
+    found: list[dict[str, Any]] = []
+    for slug, city in _cities().items():
+        if city_slug is not None and slug != city_slug:
+            continue
+        for branch in city["branches"]["items"]:
+            if not include_autodromes and branch.get("is_autodrome"):
+                continue
+            hours = (branch.get("hours") or "").lower()
+            if not include_upcoming and "открыт" in hours:
+                continue
+            b_lat, b_lon = branch.get("lat"), branch.get("lon")
+            if not is_valid_point(b_lat, b_lon):
+                continue
+            distance = distance_km(lat, lon, b_lat, b_lon)
+            if distance > radius_km:
+                continue
+            found.append(
+                {
+                    "слаг": branch["id"],
+                    "город": city["meta"]["city"],
+                    "адрес": branch["address"],
+                    "ориентир": branch.get("landmark"),
+                    "расстояние": round(distance, 2),
+                }
+            )
+    found.sort(key=lambda item: item["расстояние"])
+    return found[:limit]

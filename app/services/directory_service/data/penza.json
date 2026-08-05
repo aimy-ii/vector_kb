@@ -4,7 +4,9 @@
     "city_slug": "penza",
     "domain": "avtoschool-vektor.ru",
     "collected_at": "2026-07-23",
-    "version": 1
+    "version": 1,
+    "lat": 53.1753947,
+    "lon": 45.0347408
   },
   "branches": {
     "_source": "https://avtoschool-vektor.ru/penza",
@@ -19,7 +21,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": 53.199553,
+        "lon": 45.011112
       }
     ]
   },

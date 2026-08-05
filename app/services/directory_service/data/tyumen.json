@@ -4,7 +4,9 @@
     "city_slug": "tyumen",
     "domain": "avtoschool-vektor.ru",
     "collected_at": "2026-07-23",
-    "version": 1
+    "version": 1,
+    "lat": 57.153033,
+    "lon": 65.534328
   },
   "branches": {
     "_source": "https://avtoschool-vektor.ru/72",
@@ -19,7 +21,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": 57.152218,
+        "lon": 65.531992
       },
       {
         "id": "tyumen_proezd_zarechnyy",
@@ -31,7 +35,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": 57.177933,
+        "lon": 65.56124
       },
       {
         "id": "tyumen_permyakova",
@@ -43,7 +49,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": 57.12173,
+        "lon": 65.581881
       },
       {
         "id": "tyumen_nikolaya_gondatti",
@@ -55,7 +63,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": 57.110961,
+        "lon": 65.574181
       },
       {
         "id": "tyumen_respubliki",
@@ -67,7 +77,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": 57.130988,
+        "lon": 65.581853
       },
       {
         "id": "tyumen_farmana_salmanova",
@@ -79,7 +91,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": 57.1204898,
+        "lon": 65.50117
       },
       {
         "id": "tyumen_montazhnikov",
@@ -91,7 +105,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": 57.098074,
+        "lon": 65.586601
       },
       {
         "id": "tyumen_yamskaya",
@@ -103,7 +119,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": 57.162342,
+        "lon": 65.497605
       },
       {
         "id": "tyumen_melnikayte",
@@ -115,7 +133,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": 57.151028,
+        "lon": 65.593628
       }
     ]
   },

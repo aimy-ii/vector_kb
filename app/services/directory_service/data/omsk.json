@@ -4,7 +4,9 @@
     "city_slug": "omsk",
     "domain": "avtoschool-vektor.ru",
     "collected_at": "2026-07-23",
-    "version": 1
+    "version": 1,
+    "lat": 54.984912,
+    "lon": 73.367525
   },
   "branches": {
     "_source": "https://avtoschool-vektor.ru/",
@@ -19,7 +21,9 @@
         "note": null,
         "landmark": "БЦ На Гагарина",
         "place_type": "Офис продаж",
-        "metro": null
+        "metro": null,
+        "lat": 54.987812,
+        "lon": 73.376854
       },
       {
         "id": "omsk_zavertyaeva",
@@ -31,7 +35,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": 55.033938,
+        "lon": 73.444713
       },
       {
         "id": "omsk_petra_nekrasova",
@@ -43,7 +49,9 @@
         "note": null,
         "landmark": null,
         "place_type": "Автодром",
-        "metro": null
+        "metro": null,
+        "lat": 54.983844,
+        "lon": 73.370332
       },
       {
         "id": "omsk_okruzhnaya_doroga",
@@ -55,7 +63,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": 54.9696,
+        "lon": 73.4985
       },
       {
         "id": "omsk_kirova",
@@ -67,11 +77,13 @@
         "note": null,
         "landmark": null,
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 54.938006,
+        "lon": 73.429935
       },
       {
         "id": "omsk_nizhnyaya_omka",
-        "address": "Нижняя Омка, Пер.Школьный 14, каб. 9",
+        "address": "с. Нижняя Омка, Пер.Школьный 14, каб. 9",
         "district": null,
         "hours": "ПН-ПТ 09:00-18:00",
         "break": null,
@@ -79,7 +91,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": 55.433093,
+        "lon": 74.943183
       },
       {
         "id": "omsk_okoneshnikovo_kalinina",
@@ -91,19 +105,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
-      },
-      {
-        "id": "omsk_kalachinsk_kalachinskaya",
-        "address": "г. Калачинск, ул. Калачинская 25",
-        "district": null,
-        "hours": "ПН-ПТ 09:00-18:00",
-        "break": "13:00-14:00",
-        "is_autodrome": true,
-        "note": null,
-        "landmark": null,
-        "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": 54.83419,
+        "lon": 75.088037
       },
       {
         "id": "omsk_kormilovka_kirova",
@@ -115,7 +119,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": 54.99941,
+        "lon": 74.09741
       },
       {
         "id": "omsk_poselok_rostovka",
@@ -127,7 +133,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": 55.018154,
+        "lon": 73.578786
       },
       {
         "id": "omsk_dianova",
@@ -139,7 +147,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": 54.995101,
+        "lon": 73.227446
       },
       {
         "id": "omsk_kosmicheskiy",
@@ -151,7 +161,9 @@
         "note": null,
         "landmark": null,
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 54.971388,
+        "lon": 73.451073
       },
       {
         "id": "omsk_zaozernaya_kinozal",
@@ -163,7 +175,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": 55.044155,
+        "lon": 73.31556
       },
       {
         "id": "omsk_komarova",
@@ -175,7 +189,9 @@
         "note": null,
         "landmark": null,
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 54.987172,
+        "lon": 73.296437
       },
       {
         "id": "omsk_aviatsionnaya",
@@ -187,7 +203,9 @@
         "note": null,
         "landmark": null,
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 54.951286,
+        "lon": 73.335432
       },
       {
         "id": "omsk_kirova_kabinet",
@@ -199,7 +217,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": 54.946648,
+        "lon": 73.420719
       },
       {
         "id": "omsk_cheredovaya_sahalin",
@@ -211,7 +231,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": 54.9222615,
+        "lon": 73.4184319
       },
       {
         "id": "omsk_karla_marksa",
@@ -223,7 +245,9 @@
         "note": null,
         "landmark": null,
         "place_type": "Офис продаж, учебные классы",
-        "metro": null
+        "metro": null,
+        "lat": 54.942258,
+        "lon": 73.383385
       },
       {
         "id": "omsk_metromoll_let",
@@ -235,7 +259,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": 54.981247,
+        "lon": 73.32379
       },
       {
         "id": "omsk_mira",
@@ -247,7 +273,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": 55.0248321,
+        "lon": 73.294825
       },
       {
         "id": "omsk_severnaya",
@@ -259,7 +287,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": 55.028659,
+        "lon": 73.410941
       },
       {
         "id": "omsk_let_oktyabrya",
@@ -271,7 +301,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": 54.985428,
+        "lon": 73.413793
       },
       {
         "id": "omsk_krasnyy_put",
@@ -283,7 +315,9 @@
         "note": null,
         "landmark": null,
         "place_type": "Федеральная академия вождения",
-        "metro": null
+        "metro": null,
+        "lat": 55.003069,
+        "lon": 73.34906
       },
       {
         "id": "omsk_gasheka",
@@ -295,7 +329,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": 54.908873,
+        "lon": 73.446195
       },
       {
         "id": "omsk_karla_marksa_10",
@@ -307,7 +343,9 @@
         "note": null,
         "landmark": null,
         "place_type": null,
-        "metro": null
+        "metro": null,
+        "lat": 54.973832,
+        "lon": 73.381651
       }
     ]
   },

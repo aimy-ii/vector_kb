@@ -14,11 +14,11 @@ services:
     volumes:
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
+      # Только out: каталог справочника едет внутри образа. Именованный том
+      # на data/ заполнился бы один раз и молча перекрыл обновления образа.
       - vector_kb_out:/app/data/out
-      - vector_kb_directory:/app/app/services/directory_service/data
     command: >
       uvicorn app.main:app --host 0.0.0.0 --port 8317
 
 volumes:
   vector_kb_out:
-  vector_kb_directory:

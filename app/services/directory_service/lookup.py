@@ -242,9 +242,9 @@ def nearest_branches(
         include_upcoming: включать ли точки со статусом «скоро открытие».
 
     Возвращает:
-        Список записей {слаг, город, адрес, ориентир, расстояние},
-        отсортированный по возрастанию расстояния. Пустой список, если в
-        радиусе никого нет.
+        Список записей с полями карточки филиала (без примечания) и
+        расстоянием, отсортированный по возрастанию расстояния. Пустой
+        список, если в радиусе никого нет.
     """
     found: list[dict[str, Any]] = []
     for slug, city in _cities().items():
@@ -262,12 +262,20 @@ def nearest_branches(
             distance = distance_km(lat, lon, b_lat, b_lon)
             if distance > radius_km:
                 continue
+            opened = "открыт" not in hours
             found.append(
                 {
                     "слаг": branch["id"],
                     "город": city["meta"]["city"],
                     "адрес": branch["address"],
                     "ориентир": branch.get("landmark"),
+                    "район": branch.get("district"),
+                    "метро": branch.get("metro"),
+                    "тип": "автодром" if branch.get("is_autodrome") else "учебный офис",
+                    "статус": "работает" if opened else "скоро открытие",
+                    "часы работы": branch.get("hours") if opened else None,
+                    "перерыв": branch.get("break"),
+                    "телефон": city.get("contacts", {}).get("phone_federal"),
                     "расстояние": round(distance, 2),
                 }
             )

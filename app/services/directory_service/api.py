@@ -210,13 +210,26 @@ def nearest_branches_short(
     radius_km: float,
     city_slug: str | None = None,
 ) -> list[BranchNearby]:
-    """Ближайшие филиалы к точке в схеме API."""
+    """Ближайшие филиалы к точке в схеме API.
+
+    Собирает ту же карточку, что и деталь филиала, плюс расстояние.
+    Примечание справочника наружу не отдаётся.
+    """
     return [
         BranchNearby(
             slug=item["слаг"],
             city=item["город"],
             address=item["адрес"],
             landmark=item["ориентир"],
+            district=item.get("район"),
+            metro=list(item.get("метро") or [])
+            if not isinstance(item.get("метро"), str)
+            else [item["метро"]],
+            place_type=item.get("тип"),
+            status=item.get("статус"),
+            working_hours=item.get("часы работы"),
+            break_time=item.get("перерыв"),
+            phone=item.get("телефон"),
             distance_km=item["расстояние"],
         )
         for item in nearest_branches(

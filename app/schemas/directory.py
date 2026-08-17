@@ -203,6 +203,13 @@ class BranchNearby(BaseModel):
     city: str = Field(title="Город")
     address: str = Field(title="Адрес")
     landmark: str | None = Field(default=None, title="Ориентир")
+    district: str | None = Field(default=None, title="Район")
+    metro: list[str] = Field(default_factory=list, title="Метро")
+    place_type: str | None = Field(default=None, title="Тип точки")
+    status: str | None = Field(default=None, title="Статус")
+    working_hours: str | None = Field(default=None, title="Часы работы")
+    break_time: str | None = Field(default=None, title="Перерыв")
+    phone: str | None = Field(default=None, title="Телефон")
     distance_km: float = Field(title="Расстояние по прямой, км")
 
     model_config = ConfigDict(

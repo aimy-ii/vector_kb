@@ -237,6 +237,33 @@ def test_nearest_branches_ok(client: TestClient) -> None:
         assert {"slug", "city", "address", "landmark", "distance_km"} <= set(item)
 
 
+def test_nearest_branches_hours_and_legacy_fields(client: TestClient) -> None:
+    """Ручка ближайших отдаёт часы и перерыв, прежние поля остаются на месте."""
+    from app.services.directory_service.store import directory_store
+
+    directory_store.load()
+    city = next(iter(directory_store.cities.values()))
+    offices = [
+        b
+        for b in city["branches"]["items"]
+        if not b.get("is_autodrome") and "открыт" not in (b.get("hours") or "").lower()
+    ]
+    assert offices
+    offices[0]["lat"], offices[0]["lon"] = 55.7500, 37.6200
+
+    response = client.get(
+        "/api/branches/nearest",
+        params={"lat": 55.7500, "lon": 37.6200, "limit": 1, "radius_km": 50},
+    )
+    assert response.status_code == 200, response.text
+    data = response.json()
+    assert data
+    item = data[0]
+    assert {"slug", "city", "address", "landmark", "distance_km"} <= set(item)
+    assert "working_hours" in item
+    assert "break_time" in item
+
+
 def test_nearest_branches_invalid_coords(client: TestClient) -> None:
     """Невалидные lat/lon дают 422."""
     bad_lat = client.get("/api/branches/nearest", params={"lat": 91, "lon": 30})

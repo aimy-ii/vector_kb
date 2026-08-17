@@ -6,7 +6,7 @@ from typing import Any
 
 import pytest
 from app.services.directory_service import lookup
-from app.services.directory_service.lookup import city_name, nearest_branches
+from app.services.directory_service.lookup import city_name, get_branch, nearest_branches
 
 
 def _branch(
@@ -18,6 +18,10 @@ def _branch(
     is_autodrome: bool = False,
     hours: str = "ПН-ПТ 10:00-19:00",
     landmark: str | None = None,
+    district: str | None = None,
+    metro: list[str] | None = None,
+    break_time: str | None = None,
+    note: str | None = None,
 ) -> dict[str, Any]:
     """Собирает минимальную запись филиала для фикстуры."""
     return {
@@ -26,14 +30,26 @@ def _branch(
         "hours": hours,
         "is_autodrome": is_autodrome,
         "landmark": landmark,
+        "district": district,
+        "metro": metro,
+        "break": break_time,
+        "note": note,
         "lat": lat,
         "lon": lon,
     }
 
 
-def _city(name: str, branches: list[dict[str, Any]]) -> dict[str, Any]:
+def _city(
+    name: str,
+    branches: list[dict[str, Any]],
+    *,
+    phone: str | None = None,
+) -> dict[str, Any]:
     """Собирает минимальную запись города для фикстуры."""
-    return {"meta": {"city": name}, "branches": {"items": branches}}
+    city: dict[str, Any] = {"meta": {"city": name}, "branches": {"items": branches}}
+    if phone is not None:
+        city["contacts"] = {"phone_federal": phone}
+    return city
 
 
 @pytest.fixture
@@ -43,7 +59,17 @@ def sample_cities(monkeypatch: pytest.MonkeyPatch) -> dict[str, dict[str, Any]]:
         "alpha": _city(
             "Альфаград",
             [
-                _branch("alpha_near", "ул. Ближняя, 1", lat=55.75, lon=37.62, landmark="центр"),
+                _branch(
+                    "alpha_near",
+                    "ул. Ближняя, 1",
+                    lat=55.75,
+                    lon=37.62,
+                    landmark="центр",
+                    district="Центральный",
+                    metro=["Площадь"],
+                    break_time="14:00-15:00",
+                    note="внутреннее",
+                ),
                 _branch("alpha_far", "ул. Дальняя, 2", lat=55.80, lon=37.70),
                 _branch("alpha_null", "ул. БезКоорд, 3", lat=None, lon=None),
                 _branch(
@@ -57,6 +83,7 @@ def sample_cities(monkeypatch: pytest.MonkeyPatch) -> dict[str, dict[str, Any]]:
                     hours="Скоро открытие",
                 ),
             ],
+            phone="8 (800) 000-00-00",
         ),
         "beta": _city(
             "Бетаград",
@@ -150,3 +177,15 @@ def test_city_name(sample_cities: dict[str, dict[str, Any]]) -> None:
     """city_name отдаёт название по слагу и None по мусорному слагу."""
     assert city_name("alpha") == "Альфаград"
     assert city_name("нет-такого") is None
+
+
+def test_nearest_fields_match_branch_card(sample_cities: dict[str, dict[str, Any]]) -> None:
+    """Состав полей ближайшего филиала совпадает с карточкой того же филиала."""
+    nearby = nearest_branches(55.75, 37.62, limit=1, radius_km=50.0, city_slug="alpha")
+    assert nearby
+    item = nearby[0]
+    card = get_branch(item["слаг"])
+    assert card is not None
+    for key in ("адрес", "ориентир", "район", "тип", "статус", "часы работы", "перерыв", "телефон"):
+        assert item[key] == card[key]
+    assert "примечание" not in item

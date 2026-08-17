@@ -13,10 +13,10 @@
     "items": [
       {
         "id": "nazyvayevsk_lenina",
-        "address": "ул. Ленина, 41",
+        "address": "улица Ленина, дом 41",
         "district": null,
-        "hours": "ПН-ПТ 9:30 -18:30",
-        "break": "14:00-15:00",
+        "hours": "с понедельника по пятницу, с 9:30 до 18:30",
+        "break": "с 14 до 15",
         "is_autodrome": false,
         "note": null,
         "landmark": null,

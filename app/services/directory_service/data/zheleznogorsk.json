@@ -13,10 +13,10 @@
     "items": [
       {
         "id": "zheleznogorsk_lenina",
-        "address": "ул. Ленина, 28",
+        "address": "улица Ленина, дом 28",
         "district": null,
-        "hours": "ПН-ВС 08:00-20:00",
-        "break": "14:00-15:00",
+        "hours": "ежедневно, с 8 до 20",
+        "break": "с 14 до 15",
         "is_autodrome": false,
         "note": null,
         "landmark": null,
@@ -27,10 +27,10 @@
       },
       {
         "id": "zheleznogorsk_let_vlksm",
-        "address": "ул. 60 лет ВЛКСМ, 48, пом. 117",
+        "address": "улица 60 лет ВЛКСМ, дом 48, помещение 117",
         "district": null,
-        "hours": "ПН-ПТ 10:00-19:00",
-        "break": "14:00-15:00",
+        "hours": "с понедельника по пятницу, с 10 до 19",
+        "break": "с 14 до 15",
         "is_autodrome": false,
         "note": null,
         "landmark": null,

@@ -13,10 +13,10 @@
     "items": [
       {
         "id": "izhevsk_let_oktyabrya",
-        "address": "ул. 10 лет Октября, 32Р",
+        "address": "улица 10 лет Октября, дом 32Р",
         "district": null,
-        "hours": "ПН-ПТ 10:00-19:00",
-        "break": "14:00-15:00",
+        "hours": "с понедельника по пятницу, с 10 до 19",
+        "break": "с 14 до 15",
         "is_autodrome": false,
         "note": null,
         "landmark": null,
@@ -27,10 +27,10 @@
       },
       {
         "id": "izhevsk_karla_marksa",
-        "address": "ул. Карла Маркса, 434",
+        "address": "улица Карла Маркса, дом 434",
         "district": null,
-        "hours": "ПН-ПТ 10:00-19:00",
-        "break": "14:00-15:00",
+        "hours": "с понедельника по пятницу, с 10 до 19",
+        "break": "с 14 до 15",
         "is_autodrome": false,
         "note": null,
         "landmark": null,

@@ -13,9 +13,9 @@
     "items": [
       {
         "id": "kopeysk_kozhevnikova",
-        "address": "Кожевникова, д. 4, 2 этаж",
+        "address": "улица Кожевникова, дом 4, этаж 2",
         "district": null,
-        "hours": "ПН-ПТ 10:00-19:00",
+        "hours": "с понедельника по пятницу, с 10 до 19",
         "break": null,
         "is_autodrome": false,
         "note": null,

@@ -13,10 +13,10 @@
     "items": [
       {
         "id": "penza_bakunina",
-        "address": "ул. Бакунина, 29, эт. 2",
+        "address": "улица Бакунина, дом 29, этаж 2",
         "district": null,
-        "hours": "ПН-ПТ 10:00 -19:00",
-        "break": "14:00-15:00",
+        "hours": "с понедельника по пятницу, с 10 до 19",
+        "break": "с 14 до 15",
         "is_autodrome": false,
         "note": null,
         "landmark": null,

@@ -13,9 +13,9 @@
     "items": [
       {
         "id": "sterlitamak_mira",
-        "address": "ул. Мира, д. 1б, офис 102",
+        "address": "улица Мира, дом 1Б, офис 102",
         "district": null,
-        "hours": "ПН-ПТ 10:00 - 19:00",
+        "hours": "с понедельника по пятницу, с 10 до 19",
         "break": null,
         "is_autodrome": false,
         "note": null,
@@ -27,9 +27,9 @@
       },
       {
         "id": "sterlitamak_artema_pomeschenie",
-        "address": "ул. Артёма, д. 68, помещение 377",
+        "address": "улица Артёма, дом 68, помещение 377",
         "district": null,
-        "hours": "ПН-ВС 09:00 - 21:00",
+        "hours": "ежедневно, с 9 до 21",
         "break": null,
         "is_autodrome": false,
         "note": null,
@@ -41,9 +41,9 @@
       },
       {
         "id": "sterlitamak_lenina",
-        "address": "Проспект Ленина, 30Б",
+        "address": "проспект Ленина, дом 30Б",
         "district": null,
-        "hours": "ПН-ПТ 10:00-19:00",
+        "hours": "с понедельника по пятницу, с 10 до 19",
         "break": null,
         "is_autodrome": false,
         "note": null,

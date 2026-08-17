@@ -13,10 +13,10 @@
     "items": [
       {
         "id": "eletz_kommunarov",
-        "address": "ул. Коммунаров 43, 2 этаж",
+        "address": "улица Коммунаров, дом 43, этаж 2",
         "district": null,
-        "hours": "ПН-ПТ 10:00-19:00",
-        "break": "13:00-14:00",
+        "hours": "с понедельника по пятницу, с 10 до 19",
+        "break": "с 13 до 14",
         "is_autodrome": false,
         "note": null,
         "landmark": null,

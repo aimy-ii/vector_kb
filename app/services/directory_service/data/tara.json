@@ -13,10 +13,10 @@
     "items": [
       {
         "id": "tara_aleksandrovskaya",
-        "address": "ул. Александровская, д. 91",
+        "address": "улица Александровская, дом 91",
         "district": null,
-        "hours": "ПН-ПТ 10:00 - 19:00",
-        "break": "13:00 - 14:00",
+        "hours": "с понедельника по пятницу, с 10 до 19",
+        "break": "с 13 до 14",
         "is_autodrome": false,
         "note": null,
         "landmark": null,

@@ -13,10 +13,10 @@
     "items": [
       {
         "id": "ishim_sovetskaya",
-        "address": "ул. Советская 15, эт. 2",
+        "address": "улица Советская, дом 15, этаж 2",
         "district": null,
-        "hours": "ПН-ВС 09:00-19:00",
-        "break": "14:00-15:00",
+        "hours": "ежедневно, с 9 до 19",
+        "break": "с 14 до 15",
         "is_autodrome": false,
         "note": null,
         "landmark": null,

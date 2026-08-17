@@ -13,10 +13,10 @@
     "items": [
       {
         "id": "artem_lenina",
-        "address": "Площадь Ленина, 17, оф. 22",
+        "address": "площадь Ленина, дом 17, офис 22",
         "district": null,
-        "hours": "ПН-ПТ 10:00-19:00",
-        "break": "14:00-15:00",
+        "hours": "с понедельника по пятницу, с 10 до 19",
+        "break": "с 14 до 15",
         "is_autodrome": false,
         "note": null,
         "landmark": null,

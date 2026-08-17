@@ -13,9 +13,9 @@
     "items": [
       {
         "id": "kormilovka_kirova",
-        "address": "ул. Кирова 45/1",
+        "address": "улица Кирова, дом 45 дробь 1",
         "district": null,
-        "hours": "ПН-ПТ 09:00-18:00",
+        "hours": "с понедельника по пятницу, с 9 до 18",
         "break": null,
         "is_autodrome": false,
         "note": null,

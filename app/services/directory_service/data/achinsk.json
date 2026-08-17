@@ -13,10 +13,10 @@
     "items": [
       {
         "id": "achinsk_branch_01",
-        "address": "5-й микрорайон, 37, пом. 21",
+        "address": "5-й микрорайон, дом 37, помещение 21",
         "district": null,
-        "hours": "ПН-ВС 08:30-20:30",
-        "break": "14:00-15:00",
+        "hours": "ежедневно, с 8:30 до 20:30",
+        "break": "с 14 до 15",
         "is_autodrome": false,
         "note": null,
         "landmark": null,

@@ -13,10 +13,10 @@
     "items": [
       {
         "id": "adler_kirova",
-        "address": "ул. Кирова, 23, 2 этаж, офис 6",
+        "address": "улица Кирова, дом 23, этаж 2, офис 6",
         "district": null,
-        "hours": "ПН-ВС 08:30-20:30",
-        "break": "14:00-15:00",
+        "hours": "ежедневно, с 8:30 до 20:30",
+        "break": "с 14 до 15",
         "is_autodrome": false,
         "note": null,
         "landmark": null,
@@ -27,7 +27,7 @@
       },
       {
         "id": "adler_urozhaynaya",
-        "address": "ул. Урожайная, 84, этаж 2",
+        "address": "улица Урожайная, дом 84, этаж 2",
         "district": null,
         "hours": "Скоро открытие",
         "break": null,

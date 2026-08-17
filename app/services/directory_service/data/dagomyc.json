@@ -13,9 +13,9 @@
     "items": [
       {
         "id": "dagomyc_gaydara",
-        "address": "ул. Гайдара 2/1, 2 этаж",
+        "address": "улица Гайдара, дом 2 дробь 1, этаж 2",
         "district": null,
-        "hours": "ПН-ПТ 10:00-19:00",
+        "hours": "с понедельника по пятницу, с 10 до 19",
         "break": null,
         "is_autodrome": false,
         "note": null,

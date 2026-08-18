@@ -1,0 +1,542 @@
+diff --git a/app/services/directory_service/data/abakan.json b/app/services/directory_service/data/abakan.json
+index 0b165f4..aeea341 100644
+--- a/app/services/directory_service/data/abakan.json
++++ b/app/services/directory_service/data/abakan.json
+@@ -208,7 +208,7 @@
+       {
+         "id": "faq_07",
+         "question": "Какие документы нужны, чтобы начать?",
+-        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и снилс"
++        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и СНИЛС"
+       }
+     ]
+   },
+diff --git a/app/services/directory_service/data/achinsk.json b/app/services/directory_service/data/achinsk.json
+index a411ccf..ff671aa 100644
+--- a/app/services/directory_service/data/achinsk.json
++++ b/app/services/directory_service/data/achinsk.json
+@@ -209,7 +209,7 @@
+       {
+         "id": "faq_07",
+         "question": "Какие документы нужны, чтобы начать?",
+-        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и снилс"
++        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и СНИЛС"
+       }
+     ]
+   },
+diff --git a/app/services/directory_service/data/adler.json b/app/services/directory_service/data/adler.json
+index 526e891..1b5714a 100644
+--- a/app/services/directory_service/data/adler.json
++++ b/app/services/directory_service/data/adler.json
+@@ -208,7 +208,7 @@
+       {
+         "id": "faq_07",
+         "question": "Какие документы нужны, чтобы начать?",
+-        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и снилс"
++        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и СНИЛС"
+       }
+     ]
+   },
+diff --git a/app/services/directory_service/data/artem.json b/app/services/directory_service/data/artem.json
+index 561f401..3377e4b 100644
+--- a/app/services/directory_service/data/artem.json
++++ b/app/services/directory_service/data/artem.json
+@@ -194,7 +194,7 @@
+       {
+         "id": "faq_07",
+         "question": "Какие документы нужны, чтобы начать?",
+-        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и снилс"
++        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и СНИЛС"
+       }
+     ]
+   },
+diff --git a/app/services/directory_service/data/barnaul.json b/app/services/directory_service/data/barnaul.json
+index e316748..7b885c1 100644
+--- a/app/services/directory_service/data/barnaul.json
++++ b/app/services/directory_service/data/barnaul.json
+@@ -250,7 +250,7 @@
+       {
+         "id": "faq_07",
+         "question": "Какие документы нужны, чтобы начать?",
+-        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и снилс"
++        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и СНИЛС"
+       }
+     ]
+   },
+diff --git a/app/services/directory_service/data/dagomyc.json b/app/services/directory_service/data/dagomyc.json
+index a53a2c1..b7aebce 100644
+--- a/app/services/directory_service/data/dagomyc.json
++++ b/app/services/directory_service/data/dagomyc.json
+@@ -206,7 +206,7 @@
+       {
+         "id": "faq_07",
+         "question": "Какие документы нужны, чтобы начать?",
+-        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и снилс"
++        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и СНИЛС"
+       }
+     ]
+   },
+diff --git a/app/services/directory_service/data/ekaterinburg.json b/app/services/directory_service/data/ekaterinburg.json
+index 453d2a6..e95c5ca 100644
+--- a/app/services/directory_service/data/ekaterinburg.json
++++ b/app/services/directory_service/data/ekaterinburg.json
+@@ -445,19 +445,19 @@
+         "id": "doc_passport",
+         "name": "паспорт",
+         "stage": "для старта",
+-        "text": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и снилс"
++        "text": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и СНИЛС"
+       },
+       {
+         "id": "doc_medical",
+         "name": "шоферская комиссия",
+         "stage": "чуть позже",
+-        "text": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и снилс"
++        "text": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и СНИЛС"
+       },
+       {
+         "id": "doc_snils",
+-        "name": "снилс",
++        "name": "СНИЛС",
+         "stage": "чуть позже",
+-        "text": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и снилс"
++        "text": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и СНИЛС"
+       },
+       {
+         "id": "doc_b_to_c_license",
+@@ -515,7 +515,7 @@
+       {
+         "id": "faq_07",
+         "question": "Какие документы нужны, чтобы начать?",
+-        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и снилс"
++        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и СНИЛС"
+       }
+     ]
+   },
+diff --git a/app/services/directory_service/data/eletz.json b/app/services/directory_service/data/eletz.json
+index aaae28a..0fee869 100644
+--- a/app/services/directory_service/data/eletz.json
++++ b/app/services/directory_service/data/eletz.json
+@@ -223,7 +223,7 @@
+       {
+         "id": "faq_07",
+         "question": "Какие документы нужны, чтобы начать?",
+-        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и снилс"
++        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и СНИЛС"
+       }
+     ]
+   },
+diff --git a/app/services/directory_service/data/irkutsk.json b/app/services/directory_service/data/irkutsk.json
+index 62d8865..2bf0174 100644
+--- a/app/services/directory_service/data/irkutsk.json
++++ b/app/services/directory_service/data/irkutsk.json
+@@ -251,7 +251,7 @@
+       {
+         "id": "faq_07",
+         "question": "Какие документы нужны, чтобы начать?",
+-        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и снилс"
++        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и СНИЛС"
+       }
+     ]
+   },
+diff --git a/app/services/directory_service/data/ishim.json b/app/services/directory_service/data/ishim.json
+index 1087ece..4bf491d 100644
+--- a/app/services/directory_service/data/ishim.json
++++ b/app/services/directory_service/data/ishim.json
+@@ -203,7 +203,7 @@
+       {
+         "id": "faq_07",
+         "question": "Какие документы нужны, чтобы начать?",
+-        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и снилс"
++        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и СНИЛС"
+       }
+     ]
+   },
+diff --git a/app/services/directory_service/data/ivanovo.json b/app/services/directory_service/data/ivanovo.json
+index ecf1683..8da6e12 100644
+--- a/app/services/directory_service/data/ivanovo.json
++++ b/app/services/directory_service/data/ivanovo.json
+@@ -248,7 +248,7 @@
+       {
+         "id": "faq_07",
+         "question": "Какие документы нужны, чтобы начать?",
+-        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и снилс"
++        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и СНИЛС"
+       }
+     ]
+   },
+diff --git a/app/services/directory_service/data/izhevsk.json b/app/services/directory_service/data/izhevsk.json
+index 1066eab..f8ae15e 100644
+--- a/app/services/directory_service/data/izhevsk.json
++++ b/app/services/directory_service/data/izhevsk.json
+@@ -193,7 +193,7 @@
+       {
+         "id": "faq_07",
+         "question": "Какие документы нужны, чтобы начать?",
+-        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и снилс"
++        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и СНИЛС"
+       }
+     ]
+   },
+diff --git a/app/services/directory_service/data/kalachinsk.json b/app/services/directory_service/data/kalachinsk.json
+index 677bcea..f2d876b 100644
+--- a/app/services/directory_service/data/kalachinsk.json
++++ b/app/services/directory_service/data/kalachinsk.json
+@@ -206,7 +206,7 @@
+       {
+         "id": "faq_07",
+         "question": "Какие документы нужны, чтобы начать?",
+-        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и снилс"
++        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и СНИЛС"
+       }
+     ]
+   },
+diff --git a/app/services/directory_service/data/kansk.json b/app/services/directory_service/data/kansk.json
+index d182a0c..bbde09a 100644
+--- a/app/services/directory_service/data/kansk.json
++++ b/app/services/directory_service/data/kansk.json
+@@ -222,7 +222,7 @@
+       {
+         "id": "faq_07",
+         "question": "Какие документы нужны, чтобы начать?",
+-        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и снилс"
++        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и СНИЛС"
+       }
+     ]
+   },
+diff --git a/app/services/directory_service/data/kemerovo.json b/app/services/directory_service/data/kemerovo.json
+index 734c57e..3652966 100644
+--- a/app/services/directory_service/data/kemerovo.json
++++ b/app/services/directory_service/data/kemerovo.json
+@@ -311,7 +311,7 @@
+       {
+         "id": "faq_07",
+         "question": "Какие документы нужны, чтобы начать?",
+-        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и снилс"
++        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и СНИЛС"
+       }
+     ]
+   },
+diff --git a/app/services/directory_service/data/kopeysk.json b/app/services/directory_service/data/kopeysk.json
+index 170a17f..a7bbd4a 100644
+--- a/app/services/directory_service/data/kopeysk.json
++++ b/app/services/directory_service/data/kopeysk.json
+@@ -203,7 +203,7 @@
+       {
+         "id": "faq_07",
+         "question": "Какие документы нужны, чтобы начать?",
+-        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и снилс"
++        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и СНИЛС"
+       }
+     ]
+   },
+diff --git a/app/services/directory_service/data/kormilovka.json b/app/services/directory_service/data/kormilovka.json
+index d979cf4..e31ea70 100644
+--- a/app/services/directory_service/data/kormilovka.json
++++ b/app/services/directory_service/data/kormilovka.json
+@@ -206,7 +206,7 @@
+       {
+         "id": "faq_07",
+         "question": "Какие документы нужны, чтобы начать?",
+-        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и снилс"
++        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и СНИЛС"
+       }
+     ]
+   },
+diff --git a/app/services/directory_service/data/krasnoyarsk.json b/app/services/directory_service/data/krasnoyarsk.json
+index 5fca763..74e2c1c 100644
+--- a/app/services/directory_service/data/krasnoyarsk.json
++++ b/app/services/directory_service/data/krasnoyarsk.json
+@@ -404,7 +404,7 @@
+       {
+         "id": "faq_07",
+         "question": "Какие документы нужны, чтобы начать?",
+-        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и снилс"
++        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и СНИЛС"
+       }
+     ]
+   },
+diff --git a/app/services/directory_service/data/kyrgan.json b/app/services/directory_service/data/kyrgan.json
+index 23eea60..f199004 100644
+--- a/app/services/directory_service/data/kyrgan.json
++++ b/app/services/directory_service/data/kyrgan.json
+@@ -237,7 +237,7 @@
+       {
+         "id": "faq_07",
+         "question": "Какие документы нужны, чтобы начать?",
+-        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и снилс"
++        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и СНИЛС"
+       }
+     ]
+   },
+diff --git a/app/services/directory_service/data/magnitogorsk.json b/app/services/directory_service/data/magnitogorsk.json
+index 2997003..0225ef2 100644
+--- a/app/services/directory_service/data/magnitogorsk.json
++++ b/app/services/directory_service/data/magnitogorsk.json
+@@ -295,7 +295,7 @@
+       {
+         "id": "faq_07",
+         "question": "Какие документы нужны, чтобы начать?",
+-        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и снилс"
++        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и СНИЛС"
+       }
+     ]
+   },
+diff --git a/app/services/directory_service/data/nazyvayevsk.json b/app/services/directory_service/data/nazyvayevsk.json
+index 7dd314f..8acac1e 100644
+--- a/app/services/directory_service/data/nazyvayevsk.json
++++ b/app/services/directory_service/data/nazyvayevsk.json
+@@ -206,7 +206,7 @@
+       {
+         "id": "faq_07",
+         "question": "Какие документы нужны, чтобы начать?",
+-        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и снилс"
++        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и СНИЛС"
+       }
+     ]
+   },
+diff --git a/app/services/directory_service/data/nizhniy-novgorod.json b/app/services/directory_service/data/nizhniy-novgorod.json
+index 784c4a8..3f5da83 100644
+--- a/app/services/directory_service/data/nizhniy-novgorod.json
++++ b/app/services/directory_service/data/nizhniy-novgorod.json
+@@ -337,7 +337,7 @@
+       {
+         "id": "faq_07",
+         "question": "Какие документы нужны, чтобы начать?",
+-        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и снилс"
++        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и СНИЛС"
+       }
+     ]
+   },
+diff --git a/app/services/directory_service/data/novokuznetsk.json b/app/services/directory_service/data/novokuznetsk.json
+index 394278e..12cf220 100644
+--- a/app/services/directory_service/data/novokuznetsk.json
++++ b/app/services/directory_service/data/novokuznetsk.json
+@@ -248,7 +248,7 @@
+       {
+         "id": "faq_07",
+         "question": "Какие документы нужны, чтобы начать?",
+-        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и снилс"
++        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и СНИЛС"
+       }
+     ]
+   },
+diff --git a/app/services/directory_service/data/novosib.json b/app/services/directory_service/data/novosib.json
+index 4d950b2..15f1fbb 100644
+--- a/app/services/directory_service/data/novosib.json
++++ b/app/services/directory_service/data/novosib.json
+@@ -243,7 +243,7 @@
+       {
+         "id": "faq_07",
+         "question": "Какие документы нужны, чтобы начать?",
+-        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и снилс"
++        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и СНИЛС"
+       }
+     ]
+   },
+diff --git a/app/services/directory_service/data/omsk.json b/app/services/directory_service/data/omsk.json
+index dceee72..010a3dd 100644
+--- a/app/services/directory_service/data/omsk.json
++++ b/app/services/directory_service/data/omsk.json
+@@ -539,7 +539,7 @@
+       {
+         "id": "faq_07",
+         "question": "Какие документы нужны, чтобы начать?",
+-        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и снилс"
++        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и СНИЛС"
+       }
+     ]
+   },
+diff --git a/app/services/directory_service/data/ryazan.json b/app/services/directory_service/data/ryazan.json
+index 274456c..219ada7 100644
+--- a/app/services/directory_service/data/ryazan.json
++++ b/app/services/directory_service/data/ryazan.json
+@@ -307,7 +307,7 @@
+       {
+         "id": "faq_07",
+         "question": "Какие документы нужны, чтобы начать?",
+-        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и снилс"
++        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и СНИЛС"
+       }
+     ]
+   },
+diff --git a/app/services/directory_service/data/sankt-peterburg.json b/app/services/directory_service/data/sankt-peterburg.json
+index 366670a..40e0b1d 100644
+--- a/app/services/directory_service/data/sankt-peterburg.json
++++ b/app/services/directory_service/data/sankt-peterburg.json
+@@ -375,19 +375,19 @@
+         "id": "doc_passport",
+         "name": "паспорт",
+         "stage": "для старта",
+-        "text": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и снилс"
++        "text": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и СНИЛС"
+       },
+       {
+         "id": "doc_medical",
+         "name": "шоферская комиссия",
+         "stage": "чуть позже",
+-        "text": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и снилс"
++        "text": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и СНИЛС"
+       },
+       {
+         "id": "doc_snils",
+-        "name": "снилс",
++        "name": "СНИЛС",
+         "stage": "чуть позже",
+-        "text": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и снилс"
++        "text": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и СНИЛС"
+       }
+     ]
+   },
+@@ -427,7 +427,7 @@
+       {
+         "id": "faq_07",
+         "question": "Какие документы нужны, чтобы начать?",
+-        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и снилс"
++        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и СНИЛС"
+       }
+     ]
+   },
+diff --git a/app/services/directory_service/data/sochi.json b/app/services/directory_service/data/sochi.json
+index e0cc4bd..9a30b9b 100644
+--- a/app/services/directory_service/data/sochi.json
++++ b/app/services/directory_service/data/sochi.json
+@@ -276,7 +276,7 @@
+       {
+         "id": "faq_07",
+         "question": "Какие документы нужны, чтобы начать?",
+-        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и снилс"
++        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и СНИЛС"
+       }
+     ]
+   },
+diff --git a/app/services/directory_service/data/sterlitamak.json b/app/services/directory_service/data/sterlitamak.json
+index efb66cb..6dd1296 100644
+--- a/app/services/directory_service/data/sterlitamak.json
++++ b/app/services/directory_service/data/sterlitamak.json
+@@ -222,7 +222,7 @@
+       {
+         "id": "faq_07",
+         "question": "Какие документы нужны, чтобы начать?",
+-        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и снилс"
++        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и СНИЛС"
+       }
+     ]
+   },
+diff --git a/app/services/directory_service/data/tagil.json b/app/services/directory_service/data/tagil.json
+index fc73034..3dc9c49 100644
+--- a/app/services/directory_service/data/tagil.json
++++ b/app/services/directory_service/data/tagil.json
+@@ -270,7 +270,7 @@
+       {
+         "id": "faq_07",
+         "question": "Какие документы нужны, чтобы начать?",
+-        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и снилс"
++        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и СНИЛС"
+       }
+     ]
+   },
+diff --git a/app/services/directory_service/data/tara.json b/app/services/directory_service/data/tara.json
+index 407235b..2821af8 100644
+--- a/app/services/directory_service/data/tara.json
++++ b/app/services/directory_service/data/tara.json
+@@ -194,7 +194,7 @@
+       {
+         "id": "faq_07",
+         "question": "Какие документы нужны, чтобы начать?",
+-        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и снилс"
++        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и СНИЛС"
+       }
+     ]
+   },
+diff --git a/app/services/directory_service/data/tomsk.json b/app/services/directory_service/data/tomsk.json
+index 25d9f3b..3d4b32c 100644
+--- a/app/services/directory_service/data/tomsk.json
++++ b/app/services/directory_service/data/tomsk.json
+@@ -236,7 +236,7 @@
+       {
+         "id": "faq_07",
+         "question": "Какие документы нужны, чтобы начать?",
+-        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и снилс"
++        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и СНИЛС"
+       }
+     ]
+   },
+diff --git a/app/services/directory_service/data/tyumen.json b/app/services/directory_service/data/tyumen.json
+index df33592..b8eb975 100644
+--- a/app/services/directory_service/data/tyumen.json
++++ b/app/services/directory_service/data/tyumen.json
+@@ -327,7 +327,7 @@
+       {
+         "id": "faq_07",
+         "question": "Какие документы нужны, чтобы начать?",
+-        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и снилс"
++        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и СНИЛС"
+       }
+     ]
+   },
+diff --git a/app/services/directory_service/data/ufa.json b/app/services/directory_service/data/ufa.json
+index 2e0b23b..ac613c1 100644
+--- a/app/services/directory_service/data/ufa.json
++++ b/app/services/directory_service/data/ufa.json
+@@ -363,7 +363,7 @@
+       {
+         "id": "faq_07",
+         "question": "Какие документы нужны, чтобы начать?",
+-        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и снилс"
++        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и СНИЛС"
+       }
+     ]
+   },
+diff --git a/app/services/directory_service/data/vladivostok.json b/app/services/directory_service/data/vladivostok.json
+index e794d95..e7a1f56 100644
+--- a/app/services/directory_service/data/vladivostok.json
++++ b/app/services/directory_service/data/vladivostok.json
+@@ -278,7 +278,7 @@
+       {
+         "id": "faq_07",
+         "question": "Какие документы нужны, чтобы начать?",
+-        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и снилс"
++        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и СНИЛС"
+       }
+     ]
+   },
+diff --git a/app/services/directory_service/data/voronezh.json b/app/services/directory_service/data/voronezh.json
+index bbb4962..3eeb1ae 100644
+--- a/app/services/directory_service/data/voronezh.json
++++ b/app/services/directory_service/data/voronezh.json
+@@ -366,7 +366,7 @@
+       {
+         "id": "faq_07",
+         "question": "Какие документы нужны, чтобы начать?",
+-        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и снилс"
++        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и СНИЛС"
+       }
+     ]
+   },
+diff --git a/app/services/directory_service/data/yaroslavl.json b/app/services/directory_service/data/yaroslavl.json
+index 07e7e6e..9a92643 100644
+--- a/app/services/directory_service/data/yaroslavl.json
++++ b/app/services/directory_service/data/yaroslavl.json
+@@ -236,7 +236,7 @@
+       {
+         "id": "faq_07",
+         "question": "Какие документы нужны, чтобы начать?",
+-        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и снилс"
++        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и СНИЛС"
+       }
+     ]
+   },
+diff --git a/app/services/directory_service/data/zheleznogorsk.json b/app/services/directory_service/data/zheleznogorsk.json
+index 5db44ad..e7496fd 100644
+--- a/app/services/directory_service/data/zheleznogorsk.json
++++ b/app/services/directory_service/data/zheleznogorsk.json
+@@ -235,7 +235,7 @@
+       {
+         "id": "faq_07",
+         "question": "Какие документы нужны, чтобы начать?",
+-        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и снилс"
++        "answer": "Для старта понадобится только паспорт, чуть позже шоферская комиссия и СНИЛС"
+       }
+     ]
+   },

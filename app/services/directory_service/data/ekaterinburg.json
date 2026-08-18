@@ -9,7 +9,6 @@
     "lon": 60.605514
   },
   "branches": {
-    "_source": "https://avtoschool-vektor.ru/ekaterinburg",
     "items": [
       {
         "id": "ekaterinburg_tehnicheskaya",
@@ -130,7 +129,7 @@
         "hours": "ежедневно, с 9 до 21",
         "break": null,
         "is_autodrome": false,
-        "note": "перерыв на сайте не указан, в отличие от остальных филиалов",
+        "note": null,
         "landmark": null,
         "place_type": "Федеральная академия вождения",
         "metro": null,
@@ -284,7 +283,7 @@
         "hours": null,
         "break": null,
         "is_autodrome": true,
-        "note": "вкладка «Автодромы»; часы работы и необходимость добираться самостоятельно на сайте не указаны",
+        "note": null,
         "landmark": null,
         "place_type": null,
         "metro": null,
@@ -294,7 +293,6 @@
     ]
   },
   "categories": {
-    "_source": "https://avtoschool-vektor.ru/ekaterinburg",
     "items": [
       {
         "id": "cat_b",
@@ -321,7 +319,6 @@
     ]
   },
   "fleet": {
-    "_source": "https://avtoschool-vektor.ru/ekaterinburg",
     "items": [
       {
         "id": "fleet_b_mkpp",
@@ -410,7 +407,6 @@
     ]
   },
   "theory_formats": {
-    "_source": "https://avtoschool-vektor.ru/ekaterinburg",
     "items": [
       {
         "id": "theory_offline",
@@ -439,7 +435,6 @@
     ]
   },
   "documents": {
-    "_source": "https://avtoschool-vektor.ru/ekaterinburg",
     "items": [
       {
         "id": "doc_passport",
@@ -480,7 +475,6 @@
     ]
   },
   "faq": {
-    "_source": "https://avtoschool-vektor.ru/ekaterinburg",
     "items": [
       {
         "id": "faq_01",
@@ -520,7 +514,6 @@
     ]
   },
   "installment": {
-    "_source": "https://avtoschool-vektor.ru/ekaterinburg",
     "term_months": 6,
     "no_overpay": true,
     "down_payment": 5000,
@@ -531,7 +524,6 @@
     "_demo": true
   },
   "contacts": {
-    "_source": "https://avtoschool-vektor.ru/ekaterinburg",
     "phone_city": null,
     "phone_federal": "8 (800) 511-95-02",
     "call_hours": "С 7:30 до 23:00",
@@ -546,7 +538,6 @@
     "license": null
   },
   "tariffs": {
-    "_source": "https://avtoschool-vektor.ru/ekaterinburg",
     "items": [
       {
         "id": "tariff_base",

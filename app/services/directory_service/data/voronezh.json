@@ -9,7 +9,6 @@
     "lon": 39.196854
   },
   "branches": {
-    "_source": "https://avtoschool-vektor.ru/voronezh",
     "items": [
       {
         "id": "voronezh_engelsa_mfk",
@@ -154,7 +153,6 @@
     ]
   },
   "categories": {
-    "_source": "https://avtoschool-vektor.ru/voronezh",
     "items": [
       {
         "id": "cat_b",
@@ -170,7 +168,6 @@
           "Теория очно | дистанционно",
           "Теория очно | дистанционно"
         ],
-        "_source": "https://avtoschool-vektor.ru/voronezh",
         "_demo": true
       },
       {
@@ -186,8 +183,7 @@
           "АКПП | МКПП (одинаковая стоимость)",
           "Теория очно | дистанционно",
           "Теория очно | дистанционно"
-        ],
-        "_source": "https://avtoschool-vektor.ru/voronezh"
+        ]
       },
       {
         "id": "cat_a",
@@ -198,13 +194,11 @@
         "duration": null,
         "start_frequency": null,
         "seats_left": null,
-        "includes": [],
-        "_source": "https://avtoschool-vektor.ru/voronezh"
+        "includes": []
       }
     ]
   },
   "fleet": {
-    "_source": "https://avtoschool-vektor.ru/voronezh",
     "items": [
       {
         "id": "fleet_b_mkpp",
@@ -218,8 +212,7 @@
           "TENET T4"
         ],
         "year": "не старше 2023 г",
-        "text": "МКПП: CHERY TIGGO4 NEW, LADA GRANTA, LADA VESTA, TENET T4",
-        "_source": "https://avtoschool-vektor.ru/voronezh"
+        "text": "МКПП: CHERY TIGGO4 NEW, LADA GRANTA, LADA VESTA, TENET T4"
       },
       {
         "id": "fleet_b_akpp",
@@ -232,8 +225,7 @@
           "TENET T4"
         ],
         "year": "не старше 2023 г",
-        "text": "АКПП: MOSKVICH 3, CHERY TIGGO4 NEW, TENET T4",
-        "_source": "https://avtoschool-vektor.ru/voronezh"
+        "text": "АКПП: MOSKVICH 3, CHERY TIGGO4 NEW, TENET T4"
       },
       {
         "id": "fleet_a_moto",
@@ -244,8 +236,7 @@
           "Suzuki VanVan200"
         ],
         "year": null,
-        "text": "Категория А - Suzuki VanVan200",
-        "_source": "https://avtoschool-vektor.ru/voronezh"
+        "text": "Категория А - Suzuki VanVan200"
       },
       {
         "id": "fleet_c_truck",
@@ -254,8 +245,7 @@
         "transmission": null,
         "models": [],
         "year": null,
-        "text": "Автомобиль Газон NEXT 2025 года",
-        "_source": "https://avtoschool-vektor.ru/voronezh"
+        "text": "Автомобиль Газон NEXT 2025 года"
       },
       {
         "id": "fleet_premium",
@@ -268,8 +258,7 @@
           "Hummer"
         ],
         "year": null,
-        "text": "Максимум комфорта в обучении на автомобилях премиум-класса: Tesla, Mercedes, Hummer",
-        "_source": "https://avtoschool-vektor.ru/voronezh"
+        "text": "Максимум комфорта в обучении на автомобилях премиум-класса: Tesla, Mercedes, Hummer"
       },
       {
         "id": "fleet_gallery_year",
@@ -278,8 +267,7 @@
         "transmission": null,
         "models": [],
         "year": "не старше 2023 года",
-        "text": "Комфортные учебные авто не старше 2023 года",
-        "_source": "https://avtoschool-vektor.ru/voronezh"
+        "text": "Комфортные учебные авто не старше 2023 года"
       },
       {
         "id": "fleet_thesis_akpp_price",
@@ -288,50 +276,42 @@
         "transmission": null,
         "models": [],
         "year": null,
-        "text": "Цена обучения на автомате и механике равны. Если в процессе обучения ты меняешь коробку передач, смена автомобиля происходит бесплатно. Дистанционное обучение Теорию можно изучать в удобном для тебя формате: видео-уроки в мобильном приложении, в группе",
-        "_source": "https://avtoschool-vektor.ru/voronezh"
+        "text": "Цена обучения на автомате и механике равны. Если в процессе обучения ты меняешь коробку передач, смена автомобиля происходит бесплатно. Дистанционное обучение Теорию можно изучать в удобном для тебя формате: видео-уроки в мобильном приложении, в группе"
       }
     ]
   },
   "theory_formats": {
-    "_source": "https://avtoschool-vektor.ru/voronezh",
     "items": [
       {
         "id": "theory_offline",
         "name": null,
         "surcharge": null,
-        "text": "Изучай теорию в современных классах с лучшими преподавателями Автошкола в Воронеже Вектор — это федеральная академия вождения с высоким уровнем качества образования и сервиса, с применением IT-технологий в обучении Приведи друга и получи скидку на обучение Использу",
-        "_source": "https://avtoschool-vektor.ru/voronezh"
+        "text": "Изучай теорию в современных классах с лучшими преподавателями Автошкола в Воронеже Вектор — это федеральная академия вождения с высоким уровнем качества образования и сервиса, с применением IT-технологий в обучении Приведи друга и получи скидку на обучение Использу"
       },
       {
         "id": "theory_formats_all",
         "name": null,
         "surcharge": null,
-        "text": "Теорию можно изучать в очном, заочном или комбинированных форматах. С помощью нашего фирменного мобильного приложения изучать ПДД и проходить экзаменационные тесты можно из любой точки мира. Как проходят занятия? График занятий выстраивается индивидуально с каждым к",
-        "_source": "https://avtoschool-vektor.ru/voronezh"
+        "text": "Теорию можно изучать в очном, заочном или комбинированных форматах. С помощью нашего фирменного мобильного приложения изучать ПДД и проходить экзаменационные тесты можно из любой точки мира. Как проходят занятия? График занятий выстраивается индивидуально с каждым к"
       },
       {
         "id": "theory_online",
         "name": null,
         "surcharge": null,
-        "text": "С помощью нашего фирменного мобильного приложения изучать ПДД и проходить экзаменационные тесты можно из любой точки мира. Как проходят занятия? График занятий выстраивается индивидуально с каждым курсантом. Доступна онлайн запись на вожде",
-        "_source": "https://avtoschool-vektor.ru/voronezh"
+        "text": "С помощью нашего фирменного мобильного приложения изучать ПДД и проходить экзаменационные тесты можно из любой точки мира. Как проходят занятия? График занятий выстраивается индивидуально с каждым курсантом. Доступна онлайн запись на вожде"
       },
       {
         "id": "theory_app",
         "name": null,
         "surcharge": null,
-        "text": "Всё для твоего комфорта: запись на вождение, оплата, общение с автошколой, теория, ПДД и билеты — в одном приложении Обучайся на другие категории с выгодой! категория «‎A»‎ Договор оферты категория B Вектор сегодня это... 200 000+ счастливых водителей 10 лет работы 85% сдачи с перво",
-        "_source": "https://avtoschool-vektor.ru/voronezh"
+        "text": "Всё для твоего комфорта: запись на вождение, оплата, общение с автошколой, теория, ПДД и билеты — в одном приложении Обучайся на другие категории с выгодой! категория «‎A»‎ Договор оферты категория B Вектор сегодня это... 200 000+ счастливых водителей 10 лет работы 85% сдачи с перво"
       }
     ]
   },
   "documents": {
-    "_source": "https://avtoschool-vektor.ru/voronezh",
     "items": []
   },
   "faq": {
-    "_source": "https://avtoschool-vektor.ru/voronezh",
     "items": [
       {
         "id": "faq_01",
@@ -371,7 +351,6 @@
     ]
   },
   "installment": {
-    "_source": "https://avtoschool-vektor.ru/voronezh",
     "term_months": 6,
     "no_overpay": true,
     "down_payment": 5000,
@@ -379,7 +358,6 @@
     "_demo": true
   },
   "contacts": {
-    "_source": "https://avtoschool-vektor.ru/voronezh",
     "phone_city": null,
     "phone_federal": "8 (800) 511-95-02",
     "call_hours": "С 7:30 до 23:00",
@@ -394,7 +372,6 @@
     "license": "https://disk.yandex.ru/i/WdwOzVYGfvO2yg"
   },
   "tariffs": {
-    "_source": "https://avtoschool-vektor.ru/voronezh",
     "items": [
       {
         "id": "tariff_hero",
@@ -407,8 +384,7 @@
         "practice_hours": null,
         "includes": [],
         "start_frequency": null,
-        "valid_until": null,
-        "_source": "https://avtoschool-vektor.ru/voronezh"
+        "valid_until": null
       },
       {
         "id": "tariff_card_6000",
@@ -421,25 +397,7 @@
         "practice_hours": null,
         "includes": [],
         "start_frequency": null,
-        "valid_until": null,
-        "_source": "https://avtoschool-vektor.ru/voronezh"
-      }
-    ],
-    "prices_found": [
-      {
-        "price": 12900,
-        "price_is_from": true,
-        "context": "Заключить договор Написать в Max Написать в WhatsApp Написать в Telegram Не любишь звонки? Просто напиши! Курс Базовый от 12 900 ₽* Рекордно низкая цена на обучение Оставить заявку * подробности у менеджера В подарок: папка курсанта, марафон билетов"
-      },
-      {
-        "price": 1000,
-        "price_is_from": false,
-        "context": "обучения на любую категорию! Воспользоваться Ездить в универ на машине - это круто! Приходи со студенческим и учись на 1000 рублей дешевле Воспользоваться Не стараемся больше заработать на общем росте цен - наша главная цель давать качественное об"
-      },
-      {
-        "price": 6000,
-        "price_is_from": true,
-        "context": "ятия без очередей на собственном автодроме Внутренний экзамен включен Приоритетный выход на экзамен в ГИБДД Узнать цену от 6 000 ₽ Всё для твоего комфорта: запись на вождение, оплата, общение с автошколой, теория, ПДД и билеты — в одном приложении Об"
+        "valid_until": null
       }
     ]
   }

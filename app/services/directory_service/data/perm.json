@@ -9,7 +9,6 @@
     "lon": 56.229429
   },
   "branches": {
-    "_source": "https://avtoschool-vektor.ru/perm",
     "items": [
       {
         "id": "perm_ekaterininskaya",
@@ -18,8 +17,8 @@
         "hours": "ежедневно, с 9 до 21",
         "break": null,
         "is_autodrome": false,
-        "note": "перерыв на сайте не указан",
-        "landmark": "Моби Дик; Вход со стороны Попова",
+        "note": null,
+        "landmark": "Моби Дик",
         "place_type": "Федеральная академия вождения",
         "metro": null,
         "lat": 58.007065,
@@ -112,7 +111,6 @@
     ]
   },
   "categories": {
-    "_source": "https://avtoschool-vektor.ru/perm",
     "items": [
       {
         "id": "cat_b",
@@ -132,7 +130,6 @@
     ]
   },
   "fleet": {
-    "_source": "https://avtoschool-vektor.ru/perm",
     "items": [
       {
         "id": "fleet_b_mkpp",
@@ -210,7 +207,6 @@
     ]
   },
   "theory_formats": {
-    "_source": "https://avtoschool-vektor.ru/perm",
     "items": [
       {
         "id": "theory_offline",
@@ -233,15 +229,12 @@
     ]
   },
   "documents": {
-    "_source": null,
     "items": []
   },
   "faq": {
-    "_source": "https://avtoschool-vektor.ru/perm",
     "items": []
   },
   "installment": {
-    "_source": "https://avtoschool-vektor.ru/perm",
     "term_months": 6,
     "no_overpay": true,
     "down_payment": 5000,
@@ -249,7 +242,6 @@
     "_demo": true
   },
   "contacts": {
-    "_source": "https://avtoschool-vektor.ru/perm",
     "phone_city": null,
     "phone_federal": "8 (800) 511-95-02",
     "call_hours": "С 7:30 до 23:00",
@@ -265,7 +257,6 @@
     "license": "https://disk.yandex.ru/i/6f0fGBckG2Qtqg"
   },
   "tariffs": {
-    "_source": "https://avtoschool-vektor.ru/perm",
     "items": [
       {
         "id": "tariff_base",

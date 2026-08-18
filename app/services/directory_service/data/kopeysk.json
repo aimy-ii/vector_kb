@@ -9,7 +9,6 @@
     "lon": 61.617988
   },
   "branches": {
-    "_source": "https://avtoschool-vektor.ru/kopeysk",
     "items": [
       {
         "id": "kopeysk_kozhevnikova",
@@ -28,7 +27,6 @@
     ]
   },
   "categories": {
-    "_source": "https://avtoschool-vektor.ru/kopeysk",
     "items": [
       {
         "id": "cat_a",
@@ -39,8 +37,7 @@
         "duration": null,
         "start_frequency": null,
         "seats_left": null,
-        "includes": [],
-        "_source": "https://avtoschool-vektor.ru/kopeysk"
+        "includes": []
       },
       {
         "id": "cat_b",
@@ -52,13 +49,11 @@
         "start_frequency": null,
         "seats_left": null,
         "includes": [],
-        "_source": "https://avtoschool-vektor.ru/kopeysk",
         "_demo": true
       }
     ]
   },
   "fleet": {
-    "_source": "https://avtoschool-vektor.ru/kopeysk",
     "items": [
       {
         "id": "fleet_b_mkpp",
@@ -72,8 +67,7 @@
           "Lada Vesta"
         ],
         "year": "не старше 2023 г",
-        "text": "МКПП: Lada Granta, Volkswagen Polo, Nissan Tiida, Lada Vesta.",
-        "_source": "https://avtoschool-vektor.ru/kopeysk"
+        "text": "МКПП: Lada Granta, Volkswagen Polo, Nissan Tiida, Lada Vesta."
       },
       {
         "id": "fleet_b_akpp",
@@ -86,8 +80,7 @@
           "Skoda Oktavia"
         ],
         "year": "не старше 2023 г",
-        "text": "АКПП: Tesla, Kia Rio, Skoda Oktavia.",
-        "_source": "https://avtoschool-vektor.ru/kopeysk"
+        "text": "АКПП: Tesla, Kia Rio, Skoda Oktavia."
       },
       {
         "id": "fleet_a_moto",
@@ -98,8 +91,7 @@
           "Suzuki VanVan200"
         ],
         "year": null,
-        "text": "Категория А - Suzuki VanVan200",
-        "_source": "https://avtoschool-vektor.ru/kopeysk"
+        "text": "Категория А - Suzuki VanVan200"
       },
       {
         "id": "fleet_premium",
@@ -112,8 +104,7 @@
           "Hummer"
         ],
         "year": null,
-        "text": "Максимум комфорта в обучении на автомобилях премиум-класса: Tesla, Mercedes, Hummer",
-        "_source": "https://avtoschool-vektor.ru/kopeysk"
+        "text": "Максимум комфорта в обучении на автомобилях премиум-класса: Tesla, Mercedes, Hummer"
       },
       {
         "id": "fleet_gallery_year",
@@ -122,8 +113,7 @@
         "transmission": null,
         "models": [],
         "year": "не старше 2023 года",
-        "text": "Комфортные учебные авто не старше 2023 года",
-        "_source": "https://avtoschool-vektor.ru/kopeysk"
+        "text": "Комфортные учебные авто не старше 2023 года"
       },
       {
         "id": "fleet_thesis_akpp_price",
@@ -132,43 +122,36 @@
         "transmission": null,
         "models": [],
         "year": null,
-        "text": "Цена обучения на автомате и механике равны. Если в процессе обучения ты меняешь коробку передач, смена автомобиля происходит бесплатно. Дистанционное обучение Теорию можно изучать в удобном для тебя формате: видео-уроки в мобильном приложении, в группе",
-        "_source": "https://avtoschool-vektor.ru/kopeysk"
+        "text": "Цена обучения на автомате и механике равны. Если в процессе обучения ты меняешь коробку передач, смена автомобиля происходит бесплатно. Дистанционное обучение Теорию можно изучать в удобном для тебя формате: видео-уроки в мобильном приложении, в группе"
       }
     ]
   },
   "theory_formats": {
-    "_source": "https://avtoschool-vektor.ru/kopeysk",
     "items": [
       {
         "id": "theory_offline",
         "name": null,
         "surcharge": null,
-        "text": "Изучай теорию в современных классах с лучшими преподавателями Вектор сегодня это... 200 000+ счастливых водителей 10 лет работы 85% сдачи с первого раза 35 городов присутствия Почему стоит выбрать автошколу Вектор? Личный менеджер на связи 24/7 Мы всегда на связи.",
-        "_source": "https://avtoschool-vektor.ru/kopeysk"
+        "text": "Изучай теорию в современных классах с лучшими преподавателями Вектор сегодня это... 200 000+ счастливых водителей 10 лет работы 85% сдачи с первого раза 35 городов присутствия Почему стоит выбрать автошколу Вектор? Личный менеджер на связи 24/7 Мы всегда на связи."
       },
       {
         "id": "theory_formats_all",
         "name": null,
         "surcharge": null,
-        "text": "Теорию можно изучать в очном, заочном или комбинированных форматах. С помощью нашего фирменного мобильного приложения изучать ПДД и проходить экзаменационные тесты можно из любой точки мира. Как проходят занятия? График занятий выстраивается индивидуально с каждым к",
-        "_source": "https://avtoschool-vektor.ru/kopeysk"
+        "text": "Теорию можно изучать в очном, заочном или комбинированных форматах. С помощью нашего фирменного мобильного приложения изучать ПДД и проходить экзаменационные тесты можно из любой точки мира. Как проходят занятия? График занятий выстраивается индивидуально с каждым к"
       },
       {
         "id": "theory_online",
         "name": null,
         "surcharge": null,
-        "text": "С помощью нашего фирменного мобильного приложения изучать ПДД и проходить экзаменационные тесты можно из любой точки мира. Как проходят занятия? График занятий выстраивается индивидуально с каждым курсантом. Доступна онлайн запись на вожде",
-        "_source": "https://avtoschool-vektor.ru/kopeysk"
+        "text": "С помощью нашего фирменного мобильного приложения изучать ПДД и проходить экзаменационные тесты можно из любой точки мира. Как проходят занятия? График занятий выстраивается индивидуально с каждым курсантом. Доступна онлайн запись на вожде"
       }
     ]
   },
   "documents": {
-    "_source": "https://avtoschool-vektor.ru/kopeysk",
     "items": []
   },
   "faq": {
-    "_source": "https://avtoschool-vektor.ru/kopeysk",
     "items": [
       {
         "id": "faq_01",
@@ -208,7 +191,6 @@
     ]
   },
   "installment": {
-    "_source": "https://avtoschool-vektor.ru/kopeysk",
     "term_months": 6,
     "no_overpay": true,
     "down_payment": 5000,
@@ -216,7 +198,6 @@
     "_demo": true
   },
   "contacts": {
-    "_source": "https://avtoschool-vektor.ru/kopeysk",
     "phone_city": null,
     "phone_federal": "8 (800) 511 95 02",
     "call_hours": "С 7:30 до 23:00",
@@ -231,7 +212,6 @@
     "license": "https://disk.yandex.ru/i/CiTL5XcI8sSSKQ"
   },
   "tariffs": {
-    "_source": "https://avtoschool-vektor.ru/kopeysk",
     "items": [
       {
         "id": "tariff_hero",
@@ -244,15 +224,7 @@
         "practice_hours": null,
         "includes": [],
         "start_frequency": null,
-        "valid_until": null,
-        "_source": "https://avtoschool-vektor.ru/kopeysk"
-      }
-    ],
-    "prices_found": [
-      {
-        "price": 6000,
-        "price_is_from": true,
-        "context": "я Об автошколе Написать в Max Написать в WhatsApp Написать в Telegram Не любишь звонки? Просто напиши! Специальная цена от 6 000 ₽* Получи права этим летом Оставить заявку * подробности у менеджера В подарок: папка курсанта, марафон билетов ПДД экзам"
+        "valid_until": null
       }
     ]
   }

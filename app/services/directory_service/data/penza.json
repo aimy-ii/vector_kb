@@ -9,7 +9,6 @@
     "lon": 45.0347408
   },
   "branches": {
-    "_source": "https://avtoschool-vektor.ru/penza",
     "items": [
       {
         "id": "penza_bakunina",
@@ -28,7 +27,6 @@
     ]
   },
   "categories": {
-    "_source": "https://avtoschool-vektor.ru/penza",
     "items": [
       {
         "id": "cat_b",
@@ -42,7 +40,6 @@
         "includes": [
           "АКПП | МКПП (одинаковая стоимость)"
         ],
-        "_source": "https://avtoschool-vektor.ru/penza",
         "_demo": true
       },
       {
@@ -54,13 +51,11 @@
         "duration": null,
         "start_frequency": null,
         "seats_left": null,
-        "includes": [],
-        "_source": "https://avtoschool-vektor.ru/penza"
+        "includes": []
       }
     ]
   },
   "fleet": {
-    "_source": "https://avtoschool-vektor.ru/penza",
     "items": [
       {
         "id": "fleet_gallery_year",
@@ -69,33 +64,27 @@
         "transmission": null,
         "models": [],
         "year": "не старше 2023 года",
-        "text": "Комфортные учебные авто не старше 2023 года",
-        "_source": "https://avtoschool-vektor.ru/penza"
+        "text": "Комфортные учебные авто не старше 2023 года"
       }
     ]
   },
   "theory_formats": {
-    "_source": "https://avtoschool-vektor.ru/penza",
     "items": [
       {
         "id": "theory_offline",
         "name": null,
         "surcharge": null,
-        "text": "Изучай теорию в современных классах с лучшими преподавателями Автошкола в Пензе Вектор — это федеральная академия вождения с высоким уровнем качества образования и сервиса, с применением IT-технологий в обучении Приведи друга и получи скидку на обучение Используй с",
-        "_source": "https://avtoschool-vektor.ru/penza"
+        "text": "Изучай теорию в современных классах с лучшими преподавателями Автошкола в Пензе Вектор — это федеральная академия вождения с высоким уровнем качества образования и сервиса, с применением IT-технологий в обучении Приведи друга и получи скидку на обучение Используй с"
       }
     ]
   },
   "documents": {
-    "_source": "https://avtoschool-vektor.ru/penza",
     "items": []
   },
   "faq": {
-    "_source": "https://avtoschool-vektor.ru/penza",
     "items": []
   },
   "installment": {
-    "_source": "https://avtoschool-vektor.ru/penza",
     "term_months": 6,
     "no_overpay": false,
     "down_payment": 5000,
@@ -103,7 +92,6 @@
     "_demo": true
   },
   "contacts": {
-    "_source": "https://avtoschool-vektor.ru/penza",
     "phone_city": "(903)9810060",
     "phone_federal": "8 (800) 511-95-02",
     "call_hours": "С 7:30 до 23:00",
@@ -118,7 +106,6 @@
     "license": null
   },
   "tariffs": {
-    "_source": "https://avtoschool-vektor.ru/penza",
     "items": [
       {
         "id": "tariff_hero",
@@ -131,20 +118,7 @@
         "practice_hours": null,
         "includes": [],
         "start_frequency": null,
-        "valid_until": null,
-        "_source": "https://avtoschool-vektor.ru/penza"
-      }
-    ],
-    "prices_found": [
-      {
-        "price": 11000,
-        "price_is_from": true,
-        "context": "Контакты Лицензия Написать в Max Написать в WhatsApp Написать в Telegram Не любишь звонки? Просто напиши! Курс Базовый от 11 000₽* Рекордно низкая цена на обучение Оставить заявку * подробности у менеджера В подарок: папка курсанта, марафон билетов"
-      },
-      {
-        "price": 1000,
-        "price_is_from": false,
-        "context": "обучения на любую категорию! Воспользоваться Ездить в универ на машине - это круто! Приходи со студенческим и учись на 1000 рублей дешевле Воспользоваться Не стараемся больше заработать на общем росте цен - наша главная цель давать качественное об"
+        "valid_until": null
       }
     ]
   }

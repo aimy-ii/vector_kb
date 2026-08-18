@@ -9,7 +9,6 @@
     "lon": 30.315879
   },
   "branches": {
-    "_source": "https://avtoschool-vektor.ru/sankt-peterburg",
     "items": [
       {
         "id": "sankt-peterburg_murino_privokzalnaya",
@@ -158,7 +157,7 @@
         "hours": "Скоро открытие",
         "break": null,
         "is_autodrome": false,
-        "note": "В блоке акций тот же класс указан как «Большой проспект Васильевского острова, 68/1 (ТЦ «Балтийский»)» — см. conflicts",
+        "note": null,
         "landmark": null,
         "place_type": null,
         "metro": null,
@@ -168,7 +167,6 @@
     ]
   },
   "categories": {
-    "_source": "https://avtoschool-vektor.ru/sankt-peterburg",
     "items": [
       {
         "id": "cat_b",
@@ -244,7 +242,6 @@
     ]
   },
   "fleet": {
-    "_source": "https://avtoschool-vektor.ru/sankt-peterburg",
     "items": [
       {
         "id": "fleet_b_mkpp",
@@ -340,7 +337,6 @@
     ]
   },
   "theory_formats": {
-    "_source": "https://avtoschool-vektor.ru/sankt-peterburg",
     "items": [
       {
         "id": "theory_offline",
@@ -369,7 +365,6 @@
     ]
   },
   "documents": {
-    "_source": "https://avtoschool-vektor.ru/sankt-peterburg",
     "items": [
       {
         "id": "doc_passport",
@@ -392,7 +387,6 @@
     ]
   },
   "faq": {
-    "_source": "https://avtoschool-vektor.ru/sankt-peterburg",
     "items": [
       {
         "id": "faq_01",
@@ -432,7 +426,6 @@
     ]
   },
   "installment": {
-    "_source": "https://avtoschool-vektor.ru/sankt-peterburg",
     "term_months": 6,
     "no_overpay": true,
     "down_payment": 5000,
@@ -443,7 +436,6 @@
     "_demo": true
   },
   "contacts": {
-    "_source": "https://avtoschool-vektor.ru/sankt-peterburg",
     "phone_city": "+7 (812) 338-1000",
     "phone_federal": "8 (800) 511-95-02",
     "call_hours": "С 7:30 до 23:00",
@@ -458,7 +450,6 @@
     "license": "https://disk.yandex.ru/i/62Af0199Wyq24Q"
   },
   "tariffs": {
-    "_source": "https://avtoschool-vektor.ru/sankt-peterburg",
     "items": [
       {
         "id": "tariff_base",

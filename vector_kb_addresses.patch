@@ -1,0 +1,3162 @@
+diff --git a/app/services/directory_service/address.py b/app/services/directory_service/address.py
+index 8295b90..740bf5f 100644
+--- a/app/services/directory_service/address.py
++++ b/app/services/directory_service/address.py
+@@ -86,9 +86,13 @@ _OWN_CITY = re.compile(
+     r"город\s+"
+     r"|г\.\s*"
+     r"|г\s+"
++    r"|рабочий\s+посёлок\s+"
++    r"|рабочий\s+поселок\s+"
+     r"|р\.?\s*п\.?\s*"
+     r"|рп\s+"
+     r"|пгт\.?\s*"
++    r"|посёлок\s+городского\s+типа\s+"
++    r"|поселок\s+городского\s+типа\s+"
+     r"|посёлок\s+"
+     r"|поселок\s+"
+     r"|пос\.\s*"
+diff --git a/app/services/directory_service/data/abakan.json b/app/services/directory_service/data/abakan.json
+index 0b165f4..333138b 100644
+--- a/app/services/directory_service/data/abakan.json
++++ b/app/services/directory_service/data/abakan.json
+@@ -13,10 +13,10 @@
+     "items": [
+       {
+         "id": "abakan_leninskogo_komsomola",
+-        "address": "ул. Ленинского Комсомола, д. 39, офис 402",
++        "address": "улица Ленинского Комсомола, дом 39, офис 402",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -27,10 +27,10 @@
+       },
+       {
+         "id": "abakan_kirova",
+-        "address": "ул. Кирова, 120",
++        "address": "улица Кирова, дом 120",
+         "district": null,
+-        "hours": "ПН-ВС 08:30-20:30",
+-        "break": "14:00-15:00",
++        "hours": "ежедневно, с 8:30 до 20:30",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+diff --git a/app/services/directory_service/data/achinsk.json b/app/services/directory_service/data/achinsk.json
+index a411ccf..ee9d0f0 100644
+--- a/app/services/directory_service/data/achinsk.json
++++ b/app/services/directory_service/data/achinsk.json
+@@ -13,10 +13,10 @@
+     "items": [
+       {
+         "id": "achinsk_branch_01",
+-        "address": "5-й микрорайон, 37, пом. 21",
++        "address": "5-й микрорайон, дом 37, помещение 21",
+         "district": null,
+-        "hours": "ПН-ВС 08:30-20:30",
+-        "break": "14:00-15:00",
++        "hours": "ежедневно, с 8:30 до 20:30",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+diff --git a/app/services/directory_service/data/adler.json b/app/services/directory_service/data/adler.json
+index 526e891..966e7e6 100644
+--- a/app/services/directory_service/data/adler.json
++++ b/app/services/directory_service/data/adler.json
+@@ -13,10 +13,10 @@
+     "items": [
+       {
+         "id": "adler_kirova",
+-        "address": "ул. Кирова, 23, 2 этаж, офис 6",
++        "address": "улица Кирова, дом 23, этаж 2, офис 6",
+         "district": null,
+-        "hours": "ПН-ВС 08:30-20:30",
+-        "break": "14:00-15:00",
++        "hours": "ежедневно, с 8:30 до 20:30",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -27,7 +27,7 @@
+       },
+       {
+         "id": "adler_urozhaynaya",
+-        "address": "ул. Урожайная, 84, этаж 2",
++        "address": "улица Урожайная, дом 84, этаж 2",
+         "district": null,
+         "hours": "Скоро открытие",
+         "break": null,
+diff --git a/app/services/directory_service/data/artem.json b/app/services/directory_service/data/artem.json
+index 561f401..507b778 100644
+--- a/app/services/directory_service/data/artem.json
++++ b/app/services/directory_service/data/artem.json
+@@ -13,10 +13,10 @@
+     "items": [
+       {
+         "id": "artem_lenina",
+-        "address": "Площадь Ленина, 17, оф. 22",
++        "address": "площадь Ленина, дом 17, офис 22",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+diff --git a/app/services/directory_service/data/barnaul.json b/app/services/directory_service/data/barnaul.json
+index e316748..6e5a97e 100644
+--- a/app/services/directory_service/data/barnaul.json
++++ b/app/services/directory_service/data/barnaul.json
+@@ -13,13 +13,13 @@
+     "items": [
+       {
+         "id": "barnaul_titul_baltiyskaya",
+-        "address": "ТЦ Титул, улица Балтийская, 7а (офис 301, 3 этаж)",
++        "address": "улица Балтийская, дом 7А, этаж 3, офис 301",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+-        "landmark": "БЦ Титул",
++        "landmark": "бизнес-центр Титул",
+         "place_type": "—",
+         "metro": null,
+         "lat": 53.3337085,
+@@ -27,10 +27,10 @@
+       },
+       {
+         "id": "barnaul_lenina",
+-        "address": "проспект Ленина, 39",
++        "address": "проспект Ленина, дом 39",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -41,10 +41,10 @@
+       },
+       {
+         "id": "barnaul_antona_petrova",
+-        "address": "ул. Антона Петрова, 198",
++        "address": "улица Антона Петрова, дом 198",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -55,13 +55,13 @@
+       },
+       {
+         "id": "barnaul_yurina",
+-        "address": "ул. Юрина 194а, эт. 3, офис 315",
++        "address": "улица Юрина, дом 194А, этаж 3, офис 315",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+-        "landmark": "БЦ Фаворит",
++        "landmark": "бизнес-центр Фаворит",
+         "place_type": "—",
+         "metro": null,
+         "lat": 53.370259,
+@@ -69,10 +69,10 @@
+       },
+       {
+         "id": "barnaul_krasnoarmeyskiy",
+-        "address": "пр-кт Красноармейский 77, корпус А, эт. 3, офис 303",
++        "address": "проспект Красноармейский, дом 77, корпус А, этаж 3, офис 303",
+         "district": null,
+-        "hours": "ПН-ВС 09:00-20:00",
+-        "break": "14:00-15:00",
++        "hours": "ежедневно, с 9 до 20",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+diff --git a/app/services/directory_service/data/dagomyc.json b/app/services/directory_service/data/dagomyc.json
+index a53a2c1..f169466 100644
+--- a/app/services/directory_service/data/dagomyc.json
++++ b/app/services/directory_service/data/dagomyc.json
+@@ -13,9 +13,9 @@
+     "items": [
+       {
+         "id": "dagomyc_gaydara",
+-        "address": "ул. Гайдара 2/1, 2 этаж",
++        "address": "улица Гайдара, дом 2 дробь 1, этаж 2",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
+         "break": null,
+         "is_autodrome": false,
+         "note": null,
+diff --git a/app/services/directory_service/data/ekaterinburg.json b/app/services/directory_service/data/ekaterinburg.json
+index 453d2a6..04bbd28 100644
+--- a/app/services/directory_service/data/ekaterinburg.json
++++ b/app/services/directory_service/data/ekaterinburg.json
+@@ -13,10 +13,10 @@
+     "items": [
+       {
+         "id": "ekaterinburg_tehnicheskaya",
+-        "address": "ул. Техническая, д. 32, 4 этаж, оф 51",
++        "address": "улица Техническая, дом 32, этаж 4, офис 51",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -27,10 +27,10 @@
+       },
+       {
+         "id": "ekaterinburg_lenina",
+-        "address": "ул. Ленина, д. 103",
++        "address": "улица Ленина, дом 103",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -41,10 +41,10 @@
+       },
+       {
+         "id": "ekaterinburg_marta",
+-        "address": "ул. 8 марта, д. 121",
++        "address": "улица 8 марта, дом 121",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -55,10 +55,10 @@
+       },
+       {
+         "id": "ekaterinburg_rodonitovaya",
+-        "address": "ул. Родонитовая, д. 18Б, 5 этаж, офис 503",
++        "address": "улица Родонитовая, дом 18Б, этаж 5, офис 503",
+         "district": null,
+-        "hours": "ПН-ВС 09:00-21:00",
+-        "break": "14:00-15:00",
++        "hours": "ежедневно, с 9 до 21",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -69,10 +69,10 @@
+       },
+       {
+         "id": "ekaterinburg_vosstaniya",
+-        "address": "ул. Восстания, д. 21",
++        "address": "улица Восстания, дом 21",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -83,10 +83,10 @@
+       },
+       {
+         "id": "ekaterinburg_akademika_saharova",
+-        "address": "ул. Академика Сахарова, д. 95/3",
++        "address": "улица Академика Сахарова, дом 95 дробь 3",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -97,10 +97,10 @@
+       },
+       {
+         "id": "ekaterinburg_krasnolesya",
+-        "address": "ул. Краснолесья 10/6",
++        "address": "улица Краснолесья, дом 10 дробь 6",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -111,10 +111,10 @@
+       },
+       {
+         "id": "ekaterinburg_yasnaya",
+-        "address": "ул. Ясная, д. 31, 4 этаж, оф 305",
++        "address": "улица Ясная, дом 31, этаж 4, офис 305",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -125,9 +125,9 @@
+       },
+       {
+         "id": "ekaterinburg_vaynera",
+-        "address": "ул. Вайнера, д. 12, 2 этаж",
++        "address": "улица Вайнера, дом 12, этаж 2",
+         "district": null,
+-        "hours": "ПН-ВС 09:00-21:00",
++        "hours": "ежедневно, с 9 до 21",
+         "break": null,
+         "is_autodrome": false,
+         "note": "перерыв на сайте не указан, в отличие от остальных филиалов",
+@@ -139,10 +139,10 @@
+       },
+       {
+         "id": "ekaterinburg_repina",
+-        "address": "ул. Репина 109/2",
++        "address": "улица Репина, дом 109 дробь 2",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -153,10 +153,10 @@
+       },
+       {
+         "id": "ekaterinburg_kuznetsova",
+-        "address": "ул. Кузнецова, 9к2",
++        "address": "улица Кузнецова, дом 9, корпус 2",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -167,10 +167,10 @@
+       },
+       {
+         "id": "ekaterinburg_schorsa",
+-        "address": "ул. Щорса, 38",
++        "address": "улица Щорса, дом 38",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -181,10 +181,10 @@
+       },
+       {
+         "id": "ekaterinburg_vikulova",
+-        "address": "ул. Викулова, 37/1",
++        "address": "улица Викулова, дом 37 дробь 1",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -195,10 +195,10 @@
+       },
+       {
+         "id": "ekaterinburg_vostochnaya",
+-        "address": "ул. Восточная, 13",
++        "address": "улица Восточная, дом 13",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -209,10 +209,10 @@
+       },
+       {
+         "id": "ekaterinburg_lunacharskogo",
+-        "address": "ул. Луначарского, д. 48",
++        "address": "улица Луначарского, дом 48",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -223,10 +223,10 @@
+       },
+       {
+         "id": "ekaterinburg_hohryakova",
+-        "address": "ул. Хохрякова, 72",
++        "address": "улица Хохрякова, дом 72",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -237,10 +237,10 @@
+       },
+       {
+         "id": "ekaterinburg_titova",
+-        "address": "ул. Титова, 19, лит А",
++        "address": "улица Титова, дом 19, литера А",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -251,10 +251,10 @@
+       },
+       {
+         "id": "ekaterinburg_sulimova",
+-        "address": "ул. Сулимова, 53",
++        "address": "улица Сулимова, дом 53",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -265,13 +265,13 @@
+       },
+       {
+         "id": "ekaterinburg_ayvazovskogo",
+-        "address": "ул. Айвазовского, д. 52",
++        "address": "улица Айвазовского, дом 52",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00 - 19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+-        "landmark": "ЖК Парк столиц",
++        "landmark": "жилой комплекс Парк столиц",
+         "place_type": "Федеральная академия вождения",
+         "metro": null,
+         "lat": 56.805236,
+@@ -279,7 +279,7 @@
+       },
+       {
+         "id": "ekaterinburg_norilskaya",
+-        "address": "ул. Норильская д.77",
++        "address": "улица Норильская, дом 77",
+         "district": null,
+         "hours": null,
+         "break": null,
+diff --git a/app/services/directory_service/data/eletz.json b/app/services/directory_service/data/eletz.json
+index aaae28a..9e07b0f 100644
+--- a/app/services/directory_service/data/eletz.json
++++ b/app/services/directory_service/data/eletz.json
+@@ -13,10 +13,10 @@
+     "items": [
+       {
+         "id": "eletz_kommunarov",
+-        "address": "ул. Коммунаров 43, 2 этаж",
++        "address": "улица Коммунаров, дом 43, этаж 2",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "13:00-14:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 13 до 14",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+diff --git a/app/services/directory_service/data/irkutsk.json b/app/services/directory_service/data/irkutsk.json
+index 62d8865..986164a 100644
+--- a/app/services/directory_service/data/irkutsk.json
++++ b/app/services/directory_service/data/irkutsk.json
+@@ -13,10 +13,10 @@
+     "items": [
+       {
+         "id": "irkutsk_lermontova",
+-        "address": "ул. Лермонтова, 81/6",
++        "address": "улица Лермонтова, дом 81 дробь 6",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-20:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 20",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -27,10 +27,10 @@
+       },
+       {
+         "id": "irkutsk_shiryamova",
+-        "address": "ул. Ширямова, 2/8",
++        "address": "улица Ширямова, дом 2 дробь 8",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -41,10 +41,10 @@
+       },
+       {
+         "id": "irkutsk_rozy_lyuksemburg",
+-        "address": "ул.Розы Люксембург, 289",
++        "address": "улица Розы Люксембург, дом 289",
+         "district": null,
+-        "hours": "ПН-ВС 10:00-21:00",
+-        "break": "14:00-15:00",
++        "hours": "ежедневно, с 10 до 21",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -55,10 +55,10 @@
+       },
+       {
+         "id": "irkutsk_iyulya",
+-        "address": "ул. 3-го Июля, 9",
++        "address": "улица 3-го Июля, дом 9",
+         "district": null,
+-        "hours": "ПН-ВС 08:30-20:30",
+-        "break": "14:00-15:00",
++        "hours": "ежедневно, с 8:30 до 20:30",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+diff --git a/app/services/directory_service/data/ishim.json b/app/services/directory_service/data/ishim.json
+index 1087ece..3624886 100644
+--- a/app/services/directory_service/data/ishim.json
++++ b/app/services/directory_service/data/ishim.json
+@@ -13,10 +13,10 @@
+     "items": [
+       {
+         "id": "ishim_sovetskaya",
+-        "address": "ул. Советская 15, эт. 2",
++        "address": "улица Советская, дом 15, этаж 2",
+         "district": null,
+-        "hours": "ПН-ВС 09:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "ежедневно, с 9 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+diff --git a/app/services/directory_service/data/ivanovo.json b/app/services/directory_service/data/ivanovo.json
+index ecf1683..fcb2577 100644
+--- a/app/services/directory_service/data/ivanovo.json
++++ b/app/services/directory_service/data/ivanovo.json
+@@ -13,13 +13,13 @@
+     "items": [
+       {
+         "id": "ivanovo_lezhnevskaya_trts",
+-        "address": "ул. Лежневская, 117, ТРЦ «Шоколад», эт. 4, пом. 410",
++        "address": "улица Лежневская, дом 117, этаж 4, помещение 410",
+         "district": null,
+-        "hours": "ПН-ВС 09:00-21:00",
+-        "break": "14:00-15:00",
++        "hours": "ежедневно, с 9 до 21",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+-        "landmark": null,
++        "landmark": "торговый центр Шоколад",
+         "place_type": null,
+         "metro": null,
+         "lat": 56.975092,
+@@ -27,10 +27,10 @@
+       },
+       {
+         "id": "ivanovo_sheremetevskiy_kab",
+-        "address": "Шереметевский проспект, 50, эт. 4, каб. 407",
++        "address": "Шереметевский проспект, дом 50, этаж 4, кабинет 407",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -41,10 +41,10 @@
+       },
+       {
+         "id": "ivanovo_nikolskiy_lenina",
+-        "address": "ТЦ Никольский, пр-кт. Ленина, 57А",
++        "address": "проспект Ленина, дом 57А",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": "Никольский",
+@@ -55,7 +55,7 @@
+       },
+       {
+         "id": "ivanovo_kohomskoe",
+-        "address": "Кохомское шоссе, 1Д",
++        "address": "Кохомское шоссе, дом 1Д",
+         "district": null,
+         "hours": "Скоро открытие",
+         "break": null,
+diff --git a/app/services/directory_service/data/izhevsk.json b/app/services/directory_service/data/izhevsk.json
+index 1066eab..b5de936 100644
+--- a/app/services/directory_service/data/izhevsk.json
++++ b/app/services/directory_service/data/izhevsk.json
+@@ -13,10 +13,10 @@
+     "items": [
+       {
+         "id": "izhevsk_let_oktyabrya",
+-        "address": "ул. 10 лет Октября, 32Р",
++        "address": "улица 10 лет Октября, дом 32Р",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -27,10 +27,10 @@
+       },
+       {
+         "id": "izhevsk_karla_marksa",
+-        "address": "ул. Карла Маркса, 434",
++        "address": "улица Карла Маркса, дом 434",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+diff --git a/app/services/directory_service/data/kalachinsk.json b/app/services/directory_service/data/kalachinsk.json
+index 677bcea..c464bdb 100644
+--- a/app/services/directory_service/data/kalachinsk.json
++++ b/app/services/directory_service/data/kalachinsk.json
+@@ -13,9 +13,9 @@
+     "items": [
+       {
+         "id": "kalachinsk_kalachinskaya",
+-        "address": "ул. Калачинская, 25",
++        "address": "улица Калачинская, дом 25",
+         "district": null,
+-        "hours": "ПН-ПТ 09:00-18:00",
++        "hours": "с понедельника по пятницу, с 9 до 18",
+         "break": null,
+         "is_autodrome": false,
+         "note": null,
+diff --git a/app/services/directory_service/data/kansk.json b/app/services/directory_service/data/kansk.json
+index d182a0c..7985d52 100644
+--- a/app/services/directory_service/data/kansk.json
++++ b/app/services/directory_service/data/kansk.json
+@@ -13,13 +13,13 @@
+     "items": [
+       {
+         "id": "kansk_moskovskaya_ochered",
+-        "address": "ул. Московская 70, 2-ая очередь, 2 этаж, кабинет 27",
++        "address": "улица Московская, дом 70, этаж 2, кабинет 27",
+         "district": null,
+-        "hours": "ПН-ВС 08:00-20:00",
+-        "break": "14:00-15:00",
++        "hours": "ежедневно, с 8 до 20",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+-        "landmark": null,
++        "landmark": "вторая очередь",
+         "place_type": null,
+         "metro": null,
+         "lat": 56.204118,
+@@ -27,10 +27,10 @@
+       },
+       {
+         "id": "kansk_let_oktyabrya",
+-        "address": "40 лет Октября, 1/3, помещение 63",
++        "address": "улица 40 лет Октября, дом 1 дробь 3, помещение 63",
+         "district": null,
+         "hours": null,
+-        "break": "14:00-15:00",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+diff --git a/app/services/directory_service/data/kazan.json b/app/services/directory_service/data/kazan.json
+index 5aa761d..a6b70de 100644
+--- a/app/services/directory_service/data/kazan.json
++++ b/app/services/directory_service/data/kazan.json
+@@ -13,10 +13,10 @@
+     "items": [
+       {
+         "id": "kazan_yuliusa_fuchika",
+-        "address": "ул. Юлиуса Фучика, д. 149",
++        "address": "улица Юлиуса Фучика, дом 149",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -27,10 +27,10 @@
+       },
+       {
+         "id": "kazan_daurskaya",
+-        "address": "ул. Даурская, 27",
++        "address": "улица Даурская, дом 27",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -41,10 +41,10 @@
+       },
+       {
+         "id": "kazan_sibirskiy",
+-        "address": "ул. Сибирский Тракт, 8",
++        "address": "Сибирский тракт, дом 8",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -55,10 +55,10 @@
+       },
+       {
+         "id": "kazan_vishnevskogo",
+-        "address": "ул. Вишневского, 49",
++        "address": "улица Вишневского, дом 49",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -69,7 +69,7 @@
+       },
+       {
+         "id": "kazan_aleksandra_kurynova",
+-        "address": "ул. Александра Курынова, 5к3",
++        "address": "улица Александра Курынова, дом 5, корпус 3",
+         "district": null,
+         "hours": "Скоро открытие",
+         "break": null,
+@@ -83,13 +83,13 @@
+       },
+       {
+         "id": "kazan_chistopolskaya",
+-        "address": "ул. Чистопольская, д. 61Д",
++        "address": "улица Чистопольская, дом 61Д",
+         "district": null,
+         "hours": null,
+-        "break": "14:00-15:00",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+-        "landmark": "ЖК Миллениум Сити",
++        "landmark": "жилой комплекс Миллениум Сити",
+         "place_type": "Федеральная академия вождения",
+         "metro": null,
+         "lat": 55.81998,
+diff --git a/app/services/directory_service/data/kemerovo.json b/app/services/directory_service/data/kemerovo.json
+index 734c57e..4416477 100644
+--- a/app/services/directory_service/data/kemerovo.json
++++ b/app/services/directory_service/data/kemerovo.json
+@@ -13,10 +13,10 @@
+     "items": [
+       {
+         "id": "kemerovo_b_r_stroiteley",
+-        "address": "Б-р Строителей, д. 48, офис 301",
++        "address": "бульвар Строителей, дом 48, офис 301",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -27,10 +27,10 @@
+       },
+       {
+         "id": "kemerovo_kosmicheskaya",
+-        "address": "ул. Космическая, 9А",
++        "address": "улица Космическая, дом 9А",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -41,10 +41,10 @@
+       },
+       {
+         "id": "kemerovo_sovetskiy",
+-        "address": "пр-кт Советский, дом 32, пом.21",
++        "address": "проспект Советский, дом 32, помещение 21",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": "Доминант",
+@@ -55,10 +55,10 @@
+       },
+       {
+         "id": "kemerovo_oktyabrskiy",
+-        "address": "пр-кт Октябрьский, д. 28, оф. В218",
++        "address": "проспект Октябрьский, дом 28, офис В218",
+         "district": null,
+-        "hours": "ПН-ВС 10:00-21:00",
+-        "break": "14:00-15:00",
++        "hours": "ежедневно, с 10 до 21",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": "Редакция",
+@@ -69,10 +69,10 @@
+       },
+       {
+         "id": "kemerovo_institutskaya",
+-        "address": "ул. Институтская, 34",
++        "address": "улица Институтская, дом 34",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+diff --git a/app/services/directory_service/data/kopeysk.json b/app/services/directory_service/data/kopeysk.json
+index 170a17f..6b02175 100644
+--- a/app/services/directory_service/data/kopeysk.json
++++ b/app/services/directory_service/data/kopeysk.json
+@@ -13,9 +13,9 @@
+     "items": [
+       {
+         "id": "kopeysk_kozhevnikova",
+-        "address": "Кожевникова, д. 4, 2 этаж",
++        "address": "улица Кожевникова, дом 4, этаж 2",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
+         "break": null,
+         "is_autodrome": false,
+         "note": null,
+diff --git a/app/services/directory_service/data/kormilovka.json b/app/services/directory_service/data/kormilovka.json
+index d979cf4..0c19822 100644
+--- a/app/services/directory_service/data/kormilovka.json
++++ b/app/services/directory_service/data/kormilovka.json
+@@ -13,9 +13,9 @@
+     "items": [
+       {
+         "id": "kormilovka_kirova",
+-        "address": "ул. Кирова 45/1",
++        "address": "улица Кирова, дом 45 дробь 1",
+         "district": null,
+-        "hours": "ПН-ПТ 09:00-18:00",
++        "hours": "с понедельника по пятницу, с 9 до 18",
+         "break": null,
+         "is_autodrome": false,
+         "note": null,
+diff --git a/app/services/directory_service/data/krasnoyarsk.json b/app/services/directory_service/data/krasnoyarsk.json
+index 5fca763..1f1cf3f 100644
+--- a/app/services/directory_service/data/krasnoyarsk.json
++++ b/app/services/directory_service/data/krasnoyarsk.json
+@@ -13,10 +13,10 @@
+     "items": [
+       {
+         "id": "krasnoyarsk_poltavskaya",
+-        "address": "ул. Полтавская, д. 38, стр. 4",
++        "address": "улица Полтавская, дом 38, строение 4",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -27,10 +27,10 @@
+       },
+       {
+         "id": "krasnoyarsk_vysotnaya",
+-        "address": "ул. Высотная, 4, стр. 2",
++        "address": "улица Высотная, дом 4, строение 2",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -41,9 +41,9 @@
+       },
+       {
+         "id": "krasnoyarsk_shumyatskogo",
+-        "address": "ул. Шумяцкого, 2Е",
++        "address": "улица Шумяцкого, дом 2Е",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
+         "break": null,
+         "is_autodrome": false,
+         "note": null,
+@@ -55,7 +55,7 @@
+       },
+       {
+         "id": "krasnoyarsk_gazety_krasnoyarskiy",
+-        "address": "пр-кт им. Газеты Красноярский Рабочий, 42",
++        "address": "проспект имени Газеты Красноярский Рабочий, дом 42",
+         "district": null,
+         "hours": "Скоро открытие",
+         "break": null,
+@@ -69,10 +69,10 @@
+       },
+       {
+         "id": "krasnoyarsk_lineynaya",
+-        "address": "ул. Линейная, 78",
++        "address": "улица Линейная, дом 78",
+         "district": null,
+         "hours": "Скоро открытие",
+-        "break": "14:00-15:00",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -83,10 +83,10 @@
+       },
+       {
+         "id": "krasnoyarsk_oktyabrskaya",
+-        "address": "ул. Октябрьская, 16",
++        "address": "улица Октябрьская, дом 16",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -97,10 +97,10 @@
+       },
+       {
+         "id": "krasnoyarsk_maerchaka",
+-        "address": "ул. Маерчака, 16",
++        "address": "улица Маерчака, дом 16",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -111,9 +111,9 @@
+       },
+       {
+         "id": "krasnoyarsk_karla_marksa",
+-        "address": "ул. Карла Маркса 95 к. 1",
++        "address": "улица Карла Маркса, дом 95, корпус 1",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
+         "break": null,
+         "is_autodrome": false,
+         "note": null,
+@@ -125,10 +125,10 @@
+       },
+       {
+         "id": "krasnoyarsk_lado_ketshoveli",
+-        "address": "ул. Ладо Кецховели 22а, офис 404",
++        "address": "улица Ладо Кецховели, дом 22А, офис 404",
+         "district": null,
+-        "hours": "ПН-ВС 8:30-20:30",
+-        "break": "14:00-15:00",
++        "hours": "ежедневно, с 8:30 до 20:30",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": "Спасский",
+@@ -139,9 +139,9 @@
+       },
+       {
+         "id": "krasnoyarsk_alekseeva",
+-        "address": "ул. Алексеева , 46, 2 этаж пом. 477",
++        "address": "улица Алексеева, дом 46, этаж 2, помещение 477",
+         "district": null,
+-        "hours": "ПН-ВС 8:30-20:30",
++        "hours": "ежедневно, с 8:30 до 20:30",
+         "break": null,
+         "is_autodrome": false,
+         "note": null,
+@@ -153,10 +153,10 @@
+       },
+       {
+         "id": "krasnoyarsk_michurina",
+-        "address": "ул. Мичурина 57, 1 этаж",
++        "address": "улица Мичурина, дом 57, этаж 1",
+         "district": null,
+-        "hours": "ПН-ВС 8:30-20:30",
+-        "break": "14:00-15:00",
++        "hours": "ежедневно, с 8:30 до 20:30",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -167,10 +167,10 @@
+       },
+       {
+         "id": "krasnoyarsk_slavy",
+-        "address": "ул. Славы, д. 12",
++        "address": "улица Славы, дом 12",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -181,10 +181,10 @@
+       },
+       {
+         "id": "krasnoyarsk_akademika_vavilova",
+-        "address": "ул. Академика Вавилова, 54",
++        "address": "улица Академика Вавилова, дом 54",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -195,10 +195,10 @@
+       },
+       {
+         "id": "krasnoyarsk_krasnaya",
+-        "address": "Красная площадь 3Б, 2 этаж",
++        "address": "Красная площадь, дом 3Б, этаж 2",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -209,10 +209,10 @@
+       },
+       {
+         "id": "krasnoyarsk_kalinina",
+-        "address": "ул. Калинина, 177а",
++        "address": "улица Калинина, дом 177А",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+diff --git a/app/services/directory_service/data/kyrgan.json b/app/services/directory_service/data/kyrgan.json
+index 23eea60..6977094 100644
+--- a/app/services/directory_service/data/kyrgan.json
++++ b/app/services/directory_service/data/kyrgan.json
+@@ -13,9 +13,9 @@
+     "items": [
+       {
+         "id": "kyrgan_stantsionnaya_pomeschenie",
+-        "address": "ул. Станционная д. 49, помещение № 49/7",
++        "address": "улица Станционная, дом 49, помещение 49 дробь 7",
+         "district": null,
+-        "hours": "ПН-ВС 08:30 - 20:30",
++        "hours": "ежедневно, с 8:30 до 20:30",
+         "break": null,
+         "is_autodrome": false,
+         "note": null,
+@@ -27,10 +27,10 @@
+       },
+       {
+         "id": "kyrgan_maksima_gorkogo",
+-        "address": "ул. Максима Горького д. 41, офис 4, этаж 1",
++        "address": "улица Максима Горького, дом 41, этаж 1, офис 4",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -41,9 +41,9 @@
+       },
+       {
+         "id": "kyrgan_branch_03",
+-        "address": "4-й микрорайон, 32",
++        "address": "4-й микрорайон, дом 32",
+         "district": null,
+-        "hours": "ПН-ВС 08:30-20:30",
++        "hours": "ежедневно, с 8:30 до 20:30",
+         "break": null,
+         "is_autodrome": false,
+         "note": null,
+diff --git a/app/services/directory_service/data/magnitogorsk.json b/app/services/directory_service/data/magnitogorsk.json
+index 2997003..eb4c5a7 100644
+--- a/app/services/directory_service/data/magnitogorsk.json
++++ b/app/services/directory_service/data/magnitogorsk.json
+@@ -13,13 +13,13 @@
+     "items": [
+       {
+         "id": "magnitogorsk_zavenyagina",
+-        "address": "ул. Завенягина 4Б, 3 этаж, офис 4",
++        "address": "улица Завенягина, дом 4Б, этаж 3, офис 4",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+-        "landmark": "ТЦ Металлург",
++        "landmark": "торговый центр Металлург",
+         "place_type": "Академия вождения",
+         "metro": null,
+         "lat": 53.380256,
+@@ -27,10 +27,10 @@
+       },
+       {
+         "id": "magnitogorsk_sovetskaya",
+-        "address": "ул. Советская 209Б, 2 этаж",
++        "address": "улица Советская, дом 209Б, этаж 2",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00 - 19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -41,9 +41,9 @@
+       },
+       {
+         "id": "magnitogorsk_lenina",
+-        "address": "пр-кт Ленина, 64",
++        "address": "проспект Ленина, дом 64",
+         "district": null,
+-        "hours": "ПН-ВС 09:00-21:00",
++        "hours": "ежедневно, с 9 до 21",
+         "break": null,
+         "is_autodrome": false,
+         "note": null,
+@@ -55,10 +55,10 @@
+       },
+       {
+         "id": "magnitogorsk_lenina_152",
+-        "address": "проспект Ленина, 152",
++        "address": "проспект Ленина, дом 152",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00 - 19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -69,13 +69,13 @@
+       },
+       {
+         "id": "magnitogorsk_gryaznova",
+-        "address": "ул. Грязнова, д. 57 к 19 (Парковка возле автомойки)",
++        "address": "улица Грязнова, дом 57, корпус 19",
+         "district": null,
+         "hours": null,
+         "break": null,
+         "is_autodrome": true,
+         "note": null,
+-        "landmark": null,
++        "landmark": "Парковка возле автомойки",
+         "place_type": "Автодром",
+         "metro": null,
+         "lat": 53.397956,
+diff --git a/app/services/directory_service/data/nazyvayevsk.json b/app/services/directory_service/data/nazyvayevsk.json
+index 7dd314f..023949a 100644
+--- a/app/services/directory_service/data/nazyvayevsk.json
++++ b/app/services/directory_service/data/nazyvayevsk.json
+@@ -13,10 +13,10 @@
+     "items": [
+       {
+         "id": "nazyvayevsk_lenina",
+-        "address": "ул. Ленина, 41",
++        "address": "улица Ленина, дом 41",
+         "district": null,
+-        "hours": "ПН-ПТ 9:30 -18:30",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 9:30 до 18:30",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+diff --git a/app/services/directory_service/data/nizhniy-novgorod.json b/app/services/directory_service/data/nizhniy-novgorod.json
+index 784c4a8..3add672 100644
+--- a/app/services/directory_service/data/nizhniy-novgorod.json
++++ b/app/services/directory_service/data/nizhniy-novgorod.json
+@@ -13,7 +13,7 @@
+     "items": [
+       {
+         "id": "nizhniy-novgorod_sormovskoe",
+-        "address": "Сормовское шоссе, д.24",
++        "address": "Сормовское шоссе, дом 24",
+         "district": null,
+         "hours": null,
+         "break": null,
+@@ -27,13 +27,13 @@
+       },
+       {
+         "id": "nizhniy-novgorod_maksima_gorkogo",
+-        "address": "ул. Максима Горького, 262, 5 этаж, офис 53",
++        "address": "улица Максима Горького, дом 262, этаж 5, офис 53",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-20:00",
+-        "break": "14:00-14:45",
++        "hours": "с понедельника по пятницу, с 10 до 20",
++        "break": "с 14 до 14:45",
+         "is_autodrome": false,
+         "note": null,
+-        "landmark": "БЦ Богемия Палас",
++        "landmark": "бизнес-центр Богемия Палас",
+         "place_type": "Федеральная академия вождения",
+         "metro": null,
+         "lat": 56.322433,
+@@ -41,10 +41,10 @@
+       },
+       {
+         "id": "nizhniy-novgorod_krasnodontsev",
+-        "address": "ул Краснодонцев 25, этаж 2",
++        "address": "улица Краснодонцев, дом 25, этаж 2",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-20:00",
+-        "break": "14:00-14:45",
++        "hours": "с понедельника по пятницу, с 10 до 20",
++        "break": "с 14 до 14:45",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -55,13 +55,13 @@
+       },
+       {
+         "id": "nizhniy-novgorod_belinskogo_srednoy",
+-        "address": "ул. Белинского 26 тк «Средной»",
++        "address": "улица Белинского, дом 26",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-20:00",
+-        "break": "14:00-14:45",
++        "hours": "с понедельника по пятницу, с 10 до 20",
++        "break": "с 14 до 14:45",
+         "is_autodrome": false,
+         "note": null,
+-        "landmark": null,
++        "landmark": "торговый комплекс Средной",
+         "place_type": null,
+         "metro": null,
+         "lat": 56.308751,
+@@ -69,7 +69,7 @@
+       },
+       {
+         "id": "nizhniy-novgorod_karla_marksa",
+-        "address": "ул. Карла Маркса, 20",
++        "address": "улица Карла Маркса, дом 20",
+         "district": null,
+         "hours": "Скоро открытие",
+         "break": null,
+@@ -83,10 +83,10 @@
+       },
+       {
+         "id": "nizhniy-novgorod_lenina",
+-        "address": "проспект Ленина, 44Г",
++        "address": "проспект Ленина, дом 44Г",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-14:45",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 14:45",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -97,7 +97,7 @@
+       },
+       {
+         "id": "nizhniy-novgorod_sovetskaya",
+-        "address": "Советская площадь, 5",
++        "address": "Советская площадь, дом 5",
+         "district": null,
+         "hours": "Скоро открытие",
+         "break": null,
+@@ -111,10 +111,10 @@
+       },
+       {
+         "id": "nizhniy-novgorod_kominterna",
+-        "address": "ул. Коминтерна, 105, этаж 6",
++        "address": "улица Коминтерна, дом 105, этаж 6",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-20:00",
+-        "break": "14:00-14:45",
++        "hours": "с понедельника по пятницу, с 10 до 20",
++        "break": "с 14 до 14:45",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": "Золотая миля",
+@@ -125,13 +125,13 @@
+       },
+       {
+         "id": "nizhniy-novgorod_kazanskoe",
+-        "address": "Казанское шоссе, 11",
++        "address": "Казанское шоссе, дом 11",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-20:00",
+-        "break": "14:00-14:45",
++        "hours": "с понедельника по пятницу, с 10 до 20",
++        "break": "с 14 до 14:45",
+         "is_autodrome": false,
+         "note": null,
+-        "landmark": "Индиго Life",
++        "landmark": "Индиго Лайф",
+         "place_type": "Федеральная академия вождения",
+         "metro": null,
+         "lat": 56.290326,
+@@ -139,13 +139,13 @@
+       },
+       {
+         "id": "nizhniy-novgorod_rodionova_ganza",
+-        "address": "ул. Родионова 165 к13, ТЦ «Ганza»",
++        "address": "улица Родионова, дом 165, корпус 13",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-14:45",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 14:45",
+         "is_autodrome": false,
+         "note": null,
+-        "landmark": null,
++        "landmark": "торговый центр Ганза",
+         "place_type": null,
+         "metro": null,
+         "lat": 56.314527,
+diff --git a/app/services/directory_service/data/novokuznetsk.json b/app/services/directory_service/data/novokuznetsk.json
+index 394278e..dcfece5 100644
+--- a/app/services/directory_service/data/novokuznetsk.json
++++ b/app/services/directory_service/data/novokuznetsk.json
+@@ -13,10 +13,10 @@
+     "items": [
+       {
+         "id": "novokuznetsk_let_vlksm",
+-        "address": "ул. 40 лет ВЛКСМ, 42А",
++        "address": "улица 40 лет ВЛКСМ, дом 42А",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -27,10 +27,10 @@
+       },
+       {
+         "id": "novokuznetsk_shahterov",
+-        "address": "ул. Шахтёров, 33",
++        "address": "улица Шахтёров, дом 33",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -41,10 +41,10 @@
+       },
+       {
+         "id": "novokuznetsk_aviatorov",
+-        "address": "ул.Авиаторов, 45А, 2 этаж",
++        "address": "улица Авиаторов, дом 45А, этаж 2",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -55,10 +55,10 @@
+       },
+       {
+         "id": "novokuznetsk_kirova",
+-        "address": "Кирова, 33",
++        "address": "улица Кирова, дом 33",
+         "district": null,
+-        "hours": "ПН-ВС 10:00-21:00",
+-        "break": "14:00-15:00",
++        "hours": "ежедневно, с 10 до 21",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+diff --git a/app/services/directory_service/data/novosib.json b/app/services/directory_service/data/novosib.json
+index 4d950b2..03d7010 100644
+--- a/app/services/directory_service/data/novosib.json
++++ b/app/services/directory_service/data/novosib.json
+@@ -13,10 +13,10 @@
+     "items": [
+       {
+         "id": "novosib_bogatkova",
+-        "address": "ул. Богаткова 228/1, этаж 3, офис 312",
++        "address": "улица Богаткова, дом 228 дробь 1, этаж 3, офис 312",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00 - 19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -27,10 +27,10 @@
+       },
+       {
+         "id": "novosib_geodezicheskaya",
+-        "address": "ул. Геодезическая 4/1, этаж 3, офис 3003",
++        "address": "улица Геодезическая, дом 4 дробь 1, этаж 3, офис 3003",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": "Амстердам",
+@@ -41,13 +41,13 @@
+       },
+       {
+         "id": "novosib_krasnyy",
+-        "address": "ул. Красный проспект, 79, этаж 2, офис 201",
++        "address": "Красный проспект, дом 79, этаж 2, офис 201",
+         "district": null,
+-        "hours": "ПН-ПТ 09:30-20:30",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 9:30 до 20:30",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+-        "landmark": "БЦ Зелёные Купола",
++        "landmark": "бизнес-центр Зелёные Купола",
+         "place_type": "Федеральная академия вождения",
+         "metro": null,
+         "lat": 55.050076,
+diff --git a/app/services/directory_service/data/omsk.json b/app/services/directory_service/data/omsk.json
+index dceee72..440f805 100644
+--- a/app/services/directory_service/data/omsk.json
++++ b/app/services/directory_service/data/omsk.json
+@@ -13,13 +13,13 @@
+     "items": [
+       {
+         "id": "omsk_gagarina",
+-        "address": "ул. Гагарина 14, офис 605",
++        "address": "улица Гагарина, дом 14, офис 605",
+         "district": null,
+-        "hours": "ПН-ВС 08:30 - 20:30",
++        "hours": "ежедневно, с 8:30 до 20:30",
+         "break": null,
+         "is_autodrome": false,
+         "note": null,
+-        "landmark": "БЦ На Гагарина",
++        "landmark": "бизнес-центр На Гагарина",
+         "place_type": "Офис продаж",
+         "metro": null,
+         "lat": 54.987812,
+@@ -27,7 +27,7 @@
+       },
+       {
+         "id": "omsk_zavertyaeva",
+-        "address": "ул. Завертяева, 4 лит АА",
++        "address": "улица Завертяева, дом 4, литера АА",
+         "district": null,
+         "hours": null,
+         "break": null,
+@@ -41,7 +41,7 @@
+       },
+       {
+         "id": "omsk_petra_nekrasova",
+-        "address": "ул. Петра Некрасова, 1А",
++        "address": "улица Петра Некрасова, дом 1А",
+         "district": null,
+         "hours": null,
+         "break": null,
+@@ -55,7 +55,7 @@
+       },
+       {
+         "id": "omsk_okruzhnaya_doroga",
+-        "address": "ул. Окружная дорога 9",
++        "address": "Окружная дорога, дом 9",
+         "district": null,
+         "hours": null,
+         "break": null,
+@@ -69,7 +69,7 @@
+       },
+       {
+         "id": "omsk_kirova",
+-        "address": "Кирова, 47а/1",
++        "address": "улица Кирова, дом 47А дробь 1",
+         "district": null,
+         "hours": null,
+         "break": null,
+@@ -83,9 +83,9 @@
+       },
+       {
+         "id": "omsk_nizhnyaya_omka",
+-        "address": "с. Нижняя Омка, Пер.Школьный 14, каб. 9",
++        "address": "село Нижняя Омка, переулок Школьный, дом 14, кабинет 9",
+         "district": null,
+-        "hours": "ПН-ПТ 09:00-18:00",
++        "hours": "с понедельника по пятницу, с 9 до 18",
+         "break": null,
+         "is_autodrome": true,
+         "note": null,
+@@ -97,9 +97,9 @@
+       },
+       {
+         "id": "omsk_okoneshnikovo_kalinina",
+-        "address": "Р.П. Оконешниково, ул. Калинина 25",
++        "address": "рабочий посёлок Оконешниково, улица Калинина, дом 25",
+         "district": null,
+-        "hours": "ПН-ПТ 09:00-18:00",
++        "hours": "с понедельника по пятницу, с 9 до 18",
+         "break": null,
+         "is_autodrome": true,
+         "note": null,
+@@ -111,9 +111,9 @@
+       },
+       {
+         "id": "omsk_kormilovka_kirova",
+-        "address": "Р.П. Кормиловка, ул. Кирова 45/1",
++        "address": "рабочий посёлок Кормиловка, улица Кирова, дом 45 дробь 1",
+         "district": null,
+-        "hours": "ПН-ПТ 09:00-18:00",
++        "hours": "с понедельника по пятницу, с 9 до 18",
+         "break": null,
+         "is_autodrome": true,
+         "note": null,
+@@ -125,9 +125,9 @@
+       },
+       {
+         "id": "omsk_poselok_rostovka",
+-        "address": "Посёлок Ростовка, 21",
++        "address": "посёлок Ростовка, дом 21",
+         "district": null,
+-        "hours": "ПН-ПТ 17:00 - 20:00",
++        "hours": "с понедельника по пятницу, с 17 до 20",
+         "break": null,
+         "is_autodrome": true,
+         "note": null,
+@@ -139,10 +139,10 @@
+       },
+       {
+         "id": "omsk_dianova",
+-        "address": "ул. Дианова, 39, эт. 1",
++        "address": "улица Дианова, дом 39, этаж 1",
+         "district": null,
+-        "hours": "ПН-ПТ 09:30-18:30",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 9:30 до 18:30",
++        "break": "с 14 до 15",
+         "is_autodrome": true,
+         "note": null,
+         "landmark": null,
+@@ -153,10 +153,10 @@
+       },
+       {
+         "id": "omsk_kosmicheskiy",
+-        "address": "ул. Космический проспект 18г, 1 этаж",
++        "address": "Космический проспект, дом 18Г, этаж 1",
+         "district": null,
+-        "hours": "ПН-ПТ 09:30-18:30",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 9:30 до 18:30",
++        "break": "с 14 до 15",
+         "is_autodrome": true,
+         "note": null,
+         "landmark": null,
+@@ -167,13 +167,13 @@
+       },
+       {
+         "id": "omsk_zaozernaya_kinozal",
+-        "address": "ул. Заозёрная, 15, 4 эт., 8 кинозал",
++        "address": "улица Заозёрная, дом 15, этаж 4",
+         "district": null,
+-        "hours": "ПН-ПТ 09:30-18:30",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 9:30 до 18:30",
++        "break": "с 14 до 15",
+         "is_autodrome": true,
+         "note": null,
+-        "landmark": null,
++        "landmark": "кинозал 8",
+         "place_type": null,
+         "metro": null,
+         "lat": 55.044155,
+@@ -181,10 +181,10 @@
+       },
+       {
+         "id": "omsk_komarova",
+-        "address": "ул. Проспект Комарова, 13Б, 2 этаж, офис 14",
++        "address": "проспект Комарова, дом 13Б, этаж 2, офис 14",
+         "district": null,
+-        "hours": "ПН-ВС 08:30-19:30",
+-        "break": "14:00-15:00",
++        "hours": "ежедневно, с 8:30 до 19:30",
++        "break": "с 14 до 15",
+         "is_autodrome": true,
+         "note": null,
+         "landmark": null,
+@@ -195,10 +195,10 @@
+       },
+       {
+         "id": "omsk_aviatsionnaya",
+-        "address": "ул. Авиационная 143А, 1 этаж",
++        "address": "улица Авиационная, дом 143А, этаж 1",
+         "district": null,
+-        "hours": "ПН-ПТ 09:30-18:30",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 9:30 до 18:30",
++        "break": "с 14 до 15",
+         "is_autodrome": true,
+         "note": null,
+         "landmark": null,
+@@ -209,10 +209,10 @@
+       },
+       {
+         "id": "omsk_kirova_kabinet",
+-        "address": "ул. Кирова 47, 2 этаж, кабинет 8",
++        "address": "улица Кирова, дом 47, этаж 2, кабинет 8",
+         "district": null,
+-        "hours": "ПН-ПТ 09:30-18:30",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 9:30 до 18:30",
++        "break": "с 14 до 15",
+         "is_autodrome": true,
+         "note": null,
+         "landmark": null,
+@@ -223,13 +223,13 @@
+       },
+       {
+         "id": "omsk_cheredovaya_sahalin",
+-        "address": "Чередовая 10-я, 17/2, ТК Сахалин, 2 этаж",
++        "address": "улица Чередовая 10-я, дом 17 дробь 2, этаж 2",
+         "district": null,
+-        "hours": "ПН-ПТ 09:30-18:30",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 9:30 до 18:30",
++        "break": "с 14 до 15",
+         "is_autodrome": true,
+         "note": null,
+-        "landmark": null,
++        "landmark": "торговый комплекс Сахалин",
+         "place_type": null,
+         "metro": null,
+         "lat": 54.9222615,
+@@ -237,10 +237,10 @@
+       },
+       {
+         "id": "omsk_karla_marksa",
+-        "address": "пр. Карла Маркса 82, 3 этаж, офис 30",
++        "address": "проспект Карла Маркса, дом 82, этаж 3, офис 30",
+         "district": null,
+-        "hours": "ПН-ВС 08:30-19:30",
+-        "break": "14:00-15:00",
++        "hours": "ежедневно, с 8:30 до 19:30",
++        "break": "с 14 до 15",
+         "is_autodrome": true,
+         "note": null,
+         "landmark": null,
+@@ -251,13 +251,13 @@
+       },
+       {
+         "id": "omsk_metromoll_let",
+-        "address": "ТК Метромолл, ул. 70 лет Октября 26, 4 этаж, офис 411",
++        "address": "улица 70 лет Октября, дом 26, этаж 4, офис 411",
+         "district": null,
+-        "hours": "ПН-ПТ 09:30-18:30",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 9:30 до 18:30",
++        "break": "с 14 до 15",
+         "is_autodrome": true,
+         "note": null,
+-        "landmark": null,
++        "landmark": "торговый комплекс Метромолл",
+         "place_type": null,
+         "metro": null,
+         "lat": 54.981247,
+@@ -265,10 +265,10 @@
+       },
+       {
+         "id": "omsk_mira",
+-        "address": "пр. Мира 9Б, 4 этаж",
++        "address": "проспект Мира, дом 9Б, этаж 4",
+         "district": null,
+-        "hours": "ПН-ВС 10:00-20:30",
+-        "break": "14:00-15:00",
++        "hours": "ежедневно, с 10 до 20:30",
++        "break": "с 14 до 15",
+         "is_autodrome": true,
+         "note": null,
+         "landmark": null,
+@@ -279,10 +279,10 @@
+       },
+       {
+         "id": "omsk_severnaya",
+-        "address": "ул. 33 Северная 143а, 2 этаж",
++        "address": "улица 33 Северная, дом 143А, этаж 2",
+         "district": null,
+-        "hours": "ПН-ВС 08:30-19:30",
+-        "break": "14:00-15:00",
++        "hours": "ежедневно, с 8:30 до 19:30",
++        "break": "с 14 до 15",
+         "is_autodrome": true,
+         "note": null,
+         "landmark": null,
+@@ -293,9 +293,9 @@
+       },
+       {
+         "id": "omsk_let_oktyabrya",
+-        "address": "ул. 10 лет Октября, 136/1",
++        "address": "улица 10 лет Октября, дом 136 дробь 1",
+         "district": null,
+-        "hours": "ПН-ПТ 09:30-18:30",
++        "hours": "с понедельника по пятницу, с 9:30 до 18:30",
+         "break": null,
+         "is_autodrome": true,
+         "note": null,
+@@ -307,10 +307,10 @@
+       },
+       {
+         "id": "omsk_krasnyy_put",
+-        "address": "Красный путь 101, офис 301",
++        "address": "Красный путь, дом 101, офис 301",
+         "district": null,
+-        "hours": "ПН-ВС 08:30-19:30",
+-        "break": "14:00-15:00",
++        "hours": "ежедневно, с 8:30 до 19:30",
++        "break": "с 14 до 15",
+         "is_autodrome": true,
+         "note": null,
+         "landmark": null,
+@@ -321,10 +321,10 @@
+       },
+       {
+         "id": "omsk_gasheka",
+-        "address": "ул. Гашека, д. 16/1",
++        "address": "улица Гашека, дом 16 дробь 1",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": true,
+         "note": null,
+         "landmark": null,
+@@ -335,9 +335,9 @@
+       },
+       {
+         "id": "omsk_karla_marksa_10",
+-        "address": "просп. Карла Маркса, 10",
++        "address": "проспект Карла Маркса, дом 10",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
+         "break": null,
+         "is_autodrome": true,
+         "note": null,
+diff --git a/app/services/directory_service/data/penza.json b/app/services/directory_service/data/penza.json
+index fcdaa3c..ccc1178 100644
+--- a/app/services/directory_service/data/penza.json
++++ b/app/services/directory_service/data/penza.json
+@@ -13,10 +13,10 @@
+     "items": [
+       {
+         "id": "penza_bakunina",
+-        "address": "ул. Бакунина, 29, эт. 2",
++        "address": "улица Бакунина, дом 29, этаж 2",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00 -19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+diff --git a/app/services/directory_service/data/perm.json b/app/services/directory_service/data/perm.json
+index 48e2811..408bfa9 100644
+--- a/app/services/directory_service/data/perm.json
++++ b/app/services/directory_service/data/perm.json
+@@ -13,13 +13,13 @@
+     "items": [
+       {
+         "id": "perm_ekaterininskaya",
+-        "address": "ул. Екатерининская 109а, 4 эт., оф. 401 (Вход со стороны Попова)",
++        "address": "улица Екатерининская, дом 109А, этаж 4, офис 401",
+         "district": null,
+-        "hours": "ПН-ВС 9:00-21:00",
++        "hours": "ежедневно, с 9 до 21",
+         "break": null,
+         "is_autodrome": false,
+         "note": "перерыв на сайте не указан",
+-        "landmark": "Моби Дик",
++        "landmark": "Моби Дик; Вход со стороны Попова",
+         "place_type": "Федеральная академия вождения",
+         "metro": null,
+         "lat": 58.007065,
+@@ -27,13 +27,13 @@
+       },
+       {
+         "id": "perm_krupskoy",
+-        "address": "ул. Крупской д. 30 (вход с улицы)",
++        "address": "улица Крупской, дом 30",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+-        "landmark": null,
++        "landmark": "вход с улицы",
+         "place_type": "Федеральная академия вождения",
+         "metro": null,
+         "lat": 58.01803,
+@@ -41,10 +41,10 @@
+       },
+       {
+         "id": "perm_parkovyy",
+-        "address": "Парковый проспект, 17, эт. 3",
++        "address": "Парковый проспект, дом 17, этаж 3",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": "Земляника",
+@@ -55,10 +55,10 @@
+       },
+       {
+         "id": "perm_uralskaya",
+-        "address": "ул. Уральская, 75",
++        "address": "улица Уральская, дом 75",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -69,10 +69,10 @@
+       },
+       {
+         "id": "perm_chernyshevskogo",
+-        "address": "ул. Чернышевского, 28",
++        "address": "улица Чернышевского, дом 28",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -83,10 +83,10 @@
+       },
+       {
+         "id": "perm_ushinskogo",
+-        "address": "ул. Ушинского, 2",
++        "address": "улица Ушинского, дом 2",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -97,10 +97,10 @@
+       },
+       {
+         "id": "perm_mira",
+-        "address": "ул. Мира 37, эт. 4, помещ. 8",
++        "address": "улица Мира, дом 37, этаж 4, помещение 8",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": "Новая столица",
+diff --git a/app/services/directory_service/data/ryazan.json b/app/services/directory_service/data/ryazan.json
+index 274456c..f90cc31 100644
+--- a/app/services/directory_service/data/ryazan.json
++++ b/app/services/directory_service/data/ryazan.json
+@@ -13,13 +13,13 @@
+     "items": [
+       {
+         "id": "ryazan_sheremetevskaya",
+-        "address": "ул. Шереметьевская, д. 11, этаж 2",
++        "address": "улица Шереметьевская, дом 11, этаж 2",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00 -19:00",
+-        "break": "14:00-14:45",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 14:45",
+         "is_autodrome": false,
+         "note": null,
+-        "landmark": "ТЦ Горки",
++        "landmark": "торговый центр Горки",
+         "place_type": "Федеральная академия вождения",
+         "metro": null,
+         "lat": 54.601846,
+@@ -27,7 +27,7 @@
+       },
+       {
+         "id": "ryazan_selo_polyany",
+-        "address": "Село Поляны, ул. Терёхина, 14",
++        "address": "село Поляны, улица Терёхина, дом 14",
+         "district": null,
+         "hours": null,
+         "break": null,
+@@ -41,10 +41,10 @@
+       },
+       {
+         "id": "ryazan_narodnyy",
+-        "address": "Народный бульвар, д. 11",
++        "address": "Народный бульвар, дом 11",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-20:00",
+-        "break": "14:00-14:45",
++        "hours": "с понедельника по пятницу, с 10 до 20",
++        "break": "с 14 до 14:45",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -55,13 +55,13 @@
+       },
+       {
+         "id": "ryazan_novoselov_cherezovo",
+-        "address": "ул. Новоселов, д. 21А, БЦ \"Черезово\"",
++        "address": "улица Новоселов, дом 21А",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00 - 20:00",
+-        "break": "14:00-14:45",
++        "hours": "с понедельника по пятницу, с 10 до 20",
++        "break": "с 14 до 14:45",
+         "is_autodrome": false,
+         "note": null,
+-        "landmark": null,
++        "landmark": "бизнес-центр Черезово",
+         "place_type": null,
+         "metro": null,
+         "lat": 54.61031,
+@@ -69,13 +69,13 @@
+       },
+       {
+         "id": "ryazan_sobornaya",
+-        "address": "ул. Соборная, д. 15А",
++        "address": "улица Соборная, дом 15А",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00 - 20:00 СБ-ВС 10:00-18:00",
+-        "break": "14:00-14:45",
++        "hours": "с понедельника по пятницу, с 10 до 20; суббота и воскресенье, с 10 до 18",
++        "break": "с 14 до 14:45",
+         "is_autodrome": false,
+         "note": null,
+-        "landmark": "ТРЦ Малина",
++        "landmark": "торговый центр Малина",
+         "place_type": "Федеральная академия вождения",
+         "metro": null,
+         "lat": 54.63014,
+@@ -83,10 +83,10 @@
+       },
+       {
+         "id": "ryazan_shosseynyy",
+-        "address": "Шоссейный пер. 5, офис 33",
++        "address": "Шоссейный переулок, дом 5, офис 33",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-14:45",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 14:45",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -97,10 +97,10 @@
+       },
+       {
+         "id": "ryazan_gagarina",
+-        "address": "ул. Гагарина д.25, офис 19",
++        "address": "улица Гагарина, дом 25, офис 19",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-20:00",
+-        "break": "14:00-14:45",
++        "hours": "с понедельника по пятницу, с 10 до 20",
++        "break": "с 14 до 14:45",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -111,10 +111,10 @@
+       },
+       {
+         "id": "ryazan_biryuzova",
+-        "address": "ул. Бирюзова, д. 15с1",
++        "address": "улица Бирюзова, дом 15, строение 1",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00 -19:00",
+-        "break": "14:00-14:45",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 14:45",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+diff --git a/app/services/directory_service/data/sankt-peterburg.json b/app/services/directory_service/data/sankt-peterburg.json
+index 366670a..7514ad8 100644
+--- a/app/services/directory_service/data/sankt-peterburg.json
++++ b/app/services/directory_service/data/sankt-peterburg.json
+@@ -13,13 +13,13 @@
+     "items": [
+       {
+         "id": "sankt-peterburg_murino_privokzalnaya",
+-        "address": "г. Мурино, Привокзальная площадь, 1Ак1, эт. 2",
++        "address": "город Мурино, Привокзальная площадь, дом 1А, корпус 1, этаж 2",
+         "district": "Ленинградская область",
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+-        "landmark": "ЖК Мечта",
++        "landmark": "жилой комплекс Мечта",
+         "place_type": "Федеральная академия вождения",
+         "metro": null,
+         "lat": 60.050237,
+@@ -27,10 +27,10 @@
+       },
+       {
+         "id": "sankt-peterburg_vsevolozhsk_vsevolozhskiy",
+-        "address": "г. Всеволожск, Всеволожский проспект, 61, эт. 1, офис 102",
++        "address": "город Всеволожск, Всеволожский проспект, дом 61, этаж 1, офис 102",
+         "district": "Ленинградская область",
+-        "hours": "ПН-ВС 10:00-20:00",
+-        "break": "14:00-15:00",
++        "hours": "ежедневно, с 10 до 20",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -41,13 +41,13 @@
+       },
+       {
+         "id": "sankt-peterburg_leninskiy",
+-        "address": "Ленинский просп., 128, корп. 2, эт. 2",
++        "address": "Ленинский проспект, дом 128, корпус 2, этаж 2",
+         "district": null,
+-        "hours": "ПН-ВС 10:00-20:00",
+-        "break": "14:00-15:00",
++        "hours": "ежедневно, с 10 до 20",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+-        "landmark": "ТРК Нарва",
++        "landmark": "торговый комплекс Нарва",
+         "place_type": "Федеральная академия вождения",
+         "metro": null,
+         "lat": 59.852615,
+@@ -55,10 +55,10 @@
+       },
+       {
+         "id": "sankt-peterburg_ligovskiy",
+-        "address": "Лиговский пр-кт, д. 10/118, эт. 4, оф. 4001",
++        "address": "Лиговский проспект, дом 10 дробь 118, этаж 4, офис 4001",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-20:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 20",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": "Гостиница Октябрьская",
+@@ -69,10 +69,10 @@
+       },
+       {
+         "id": "sankt-peterburg_soldata_korzuna",
+-        "address": "Улица Солдата Корзуна, 1 к2, эт. 3, офис 389",
++        "address": "улица Солдата Корзуна, дом 1, корпус 2, этаж 3, офис 389",
+         "district": null,
+-        "hours": "ПН-ВС 10:00-20:00",
+-        "break": "14:00-15:00",
++        "hours": "ежедневно, с 10 до 20",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": "Фактический адрес ООО «КЛАСС» указан как ул. Солдата Корзуна, д. 1, к 2, литер Б, офис 367",
+         "landmark": null,
+@@ -83,13 +83,13 @@
+       },
+       {
+         "id": "sankt-peterburg_kolomyazhskiy",
+-        "address": "Коломяжский проспект, 15к2 эт. 1, пом. 2",
++        "address": "Коломяжский проспект, дом 15, корпус 2, этаж 1, помещение 2",
+         "district": null,
+-        "hours": "ПН-ВС 10:00-20:00",
+-        "break": "14:00-15:00",
++        "hours": "ежедневно, с 10 до 20",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+-        "landmark": "ЖК Богатырский",
++        "landmark": "жилой комплекс Богатырский",
+         "place_type": "Федеральная академия вождения",
+         "metro": null,
+         "lat": 60.000128,
+@@ -97,13 +97,13 @@
+       },
+       {
+         "id": "sankt-peterburg_salova",
+-        "address": "ул. Салова 61, эт. 1",
+-        "district": "ст. метро Бухарестская",
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "address": "улица Салова, дом 61, этаж 1",
++        "district": "станция метро Бухарестская",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+-        "landmark": "Апарт-комплекс Valo",
++        "landmark": "Апарт-комплекс Вало",
+         "place_type": "Федеральная академия вождения",
+         "metro": null,
+         "lat": 59.885142,
+@@ -111,13 +111,13 @@
+       },
+       {
+         "id": "sankt-peterburg_sadovaya",
+-        "address": "ул. Садовая 38, эт. 2",
++        "address": "улица Садовая, дом 38, этаж 2",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+-        "landmark": "Seno",
++        "landmark": "Сено",
+         "place_type": "Федеральная академия вождения",
+         "metro": null,
+         "lat": 59.928208,
+@@ -125,13 +125,13 @@
+       },
+       {
+         "id": "sankt-peterburg_balkanskaya",
+-        "address": "Балканская площадь, 5Д",
++        "address": "Балканская площадь, дом 5Д",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+-        "landmark": "ТЦ Балканский 4",
++        "landmark": "торговый центр Балканский 4",
+         "place_type": "Федеральная академия вождения",
+         "metro": null,
+         "lat": 59.830056,
+@@ -139,13 +139,13 @@
+       },
+       {
+         "id": "sankt-peterburg_komendantskaya",
+-        "address": "Комендантская площадь, 1",
++        "address": "Комендантская площадь, дом 1",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+-        "landmark": "ТРК Атмосфера",
++        "landmark": "торговый комплекс Атмосфера",
+         "place_type": "Федеральная академия вождения",
+         "metro": null,
+         "lat": 60.0076088,
+@@ -153,7 +153,7 @@
+       },
+       {
+         "id": "sankt-peterburg_bolshoy_vasilevskogo",
+-        "address": "Большой просп. Васильевского острова, 68",
++        "address": "Большой проспект Васильевского острова, дом 68",
+         "district": null,
+         "hours": "Скоро открытие",
+         "break": null,
+diff --git a/app/services/directory_service/data/sochi.json b/app/services/directory_service/data/sochi.json
+index e0cc4bd..bfb8948 100644
+--- a/app/services/directory_service/data/sochi.json
++++ b/app/services/directory_service/data/sochi.json
+@@ -13,10 +13,10 @@
+     "items": [
+       {
+         "id": "sochi_krymskaya",
+-        "address": "ул. Крымская, 29Г, этаж 1",
++        "address": "улица Крымская, дом 29Г, этаж 1",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00 - 19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -27,13 +27,13 @@
+       },
+       {
+         "id": "sochi_novaya_zarya",
+-        "address": "ул. Новая Заря, 7",
++        "address": "улица Новая Заря, дом 7",
+         "district": null,
+         "hours": null,
+         "break": null,
+         "is_autodrome": false,
+         "note": null,
+-        "landmark": "ТРЦ МореМолл",
++        "landmark": "торговый центр МореМолл",
+         "place_type": "Федеральная академия вождения",
+         "metro": null,
+         "lat": 43.606254,
+@@ -41,10 +41,10 @@
+       },
+       {
+         "id": "sochi_gastello",
+-        "address": "ул. Гастелло, 5",
++        "address": "улица Гастелло, дом 5",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -55,13 +55,13 @@
+       },
+       {
+         "id": "sochi_roz",
+-        "address": "ул. Роз 117, 2 этаж, офис 203",
++        "address": "улица Роз, дом 117, этаж 2, офис 203",
+         "district": null,
+-        "hours": "ПН-ВС 08:30-20:30",
+-        "break": "14:00-15:00",
++        "hours": "ежедневно, с 8:30 до 20:30",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+-        "landmark": "БЦ Roz 117",
++        "landmark": "бизнес-центр Роз 117",
+         "place_type": "Федеральная академия вождения",
+         "metro": null,
+         "lat": 43.5933798,
+@@ -69,10 +69,10 @@
+       },
+       {
+         "id": "sochi_yana_fabritsiusa",
+-        "address": "ул. Яна Фабрициуса 56",
++        "address": "улица Яна Фабрициуса, дом 56",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -83,7 +83,7 @@
+       },
+       {
+         "id": "sochi_brigadnyy",
+-        "address": "Бригадный Переулок, д. 1",
++        "address": "Бригадный переулок, дом 1",
+         "district": null,
+         "hours": null,
+         "break": null,
+diff --git a/app/services/directory_service/data/sterlitamak.json b/app/services/directory_service/data/sterlitamak.json
+index efb66cb..d931932 100644
+--- a/app/services/directory_service/data/sterlitamak.json
++++ b/app/services/directory_service/data/sterlitamak.json
+@@ -13,9 +13,9 @@
+     "items": [
+       {
+         "id": "sterlitamak_mira",
+-        "address": "ул. Мира, д. 1б, офис 102",
++        "address": "улица Мира, дом 1Б, офис 102",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00 - 19:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
+         "break": null,
+         "is_autodrome": false,
+         "note": null,
+@@ -27,9 +27,9 @@
+       },
+       {
+         "id": "sterlitamak_artema_pomeschenie",
+-        "address": "ул. Артёма, д. 68, помещение 377",
++        "address": "улица Артёма, дом 68, помещение 377",
+         "district": null,
+-        "hours": "ПН-ВС 09:00 - 21:00",
++        "hours": "ежедневно, с 9 до 21",
+         "break": null,
+         "is_autodrome": false,
+         "note": null,
+@@ -41,9 +41,9 @@
+       },
+       {
+         "id": "sterlitamak_lenina",
+-        "address": "Проспект Ленина, 30Б",
++        "address": "проспект Ленина, дом 30Б",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
+         "break": null,
+         "is_autodrome": false,
+         "note": null,
+diff --git a/app/services/directory_service/data/tagil.json b/app/services/directory_service/data/tagil.json
+index fc73034..0d7447b 100644
+--- a/app/services/directory_service/data/tagil.json
++++ b/app/services/directory_service/data/tagil.json
+@@ -13,10 +13,10 @@
+     "items": [
+       {
+         "id": "tagil_mira",
+-        "address": "ул. Мира дом 52",
++        "address": "улица Мира, дом 52",
+         "district": null,
+-        "hours": "ПН-ВС 9:00-21:00",
+-        "break": "14:00-15:00",
++        "hours": "ежедневно, с 9 до 21",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -27,13 +27,13 @@
+       },
+       {
+         "id": "tagil_leningradskiy",
+-        "address": "Ленинградский проспект, 28",
++        "address": "Ленинградский проспект, дом 28",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+-        "landmark": "ТЦ Магнит Семейный",
++        "landmark": "торговый центр Магнит Семейный",
+         "place_type": "Федеральная академия вождения",
+         "metro": null,
+         "lat": 57.91077,
+@@ -41,7 +41,7 @@
+       },
+       {
+         "id": "tagil_balakinskaya",
+-        "address": "ул. Балакинская, д. 59 А/1",
++        "address": "улица Балакинская, дом 59А дробь 1",
+         "district": null,
+         "hours": null,
+         "break": null,
+diff --git a/app/services/directory_service/data/tara.json b/app/services/directory_service/data/tara.json
+index 407235b..0d95766 100644
+--- a/app/services/directory_service/data/tara.json
++++ b/app/services/directory_service/data/tara.json
+@@ -13,10 +13,10 @@
+     "items": [
+       {
+         "id": "tara_aleksandrovskaya",
+-        "address": "ул. Александровская, д. 91",
++        "address": "улица Александровская, дом 91",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00 - 19:00",
+-        "break": "13:00 - 14:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 13 до 14",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+diff --git a/app/services/directory_service/data/tomsk.json b/app/services/directory_service/data/tomsk.json
+index 25d9f3b..5a66ebe 100644
+--- a/app/services/directory_service/data/tomsk.json
++++ b/app/services/directory_service/data/tomsk.json
+@@ -13,10 +13,10 @@
+     "items": [
+       {
+         "id": "tomsk_tomsk_ferentsa",
+-        "address": "г. Томск,ул. Ференца Мюнниха, 42 а, 2 этаж",
++        "address": "город Томск, улица Ференца Мюнниха, дом 42А, этаж 2",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00 - 19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -27,13 +27,13 @@
+       },
+       {
+         "id": "tomsk_uchebnaya",
+-        "address": "Учебная, 38 (отдельный вход)",
++        "address": "улица Учебная, дом 38",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+-        "landmark": null,
++        "landmark": "отдельный вход",
+         "place_type": "Федеральная академия вождения",
+         "metro": null,
+         "lat": 56.45919,
+@@ -41,10 +41,10 @@
+       },
+       {
+         "id": "tomsk_suvorova",
+-        "address": "ул. Суворова, 17а",
++        "address": "улица Суворова, дом 17А",
+         "district": null,
+-        "hours": "ПН-ВС 08:30-20:30",
+-        "break": "14:00-15:00",
++        "hours": "ежедневно, с 8:30 до 20:30",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -55,10 +55,10 @@
+       },
+       {
+         "id": "tomsk_frunze",
+-        "address": "ул. Фрунзе, д. 98",
++        "address": "улица Фрунзе, дом 98",
+         "district": null,
+-        "hours": "ПН-ВС 08:30-20:30",
+-        "break": "14:00-15:00",
++        "hours": "ежедневно, с 8:30 до 20:30",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+diff --git a/app/services/directory_service/data/tyumen.json b/app/services/directory_service/data/tyumen.json
+index df33592..86604c5 100644
+--- a/app/services/directory_service/data/tyumen.json
++++ b/app/services/directory_service/data/tyumen.json
+@@ -13,9 +13,9 @@
+     "items": [
+       {
+         "id": "tyumen_gertsena",
+-        "address": "ул. Герцена 64, 3 этаж, офис 317",
++        "address": "улица Герцена, дом 64, этаж 3, офис 317",
+         "district": null,
+-        "hours": "ПН-ВС 10:00-20:30",
++        "hours": "ежедневно, с 10 до 20:30",
+         "break": null,
+         "is_autodrome": false,
+         "note": null,
+@@ -27,10 +27,10 @@
+       },
+       {
+         "id": "tyumen_proezd_zarechnyy",
+-        "address": "проезд Заречный д. 41/4, 1 этаж",
++        "address": "проезд Заречный, дом 41 дробь 4, этаж 1",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -41,7 +41,7 @@
+       },
+       {
+         "id": "tyumen_permyakova",
+-        "address": "ул. Пермякова, д. 44",
++        "address": "улица Пермякова, дом 44",
+         "district": null,
+         "hours": null,
+         "break": null,
+@@ -55,10 +55,10 @@
+       },
+       {
+         "id": "tyumen_nikolaya_gondatti",
+-        "address": "ул. Николая Гондатти 1/4",
++        "address": "улица Николая Гондатти, дом 1 дробь 4",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": true,
+         "note": null,
+         "landmark": null,
+@@ -69,10 +69,10 @@
+       },
+       {
+         "id": "tyumen_respubliki",
+-        "address": "ул. Республики д. 176",
++        "address": "улица Республики, дом 176",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": true,
+         "note": null,
+         "landmark": null,
+@@ -83,7 +83,7 @@
+       },
+       {
+         "id": "tyumen_farmana_salmanova",
+-        "address": "ул. Фармана Салманова, 22",
++        "address": "улица Фармана Салманова, дом 22",
+         "district": null,
+         "hours": "Скоро открытие",
+         "break": null,
+@@ -97,7 +97,7 @@
+       },
+       {
+         "id": "tyumen_montazhnikov",
+-        "address": "ул. Монтажников, 61",
++        "address": "улица Монтажников, дом 61",
+         "district": null,
+         "hours": "Скоро открытие",
+         "break": null,
+@@ -111,10 +111,10 @@
+       },
+       {
+         "id": "tyumen_yamskaya",
+-        "address": "ул. Ямская д.76",
++        "address": "улица Ямская, дом 76",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": true,
+         "note": null,
+         "landmark": null,
+@@ -125,10 +125,10 @@
+       },
+       {
+         "id": "tyumen_melnikayte",
+-        "address": "ул. Мельникайте, 55, 1 этаж, оф. 4",
++        "address": "улица Мельникайте, дом 55, этаж 1, офис 4",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": true,
+         "note": null,
+         "landmark": null,
+diff --git a/app/services/directory_service/data/ufa.json b/app/services/directory_service/data/ufa.json
+index 2e0b23b..89a9f0f 100644
+--- a/app/services/directory_service/data/ufa.json
++++ b/app/services/directory_service/data/ufa.json
+@@ -13,9 +13,9 @@
+     "items": [
+       {
+         "id": "ufa_vetoshnikova",
+-        "address": "ул. Ветошникова, 131",
++        "address": "улица Ветошникова, дом 131",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00 - 19:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
+         "break": null,
+         "is_autodrome": false,
+         "note": null,
+@@ -27,13 +27,13 @@
+       },
+       {
+         "id": "ufa_karla_marksa",
+-        "address": "ул. Карла Маркса, 37, 2 этаж, офис 210",
++        "address": "улица Карла Маркса, дом 37, этаж 2, офис 210",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
+         "break": null,
+         "is_autodrome": false,
+         "note": null,
+-        "landmark": "БЦ Капитал",
++        "landmark": "бизнес-центр Капитал",
+         "place_type": "Федеральная академия вождения",
+         "metro": null,
+         "lat": 54.7291297,
+@@ -41,13 +41,13 @@
+       },
+       {
+         "id": "ufa_komarova_vhod",
+-        "address": "ул. Комарова 8, вход с улицы (Черниковка)",
++        "address": "улица Комарова, дом 8",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00 - 19:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
+         "break": null,
+         "is_autodrome": false,
+         "note": null,
+-        "landmark": null,
++        "landmark": "Черниковка; вход с улицы",
+         "place_type": null,
+         "metro": null,
+         "lat": 54.811565,
+@@ -55,13 +55,13 @@
+       },
+       {
+         "id": "ufa_pravdy",
+-        "address": "ул. Правды, 17, 5 этаж, офис 501",
++        "address": "улица Правды, дом 17, этаж 5, офис 501",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+-        "landmark": "БЦ Правда",
++        "landmark": "бизнес-центр Правда",
+         "place_type": "Федеральная академия вождения",
+         "metro": null,
+         "lat": 54.702698,
+@@ -69,10 +69,10 @@
+       },
+       {
+         "id": "ufa_mendeleeva",
+-        "address": "ул. Менделеева, 130, эт. 4, оф. 415",
++        "address": "улица Менделеева, дом 130, этаж 4, офис 415",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00 - 19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -83,10 +83,10 @@
+       },
+       {
+         "id": "ufa_oktyabrya",
+-        "address": "пр-кт Октября, 107А",
++        "address": "проспект Октября, дом 107А",
+         "district": null,
+-        "hours": "ПН-ВС 08:30-20:30",
+-        "break": "14:00-15:00",
++        "hours": "ежедневно, с 8:30 до 20:30",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -97,10 +97,10 @@
+       },
+       {
+         "id": "ufa_mashinostroiteley",
+-        "address": "ул.Машиностроителей ,17",
++        "address": "улица Машиностроителей, дом 17",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -111,10 +111,10 @@
+       },
+       {
+         "id": "ufa_pushkina",
+-        "address": "ул. Пушкина, 35/3",
++        "address": "улица Пушкина, дом 35 дробь 3",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -125,10 +125,10 @@
+       },
+       {
+         "id": "ufa_oktyabrya_49",
+-        "address": "пр-кт Октября д. 49",
++        "address": "проспект Октября, дом 49",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -139,10 +139,10 @@
+       },
+       {
+         "id": "ufa_marshala_zhukova",
+-        "address": "ул. Маршала Жукова, 22, оф. 204",
++        "address": "улица Маршала Жукова, дом 22, офис 204",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -153,10 +153,10 @@
+       },
+       {
+         "id": "ufa_rudolfa_nurieva",
+-        "address": "ул. Рудольфа Нуриева, 10",
++        "address": "улица Рудольфа Нуриева, дом 10",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -167,10 +167,10 @@
+       },
+       {
+         "id": "ufa_oktyabrya_4/1",
+-        "address": "пр-кт Октября, 4/1",
++        "address": "проспект Октября, дом 4 дробь 1",
+         "district": null,
+-        "hours": "ПН-ВС 10:00-22:00",
+-        "break": "14:00-15:00",
++        "hours": "ежедневно, с 10 до 22",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": "Мир",
+diff --git a/app/services/directory_service/data/vladivostok.json b/app/services/directory_service/data/vladivostok.json
+index e794d95..36e6208 100644
+--- a/app/services/directory_service/data/vladivostok.json
++++ b/app/services/directory_service/data/vladivostok.json
+@@ -13,10 +13,10 @@
+     "items": [
+       {
+         "id": "vladivostok_novoivanovskaya",
+-        "address": "ул. Новоивановская, 4а, офис 302",
++        "address": "улица Новоивановская, дом 4А, офис 302",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -27,10 +27,10 @@
+       },
+       {
+         "id": "vladivostok_krasnogo_znamenii",
+-        "address": "проспект Красного Знамени, д. 51А офис 307",
++        "address": "проспект Красного Знамени, дом 51А, офис 307",
+         "district": null,
+-        "hours": "ПН-ВС 10:00-21:00",
+-        "break": "14:00-15:00",
++        "hours": "ежедневно, с 10 до 21",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -41,13 +41,13 @@
+       },
+       {
+         "id": "vladivostok_russkaya",
+-        "address": "ул. Русская, 9Б",
++        "address": "улица Русская, дом 9Б",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+-        "landmark": "БЦ Antenna Building",
++        "landmark": "бизнес-центр Антенна Билдинг",
+         "place_type": "Федеральная академия вождения",
+         "metro": null,
+         "lat": 43.166773,
+@@ -55,13 +55,13 @@
+       },
+       {
+         "id": "vladivostok_admirala_gorshkova",
+-        "address": "ул. Адмирала Горшкова, 8, домофон 27",
++        "address": "улица Адмирала Горшкова, дом 8",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+-        "landmark": "ЖК Молодёжный",
++        "landmark": "жилой комплекс Молодёжный; домофон 27",
+         "place_type": "Федеральная академия вождения",
+         "metro": null,
+         "lat": 43.16254,
+@@ -69,9 +69,9 @@
+       },
+       {
+         "id": "vladivostok_vladivostoka",
+-        "address": "пр-кт 100-летия Владивостока, 40А",
++        "address": "проспект 100-летия Владивостока, дом 40А",
+         "district": null,
+-        "hours": "ПН-ПТ 08:30-20:30",
++        "hours": "с понедельника по пятницу, с 8:30 до 20:30",
+         "break": null,
+         "is_autodrome": false,
+         "note": null,
+@@ -83,10 +83,10 @@
+       },
+       {
+         "id": "vladivostok_chernyahovskogo",
+-        "address": "ул. Черняховского, 11",
++        "address": "улица Черняховского, дом 11",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+diff --git a/app/services/directory_service/data/voronezh.json b/app/services/directory_service/data/voronezh.json
+index bbb4962..d90c96f 100644
+--- a/app/services/directory_service/data/voronezh.json
++++ b/app/services/directory_service/data/voronezh.json
+@@ -13,13 +13,13 @@
+     "items": [
+       {
+         "id": "voronezh_engelsa_mfk",
+-        "address": "ул. Ф. Энгельса, д. 64А, МФК \"Атмосфера\", этаж 5",
++        "address": "улица Фридриха Энгельса, дом 64А, этаж 5",
+         "district": null,
+-        "hours": "ПН-ВС 08:30-20:30",
+-        "break": "14:00-15:00",
++        "hours": "ежедневно, с 8:30 до 20:30",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+-        "landmark": null,
++        "landmark": "многофункциональный комплекс Атмосфера",
+         "place_type": null,
+         "metro": null,
+         "lat": 51.868109,
+@@ -27,13 +27,13 @@
+       },
+       {
+         "id": "voronezh_olimpiyskiy",
+-        "address": "Олимпийский бульвар, 6, этаж 1, пом. 1/1",
++        "address": "Олимпийский бульвар, дом 6, этаж 1, помещение 1 дробь 1",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+-        "landmark": "ЖК Ботанический сад",
++        "landmark": "жилой комплекс Ботанический сад",
+         "place_type": "Федеральная академия вождения",
+         "metro": null,
+         "lat": 51.712798,
+@@ -41,13 +41,13 @@
+       },
+       {
+         "id": "voronezh_leninskiy",
+-        "address": "Ленинский проспект, 172, этаж 7, офис 707",
++        "address": "Ленинский проспект, дом 172, этаж 7, офис 707",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+-        "landmark": "БЦ InSpe",
++        "landmark": "бизнес-центр Ин Спе",
+         "place_type": "Федеральная академия вождения",
+         "metro": null,
+         "lat": 51.69324,
+@@ -55,10 +55,10 @@
+       },
+       {
+         "id": "voronezh_vladimira_nevskogo",
+-        "address": "ул. Владимира Невского, 59/1",
++        "address": "улица Владимира Невского, дом 59 дробь 1",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -69,10 +69,10 @@
+       },
+       {
+         "id": "voronezh_voroshilova",
+-        "address": "ул. Ворошилова, 21",
++        "address": "улица Ворошилова, дом 21",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -83,10 +83,10 @@
+       },
+       {
+         "id": "voronezh_dimitrova_kab",
+-        "address": "ул. Димитрова, д. 47, каб. 210",
++        "address": "улица Димитрова, дом 47, кабинет 210",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -97,13 +97,13 @@
+       },
+       {
+         "id": "voronezh_moskovskiy",
+-        "address": "Московский проспект, д. 53, офис 305",
++        "address": "Московский проспект, дом 53, офис 305",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+-        "landmark": "БЦ Рента",
++        "landmark": "бизнес-центр Рента",
+         "place_type": "Федеральная академия вождения",
+         "metro": null,
+         "lat": 51.70043,
+@@ -111,7 +111,7 @@
+       },
+       {
+         "id": "voronezh_zaschitnikov_rodiny",
+-        "address": "ул. Защитников Родины, 17В",
++        "address": "улица Защитников Родины, дом 17В",
+         "district": null,
+         "hours": null,
+         "break": null,
+@@ -125,13 +125,13 @@
+       },
+       {
+         "id": "voronezh_obrucheva",
+-        "address": "ул. Обручева, д. 9Л (левый берег) (В категория)",
++        "address": "улица Обручева, дом 9Л",
+         "district": null,
+         "hours": null,
+         "break": null,
+         "is_autodrome": false,
+-        "note": null,
+-        "landmark": null,
++        "note": "Категория B",
++        "landmark": "левый берег",
+         "place_type": null,
+         "metro": null,
+         "lat": 51.6701211,
+@@ -139,7 +139,7 @@
+       },
+       {
+         "id": "voronezh_elektrosignalnaya",
+-        "address": "ул. Электросигнальная, д. 30",
++        "address": "улица Электросигнальная, дом 30",
+         "district": null,
+         "hours": null,
+         "break": null,
+diff --git a/app/services/directory_service/data/yaroslavl.json b/app/services/directory_service/data/yaroslavl.json
+index 07e7e6e..e50cc10 100644
+--- a/app/services/directory_service/data/yaroslavl.json
++++ b/app/services/directory_service/data/yaroslavl.json
+@@ -13,10 +13,10 @@
+     "items": [
+       {
+         "id": "yaroslavl_aviatorov",
+-        "address": "пр-т Авиаторов, д. 149, офис 53",
++        "address": "проспект Авиаторов, дом 149, офис 53",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00 - 19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": "Космос-3",
+@@ -27,10 +27,10 @@
+       },
+       {
+         "id": "yaroslavl_stroiteley",
+-        "address": "ул. Строителей, 18А",
++        "address": "улица Строителей, дом 18А",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -41,13 +41,13 @@
+       },
+       {
+         "id": "yaroslavl_frunze",
+-        "address": "пр-кт Фрунзе, 3",
++        "address": "проспект Фрунзе, дом 3",
+         "district": null,
+         "hours": null,
+         "break": null,
+         "is_autodrome": false,
+         "note": null,
+-        "landmark": "ТОЦ Спутник",
++        "landmark": "торгово-офисный центр Спутник",
+         "place_type": "Академия вождения",
+         "metro": null,
+         "lat": 57.599195,
+@@ -55,10 +55,10 @@
+       },
+       {
+         "id": "yaroslavl_svobody",
+-        "address": "ул. Свободы, д. 1/2, офис 42",
++        "address": "улица Свободы, дом 1 дробь 2, офис 42",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+diff --git a/app/services/directory_service/data/zheleznogorsk.json b/app/services/directory_service/data/zheleznogorsk.json
+index 5db44ad..13fed4c 100644
+--- a/app/services/directory_service/data/zheleznogorsk.json
++++ b/app/services/directory_service/data/zheleznogorsk.json
+@@ -13,10 +13,10 @@
+     "items": [
+       {
+         "id": "zheleznogorsk_lenina",
+-        "address": "ул. Ленина, 28",
++        "address": "улица Ленина, дом 28",
+         "district": null,
+-        "hours": "ПН-ВС 08:00-20:00",
+-        "break": "14:00-15:00",
++        "hours": "ежедневно, с 8 до 20",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,
+@@ -27,10 +27,10 @@
+       },
+       {
+         "id": "zheleznogorsk_let_vlksm",
+-        "address": "ул. 60 лет ВЛКСМ, 48, пом. 117",
++        "address": "улица 60 лет ВЛКСМ, дом 48, помещение 117",
+         "district": null,
+-        "hours": "ПН-ПТ 10:00-19:00",
+-        "break": "14:00-15:00",
++        "hours": "с понедельника по пятницу, с 10 до 19",
++        "break": "с 14 до 15",
+         "is_autodrome": false,
+         "note": null,
+         "landmark": null,

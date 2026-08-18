@@ -9,7 +9,6 @@
     "lon": 104.28066
   },
   "branches": {
-    "_source": "https://avtoschool-vektor.ru/irkutsk",
     "items": [
       {
         "id": "irkutsk_lermontova",
@@ -70,7 +69,6 @@
     ]
   },
   "categories": {
-    "_source": "https://avtoschool-vektor.ru/irkutsk",
     "items": [
       {
         "id": "cat_b",
@@ -85,7 +83,6 @@
           "АКПП | МКПП (одинаковая стоимость)",
           "Теория очно | дистанционно"
         ],
-        "_source": "https://avtoschool-vektor.ru/irkutsk",
         "_demo": true
       },
       {
@@ -100,13 +97,11 @@
         "includes": [
           "Теория очно | дистанционно",
           "Теория очно | в приложении"
-        ],
-        "_source": "https://avtoschool-vektor.ru/irkutsk"
+        ]
       }
     ]
   },
   "fleet": {
-    "_source": "https://avtoschool-vektor.ru/irkutsk",
     "items": [
       {
         "id": "fleet_b_mkpp",
@@ -120,8 +115,7 @@
           "Lada Vesta"
         ],
         "year": "не старше 2023 г",
-        "text": "МКПП: Lada Granta, Volkswagen Polo, Nissan Tiida, Lada Vesta.",
-        "_source": "https://avtoschool-vektor.ru/irkutsk"
+        "text": "МКПП: Lada Granta, Volkswagen Polo, Nissan Tiida, Lada Vesta."
       },
       {
         "id": "fleet_b_akpp",
@@ -134,8 +128,7 @@
           "Skoda Oktavia"
         ],
         "year": "не старше 2023 г",
-        "text": "АКПП: Tesla, Kia Rio, Skoda Oktavia.",
-        "_source": "https://avtoschool-vektor.ru/irkutsk"
+        "text": "АКПП: Tesla, Kia Rio, Skoda Oktavia."
       },
       {
         "id": "fleet_a_moto",
@@ -146,8 +139,7 @@
           "Suzuki VanVan200"
         ],
         "year": null,
-        "text": "Категория А - Suzuki VanVan200",
-        "_source": "https://avtoschool-vektor.ru/irkutsk"
+        "text": "Категория А - Suzuki VanVan200"
       },
       {
         "id": "fleet_premium",
@@ -160,8 +152,7 @@
           "Hummer"
         ],
         "year": null,
-        "text": "Максимум комфорта в обучении на автомобилях премиум-класса: Tesla, Mercedes, Hummer",
-        "_source": "https://avtoschool-vektor.ru/irkutsk"
+        "text": "Максимум комфорта в обучении на автомобилях премиум-класса: Tesla, Mercedes, Hummer"
       },
       {
         "id": "fleet_gallery_year",
@@ -170,8 +161,7 @@
         "transmission": null,
         "models": [],
         "year": "не старше 2023 года",
-        "text": "Комфортные учебные авто не старше 2023 года",
-        "_source": "https://avtoschool-vektor.ru/irkutsk"
+        "text": "Комфортные учебные авто не старше 2023 года"
       },
       {
         "id": "fleet_thesis_akpp_price",
@@ -180,43 +170,36 @@
         "transmission": null,
         "models": [],
         "year": null,
-        "text": "Цена обучения на автомате и механике равны. Если в процессе обучения ты меняешь коробку передач, смена автомобиля происходит бесплатно. Дистанционное обучение Теорию можно изучать в удобном для тебя формате: видео-уроки в мобильном приложении, в группе",
-        "_source": "https://avtoschool-vektor.ru/irkutsk"
+        "text": "Цена обучения на автомате и механике равны. Если в процессе обучения ты меняешь коробку передач, смена автомобиля происходит бесплатно. Дистанционное обучение Теорию можно изучать в удобном для тебя формате: видео-уроки в мобильном приложении, в группе"
       }
     ]
   },
   "theory_formats": {
-    "_source": "https://avtoschool-vektor.ru/irkutsk",
     "items": [
       {
         "id": "theory_offline",
         "name": null,
         "surcharge": null,
-        "text": "Изучай теорию в современных классах с лучшими преподавателями Автошкола в Иркутске Вектор — это федеральная академия вождения с высоким уровнем качества образования и сервиса, с применением IT-технологий в обучении Приведи друга и получи скидку на обучение Использу",
-        "_source": "https://avtoschool-vektor.ru/irkutsk"
+        "text": "Изучай теорию в современных классах с лучшими преподавателями Автошкола в Иркутске Вектор — это федеральная академия вождения с высоким уровнем качества образования и сервиса, с применением IT-технологий в обучении Приведи друга и получи скидку на обучение Использу"
       },
       {
         "id": "theory_formats_all",
         "name": null,
         "surcharge": null,
-        "text": "Теорию можно изучать в очном, заочном или комбинированных форматах. С помощью нашего фирменного мобильного приложения изучать ПДД и проходить экзаменационные тесты можно из любой точки мира. Как проходят занятия? График занятий выстраивается индивидуально с каждым к",
-        "_source": "https://avtoschool-vektor.ru/irkutsk"
+        "text": "Теорию можно изучать в очном, заочном или комбинированных форматах. С помощью нашего фирменного мобильного приложения изучать ПДД и проходить экзаменационные тесты можно из любой точки мира. Как проходят занятия? График занятий выстраивается индивидуально с каждым к"
       },
       {
         "id": "theory_online",
         "name": null,
         "surcharge": null,
-        "text": "С помощью нашего фирменного мобильного приложения изучать ПДД и проходить экзаменационные тесты можно из любой точки мира. Как проходят занятия? График занятий выстраивается индивидуально с каждым курсантом. Доступна онлайн запись на вожде",
-        "_source": "https://avtoschool-vektor.ru/irkutsk"
+        "text": "С помощью нашего фирменного мобильного приложения изучать ПДД и проходить экзаменационные тесты можно из любой точки мира. Как проходят занятия? График занятий выстраивается индивидуально с каждым курсантом. Доступна онлайн запись на вожде"
       }
     ]
   },
   "documents": {
-    "_source": "https://avtoschool-vektor.ru/irkutsk",
     "items": []
   },
   "faq": {
-    "_source": "https://avtoschool-vektor.ru/irkutsk",
     "items": [
       {
         "id": "faq_01",
@@ -256,7 +239,6 @@
     ]
   },
   "installment": {
-    "_source": "https://avtoschool-vektor.ru/irkutsk",
     "term_months": 6,
     "no_overpay": true,
     "down_payment": 5000,
@@ -264,7 +246,6 @@
     "_demo": true
   },
   "contacts": {
-    "_source": "https://avtoschool-vektor.ru/irkutsk",
     "phone_city": null,
     "phone_federal": "8 (800) 505 63 77",
     "call_hours": "С 7:30 до 23:00",
@@ -279,7 +260,6 @@
     "license": null
   },
   "tariffs": {
-    "_source": "https://avtoschool-vektor.ru/irkutsk",
     "items": [
       {
         "id": "tariff_hero",
@@ -292,20 +272,7 @@
         "practice_hours": null,
         "includes": [],
         "start_frequency": null,
-        "valid_until": null,
-        "_source": "https://avtoschool-vektor.ru/irkutsk"
-      }
-    ],
-    "prices_found": [
-      {
-        "price": 38000,
-        "price_is_from": true,
-        "context": "школе Лицензия Написать в WhatsApp Написать в Max Написать в Telegram Не любишь звонки? Просто напиши! Специальная цена от 38 000 ₽* Получи права этим летом Оставить заявку * подробности у менеджера В подарок: папка курсанта, марафон билетов ПДД экзам"
-      },
-      {
-        "price": 1000,
-        "price_is_from": false,
-        "context": "обучения на любую категорию! Воспользоваться Ездить в универ на машине - это круто! Приходи со студенческим и учись на 1000 рублей дешевле Воспользоваться Не стараемся больше заработать на общем росте цен - наша главная цель давать качественное об"
+        "valid_until": null
       }
     ]
   }

@@ -9,7 +9,6 @@
     "lon": 82.920426
   },
   "branches": {
-    "_source": "https://avtoschool-vektor.ru/novosib",
     "items": [
       {
         "id": "novosib_bogatkova",
@@ -56,7 +55,6 @@
     ]
   },
   "categories": {
-    "_source": "https://avtoschool-vektor.ru/novosib",
     "items": [
       {
         "id": "cat_b",
@@ -71,7 +69,6 @@
           "АКПП | МКПП (одинаковая стоимость)",
           "Теория очно | в приложении"
         ],
-        "_source": "https://avtoschool-vektor.ru/novosib",
         "_demo": true
       },
       {
@@ -85,8 +82,7 @@
         "seats_left": null,
         "includes": [
           "Теория очно | в приложении"
-        ],
-        "_source": "https://avtoschool-vektor.ru/novosib"
+        ]
       },
       {
         "id": "cat_d",
@@ -100,13 +96,11 @@
         "includes": [
           "Теория очно | дистанционно",
           "Теория очно | дистанционно"
-        ],
-        "_source": "https://avtoschool-vektor.ru/novosib"
+        ]
       }
     ]
   },
   "fleet": {
-    "_source": "https://avtoschool-vektor.ru/novosib",
     "items": [
       {
         "id": "fleet_b_mkpp",
@@ -120,8 +114,7 @@
           "Lada Vesta/"
         ],
         "year": null,
-        "text": "МКПП: Lada Granta, Volkswagen Polo, Nissan Tiida, Lada Vesta/",
-        "_source": "https://avtoschool-vektor.ru/novosib"
+        "text": "МКПП: Lada Granta, Volkswagen Polo, Nissan Tiida, Lada Vesta/"
       },
       {
         "id": "fleet_b_akpp",
@@ -133,8 +126,7 @@
           "Skoda Oktavia"
         ],
         "year": null,
-        "text": "АКПП: Kia Rio, Skoda Oktavia",
-        "_source": "https://avtoschool-vektor.ru/novosib"
+        "text": "АКПП: Kia Rio, Skoda Oktavia"
       },
       {
         "id": "fleet_a_moto",
@@ -145,8 +137,7 @@
           "Suzuki VanVan200"
         ],
         "year": null,
-        "text": "Категория А - Suzuki VanVan200",
-        "_source": "https://avtoschool-vektor.ru/novosib"
+        "text": "Категория А - Suzuki VanVan200"
       },
       {
         "id": "fleet_c_truck",
@@ -155,8 +146,7 @@
         "transmission": null,
         "models": [],
         "year": null,
-        "text": "Автомобиль газон 2023г",
-        "_source": "https://avtoschool-vektor.ru/novosib"
+        "text": "Автомобиль газон 2023г"
       },
       {
         "id": "fleet_gallery_year",
@@ -165,50 +155,42 @@
         "transmission": null,
         "models": [],
         "year": "не старше 2023 года",
-        "text": "Комфортные учебные авто не старше 2023 года",
-        "_source": "https://avtoschool-vektor.ru/novosib"
+        "text": "Комфортные учебные авто не старше 2023 года"
       }
     ]
   },
   "theory_formats": {
-    "_source": "https://avtoschool-vektor.ru/novosib",
     "items": [
       {
         "id": "theory_offline",
         "name": null,
         "surcharge": null,
-        "text": "Изучай теорию в современных классах с лучшими преподавателями Автошкола в Новосибирске Вектор — это федеральная академия вождения с высоким уровнем качества образования и сервиса, с применением IT-технологий в обучении Приведи друга и получи скидку на обучение Испо",
-        "_source": "https://avtoschool-vektor.ru/novosib"
+        "text": "Изучай теорию в современных классах с лучшими преподавателями Автошкола в Новосибирске Вектор — это федеральная академия вождения с высоким уровнем качества образования и сервиса, с применением IT-технологий в обучении Приведи друга и получи скидку на обучение Испо"
       },
       {
         "id": "theory_formats_all",
         "name": null,
         "surcharge": null,
-        "text": "Теорию можно изучать в очном, заочном или комбинированных форматах. С помощью нашего фирменного мобильного приложения изучать ПДД и проходить экзаменационные тесты можно из любой точки мира. Как проходят занятия? График занятий выстраивается индивидуально с каждым к",
-        "_source": "https://avtoschool-vektor.ru/novosib"
+        "text": "Теорию можно изучать в очном, заочном или комбинированных форматах. С помощью нашего фирменного мобильного приложения изучать ПДД и проходить экзаменационные тесты можно из любой точки мира. Как проходят занятия? График занятий выстраивается индивидуально с каждым к"
       },
       {
         "id": "theory_online",
         "name": null,
         "surcharge": null,
-        "text": "С помощью нашего фирменного мобильного приложения изучать ПДД и проходить экзаменационные тесты можно из любой точки мира. Как проходят занятия? График занятий выстраивается индивидуально с каждым курсантом. Доступна онлайн запись на вожде",
-        "_source": "https://avtoschool-vektor.ru/novosib"
+        "text": "С помощью нашего фирменного мобильного приложения изучать ПДД и проходить экзаменационные тесты можно из любой точки мира. Как проходят занятия? График занятий выстраивается индивидуально с каждым курсантом. Доступна онлайн запись на вожде"
       },
       {
         "id": "theory_app",
         "name": null,
         "surcharge": null,
-        "text": "Всё для твоего комфорта: запись на вождение, оплата, общение с автошколой, теория, ПДД и билеты — в одном приложении Категория D Срок обучения от 2х месяцев Теория очно | дистанционно Автомобиль ГАЗ Газель Некст Занятия без очередей на собственном автодроме Внутренний экзамен включе",
-        "_source": "https://avtoschool-vektor.ru/novosib"
+        "text": "Всё для твоего комфорта: запись на вождение, оплата, общение с автошколой, теория, ПДД и билеты — в одном приложении Категория D Срок обучения от 2х месяцев Теория очно | дистанционно Автомобиль ГАЗ Газель Некст Занятия без очередей на собственном автодроме Внутренний экзамен включе"
       }
     ]
   },
   "documents": {
-    "_source": "https://avtoschool-vektor.ru/novosib",
     "items": []
   },
   "faq": {
-    "_source": "https://avtoschool-vektor.ru/novosib",
     "items": [
       {
         "id": "faq_01",
@@ -248,7 +230,6 @@
     ]
   },
   "installment": {
-    "_source": "https://avtoschool-vektor.ru/novosib",
     "term_months": 6,
     "no_overpay": true,
     "down_payment": 5000,
@@ -256,7 +237,6 @@
     "_demo": true
   },
   "contacts": {
-    "_source": "https://avtoschool-vektor.ru/novosib",
     "phone_city": "(3812) 992-08-7",
     "phone_federal": "8 (800) 505 63 77",
     "call_hours": "С 7:30 до 23:00",
@@ -271,7 +251,6 @@
     "license": "https://disk.yandex.ru/i/mKoKHbKPIglveA"
   },
   "tariffs": {
-    "_source": "https://avtoschool-vektor.ru/novosib",
     "items": [
       {
         "id": "tariff_hero",
@@ -284,8 +263,7 @@
         "practice_hours": null,
         "includes": [],
         "start_frequency": null,
-        "valid_until": null,
-        "_source": "https://avtoschool-vektor.ru/novosib"
+        "valid_until": null
       },
       {
         "id": "tariff_card_6000",
@@ -298,25 +276,7 @@
         "practice_hours": null,
         "includes": [],
         "start_frequency": null,
-        "valid_until": null,
-        "_source": "https://avtoschool-vektor.ru/novosib"
-      }
-    ],
-    "prices_found": [
-      {
-        "price": 27450,
-        "price_is_from": true,
-        "context": "такты Лицензия Написать в WhatsApp Написать в Max Написать в Telegram Не любишь звонки? Просто напиши! Специальная цена от 27 450 ₽* Рекордно низкая цена на обучение Оставить заявку * подробности у менеджера В подарок: папка курсанта, марафон билетов"
-      },
-      {
-        "price": 1000,
-        "price_is_from": false,
-        "context": "обучения на любую категорию! Воспользоваться Ездить в универ на машине - это круто! Приходи со студенческим и учись на 1000 рублей дешевле Воспользоваться Не стараемся больше заработать на общем росте цен - наша главная цель давать качественное об"
-      },
-      {
-        "price": 6000,
-        "price_is_from": true,
-        "context": "ятия без очередей на собственном автодроме Внутренний экзамен включен Приоритетный выход на экзамен в ГИБДД Узнать цену от 6 000 ₽ Всё для твоего комфорта: запись на вождение, оплата, общение с автошколой, теория, ПДД и билеты — в одном приложении Ка"
+        "valid_until": null
       }
     ]
   }

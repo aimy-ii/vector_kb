@@ -100,6 +100,7 @@ class CityDetail(BaseModel):
     phone: str | None = Field(default=None, title="Телефон")
     call_hours: str | None = Field(default=None, title="Приём звонков")
     messengers: list[str] = Field(default_factory=list, title="Мессенджеры")
+    discounts: list[str] = Field(default_factory=list, title="Скидки и акции")
     price: PriceInfo = Field(title="Стоимость с оговоркой")
 
     model_config = ConfigDict(
@@ -130,6 +131,7 @@ class CityDetail(BaseModel):
                 "phone": "8 (800) 511-95-02",
                 "call_hours": "С 7:30 до 23:00",
                 "messengers": [],
+                "discounts": ["студентам и школьникам скидка до 1000 рублей"],
                 "price": {
                     "amount": 21950,
                     "is_from": True,

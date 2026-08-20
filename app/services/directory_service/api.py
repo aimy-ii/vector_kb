@@ -156,6 +156,11 @@ def city_detail(city_slug: str) -> CityDetail | None:
         phone=meta["телефон"],
         call_hours=meta["приём звонков"],
         messengers=meta["мессенджеры"] or [],
+        discounts=[
+            str(item)
+            for item in (raw_city.get("discounts") or [])
+            if isinstance(item, str) and item.strip()
+        ],
         price=build_price_info(raw_city.get("tariffs")),
     )
 
